@@ -44,21 +44,26 @@ export interface CreatePartnerApplicationInput {
   website_hp?: string;
 }
 
-const dataDirectory = path.join(process.cwd(), ".data");
+const dataDirectory = process.env.VERCEL || process.env.NODE_ENV === "production"
+  ? "/tmp"
+  : path.join(process.cwd(), ".data");
 const dataFile = path.join(dataDirectory, "partner-applications.json");
 
 const readApplications = async (): Promise<PartnerApplication[]> => {
   try {
     return JSON.parse(await readFile(dataFile, "utf8")) as PartnerApplication[];
-  } catch (error) {
-    if ((error as NodeJS.ErrnoException).code === "ENOENT") return [];
-    throw error;
+  } catch {
+    return [];
   }
 };
 
 const writeApplications = async (apps: PartnerApplication[]) => {
-  await mkdir(dataDirectory, { recursive: true });
-  await writeFile(dataFile, JSON.stringify(apps, null, 2), "utf8");
+  try {
+    await mkdir(dataDirectory, { recursive: true });
+    await writeFile(dataFile, JSON.stringify(apps, null, 2), "utf8");
+  } catch (error) {
+    console.warn("[partnerStore] Disk write skipped in serverless environment:", error);
+  }
 };
 
 export const listApplications = async () => readApplications();

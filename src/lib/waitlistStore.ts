@@ -9,21 +9,26 @@ export interface WaitlistEntry {
   source: string;
 }
 
-const dataDirectory = path.join(process.cwd(), ".data");
+const dataDirectory = process.env.VERCEL || process.env.NODE_ENV === "production"
+  ? "/tmp"
+  : path.join(process.cwd(), ".data");
 const dataFile = path.join(dataDirectory, "waitlist.json");
 
 const readWaitlist = async (): Promise<WaitlistEntry[]> => {
   try {
     return JSON.parse(await readFile(dataFile, "utf8")) as WaitlistEntry[];
-  } catch (error) {
-    if ((error as NodeJS.ErrnoException).code === "ENOENT") return [];
-    throw error;
+  } catch {
+    return [];
   }
 };
 
 const writeWaitlist = async (entries: WaitlistEntry[]) => {
-  await mkdir(dataDirectory, { recursive: true });
-  await writeFile(dataFile, JSON.stringify(entries, null, 2), "utf8");
+  try {
+    await mkdir(dataDirectory, { recursive: true });
+    await writeFile(dataFile, JSON.stringify(entries, null, 2), "utf8");
+  } catch (error) {
+    console.warn("[waitlistStore] Disk write skipped in serverless environment:", error);
+  }
 };
 
 export const listWaitlist = async () => readWaitlist();

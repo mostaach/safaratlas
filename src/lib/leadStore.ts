@@ -3,21 +3,26 @@ import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { Lead, LeadStatus } from "./leadTypes";
 
-const dataDirectory = path.join(process.cwd(), ".data");
+const dataDirectory = process.env.VERCEL || process.env.NODE_ENV === "production"
+  ? "/tmp"
+  : path.join(process.cwd(), ".data");
 const dataFile = path.join(dataDirectory, "pilot-leads.json");
 
 const readLeads = async (): Promise<Lead[]> => {
   try {
     return JSON.parse(await readFile(dataFile, "utf8")) as Lead[];
-  } catch (error) {
-    if ((error as NodeJS.ErrnoException).code === "ENOENT") return [];
-    throw error;
+  } catch {
+    return [];
   }
 };
 
 const writeLeads = async (leads: Lead[]) => {
-  await mkdir(dataDirectory, { recursive: true });
-  await writeFile(dataFile, JSON.stringify(leads, null, 2), "utf8");
+  try {
+    await mkdir(dataDirectory, { recursive: true });
+    await writeFile(dataFile, JSON.stringify(leads, null, 2), "utf8");
+  } catch (error) {
+    console.warn("[leadStore] Disk write skipped in serverless environment:", error);
+  }
 };
 
 export const listLeads = async () => readLeads();
