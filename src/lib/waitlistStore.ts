@@ -1,0 +1,50 @@
+import "server-only";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
+import path from "node:path";
+
+export interface WaitlistEntry {
+  id: string;
+  email: string;
+  createdAt: string;
+  source: string;
+}
+
+const dataDirectory = path.join(process.cwd(), ".data");
+const dataFile = path.join(dataDirectory, "waitlist.json");
+
+const readWaitlist = async (): Promise<WaitlistEntry[]> => {
+  try {
+    return JSON.parse(await readFile(dataFile, "utf8")) as WaitlistEntry[];
+  } catch (error) {
+    if ((error as NodeJS.ErrnoException).code === "ENOENT") return [];
+    throw error;
+  }
+};
+
+const writeWaitlist = async (entries: WaitlistEntry[]) => {
+  await mkdir(dataDirectory, { recursive: true });
+  await writeFile(dataFile, JSON.stringify(entries, null, 2), "utf8");
+};
+
+export const listWaitlist = async () => readWaitlist();
+
+export const addWaitlistEntry = async (email: string, source: string = "website") => {
+  const now = new Date().toISOString();
+  const entries = await readWaitlist();
+  
+  // Prevent duplicates
+  if (entries.some((e) => e.email.toLowerCase() === email.toLowerCase())) {
+    return { status: "exists", message: "Already on the waitlist!" };
+  }
+
+  const entry: WaitlistEntry = {
+    id: `WL-${new Date().getFullYear()}-${crypto.randomUUID().slice(0, 8).toUpperCase()}`,
+    email: email.toLowerCase(),
+    createdAt: now,
+    source,
+  };
+  
+  entries.unshift(entry);
+  await writeWaitlist(entries);
+  return { status: "added", entry };
+};

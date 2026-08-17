@@ -1,26 +1,195 @@
 @import "tailwindcss";
 
+@theme {
+  --color-navy: #123b34;
+  --color-navy-dark: #0b2621;
+  --color-navy-tint: #f0f7f5;
+  --color-gold: #f4c36b;
+  --color-gold-dark: #d99a26;
+  --color-accent: #c95e3d;
+  --color-cream: #faf6f0;
+  --color-cream-dark: #f2e9dc;
+  
+  --shadow-2xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+  /* SafarAtlas Impeccable Design System Tokens */
+  /* Fonts are injected via Next.js next/font in layout.tsx as --font-sans and --font-serif */
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  /* Brand Palette */
+  --color-atlas-cedar: #123b34;
+  --color-atlas-cedar-light: #1b5349;
+  --color-cedar-emerald: #194c43;
+  --color-sahara-terracotta: #c95e3d;
+  --color-sahara-clay: #aa4a2c;
+  --color-sunset-gold: #f4c36b;
+  --color-amber-gold: #d99a26;
+  --color-oasis-teal: #2a7b6c;
+  --color-blue-chefchaouen: #3b629b;
+  --color-desert-pearl: #faf6f0;
+  --color-warm-dune: #f2e9dc;
+  --color-midnight-slate: #121a17;
+  --color-stone-dark: #1b2622;
+  --color-stone-muted: #4e5e57;
+  --color-border-warm: #e5dacb;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  /* Radii */
+  --radius-xs: 6px;
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 36px;
+  --radius-full: 9999px;
+
+  /* Multi-Layered Elevation Shadows (Impeccable style) */
+  --shadow-subtle: 0 4px 12px rgba(18, 59, 52, 0.04);
+  --shadow-card: 0 10px 30px -5px rgba(18, 59, 52, 0.08), 0 4px 10px -2px rgba(0, 0, 0, 0.03);
+  --shadow-terracotta: 0 16px 36px -8px rgba(201, 94, 61, 0.28), 0 4px 12px -2px rgba(201, 94, 61, 0.15);
+  --shadow-cedar: 0 20px 40px -10px rgba(18, 59, 52, 0.3), 0 6px 16px -4px rgba(18, 59, 52, 0.15);
+  --shadow-glow-gold: 0 0 30px rgba(244, 195, 107, 0.4);
+
+  --background: var(--color-desert-pearl);
+  --foreground: var(--color-midnight-slate);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  letter-spacing: -0.01em;
+}
+
+h1, h2, h3, .font-serif {
+  font-family: var(--font-serif);
+}
+
+::selection {
+  background: var(--color-sunset-gold);
+  color: var(--color-midnight-slate);
+}
+
+/* Impeccable Custom Component & Utility Classes */
+.font-display {
+  font-family: var(--font-serif);
+}
+
+.impeccable-glass {
+  background: rgba(250, 246, 240, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.impeccable-glass-dark {
+  background: rgba(18, 26, 23, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.impeccable-card {
+  background: #ffffff;
+  border: 1px solid var(--color-border-warm);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.impeccable-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 24px 48px -12px rgba(18, 59, 52, 0.16), 0 8px 18px -4px rgba(201, 94, 61, 0.1);
+  border-color: rgba(201, 94, 61, 0.35);
+}
+
+/* Zellige Pattern Background Utility */
+.zellige-pattern {
+  background-color: #faf6f0;
+  background-image: 
+    radial-gradient(var(--color-sahara-terracotta) 0.85px, transparent 0.85px), 
+    radial-gradient(var(--color-atlas-cedar) 0.85px, #faf6f0 0.85px);
+  background-size: 32px 32px;
+  background-position: 0 0, 16px 16px;
+}
+
+.zellige-pattern-dark {
+  background-color: #121a17;
+  background-image: 
+    radial-gradient(var(--color-sunset-gold) 0.85px, transparent 0.85px), 
+    radial-gradient(var(--color-sahara-terracotta) 0.85px, #121a17 0.85px);
+  background-size: 32px 32px;
+  background-position: 0 0, 16px 16px;
+}
+
+/* Custom Gold Glow Gradient Text */
+.gradient-gold-text {
+  background: linear-gradient(135deg, #f4c36b 0%, #e8a635 50%, #c95e3d 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-terracotta-text {
+  background: linear-gradient(135deg, #e57a58 0%, #c95e3d 60%, #993b1f 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Gold Metallic Border Accent */
+.border-gold-accent {
+  border-image: linear-gradient(to right, #f4c36b, #c95e3d, #194c43) 1;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+::-webkit-scrollbar-track {
+  background: #faf6f0;
+}
+::-webkit-scrollbar-thumb {
+  background: #d8cbb8;
+  border-radius: 9999px;
+  border: 2px solid #faf6f0;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #c95e3d;
+}
+
+/* Shimmer Animation */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.animate-shimmer {
+  background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 100%);
+  background-size: 200% 100%;
+  animation: shimmer 2.5s infinite;
+}
+
+/* Respect prefers-reduced-motion — ui-ux-pro-max pre-delivery rule */
+@media (prefers-reduced-motion: reduce) {
+  .animate-shimmer {
+    animation: none;
+    background: rgba(255, 255, 255, 0.15);
+  }
+
+  .impeccable-card,
+  .impeccable-card:hover {
+    transform: none;
+    transition: box-shadow 0.2s ease, border-color 0.2s ease;
+  }
+
+  /* Disable ping/pulse animations */
+  .animate-ping {
+    animation: none;
+    opacity: 0.75;
+  }
+
+  /* Slow down all remaining transitions */
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.1ms !important;
+    scroll-behavior: auto !important;
+  }
 }
