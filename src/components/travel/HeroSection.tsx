@@ -169,15 +169,15 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               <div className="pt-2 flex flex-wrap items-center gap-6 text-xs font-bold tracking-wide text-[#4e5e57]">
                 <div className="flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-[#059669]" />
-                  <span>50+ Safar Verified Hosts</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="text-[#c95e3d]">⭐</span>
-                  <span>4.95 Avg Traveler Rating</span>
+                  <span>Safar Verified Network</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="text-[#123b34]">⚡</span>
-                  <span>Direct Inquiry Guarantee</span>
+                  <span>Direct Inquiry — No Middleman</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-[#c95e3d]">🇲🇦</span>
+                  <span>Morocco-First Discovery</span>
                 </div>
               </div>
             </FadeIn>
@@ -222,11 +222,11 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                       </span>
                     </div>
 
-                    {/* Floating Top Right Badge: Listing Count */}
+                    {/* Floating Top Right Badge: Best Time */}
                     <div className="absolute top-4 right-4 z-10">
                       <span className="px-3 py-1 rounded-full bg-[#123b34]/90 backdrop-blur-md text-[#f4c36b] text-xs font-bold tracking-wide shadow-lg border border-[#f4c36b]/30 flex items-center gap-1">
-                        <span>{activeDest.listingCount}</span>
-                        <span className="text-white/70 text-[10px] font-medium tracking-normal">Hosts</span>
+                        <span className="text-white/70 text-[10px] font-medium tracking-normal">Best:</span>
+                        <span>{activeDest.bestTime}</span>
                       </span>
                     </div>
 

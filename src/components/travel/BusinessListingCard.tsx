@@ -65,12 +65,19 @@ export const BusinessListingCard: React.FC<BusinessListingCardProps> = ({ busine
         {/* Top Info */}
         <div>
           <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
-            <VerifiedBadge type={business.verifiedBadgeType} size="sm" />
+            {business.verified && <VerifiedBadge type={business.verifiedBadgeType} size="sm" />}
+            {!business.verified && (
+              <span className="px-2.5 py-0.5 rounded-full bg-[#fef9ec] text-[#a16207] text-[10px] font-bold border border-[#fef08a] uppercase tracking-wide">
+                Verification Pending
+              </span>
+            )}
             
             <div className="flex items-center gap-2 text-xs font-bold">
-              <span className="flex items-center gap-1 text-[#d97706] bg-[#fffbeb] px-2.5 py-0.5 rounded-full border border-[#fef3c7]">
-                ★ {business.rating} ({business.reviewCount})
-              </span>
+              {business.reviewCount > 0 && (
+                <span className="flex items-center gap-1 text-[#d97706] bg-[#fffbeb] px-2.5 py-0.5 rounded-full border border-[#fef3c7]">
+                  ★ {business.rating} ({business.reviewCount})
+                </span>
+              )}
               <span className="text-[#4e5e57] bg-[#f2e9dc] px-2.5 py-0.5 rounded-full">
                 ⚡ Responds {business.responseTime}
               </span>
@@ -113,15 +120,17 @@ export const BusinessListingCard: React.FC<BusinessListingCardProps> = ({ busine
           </div>
 
           <div className="flex items-center gap-2 shrink-0">
-            <a
-              href={`https://wa.me/${business.contactWhatsapp.replace(/\D/g, "")}?text=${encodeURIComponent(`Hi ${business.name}, I found your listing on SafarAtlas and would like to check availability.`)}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={`Message ${business.name} on WhatsApp`}
-              className="cursor-pointer px-3.5 py-2 rounded-xl bg-[#059669]/10 text-[#059669] hover:bg-[#059669]/20 text-xs font-bold transition-all flex items-center gap-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#059669]"
-            >
-              <span>💬 WhatsApp</span>
-            </a>
+            {business.contactWhatsapp && (
+              <a
+                href={`https://wa.me/${business.contactWhatsapp.replace(/\D/g, "")}?text=${encodeURIComponent(`Hi ${business.name}, I found your listing on SafarAtlas and would like to check availability.`)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Message ${business.name} on WhatsApp`}
+                className="cursor-pointer px-3.5 py-2 rounded-xl bg-[#059669]/10 text-[#059669] hover:bg-[#059669]/20 text-xs font-bold transition-all flex items-center gap-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#059669]"
+              >
+                <span>💬 WhatsApp</span>
+              </a>
+            )}
             <button
               onClick={() => onInquire?.(business)}
               className="cursor-pointer px-5 py-2.5 rounded-xl bg-[#c95e3d] text-white text-xs font-black shadow-md hover:bg-[#aa4a2c] transition-all transform hover:-translate-y-0.5 flex items-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#c95e3d]"

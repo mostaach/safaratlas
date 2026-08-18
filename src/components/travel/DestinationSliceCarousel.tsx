@@ -203,8 +203,6 @@ export const DestinationSliceCarousel: React.FC<DestinationSliceCarouselProps> =
                   <div className="flex items-center justify-between pt-1">
                     <span className="text-[11px] text-white/70 font-medium">
                       Best season: <strong className="text-[#f4c36b]">{dest.bestTime}</strong>
-                      &ensp;·&ensp;
-                      <strong className="text-white">{dest.listingCount} hosts</strong>
                     </span>
 
                     <button
@@ -294,7 +292,7 @@ export const DestinationSliceCarousel: React.FC<DestinationSliceCarouselProps> =
                   <span className="text-base font-serif font-bold text-white drop-shadow">{dest.name}</span>
                   <span className="text-[10px] font-semibold text-white/70 hidden sm:block">{dest.region}</span>
                 </div>
-                <span className="text-xs font-bold text-[#f4c36b]">{dest.listingCount} hosts →</span>
+                <span className="text-xs font-bold text-[#f4c36b]">Explore →</span>
               </div>
 
               {/* Active full content */}

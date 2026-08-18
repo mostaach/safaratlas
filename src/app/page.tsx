@@ -238,6 +238,26 @@ export default function Home() {
                   </button>
                 </div>
               )}
+
+              {/* Honest early-access panel */}
+              <div className="rounded-3xl border border-dashed border-[#e5dacb] bg-white/60 p-8 flex flex-col sm:flex-row items-center gap-6 text-center sm:text-left">
+                <div className="w-14 h-14 rounded-2xl bg-[#f2e9dc] flex items-center justify-center text-2xl shrink-0">
+                  🏗️
+                </div>
+                <div className="flex-1 space-y-1">
+                  <p className="text-xs font-extrabold uppercase tracking-widest text-[#c95e3d]">Pilot Network — Growing</p>
+                  <h3 className="text-lg font-serif font-bold text-[#121a17]">
+                    More verified partners are being onboarded
+                  </h3>
+                  <p className="text-sm text-[#4e5e57]">
+                    We&apos;re manually verifying riads, desert camps, surf houses, guides and culinary experiences across Morocco. Partners go live as they complete verification.
+                  </p>
+                </div>
+                <a href="/partners" className="shrink-0 px-6 py-3 rounded-xl bg-[#123b34] text-[#f4c36b] text-xs font-black hover:bg-[#121a17] transition-all whitespace-nowrap">
+                  List your business →
+                </a>
+              </div>
+
             </div>
 
           </div>

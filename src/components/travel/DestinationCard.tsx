@@ -69,7 +69,7 @@ export const DestinationCard: React.FC<DestinationCardProps> = ({ destination, o
               {destination.name}
             </h3>
             <span className="text-xs font-bold text-[#f4c36b] bg-[#123b34]/90 px-3 py-1 rounded-full border border-[#f4c36b]/30">
-              {destination.listingCount} Hosts
+              Best: {destination.bestTime}
             </span>
           </div>
           <p className="text-xs font-medium text-white/90 line-clamp-1 italic">

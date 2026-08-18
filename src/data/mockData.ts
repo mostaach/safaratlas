@@ -161,125 +161,30 @@ export const DESTINATIONS: Destination[] = [
 
 export const BUSINESS_LISTINGS: BusinessListing[] = [
   {
-    id: "biz-1",
-    name: "Riad Dar Zellige & Hammam",
-    category: "Riad & Stay",
-    location: "Derb El Halfaoui, Medina, Marrakech",
-    region: "Marrakech",
-    verified: true,
-    verifiedBadgeType: "Gold Partner",
-    rating: 4.95,
-    reviewCount: 142,
-    responseTime: "< 15 mins",
-    directInquiryMargin: "Direct Partner Rate Guarantee",
-    priceRange: "$$$",
-    image: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80",
-    gallery: [
-      "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80"
-    ],
-    shortDesc: "Authentic 18th-century riad featuring a orange blossom courtyard pool, private marble hammam, and rooftop Atlas views.",
-    fullDesc: "Restored by master Moroccan craftsmen, Riad Dar Zellige offers an intimate oasis in the heart of the Marrakech Medina. Enjoy organic rooftop breakfasts, traditional eucalyptus steam baths, and personalized host recommendation for secret medina spots.",
-    amenities: ["Courtyard Dip Pool", "Traditional Hammam & Spa", "Rooftop Terrace Bar", "Free Airport Transfer", "Organic Breakfast Included"],
-    contactWhatsapp: "+212 600 123 456",
-    leadCountThisMonth: 38
-  },
-  {
-    id: "biz-2",
-    name: "Nomad Heritage Sahara Expeditions",
+    id: "agafay-placeholder",
+    name: "Agafay Desert Experience — Marrakech",
     category: "Desert Expeditions",
-    location: "Merzouga Dunes, Sahara",
-    region: "Merzouga",
-    verified: true,
-    verifiedBadgeType: "Gold Partner",
-    rating: 4.98,
-    reviewCount: 215,
-    responseTime: "< 30 mins",
-    directInquiryMargin: "No OTA Middleman Markup",
-    priceRange: "$$$",
+    location: "Agafay Desert, 30km from Marrakech",
+    region: "Marrakech",
+    verified: false,
+    verifiedBadgeType: "Local Certified",
+    rating: 0,
+    reviewCount: 0,
+    responseTime: "< 24 hours",
+    directInquiryMargin: "Direct Partner Rate",
+    priceRange: "$$",
     image: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?auto=format&fit=crop&w=800&q=80",
     gallery: [
       "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1489493585363-d69421e0edd3?auto=format&fit=crop&w=800&q=80"
     ],
-    shortDesc: "Family-run Amazigh luxury desert camp with private en-suite tents, sunset camel treks, and live acoustic desert drum sessions.",
-    fullDesc: "Experience the timeless grandeur of Erg Chebbi with native desert guides. Includes 4x4 dune transport, private heated tents with king-size plush bedding, three-course campfire dinners, and astronomical stargazing walks.",
-    amenities: ["Private En-Suite Tents", "Sunset Camel Trekking", "Campfire Acoustic Sessions", "4x4 Desert Transport", "Sandboarding Gear"],
-    contactWhatsapp: "+212 611 234 567",
-    leadCountThisMonth: 54
+    shortDesc: "Day trips, sunset dinners and overnight stays in the rocky Agafay desert — Morocco's closest desert escape from Marrakech.",
+    fullDesc: "Experience the lunar landscape of the Agafay plateau: quad biking, camel rides, traditional Berber lunches and starlit overnight camps — all 30 minutes from Marrakech. Inquire directly to get current availability and pricing.",
+    amenities: ["Quad Biking", "Camel Rides", "Sunset Dinner", "Overnight Camp Option", "Hotel Pickup"],
+    contactWhatsapp: "",
+    leadCountThisMonth: 0,
   },
-  {
-    id: "biz-3",
-    name: "Taghazout Ocean Surf & Yoga Villa",
-    category: "Surf & Ocean",
-    location: "Anchor Point Road, Taghazout",
-    region: "Taghazout",
-    verified: true,
-    verifiedBadgeType: "Local Certified",
-    rating: 4.88,
-    reviewCount: 96,
-    responseTime: "< 1 hour",
-    directInquiryMargin: "Direct Surf Booking Discount",
-    priceRange: "$$",
-    image: "https://images.unsplash.com/photo-1502680390469-be75c86b636f?auto=format&fit=crop&w=800&q=80",
-    gallery: [
-      "https://images.unsplash.com/photo-1502680390469-be75c86b636f?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800&q=80"
-    ],
-    shortDesc: "Oceanfront surf house with panoramic point break views, certified ISA instructors, daily sunset yoga, and nutritious local dining.",
-    fullDesc: "Located directly overlooking the famous waves of Taghazout, our villa welcomes all levels from beginners catching their first waves to experienced surfers exploring secret reef breaks. Includes equipment hire and daily video analysis.",
-    amenities: ["ISA Certified Coaching", "Oceanfront Yoga Shala", "Board & Suit Rentals", "Rooftop Ocean Terrace", "Fresh Seafood Dinners"],
-    contactWhatsapp: "+212 622 345 678",
-    leadCountThisMonth: 29
-  },
-  {
-    id: "biz-4",
-    name: "Atelier Artisanal Zellige Fes",
-    category: "Cultural & Crafts",
-    location: "Place Seffarine, Fes Medina",
-    region: "Fes",
-    verified: true,
-    verifiedBadgeType: "Community Choice",
-    rating: 4.92,
-    reviewCount: 81,
-    responseTime: "< 2 hours",
-    directInquiryMargin: "Direct Master Artisan Support",
-    priceRange: "$$",
-    image: "https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=800&q=80",
-    gallery: [
-      "https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=800&q=80"
-    ],
-    shortDesc: "Hands-on pottery and zellige tile carving masterclass guided by 5th-generation Fassi ceramic artisans.",
-    fullDesc: "Learn the ancient art of geometric cut-tile design and clay moulding in an authentic family workshop established in 1890. Take home your custom handmade mosaic coaster fired in traditional olive-pit kilns.",
-    amenities: ["Master Craftsman Guide", "Hands-on Clay Shaping", "Custom Zellige Souvenir", "Mint Tea & Pastries", "English/French Translation"],
-    contactWhatsapp: "+212 633 456 789",
-    leadCountThisMonth: 18
-  },
-  {
-    id: "biz-5",
-    name: "Le Jardin Spice & Culinary Experience",
-    category: "Food & Culinary",
-    location: "Derb El Boukhari, Marrakech Medina",
-    region: "Marrakech",
-    verified: true,
-    verifiedBadgeType: "Gold Partner",
-    rating: 4.96,
-    reviewCount: 167,
-    responseTime: "< 20 mins",
-    directInquiryMargin: "Guaranteed Preferred Table",
-    priceRange: "$$",
-    image: "https://images.unsplash.com/photo-1541544741938-0af808871cc0?auto=format&fit=crop&w=800&q=80",
-    gallery: [
-      "https://images.unsplash.com/photo-1541544741938-0af808871cc0?auto=format&fit=crop&w=800&q=80"
-    ],
-    shortDesc: "Guided medina spice market shopping tour followed by a rooftop cooking class crafting slow-cooked lamb tagines and pastillas.",
-    fullDesc: "Join Chef Aicha for a sensory culinary adventure. Shop for fresh saffron, cumin, and mint in local medina markets, then prepare a three-course traditional feast served under olive trees on a lush shaded patio.",
-    amenities: ["Market Tour Included", "Hands-on Tagine Cooking", "Recipe E-Book Included", "Vegetarian Options", "Wine & Tea Service"],
-    contactWhatsapp: "+212 644 567 890",
-    leadCountThisMonth: 42
-  }
 ];
+
 
 export const ITINERARIES: TravelItinerary[] = [
   {

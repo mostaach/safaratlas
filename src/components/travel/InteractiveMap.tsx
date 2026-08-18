@@ -233,7 +233,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({ onSelectHotspot,
             <div className="grid grid-cols-2 gap-2 pt-2 border-t border-white/10">
               <div className="p-3 rounded-2xl bg-white/5 border border-white/10">
                 <span className="text-[10px] text-white/60 font-bold uppercase block tracking-wider">Verified Hosts</span>
-                <span className="text-lg font-bold tracking-wide text-[#f4c36b]">{selectedHotspot.listingCount} Active</span>
+                <span className="text-lg font-bold tracking-wide text-[#f4c36b]">Early Access</span>
               </div>
               <div className="p-3 rounded-2xl bg-white/5 border border-white/10">
                 <span className="text-[10px] text-white/60 font-bold uppercase block tracking-wider">Inquiry Speed</span>
