@@ -16,17 +16,20 @@ import { FadeIn } from "../components/animations/FadeIn";
 import { SlideUp } from "../components/animations/SlideUp";
 import { StaggerContainer, StaggerItem } from "../components/animations/StaggerContainer";
 import { TestimonialsStrip } from "../components/travel/TestimonialsStrip";
+import { EscapesSection } from "../components/travel/EscapesSection";
 import { Toaster, toast } from "sonner";
 import { 
   DESTINATIONS, 
   BUSINESS_LISTINGS, 
   ITINERARIES, 
-  BusinessListing 
+  BusinessListing,
+  EscapePackage 
 } from "../data/mockData";
 
 export default function Home() {
   const [inquiryModalOpen, setInquiryModalOpen] = useState(false);
   const [selectedBusinessForInquiry, setSelectedBusinessForInquiry] = useState<BusinessListing | null>(null);
+  const [selectedEscapeForInquiry, setSelectedEscapeForInquiry] = useState<EscapePackage | null>(null);
   const [selectedBusinessForDetail, setSelectedBusinessForDetail] = useState<BusinessListing | null>(null);
   const [activeCategoryFilter, setActiveCategoryFilter] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
@@ -38,6 +41,7 @@ export default function Home() {
 
   const handleOpenGeneralInquiry = () => {
     setSelectedBusinessForInquiry(null);
+    setSelectedEscapeForInquiry(null);
     setInquiryModalOpen(true);
   };
 
@@ -108,6 +112,15 @@ export default function Home() {
           onSearch={handleSearch}
           onSelectCategory={(cat) => setActiveCategoryFilter(cat)}
           onOpenInquiry={(bizId) => handleInquireById(bizId || "biz-1")}
+        />
+
+        {/* ESCAPES SECTION - PRE-PACKAGED TRIP MODULES */}
+        <EscapesSection
+          onInquireEscape={(escapePkg) => {
+            setSelectedBusinessForInquiry(null);
+            setSelectedEscapeForInquiry(escapePkg);
+            setInquiryModalOpen(true);
+          }}
         />
 
 
@@ -393,10 +406,15 @@ export default function Home() {
 
       {/* DIRECT INQUIRY LEAD MODAL */}
       <InquiryModal 
-        key={`${selectedBusinessForInquiry?.id ?? "general"}-${inquiryModalOpen}`}
+        key={`${selectedBusinessForInquiry?.id ?? selectedEscapeForInquiry?.id ?? "general"}-${inquiryModalOpen}`}
         isOpen={inquiryModalOpen}
-        onClose={() => setInquiryModalOpen(false)}
+        onClose={() => {
+          setInquiryModalOpen(false);
+          setSelectedBusinessForInquiry(null);
+          setSelectedEscapeForInquiry(null);
+        }}
         selectedBusiness={selectedBusinessForInquiry}
+        selectedEscape={selectedEscapeForInquiry}
       />
       <ListingDetailModal
         business={selectedBusinessForDetail}

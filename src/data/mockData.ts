@@ -367,3 +367,123 @@ export const MAP_HOTSPOTS: MapHotspot[] = [
     thumbnail: "https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?auto=format&fit=crop&w=400&q=80"
   }
 ];
+
+export interface EscapePackage {
+  id: string;
+  title: string;
+  slug: string;
+  subtitle: string;
+  duration: string;
+  category: 'Desert' | 'Coast' | 'Mountain' | 'Cultural';
+  location: string;
+  priceFromEur: number;
+  image: string;
+  badge: string;
+  highlights: string[];
+  included: string[];
+  summary: string;
+}
+
+export const ESCAPES_PACKAGES: EscapePackage[] = [
+  {
+    id: "escape-sahara-3d",
+    title: "3-Day Sahara Desert Escape",
+    slug: "sahara-escape-3d",
+    subtitle: "Marrakech → High Atlas → Dades → Merzouga Dunes",
+    duration: "3 Days / 2 Nights",
+    category: "Desert",
+    location: "High Atlas & Merzouga",
+    priceFromEur: 420,
+    image: "https://images.unsplash.com/photo-1489493585363-d69421e0edd3?auto=format&fit=crop&w=800&q=80",
+    badge: "Most Popular Escape",
+    highlights: [
+      "Aït Benhaddou UNESCO Kasbah tour",
+      "Sunset camel trek across Erg Chebbi dunes",
+      "Luxury private desert camp under starlit skies",
+      "Traditional Gnaoua live campfire drums"
+    ],
+    included: ["Private 4x4 / Minivan", "Dedicated Driver", "Luxury Tent", "Dinner & Breakfast", "Camel Trek"],
+    summary: "The iconic Moroccan desert journey packaged into a seamless 3-day module. Perfect to insert into any longer Morocco trip or book standalone."
+  },
+  {
+    id: "escape-agafay-1d",
+    title: "Agafay Desert Sunset & Quad Escape",
+    slug: "agafay-escape-1d",
+    subtitle: "30-min from Marrakech → Rocky Desert Oasis",
+    duration: "1 Day / Sunset",
+    category: "Desert",
+    location: "Agafay Desert (Marrakech)",
+    priceFromEur: 110,
+    image: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?auto=format&fit=crop&w=800&q=80",
+    badge: "Marrakech Express",
+    highlights: [
+      "Sunset camel walk over rocky desert hills",
+      "1-Hour guided quad biking adventure",
+      "Candlelit 3-course Moroccan tagine dinner",
+      "Berber acoustic music around the bonfire"
+    ],
+    included: ["Roundtrip Hotel Transfer", "Quad Bike & Gear", "Camel Walk", "Full Course Dinner"],
+    summary: "Short on time? Experience desert magic without the 8-hour drive. An afternoon and evening escape directly from your Marrakech riad."
+  },
+  {
+    id: "escape-taghazout-3d",
+    title: "3-Day Taghazout Ocean & Surf Escape",
+    slug: "taghazout-surf-escape",
+    subtitle: "Atlantic Surf Coast → Anchor Point → Yoga Shala",
+    duration: "3 Days / 2 Nights",
+    category: "Coast",
+    location: "Taghazout & Tamraght",
+    priceFromEur: 290,
+    image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800&q=80",
+    badge: "Ocean & Vibes",
+    highlights: [
+      "Daily surf lessons with ISA-certified local coaches",
+      "Sunset rooftop yoga sessions overlooking Anchor Point",
+      "Fresh harbor seafood dinner in Agadir/Taghazout",
+      "Excursion to Paradise Valley palm pools"
+    ],
+    included: ["Surf Equipment & Coaching", "Oceanfront Villa Stay", "Daily Yoga", "Breakfasts", "Valley Transfer"],
+    summary: "Unwind on the Atlantic coast. Combine ocean waves, rooftop sunsets, and healthy local cuisine in Morocco's premier surf sanctuary."
+  },
+  {
+    id: "escape-essaouira-2d",
+    title: "2-Day Essaouira Coastal Ramparts Escape",
+    slug: "essaouira-coastal-escape",
+    subtitle: "Bohemian Port City → Medina → Skala Fort",
+    duration: "2 Days / 1 Night",
+    category: "Coast",
+    location: "Essaouira Atlantic Port",
+    priceFromEur: 180,
+    image: "https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?auto=format&fit=crop&w=800&q=80",
+    badge: "Culture & Breeze",
+    highlights: [
+      "Guided walk of Portuguese fortress ramparts & medina",
+      "Fresh seafood grill tasting directly at the port",
+      "Thuya artisan woodcraft workshop visit",
+      "Sunset beach camel ride along Atlantic shores"
+    ],
+    included: ["Private Transport from Marrakech", "Boutique Riad Night", "Port Seafood Lunch", "Local Guide"],
+    summary: "Escape the heat of Marrakech to the breezy Atlantic fortress of Mogador. Relaxed culture, seafood, and artisan heritage."
+  },
+  {
+    id: "escape-atlas-2d",
+    title: "2-Day High Atlas & Berber Village Escape",
+    slug: "atlas-mountains-escape",
+    subtitle: "Imlil Valley → Mount Toubkal Views → Mountain Lodge",
+    duration: "2 Days / 1 Night",
+    category: "Mountain",
+    location: "Imlil & High Atlas",
+    priceFromEur: 160,
+    image: "https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=800&q=80",
+    badge: "Nature & Trek",
+    highlights: [
+      "Guided village trek through walnut orchards and terraced fields",
+      "Traditional mint tea with an Amazigh family in Imlil",
+      "Overnight stay in a panoramic High Atlas mountain lodge",
+      "Panoramic views of North Africa's highest peak (Toubkal)"
+    ],
+    included: ["Transport", "Mountain Lodge Night", "Mountain Guide", "All Meals", "Mule Pack Support"],
+    summary: "Step into mountain tranquility just 90 minutes from Marrakech. Experience warm Amazigh hospitality and dramatic peak landscapes."
+  }
+];
+

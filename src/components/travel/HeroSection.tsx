@@ -107,21 +107,21 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             <FadeIn delay={0.1}>
               <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#123b34]/10 border border-[#123b34]/20 text-[#123b34] text-xs font-bold uppercase tracking-widest">
                 <span className="w-2.5 h-2.5 rounded-full bg-[#c95e3d] animate-pulse" />
-                <span>Verified Moroccan Host Network</span>
+                <span>Managed Morocco Travel Platform</span>
               </div>
             </FadeIn>
 
             {/* Headline */}
             <SlideUp delay={0.2}>
               <h1 className="text-4xl sm:text-6xl font-serif font-black tracking-tight leading-[1.02] text-[#121a17]">
-                Experience <span className="gradient-terracotta-text">Morocco</span> directly from trusted hosts.
+                Your Morocco journey, <span className="gradient-terracotta-text">managed locally.</span>
               </h1>
             </SlideUp>
 
             {/* Subhead */}
             <SlideUp delay={0.3}>
               <p className="text-base sm:text-lg text-[#4e5e57] leading-relaxed max-w-xl font-medium">
-                Connect directly with verified medina riads, Sahara desert camps, and surf houses. Zero middleman markup — 100% direct host communication.
+                Discover Morocco, select modular <strong>Escapes</strong>, and let SafarAtlas orchestrate your complete journey with trusted local partners. One point of contact, one transparent price.
               </p>
             </SlideUp>
 
@@ -145,7 +145,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                       type="text"
                       value={query}
                       onChange={(e) => setQuery(e.target.value)}
-                      placeholder="Search stays, desert glamping, surf & yoga..."
+                      placeholder="Search Escapes (Sahara, Agafay), experiences, destinations..."
                       className="w-full text-xs sm:text-sm font-medium text-[#121a17] bg-transparent outline-none placeholder:text-[#4e5e57]/60"
                     />
                   </div>
@@ -169,15 +169,15 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               <div className="pt-2 flex flex-wrap items-center gap-6 text-xs font-bold tracking-wide text-[#4e5e57]">
                 <div className="flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-[#059669]" />
-                  <span>Safar Verified Network</span>
+                  <span>One Point of Contact</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="text-[#123b34]">⚡</span>
-                  <span>Direct Inquiry — No Middleman</span>
+                  <span>One Transparent Price</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="text-[#c95e3d]">🇲🇦</span>
-                  <span>Morocco-First Discovery</span>
+                  <span>Managed Local Partner Network</span>
                 </div>
               </div>
             </FadeIn>
