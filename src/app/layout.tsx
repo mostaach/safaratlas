@@ -16,8 +16,13 @@ const sansFont = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "SafarAtlas | Morocco's Smartest Travel Discovery Platform",
-  description: "Discover Morocco's extraordinary places, luxury desert camps, ocean surf villas, and trusted local tourism hosts with direct inquiry guarantees.",
+  title: "SafarAtlas | Managed Morocco Journeys & Escapes",
+  description: "Discover Morocco, select modular Escapes (Sahara, Agafay, Taghazout), and let SafarAtlas orchestrate your complete journey with trusted local partners.",
+  icons: {
+    icon: "/icon.png",
+    shortcut: "/icon.png",
+    apple: "/apple-icon.png",
+  },
 };
 
 import Script from "next/script";
