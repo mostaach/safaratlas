@@ -5,19 +5,27 @@ import { ESCAPES_PACKAGES, EscapePackage } from "../../data/mockData";
 
 interface EscapesSectionProps {
   onInquireEscape?: (escapePkg: EscapePackage) => void;
+  onSelectEscapeDetail?: (escapePkg: EscapePackage) => void;
 }
 
-export const EscapesSection: React.FC<EscapesSectionProps> = ({ onInquireEscape }) => {
+export const EscapesSection: React.FC<EscapesSectionProps> = ({
+  onInquireEscape,
+  onSelectEscapeDetail,
+}) => {
   const [activeCategory, setActiveCategory] = useState<string>("All");
 
   const categories = ["All", "Desert", "Coast", "Mountain"];
 
-  const filteredEscapes = activeCategory === "All"
-    ? ESCAPES_PACKAGES
-    : ESCAPES_PACKAGES.filter((item) => item.category === activeCategory);
+  const filteredEscapes =
+    activeCategory === "All"
+      ? ESCAPES_PACKAGES
+      : ESCAPES_PACKAGES.filter((item) => item.category === activeCategory);
 
   return (
-    <section id="escapes" className="py-20 bg-[#faf6f0] border-t border-[#e5dacb] relative overflow-hidden">
+    <section
+      id="escapes"
+      className="py-20 bg-[#faf6f0] border-t border-[#e5dacb] relative overflow-hidden"
+    >
       {/* Background Decorative Accent */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-radial from-[#f4c36b]/10 to-transparent blur-3xl pointer-events-none" />
 
@@ -33,7 +41,9 @@ export const EscapesSection: React.FC<EscapesSectionProps> = ({ onInquireEscape 
               Choose Your Escapes
             </h2>
             <p className="text-sm sm:text-base text-[#4e5e57] leading-relaxed">
-              Escapes are pre-packaged 1 to 3-day journey modules. Insert them into your custom Morocco itinerary or book them as standalone experiences.
+              Escapes are pre-packaged 1 to 3-day journey modules. Insert them
+              into your custom Morocco itinerary or book them as standalone
+              experiences.
             </p>
           </div>
 
@@ -62,8 +72,12 @@ export const EscapesSection: React.FC<EscapesSectionProps> = ({ onInquireEscape 
               1
             </span>
             <div>
-              <h4 className="text-sm font-serif font-bold text-[#f4c36b]">Select Destinations</h4>
-              <p className="text-xs text-white/70 mt-0.5">Choose regions like Marrakech, Sahara, Taghazout or Fes.</p>
+              <h4 className="text-sm font-serif font-bold text-[#f4c36b]">
+                Select Destinations
+              </h4>
+              <p className="text-xs text-white/70 mt-0.5">
+                Choose regions like Marrakech, Sahara, Taghazout or Fes.
+              </p>
             </div>
           </div>
           <div className="flex items-start gap-3 p-2 border-t md:border-t-0 md:border-l border-white/15 pt-4 md:pt-2">
@@ -71,8 +85,13 @@ export const EscapesSection: React.FC<EscapesSectionProps> = ({ onInquireEscape 
               2
             </span>
             <div>
-              <h4 className="text-sm font-serif font-bold text-[#f4c36b]">Add Packaged Escapes</h4>
-              <p className="text-xs text-white/70 mt-0.5">Plug 1–3 day Escapes (Sahara glamping, Surf camps) into your route.</p>
+              <h4 className="text-sm font-serif font-bold text-[#f4c36b]">
+                Add Packaged Escapes
+              </h4>
+              <p className="text-xs text-white/70 mt-0.5">
+                Plug 1–3 day Escapes (Sahara glamping, Surf camps) into your
+                route.
+              </p>
             </div>
           </div>
           <div className="flex items-start gap-3 p-2 border-t md:border-t-0 md:border-l border-white/15 pt-4 md:pt-2">
@@ -80,8 +99,13 @@ export const EscapesSection: React.FC<EscapesSectionProps> = ({ onInquireEscape 
               3
             </span>
             <div>
-              <h4 className="text-sm font-serif font-bold text-[#f4c36b]">SafarAtlas Manages It All</h4>
-              <p className="text-xs text-white/70 mt-0.5">One point of contact, seamless ground transfers & verified hosts.</p>
+              <h4 className="text-sm font-serif font-bold text-[#f4c36b]">
+                SafarAtlas Manages It All
+              </h4>
+              <p className="text-xs text-white/70 mt-0.5">
+                One point of contact, seamless ground transfers & verified
+                hosts.
+              </p>
             </div>
           </div>
         </div>
@@ -91,10 +115,13 @@ export const EscapesSection: React.FC<EscapesSectionProps> = ({ onInquireEscape 
           {filteredEscapes.map((item) => (
             <div
               key={item.id}
-              className="group bg-white rounded-3xl border border-[#e5dacb] overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col justify-between"
+              className="group bg-white rounded-3xl border border-[#e5dacb] overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col"
             >
-              {/* Image Container */}
-              <div className="relative h-60 overflow-hidden">
+              {/* Image — clicking opens detail view */}
+              <div
+                onClick={() => onSelectEscapeDetail?.(item)}
+                className="relative h-60 overflow-hidden cursor-pointer shrink-0"
+              >
                 <img
                   src={item.image}
                   alt={item.title}
@@ -102,7 +129,7 @@ export const EscapesSection: React.FC<EscapesSectionProps> = ({ onInquireEscape 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                
+
                 {/* Top Badge */}
                 <span className="absolute top-4 left-4 px-3 py-1 rounded-full bg-[#123b34]/90 backdrop-blur-md text-[#f4c36b] text-[10px] font-extrabold uppercase tracking-wider border border-[#f4c36b]/30">
                   {item.badge}
@@ -118,65 +145,93 @@ export const EscapesSection: React.FC<EscapesSectionProps> = ({ onInquireEscape 
                   <span className="text-[11px] font-bold text-[#f4c36b] uppercase tracking-wider block">
                     📍 {item.location}
                   </span>
-                  <h3 className="text-xl font-serif font-bold tracking-tight drop-shadow-md">
+                  <h3 className="text-xl font-serif font-bold tracking-tight drop-shadow-md group-hover:text-[#f4c36b] transition-colors">
                     {item.title}
                   </h3>
                 </div>
               </div>
 
               {/* Card Body */}
-              <div className="p-6 space-y-4 flex-1 flex flex-col justify-between">
-                <div className="space-y-3">
-                  <p className="text-xs text-[#4e5e57] leading-relaxed line-clamp-2">
-                    {item.summary}
-                  </p>
+              <div className="p-6 flex flex-col flex-1 gap-4">
+                <p className="text-xs text-[#4e5e57] leading-relaxed line-clamp-2">
+                  {item.summary}
+                </p>
 
-                  {/* Highlights */}
-                  <div className="space-y-1.5 pt-1">
-                    <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#c95e3d] block">
-                      Escape Highlights:
-                    </span>
-                    <ul className="space-y-1">
-                      {item.highlights.slice(0, 3).map((hl, idx) => (
-                        <li key={idx} className="text-xs text-[#121a17] font-medium flex items-start gap-2">
-                          <span className="text-[#059669] shrink-0">✓</span>
-                          <span className="line-clamp-1">{hl}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  {/* What's Included */}
-                  <div className="flex flex-wrap gap-1.5 pt-2">
-                    {item.included.map((inc, idx) => (
-                      <span key={idx} className="text-[10px] font-semibold bg-[#faf6f0] text-[#123b34] px-2 py-0.5 rounded-md border border-[#e5dacb]">
-                        {inc}
-                      </span>
+                {/* Highlights */}
+                <div className="space-y-1.5">
+                  <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#c95e3d] block">
+                    Escape Highlights:
+                  </span>
+                  <ul className="space-y-1">
+                    {item.highlights.slice(0, 3).map((hl, idx) => (
+                      <li
+                        key={idx}
+                        className="text-xs text-[#121a17] font-medium flex items-start gap-2"
+                      >
+                        <span className="text-[#059669] shrink-0">✓</span>
+                        <span className="line-clamp-1">{hl}</span>
+                      </li>
                     ))}
-                  </div>
+                  </ul>
                 </div>
 
-                {/* Card Footer: Pricing & CTA */}
-                <div className="pt-4 border-t border-[#e5dacb] flex items-center justify-between gap-3">
-                  <div>
-                    <span className="text-[10px] font-bold uppercase text-[#4e5e57] block">Managed Package</span>
-                    <span className="text-xl font-serif font-black text-[#123b34]">
-                      €{item.priceFromEur}
-                      <span className="text-xs font-normal text-[#4e5e57]"> / person</span>
+                {/* What's Included chips */}
+                <div className="flex flex-wrap gap-1.5">
+                  {item.included.slice(0, 3).map((inc, idx) => (
+                    <span
+                      key={idx}
+                      className="text-[10px] font-semibold bg-[#faf6f0] text-[#123b34] px-2 py-0.5 rounded-md border border-[#e5dacb]"
+                    >
+                      {inc}
                     </span>
+                  ))}
+                </div>
+
+                {/* Spacer to push footer down */}
+                <div className="flex-1" />
+
+                {/* Card Footer */}
+                <div className="pt-4 border-t border-[#e5dacb] space-y-3">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <span className="text-[10px] font-bold uppercase text-[#4e5e57] block">
+                        Managed Package
+                      </span>
+                      <span className="text-xl font-serif font-black text-[#123b34]">
+                        €{item.priceFromEur}
+                        <span className="text-xs font-normal text-[#4e5e57]">
+                          {" "}
+                          / person
+                        </span>
+                      </span>
+                    </div>
+
+                    <button
+                      onClick={() => onSelectEscapeDetail?.(item)}
+                      className="cursor-pointer text-xs font-bold text-[#123b34] hover:text-[#c95e3d] underline transition-colors"
+                    >
+                      View Itinerary →
+                    </button>
                   </div>
 
                   <button
                     onClick={() => onInquireEscape?.(item)}
-                    className="cursor-pointer px-5 py-2.5 rounded-xl bg-[#c95e3d] hover:bg-[#aa4a2c] text-white text-xs font-black tracking-wide shadow-md transition-all transform hover:-translate-y-0.5 flex items-center gap-1.5"
+                    className="w-full cursor-pointer py-2.5 rounded-xl bg-[#c95e3d] hover:bg-[#aa4a2c] text-white text-xs font-black tracking-wide shadow-md transition-all flex items-center justify-center gap-1.5"
                   >
                     <span>Add to Journey</span>
-                    <svg className="w-3.5 h-3.5" viewBox="0 0 20 20" fill="currentColor">
-                      <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                    <svg
+                      className="w-3.5 h-3.5"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                        clipRule="evenodd"
+                      />
                     </svg>
                   </button>
                 </div>
-
               </div>
             </div>
           ))}
@@ -189,10 +244,13 @@ export const EscapesSection: React.FC<EscapesSectionProps> = ({ onInquireEscape 
               🛡️ The SafarAtlas Managed Guarantee
             </span>
             <h3 className="text-xl font-serif font-bold text-[#121a17]">
-              Want a custom multi-destination itinerary combining several Escapes?
+              Want a custom multi-destination itinerary combining several
+              Escapes?
             </h3>
             <p className="text-sm text-[#4e5e57] max-w-xl">
-              Tell us your travel dates and interests. We will design your personalized Morocco journey, coordinate all local transport, riads, and experiences under one transparent quote.
+              Tell us your travel dates and interests. We will design your
+              personalized Morocco journey, coordinate all local transport,
+              riads, and experiences under one transparent quote.
             </p>
           </div>
 
@@ -203,7 +261,6 @@ export const EscapesSection: React.FC<EscapesSectionProps> = ({ onInquireEscape 
             Build Custom Journey →
           </a>
         </div>
-
       </div>
     </section>
   );

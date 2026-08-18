@@ -381,7 +381,16 @@ export interface EscapePackage {
   badge: string;
   highlights: string[];
   included: string[];
+  notIncluded?: string[];
   summary: string;
+  fullDescription?: string;
+  itineraryDays?: {
+    dayNumber: number;
+    title: string;
+    description: string;
+    image: string;
+    highlights: string[];
+  }[];
 }
 
 export const ESCAPES_PACKAGES: EscapePackage[] = [
@@ -402,8 +411,33 @@ export const ESCAPES_PACKAGES: EscapePackage[] = [
       "Luxury private desert camp under starlit skies",
       "Traditional Gnaoua live campfire drums"
     ],
-    included: ["Private 4x4 / Minivan", "Dedicated Driver", "Luxury Tent", "Dinner & Breakfast", "Camel Trek"],
-    summary: "The iconic Moroccan desert journey packaged into a seamless 3-day module. Perfect to insert into any longer Morocco trip or book standalone."
+    included: ["Private 4x4 / Minivan with AC", "Dedicated English/French Speaking Driver", "Luxury Private Tent with Ensuite Bathroom", "Daily Breakfast & Traditional Dinners", "Sunset & Sunrise Camel Caravans"],
+    notIncluded: ["Lunches along the road", "Personal drinks & gratuities"],
+    summary: "The iconic Moroccan desert journey packaged into a seamless 3-day module. Perfect to insert into any longer Morocco trip or book standalone.",
+    fullDescription: "Experience the ultimate Moroccan desert road trip across the High Atlas mountains, historic red clay kasbahs, dramatic gorges, and the towering golden dunes of Merzouga. SafarAtlas coordinates your private vehicle, driver, boutique kasbah night in Dades, and luxury Bedouin desert camp.",
+    itineraryDays: [
+      {
+        dayNumber: 1,
+        title: "Marrakech → Tizi n'Tichka → Aït Benhaddou → Dades Valley",
+        description: "Depart Marrakech early morning climbing through the High Atlas Mountains via Tizi n'Tichka pass (2,260m). Stop at UNESCO World Heritage site Aït Benhaddou, famous for Game of Thrones and Gladiator. Continue through Ouarzazate and the Valley of Roses to sleep in a boutique kasbah in Dades Gorge.",
+        image: "https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=600&q=80",
+        highlights: ["High Atlas mountain views", "Guided Aït Benhaddou Kasbah walk", "Valley of Roses scenery"]
+      },
+      {
+        dayNumber: 2,
+        title: "Dades Gorge → Todra Canyon → Merzouga Sahara Camp",
+        description: "After breakfast, drive through the towering 300-meter cliffs of Todra Gorge. Pass ancient Berber palm oases before arriving at Merzouga. Mount your camel for a 1-hour sunset trek across the golden Erg Chebbi dunes into your private luxury desert camp. Enjoy a 3-course dinner, campfire, and live Gnaoua drumming under the galaxy.",
+        image: "https://images.unsplash.com/photo-1489493585363-d69421e0edd3?auto=format&fit=crop&w=600&q=80",
+        highlights: ["Todra Gorge canyon walk", "Erg Chebbi sunset camel trek", "Luxury desert camp & stargazing"]
+      },
+      {
+        dayNumber: 3,
+        title: "Sahara Sunrise → Draa Valley → Marrakech",
+        description: "Wake early for a magical sunrise over the dunes. Return by camel or 4x4 for breakfast. Begin the return journey through the Draa Valley palm groves and Ouarzazate, arriving back in Marrakech by early evening.",
+        image: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?auto=format&fit=crop&w=600&q=80",
+        highlights: ["Dune sunrise photos", "Draa Valley palm oasis drive", "Marrakech arrival"]
+      }
+    ]
   },
   {
     id: "escape-agafay-1d",
@@ -422,8 +456,19 @@ export const ESCAPES_PACKAGES: EscapePackage[] = [
       "Candlelit 3-course Moroccan tagine dinner",
       "Berber acoustic music around the bonfire"
     ],
-    included: ["Roundtrip Hotel Transfer", "Quad Bike & Gear", "Camel Walk", "Full Course Dinner"],
-    summary: "Short on time? Experience desert magic without the 8-hour drive. An afternoon and evening escape directly from your Marrakech riad."
+    included: ["Roundtrip Private Hotel Transfer", "Quad Bike & Safety Helmet", "Sunset Camel Walk", "Full 3-Course Tagine Dinner"],
+    notIncluded: ["Alcoholic beverages"],
+    summary: "Short on time? Experience desert magic without the 8-hour drive. An afternoon and evening escape directly from your Marrakech riad.",
+    fullDescription: "Escape the bustling medina of Marrakech for the serene moonscape of Agafay. Just 40 minutes away, ride quads across stony hills, enjoy a peaceful camel walk at sunset, and dine under candlelit Berber tents with acoustic music.",
+    itineraryDays: [
+      {
+        dayNumber: 1,
+        title: "Afternoon Transfer → Quad Adventure → Sunset Dinner",
+        description: "Pickup from your Marrakech riad at 16:00. Arrive in Agafay desert camp. Gear up for a 1-hour quad biking ride over rocky hills. Followed by a quiet camel walk as the sun sets over the High Atlas horizon. Finish with a gourmet tagine dinner around the bonfire.",
+        image: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?auto=format&fit=crop&w=600&q=80",
+        highlights: ["1-hour quad biking", "Atlas sunset views", "Bonfire Berber music"]
+      }
+    ]
   },
   {
     id: "escape-taghazout-3d",
@@ -442,8 +487,33 @@ export const ESCAPES_PACKAGES: EscapePackage[] = [
       "Fresh harbor seafood dinner in Agadir/Taghazout",
       "Excursion to Paradise Valley palm pools"
     ],
-    included: ["Surf Equipment & Coaching", "Oceanfront Villa Stay", "Daily Yoga", "Breakfasts", "Valley Transfer"],
-    summary: "Unwind on the Atlantic coast. Combine ocean waves, rooftop sunsets, and healthy local cuisine in Morocco's premier surf sanctuary."
+    included: ["Surf Board & Wetsuit Rental", "2 Morning Surf Coaching Sessions", "Oceanfront Villa Room", "Daily Rooftop Yoga", "Paradise Valley Trip"],
+    notIncluded: ["Dinners (except 1 welcome seafood dinner)"],
+    summary: "Unwind on the Atlantic coast. Combine ocean waves, rooftop sunsets, and healthy local cuisine in Morocco's premier surf sanctuary.",
+    fullDescription: "Combine active water sports with oceanfront relaxation in Taghazout. Perfect for solo travelers, couples, or friends looking to experience Morocco's coast.",
+    itineraryDays: [
+      {
+        dayNumber: 1,
+        title: "Arrival → Villa Check-in → Sunset Rooftop Yoga",
+        description: "Transfer to Taghazout villa. Settle into your oceanview room. Meet your surf coaches for a briefing, followed by a 75-minute sunset yoga session on the roof terrace overlooking the waves.",
+        image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=600&q=80",
+        highlights: ["Oceanfront villa check-in", "Sunset rooftop yoga"]
+      },
+      {
+        dayNumber: 2,
+        title: "Morning Surf Session → Paradise Valley Trip",
+        description: "2-hour guided surf lesson at beginner or intermediate breaks (Devil's Rock or Panorama). After lunch, head inland to Paradise Valley for a cliff walk and swim in natural palm rock pools.",
+        image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80",
+        highlights: ["Guided surf coaching", "Paradise Valley natural pools"]
+      },
+      {
+        dayNumber: 3,
+        title: "Sunrise Surf → Fresh Seafood Lunch → Departure",
+        description: "Catch morning waves at Anchor Point or Tamraght. Enjoy fresh acai bowls or traditional avocado juice before your afternoon departure transfer.",
+        image: "https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?auto=format&fit=crop&w=600&q=80",
+        highlights: ["Sunrise surf session", "Fresh coastal seafood"]
+      }
+    ]
   },
   {
     id: "escape-essaouira-2d",
@@ -462,8 +532,25 @@ export const ESCAPES_PACKAGES: EscapePackage[] = [
       "Thuya artisan woodcraft workshop visit",
       "Sunset beach camel ride along Atlantic shores"
     ],
-    included: ["Private Transport from Marrakech", "Boutique Riad Night", "Port Seafood Lunch", "Local Guide"],
-    summary: "Escape the heat of Marrakech to the breezy Atlantic fortress of Mogador. Relaxed culture, seafood, and artisan heritage."
+    included: ["Private AC Transport from Marrakech", "Boutique Riad Stay with Breakfast", "Port Seafood Lunch", "Certified Local Medina Guide"],
+    summary: "Escape the heat of Marrakech to the breezy Atlantic fortress of Mogador. Relaxed culture, seafood, and artisan heritage.",
+    fullDescription: "Known historically as Mogador, Essaouira is a relaxed UNESCO coastal fortress famous for blue fishing boats, Gnaoua music, thuya woodcrafts, and ocean breezes.",
+    itineraryDays: [
+      {
+        dayNumber: 1,
+        title: "Marrakech → Argan Cooperative → Essaouira Port & Ramparts",
+        description: "2.5-hour drive from Marrakech with a stop at a women's argan oil cooperative. Arrive in Essaouira, check into your historic riad, and explore the Skala du Port ramparts where Game of Thrones was filmed.",
+        image: "https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?auto=format&fit=crop&w=600&q=80",
+        highlights: ["Argan oil cooperative visit", "Historic Skala ramparts walk"]
+      },
+      {
+        dayNumber: 2,
+        title: "Artisan Souks → Beach Walk → Return to Marrakech",
+        description: "Wander the laid-back car-free medina souks, visit thuya wood workshops, enjoy a beachside lunch, and return to Marrakech by late afternoon.",
+        image: "https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=600&q=80",
+        highlights: ["Artisan woodcraft souks", "Beach promenade walk"]
+      }
+    ]
   },
   {
     id: "escape-atlas-2d",
@@ -482,8 +569,25 @@ export const ESCAPES_PACKAGES: EscapePackage[] = [
       "Overnight stay in a panoramic High Atlas mountain lodge",
       "Panoramic views of North Africa's highest peak (Toubkal)"
     ],
-    included: ["Transport", "Mountain Lodge Night", "Mountain Guide", "All Meals", "Mule Pack Support"],
-    summary: "Step into mountain tranquility just 90 minutes from Marrakech. Experience warm Amazigh hospitality and dramatic peak landscapes."
+    included: ["Private Transport", "Boutique Mountain Lodge Night", "Certified Mountain Guide", "All Meals (Dinner, Breakfast, Picnic Lunch)"],
+    summary: "Step into mountain tranquility just 90 minutes from Marrakech. Experience warm Amazigh hospitality and dramatic peak landscapes.",
+    fullDescription: "Imlil is the gateway to Mount Toubkal (4,167m). Experience crisp alpine air, traditional terraced Berber villages, walnut groves, and genuine mountain hospitality.",
+    itineraryDays: [
+      {
+        dayNumber: 1,
+        title: "Marrakech → Asni Valley → Imlil Village Trek",
+        description: "90-minute scenic drive into the High Atlas. Meet your local guide in Imlil and trek through Aroumd village to your lodge perched high above the valley with views of Mount Toubkal.",
+        image: "https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=600&q=80",
+        highlights: ["Guided mountain village walk", "Terraced walnut orchards", "Panoramic lodge stay"]
+      },
+      {
+        dayNumber: 2,
+        title: "Waterfall Trek → Berber Family Mint Tea → Marrakech",
+        description: "Morning trek to the Imlil waterfalls, followed by lunch hosted by a local Amazigh family. Return drive to Marrakech by 16:00.",
+        image: "https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=600&q=80",
+        highlights: ["Imlil waterfall trek", "Traditional home mint tea"]
+      }
+    ]
   }
 ];
 

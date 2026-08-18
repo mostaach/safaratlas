@@ -17,6 +17,7 @@ import { SlideUp } from "../components/animations/SlideUp";
 import { StaggerContainer, StaggerItem } from "../components/animations/StaggerContainer";
 import { TestimonialsStrip } from "../components/travel/TestimonialsStrip";
 import { EscapesSection } from "../components/travel/EscapesSection";
+import { EscapeDetailModal } from "../components/travel/EscapeDetailModal";
 import { Toaster, toast } from "sonner";
 import { 
   DESTINATIONS, 
@@ -30,6 +31,7 @@ export default function Home() {
   const [inquiryModalOpen, setInquiryModalOpen] = useState(false);
   const [selectedBusinessForInquiry, setSelectedBusinessForInquiry] = useState<BusinessListing | null>(null);
   const [selectedEscapeForInquiry, setSelectedEscapeForInquiry] = useState<EscapePackage | null>(null);
+  const [selectedEscapeForDetail, setSelectedEscapeForDetail] = useState<EscapePackage | null>(null);
   const [selectedBusinessForDetail, setSelectedBusinessForDetail] = useState<BusinessListing | null>(null);
   const [activeCategoryFilter, setActiveCategoryFilter] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
@@ -121,6 +123,7 @@ export default function Home() {
             setSelectedEscapeForInquiry(escapePkg);
             setInquiryModalOpen(true);
           }}
+          onSelectEscapeDetail={(escapePkg) => setSelectedEscapeForDetail(escapePkg)}
         />
 
 
@@ -420,6 +423,19 @@ export default function Home() {
         business={selectedBusinessForDetail}
         onClose={() => setSelectedBusinessForDetail(null)}
         onInquire={handleOpenPartnerInquiry}
+      />
+
+      {/* ESCAPE DETAIL MODAL — Day-by-Day Itinerary View */}
+      <EscapeDetailModal
+        escapePkg={selectedEscapeForDetail}
+        isOpen={!!selectedEscapeForDetail}
+        onClose={() => setSelectedEscapeForDetail(null)}
+        onInquire={(escapePkg) => {
+          setSelectedEscapeForDetail(null);
+          setSelectedBusinessForInquiry(null);
+          setSelectedEscapeForInquiry(escapePkg);
+          setInquiryModalOpen(true);
+        }}
       />
 
     </div>
