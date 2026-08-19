@@ -87,7 +87,7 @@ export default function RootLayout({
                   "contactPoint": {
                     "@type": "ContactPoint",
                     "contactType": "customer support",
-                    "email": "hello@safaratlas.com"
+                    "email": "contactsafaratlas@gmail.com"
                   }
                 },
                 {

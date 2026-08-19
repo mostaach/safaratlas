@@ -18,7 +18,11 @@ export const Footer: React.FC = () => {
             <p className="text-xs text-white/70 leading-relaxed">
               Morocco&apos;s curated travel discovery platform. Connecting independent travelers directly with verified local riads, desert camps, surf stays, and craft guides.
             </p>
-            <div className="flex items-center gap-2 text-xs text-accent font-bold">
+            <div className="space-y-1 text-xs text-white/80 font-medium">
+              <p>Email: <a href="mailto:contactsafaratlas@gmail.com" className="text-gold hover:underline">contactsafaratlas@gmail.com</a></p>
+              <p>WhatsApp: <a href="https://wa.me/212698017323" className="text-gold hover:underline">+212 698 017 323</a></p>
+            </div>
+            <div className="flex items-center gap-2 text-xs text-accent font-bold pt-2">
               <span>🇲🇦 Crafted for authentic Moroccan travel</span>
             </div>
           </div>
