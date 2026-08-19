@@ -1,4 +1,4 @@
-export const leadStatuses = ["new", "routed", "partner_replied", "quote_sent", "booked", "lost", "spam"] as const;
+export const leadStatuses = ["new", "in_review", "proposal_sent", "deposit_paid", "booked", "lost", "spam"] as const;
 export type LeadStatus = (typeof leadStatuses)[number];
 
 export interface Lead {

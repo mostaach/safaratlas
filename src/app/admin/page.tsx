@@ -7,10 +7,10 @@ import { PartnerApplication, PartnerStatus } from "../../lib/partnerStore";
 type Tab = "dashboard" | "leads" | "partners";
 
 const leadLabels: Record<LeadStatus, string> = {
-  new: "New",
-  routed: "Routed",
-  partner_replied: "Partner replied",
-  quote_sent: "Quote sent",
+  new: "New Request",
+  in_review: "In Review",
+  proposal_sent: "Proposal Sent",
+  deposit_paid: "Deposit Paid",
   booked: "Booked ✓",
   lost: "Lost",
   spam: "Spam",
@@ -25,9 +25,9 @@ const partnerStatusLabels: Record<PartnerStatus, string> = {
 
 const statusColor: Record<LeadStatus, string> = {
   new: "#3b82f6",
-  routed: "#8b5cf6",
-  partner_replied: "#f59e0b",
-  quote_sent: "#06b6d4",
+  in_review: "#8b5cf6",
+  proposal_sent: "#f59e0b",
+  deposit_paid: "#06b6d4",
   booked: "#10b981",
   lost: "#ef4444",
   spam: "#6b7280",

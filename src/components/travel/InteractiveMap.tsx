@@ -160,7 +160,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({ onSelectHotspot,
             Explore Places Worth Traveling For
           </h3>
           <p className="text-xs text-white/70 mt-1">
-            Click pins to inspect regional highlights, local hosts, and direct lead channels.
+            Click pins to explore regional highlights and add destinations to your custom managed journey.
           </p>
         </div>
 
@@ -205,39 +205,58 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({ onSelectHotspot,
         {/* Hotspot Drawer Inspector */}
         <div className="rounded-2xl bg-[#0b110f] border border-white/15 p-6 flex flex-col justify-between shadow-2xl relative overflow-hidden">
           
-          <div className="relative z-10 space-y-4">
-            <div className="relative h-44 rounded-2xl overflow-hidden">
+          <div className="relative z-10 space-y-5">
+            <div className="relative h-48 rounded-2xl overflow-hidden border border-white/10 shadow-md">
               <img 
                 src={selectedHotspot.thumbnail} 
                 alt={selectedHotspot.name}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover transform transition-transform duration-700 hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
-              <span className="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-[#c95e3d] text-white text-[10px] font-bold uppercase tracking-widest">
-                {selectedHotspot.type} Destination
-              </span>
-              <span className="absolute bottom-3 left-3 text-2xl font-serif font-bold text-white tracking-wide">
-                {selectedHotspot.name}
-              </span>
-            </div>
-
-            <div>
-              <span className="text-xs font-bold text-[#f4c36b]">
-                📍 {selectedHotspot.shortTag}
-              </span>
-              <p className="text-xs text-white/80 mt-1 leading-relaxed">
-                Highlights: <strong className="text-white">{selectedHotspot.topHighlight}</strong>
-              </p>
-            </div>
-
-            <div className="grid grid-cols-2 gap-2 pt-2 border-t border-white/10">
-              <div className="p-3 rounded-2xl bg-white/5 border border-white/10">
-                <span className="text-[10px] text-white/60 font-bold uppercase block tracking-wider">Verified Hosts</span>
-                <span className="text-lg font-bold tracking-wide text-[#f4c36b]">Early Access</span>
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0b110f] via-[#0b110f]/40 to-transparent" />
+              
+              {/* Sleek Category Badge */}
+              <div className="absolute top-3 left-3 flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/40 backdrop-blur-md border border-white/20">
+                <span className={`w-2 h-2 rounded-full ${selectedHotspot.type === 'Desert' ? 'bg-[#f4c36b]' : selectedHotspot.type === 'Coast' ? 'bg-[#38bdf8]' : 'bg-[#10b981]'}`} />
+                <span className="text-[9px] font-bold uppercase tracking-widest text-white">
+                  {selectedHotspot.type}
+                </span>
               </div>
-              <div className="p-3 rounded-2xl bg-white/5 border border-white/10">
-                <span className="text-[10px] text-white/60 font-bold uppercase block tracking-wider">Inquiry Speed</span>
-                <span className="text-lg font-bold tracking-wide text-[#10b981]">Instant</span>
+
+              <h4 className="absolute bottom-4 left-4 text-3xl font-serif font-black text-white tracking-tight drop-shadow-lg">
+                {selectedHotspot.name}
+              </h4>
+            </div>
+
+            <div className="space-y-3 px-1">
+              <div className="flex items-center gap-2 text-sm font-bold text-[#f4c36b]">
+                <svg className="w-4 h-4 opacity-80" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+                <span>{selectedHotspot.shortTag}</span>
+              </div>
+              
+              <div className="flex items-start gap-3 bg-white/5 p-3.5 rounded-xl border border-white/10">
+                <svg className="w-4 h-4 text-white/50 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                </svg>
+                <div>
+                  <span className="text-[9px] uppercase font-bold tracking-widest text-white/50 block mb-1">Highlights</span>
+                  <span className="text-xs font-semibold text-white/90 leading-tight block">{selectedHotspot.topHighlight}</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-2 gap-3 pt-2">
+              <div className="relative overflow-hidden p-3.5 rounded-2xl bg-gradient-to-br from-white/10 to-white/5 border border-white/10 group">
+                <div className="absolute inset-0 bg-[#f4c36b]/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                <span className="text-[9px] text-white/50 font-bold uppercase block tracking-widest mb-1">Local Partners</span>
+                <span className="text-lg font-black tracking-wide text-[#f4c36b]">SafarAtlas Vetted</span>
+              </div>
+              <div className="relative overflow-hidden p-3.5 rounded-2xl bg-gradient-to-br from-white/10 to-white/5 border border-white/10 group">
+                <div className="absolute inset-0 bg-[#10b981]/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                <span className="text-[9px] text-white/50 font-bold uppercase block tracking-widest mb-1">Journey Status</span>
+                <span className="text-lg font-black tracking-wide text-[#10b981]">Available</span>
               </div>
             </div>
           </div>
@@ -245,12 +264,13 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({ onSelectHotspot,
           <div className="relative z-10 pt-4 mt-4 border-t border-white/10 space-y-2">
             <button
               onClick={onOpenInquiry}
-              className="w-full py-3.5 rounded-2xl bg-[#c95e3d] hover:bg-[#aa4a2c] text-white text-xs font-bold tracking-widest transition-all shadow-lg flex items-center justify-center gap-2"
+              className="relative overflow-hidden w-full py-3.5 rounded-2xl bg-[#c95e3d] hover:bg-[#aa4a2c] text-white text-xs font-bold tracking-widest transition-all shadow-lg flex items-center justify-center gap-2 group"
             >
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <div className="absolute inset-0 animate-shimmer pointer-events-none" />
+              <svg className="w-4 h-4 relative z-10 group-hover:scale-110 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
               </svg>
-              <span>Connect with {selectedHotspot.name} Hosts</span>
+              <span className="relative z-10">Add {selectedHotspot.name} to Journey</span>
             </button>
           </div>
         </div>

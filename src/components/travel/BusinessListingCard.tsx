@@ -120,23 +120,13 @@ export const BusinessListingCard: React.FC<BusinessListingCardProps> = ({ busine
           </div>
 
           <div className="flex items-center gap-2 shrink-0">
-            {business.contactWhatsapp && (
-              <a
-                href={`https://wa.me/${business.contactWhatsapp.replace(/\D/g, "")}?text=${encodeURIComponent(`Hi ${business.name}, I found your listing on SafarAtlas and would like to check availability.`)}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={`Message ${business.name} on WhatsApp`}
-                className="cursor-pointer px-3.5 py-2 rounded-xl bg-[#059669]/10 text-[#059669] hover:bg-[#059669]/20 text-xs font-bold transition-all flex items-center gap-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#059669]"
-              >
-                <span>💬 WhatsApp</span>
-              </a>
-            )}
             <button
               onClick={() => onInquire?.(business)}
-              className="cursor-pointer px-5 py-2.5 rounded-xl bg-[#c95e3d] text-white text-xs font-black shadow-md hover:bg-[#aa4a2c] transition-all transform hover:-translate-y-0.5 flex items-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#c95e3d]"
+              className="relative overflow-hidden cursor-pointer px-5 py-2.5 rounded-xl bg-[#c95e3d] text-white text-xs font-black shadow-md hover:bg-[#aa4a2c] transition-all transform hover:-translate-y-0.5 flex items-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#c95e3d]"
             >
-              <span>Direct Inquiry</span>
-              <svg className="w-3.5 h-3.5" viewBox="0 0 20 20" fill="currentColor">
+              <div className="absolute inset-0 animate-shimmer pointer-events-none" />
+              <span className="relative z-10">Add to My Journey</span>
+              <svg className="w-3.5 h-3.5 relative z-10" viewBox="0 0 20 20" fill="currentColor">
                 <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
               </svg>
             </button>

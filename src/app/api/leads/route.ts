@@ -35,11 +35,7 @@ export async function POST(request: NextRequest) {
     return Response.json({ error: "Please complete the required fields." }, { status: 400 });
   }
 
-  const lead = await addLead({ ...input, status: input.partnerId ? "routed" : "new", source: "website", bookingValue: null, commissionRate: null, expectedMargin: null, reconciliationStatus: "not_applicable" });
-  
-  if (lead.status === "routed") {
-    await addEvent({ eventName: "partner_delivery", properties: { leadId: lead.id, partnerId: lead.partnerId, source: "auto" } });
-  }
+  const lead = await addLead({ ...input, status: "new", source: "website", bookingValue: null, commissionRate: null, expectedMargin: null, reconciliationStatus: "not_applicable" });
 
   // Fire-and-forget — never block the response on email latency
   void sendLeadNotification(lead);
@@ -63,10 +59,10 @@ export async function PATCH(request: NextRequest) {
   const updated = await updateLead(body.id, { status: isLeadStatus(body.status) ? body.status : undefined, bookingValue, commissionRate, expectedMargin, reconciliationStatus });
   if (!updated) return Response.json({ error: "Lead not found." }, { status: 404 });
 
-  if (body.status === "routed") {
-    await addEvent({ eventName: "partner_delivery", properties: { leadId: updated.id, partnerId: updated.partnerId, source: "admin" } });
-  } else if (body.status === "partner_replied") {
-    await addEvent({ eventName: "partner_response", properties: { leadId: updated.id, partnerId: updated.partnerId } });
+  if (body.status === "in_review") {
+    await addEvent({ eventName: "lead_in_review", properties: { leadId: updated.id, source: "admin" } });
+  } else if (body.status === "proposal_sent") {
+    await addEvent({ eventName: "proposal_sent", properties: { leadId: updated.id } });
   }
 
   return Response.json({ lead: updated });

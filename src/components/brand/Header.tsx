@@ -65,21 +65,14 @@ export const Header: React.FC<HeaderProps> = ({ onOpenInquiryModal }) => {
         <div className="hidden sm:flex items-center gap-3">
           <button
             onClick={onOpenInquiryModal}
-            className="px-4 py-2.5 rounded-full bg-[#c95e3d] text-white text-xs font-bold tracking-widest shadow-md hover:bg-[#aa4a2c] transition-all duration-200 flex items-center gap-2 transform hover:-translate-y-0.5 cursor-pointer"
+            className="px-6 py-2.5 rounded-full bg-[#c95e3d] text-white text-xs font-bold tracking-widest shadow-md hover:bg-[#aa4a2c] transition-all duration-200 flex items-center gap-2 transform hover:-translate-y-0.5 cursor-pointer"
           >
             <svg className="w-3.5 h-3.5" viewBox="0 0 20 20" fill="currentColor">
               <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
               <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
             </svg>
-            <span>Plan & Connect</span>
+            <span>Plan My Journey</span>
           </button>
-          
-          <a
-            href="/partners"
-            className="px-4 py-2.5 rounded-full bg-[#123b34] text-[#f4c36b] text-xs font-bold tracking-widest shadow-md hover:bg-[#0b2621] transition-all duration-200 border border-[#123b34]"
-          >
-            Become a Partner
-          </a>
         </div>
 
         {/* Mobile menu trigger */}
@@ -140,15 +133,8 @@ export const Header: React.FC<HeaderProps> = ({ onOpenInquiryModal }) => {
               }}
               className="w-full py-3 rounded-xl bg-[#c95e3d] text-white text-xs font-bold tracking-widest text-center shadow-md"
             >
-              Plan & Connect Direct
+              Plan My Journey
             </button>
-            <a
-              href="/partners"
-              onClick={() => setMobileMenuOpen(false)}
-              className="w-full py-3 rounded-xl bg-[#123b34] text-[#f4c36b] text-xs font-bold tracking-widest text-center shadow-md"
-            >
-              Become a Partner
-            </a>
           </div>
         </div>
       )}

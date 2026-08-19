@@ -30,9 +30,8 @@ CREATE TABLE IF NOT EXISTS public.leads (
 -- Enable Row Level Security
 ALTER TABLE public.leads ENABLE ROW LEVEL SECURITY;
 
--- Service role has full access (used by server-side API)
-CREATE POLICY IF NOT EXISTS "service_role_leads_all" ON public.leads
-  FOR ALL USING (true) WITH CHECK (true);
+-- RLS is enabled, meaning all public access is blocked.
+-- The Next.js API uses the SUPABASE_SERVICE_ROLE_KEY, which securely bypasses RLS.
 
 -- Indexes for fast querying in admin dashboard
 CREATE INDEX IF NOT EXISTS leads_status_idx     ON public.leads (status);
@@ -64,8 +63,8 @@ CREATE TABLE IF NOT EXISTS public.partner_applications (
 
 ALTER TABLE public.partner_applications ENABLE ROW LEVEL SECURITY;
 
-CREATE POLICY IF NOT EXISTS "service_role_partners_all" ON public.partner_applications
-  FOR ALL USING (true) WITH CHECK (true);
+-- RLS is enabled, meaning all public access is blocked.
+-- The Next.js API uses the SUPABASE_SERVICE_ROLE_KEY, which securely bypasses RLS.
 
 CREATE INDEX IF NOT EXISTS partner_apps_status_idx     ON public.partner_applications (status);
 CREATE INDEX IF NOT EXISTS partner_apps_created_at_idx ON public.partner_applications (created_at DESC);

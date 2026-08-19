@@ -255,25 +255,6 @@ export default function Home() {
                 </div>
               )}
 
-              {/* Honest early-access panel */}
-              <div className="rounded-3xl border border-dashed border-[#e5dacb] bg-white/60 p-8 flex flex-col sm:flex-row items-center gap-6 text-center sm:text-left">
-                <div className="w-14 h-14 rounded-2xl bg-[#f2e9dc] flex items-center justify-center text-2xl shrink-0">
-                  🏗️
-                </div>
-                <div className="flex-1 space-y-1">
-                  <p className="text-xs font-extrabold uppercase tracking-widest text-[#c95e3d]">Pilot Network — Growing</p>
-                  <h3 className="text-lg font-serif font-bold text-[#121a17]">
-                    More verified partners are being onboarded
-                  </h3>
-                  <p className="text-sm text-[#4e5e57]">
-                    We&apos;re manually verifying riads, desert camps, surf houses, guides and culinary experiences across Morocco. Partners go live as they complete verification.
-                  </p>
-                </div>
-                <a href="/partners" className="shrink-0 px-6 py-3 rounded-xl bg-[#123b34] text-[#f4c36b] text-xs font-black hover:bg-[#121a17] transition-all whitespace-nowrap">
-                  List your business →
-                </a>
-              </div>
-
             </div>
 
           </div>
@@ -293,7 +274,7 @@ export default function Home() {
               </h2>
             </div>
 
-            <StaggerContainer className="grid md:grid-cols-4 gap-8 relative">
+            <StaggerContainer className="grid md:grid-cols-3 gap-8 relative">
               {/* Connecting line — desktop only */}
               <div className="hidden md:block absolute top-10 left-[12.5%] right-[12.5%] h-px bg-gradient-to-r from-[#e5dacb] via-[#c95e3d]/30 to-[#e5dacb] pointer-events-none" aria-hidden="true" />
 
@@ -317,9 +298,9 @@ export default function Home() {
                   </svg>
                 </div>
                 <span className="text-xs font-bold tracking-widest text-[#c95e3d]">02</span>
-                <h3 className="text-xl font-serif font-bold text-[#121a17]">Submit One Inquiry</h3>
+                <h3 className="text-xl font-serif font-bold text-[#121a17]">Submit Your Vision</h3>
                 <p className="text-xs text-[#4e5e57] leading-relaxed">
-                  Specify your travel dates, group size, and preferences. No upfront middleman booking commissions.
+                  Specify your travel dates, group size, and preferences. We take your input and design a flawless custom itinerary tailored to you.
                 </p>
               </StaggerItem>
 
@@ -330,24 +311,12 @@ export default function Home() {
                   </svg>
                 </div>
                 <span className="text-xs font-bold tracking-widest text-[#c95e3d]">03</span>
-                <h3 className="text-xl font-serif font-bold text-[#121a17]">Manage with Hosts</h3>
+                <h3 className="text-xl font-serif font-bold text-[#121a17]">Approve Your Journey</h3>
                 <p className="text-xs text-[#4e5e57] leading-relaxed">
-                  Receive personalized quotes, confirm bookings, and manage your journey with trusted Moroccan partners.
+                  Review your hand-crafted itinerary, confirm your dates, and let our local experts handle all the logistics and bookings seamlessly.
                 </p>
               </StaggerItem>
 
-              <StaggerItem className="p-8 rounded-2xl bg-[#faf6f0] border border-[#e5dacb] hover:border-[#c95e3d]/40 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 space-y-4 relative">
-                <div className="w-12 h-12 rounded-2xl bg-[#c95e3d]/10 flex items-center justify-center mb-1">
-                  <svg className="w-6 h-6 text-[#c95e3d]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8} aria-hidden="true">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                  </svg>
-                </div>
-                <span className="text-xs font-bold tracking-widest text-[#c95e3d]">04</span>
-                <h3 className="text-xl font-serif font-bold text-[#121a17]">Become a Partner</h3>
-                <p className="text-xs text-[#4e5e57] leading-relaxed">
-                  Local operators can join our network, showcase their business, and receive high-intent direct inquiries.
-                </p>
-              </StaggerItem>
             </StaggerContainer>
 
           </div>
@@ -358,49 +327,6 @@ export default function Home() {
         <TestimonialsStrip onInquire={handleOpenGeneralInquiry} />
 
 
-        {/* FOR MOROCCAN BUSINESSES CTA BANNER */}
-        <section id="for-businesses" className="py-20 bg-[#123b34] text-white relative overflow-hidden zellige-pattern-dark">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid lg:grid-cols-2 gap-12 items-center">
-            
-            <div className="space-y-4">
-              <span className="px-3.5 py-1.5 rounded-full bg-[#f4c36b] text-[#123b34] text-xs font-black uppercase tracking-wider">
-                For Local Tourism Operators
-              </span>
-              <h2 className="text-3xl sm:text-5xl font-serif font-black tracking-tight leading-tight">
-                Put your Moroccan business in front of qualified global travelers.
-              </h2>
-              <p className="text-sm text-white/80 leading-relaxed max-w-xl">
-                Join the SafarAtlas verified partner network. Showcase your riad, surf camp, desert tour, or culinary experience and receive high-intent inquiries delivered directly.
-              </p>
-            </div>
-
-            <div className="p-8 rounded-3xl bg-white/10 backdrop-blur-md border border-white/20 space-y-6">
-              <h3 className="text-xl font-serif font-bold text-white">Partner Listing Benefits</h3>
-              <ul className="space-y-3 text-xs text-white/90 font-medium">
-                {[
-                  "100% Direct Inquiry delivery to your WhatsApp / Email",
-                  "Verified Partner Badge & trusted presentation",
-                  "Featured placement in region guides and atlas maps"
-                ].map((benefit) => (
-                  <li key={benefit} className="flex items-center gap-2">
-                    <svg className="w-4 h-4 text-[#f4c36b] shrink-0" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                    </svg>
-                    <span>{benefit}</span>
-                  </li>
-                ))}
-              </ul>
-
-              <button
-                onClick={handleOpenGeneralInquiry}
-                className="w-full py-3.5 rounded-xl bg-[#c95e3d] hover:bg-[#aa4a2c] text-white text-xs font-black transition-all shadow-lg text-center block"
-              >
-                Request Partner Verification
-              </button>
-            </div>
-
-          </div>
-        </section>
 
       </main>
 

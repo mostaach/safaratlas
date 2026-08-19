@@ -207,10 +207,11 @@ export const DestinationSliceCarousel: React.FC<DestinationSliceCarouselProps> =
 
                     <button
                       onClick={e => { e.stopPropagation(); onSelect?.(dest); }}
-                      className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#c95e3d] hover:bg-[#aa4a2c] text-white text-xs font-bold tracking-widest shadow-lg transition-all"
+                      className="relative overflow-hidden flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#c95e3d] hover:bg-[#aa4a2c] text-white text-xs font-bold tracking-widest shadow-lg transition-all"
                     >
-                      <span>Explore Guide</span>
-                      <svg className="w-3.5 h-3.5" viewBox="0 0 20 20" fill="currentColor">
+                      <div className="absolute inset-0 animate-shimmer pointer-events-none" />
+                      <span className="relative z-10">Explore Guide</span>
+                      <svg className="w-3.5 h-3.5 relative z-10" viewBox="0 0 20 20" fill="currentColor">
                         <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd"/>
                       </svg>
                     </button>
@@ -332,10 +333,11 @@ export const DestinationSliceCarousel: React.FC<DestinationSliceCarouselProps> =
                     </span>
                     <button
                       onClick={e => { e.stopPropagation(); onSelect?.(dest); }}
-                      className="flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#c95e3d] hover:bg-[#aa4a2c] text-white text-[11px] font-bold tracking-widest shadow-md transition-all"
+                      className="relative overflow-hidden flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#c95e3d] hover:bg-[#aa4a2c] text-white text-[11px] font-bold tracking-widest shadow-md transition-all"
                     >
-                      Explore
-                      <svg className="w-3 h-3" viewBox="0 0 20 20" fill="currentColor">
+                      <div className="absolute inset-0 animate-shimmer pointer-events-none" />
+                      <span className="relative z-10">Explore</span>
+                      <svg className="w-3 h-3 relative z-10" viewBox="0 0 20 20" fill="currentColor">
                         <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd"/>
                       </svg>
                     </button>

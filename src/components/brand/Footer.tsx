@@ -16,7 +16,7 @@ export const Footer: React.FC = () => {
           <div className="space-y-4 md:col-span-1">
             <Logo variant="light" size="md" showTagline={true} />
             <p className="text-xs text-white/70 leading-relaxed">
-              Morocco&apos;s curated travel discovery platform. Connecting independent travelers directly with verified local riads, desert camps, surf stays, and craft guides.
+              Morocco&apos;s premium managed journey service. Our local experts design, book, and orchestrate flawless Moroccan experiences from start to finish.
             </p>
             <div className="space-y-1 text-xs text-white/80 font-medium">
               <p>Email: <a href="mailto:contactsafaratlas@gmail.com" className="text-gold hover:underline">contactsafaratlas@gmail.com</a></p>
@@ -54,20 +54,21 @@ export const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Col 4: For Businesses & Lead Network */}
+          {/* Col 4: Journey CTA */}
           <div className="p-5 rounded-2xl bg-white/5 border border-white/10 space-y-3">
-            <span className="text-[10px] font-black uppercase text-[#059669] bg-[#ecfdf5] text-[#059669] px-2.5 py-0.5 rounded-full inline-block">
-              For Moroccan Tourism Hosts
+            <span className="text-[10px] font-black uppercase text-[#c95e3d] bg-[#c95e3d]/10 px-2.5 py-0.5 rounded-full inline-block">
+              Start Your Journey
             </span>
-            <h5 className="text-sm font-bold text-white">Are you a verified local business?</h5>
+            <h5 className="text-sm font-bold text-white">Ready to explore Morocco?</h5>
             <p className="text-[11px] text-white/70 leading-relaxed">
-              Receive direct traveler inquiries without OTA commission cuts. Join the SafarAtlas partner index.
+              Tell us your vision and our local team will craft a fully managed, personalised itinerary just for you.
             </p>
-            <a 
-              href="#for-businesses" 
-              className="inline-block w-full text-center py-2.5 rounded-xl bg-gold hover:bg-gold-dark text-white text-xs font-bold transition-all shadow-md"
+            <a
+              href="#top"
+              onClick={(e) => { e.preventDefault(); document.getElementById('hero-cta')?.click(); }}
+              className="inline-block w-full text-center py-2.5 rounded-xl bg-[#c95e3d] hover:bg-[#aa4a2c] text-white text-xs font-bold transition-all shadow-md"
             >
-              List Your Business
+              Plan My Journey →
             </a>
           </div>
 
@@ -77,7 +78,7 @@ export const Footer: React.FC = () => {
         <div className="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between text-xs text-white/50 gap-4">
           <p>© {new Date().getFullYear()} SafarAtlas Tourism Technology. All rights reserved.</p>
           <div className="flex items-center gap-4 font-semibold">
-            <span className="text-white/70">Verified Lead Intermediary Guarantee</span>
+            <span className="text-white/70">Fully Managed Journey Guarantee</span>
             <span>•</span>
             <a href="/legal/privacy" className="hover:text-white">Privacy</a>
             <span>•</span>

@@ -91,9 +91,10 @@ export const DestinationCard: React.FC<DestinationCardProps> = ({ destination, o
           <span className="text-[11px] text-white/70 font-medium">
             Best Season: <strong className="text-white font-bold">{destination.bestTime}</strong>
           </span>
-          <span className="inline-flex items-center gap-1 text-xs font-bold text-[#f4c36b] group-hover:translate-x-1 transition-transform">
-            <span>Explore Guide</span>
-            <svg className="w-3.5 h-3.5" viewBox="0 0 20 20" fill="currentColor">
+          <span className="relative overflow-hidden inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-white/10 hover:bg-[#c95e3d] text-xs font-bold text-white transition-all transform group-hover:bg-[#c95e3d] group-hover:scale-105">
+            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 animate-shimmer pointer-events-none transition-opacity" />
+            <span className="relative z-10">Explore Guide</span>
+            <svg className="w-3.5 h-3.5 relative z-10" viewBox="0 0 20 20" fill="currentColor">
               <path fillRule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
             </svg>
           </span>

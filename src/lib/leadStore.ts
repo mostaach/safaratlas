@@ -133,4 +133,4 @@ export const updateLead = async (id: string, updates: Partial<Pick<Lead, "status
   return leads[index];
 };
 
-export const isLeadStatus = (value: unknown): value is LeadStatus => typeof value === "string" && ["new", "routed", "partner_replied", "quote_sent", "booked", "lost", "spam"].includes(value);
+export const isLeadStatus = (value: unknown): value is LeadStatus => typeof value === "string" && ["new", "in_review", "proposal_sent", "deposit_paid", "booked", "lost", "spam"].includes(value);
