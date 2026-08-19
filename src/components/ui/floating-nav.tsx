@@ -15,11 +15,11 @@ const FloatingNav: React.FC<FloatingNavProps> = ({ onOpenInquiry }) => {
   const btnRefs = useRef<(HTMLAnchorElement | HTMLButtonElement | null)[]>([]);
 
   const items = [
-    { id: 0, icon: <MapPin size={22} />, label: "Places", href: "#destinations" },
-    { id: 1, icon: <Map size={22} />, label: "Map", href: "#map-explorer" },
-    { id: 2, icon: <Route size={22} />, label: "Routes", href: "#itineraries" },
-    { id: 3, icon: <ShieldCheck size={22} />, label: "Verified", href: "#verified-partners" },
-    { id: 4, icon: <MessageCircle size={22} />, label: "Plan", action: onOpenInquiry },
+    { id: 0, icon: <MapPin size={22} />, label: "Escapes", href: "#escapes-section" },
+    { id: 1, icon: <Map size={22} />, label: "Places", href: "#destinations" },
+    { id: 2, icon: <Route size={22} />, label: "Map", href: "#map-explorer" },
+    { id: 3, icon: <ShieldCheck size={22} />, label: "Journey", href: "/journey" },
+    { id: 4, icon: <MessageCircle size={22} />, label: "WhatsApp", action: () => window.open("https://wa.me/212698017323?text=Hello%20SafarAtlas!%20I'd%20like%20to%20plan%20a%20Morocco%20trip.", "_blank") },
   ];
 
   useEffect(() => {
