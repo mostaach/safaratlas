@@ -19,8 +19,11 @@ export const metadata: Metadata = {
   title: "SafarAtlas | Managed Morocco Journeys & Escapes",
   description: "Discover Morocco, select modular Escapes (Sahara, Agafay, Taghazout), and let SafarAtlas orchestrate your complete journey with trusted local partners.",
   icons: {
-    icon: "/icon.png",
-    shortcut: "/icon.png",
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/icon.png", type: "image/png" }
+    ],
+    shortcut: "/favicon.ico",
     apple: "/apple-icon.png",
   },
   openGraph: {
