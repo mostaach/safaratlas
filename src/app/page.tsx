@@ -11,7 +11,7 @@ import { InteractiveMap } from "../components/travel/InteractiveMap";
 import { ItineraryTimeline } from "../components/travel/ItineraryTimeline";
 import { InquiryModal } from "../components/travel/InquiryModal";
 import { ListingDetailModal } from "../components/travel/ListingDetailModal";
-import { ListingsCarousel } from "../components/travel/ListingsCarousel";
+
 import { FadeIn } from "../components/animations/FadeIn";
 import { SlideUp } from "../components/animations/SlideUp";
 import { StaggerContainer, StaggerItem } from "../components/animations/StaggerContainer";
@@ -33,9 +33,7 @@ export default function Home() {
   const [selectedEscapeForInquiry, setSelectedEscapeForInquiry] = useState<EscapePackage | null>(null);
   const [selectedEscapeForDetail, setSelectedEscapeForDetail] = useState<EscapePackage | null>(null);
   const [selectedBusinessForDetail, setSelectedBusinessForDetail] = useState<BusinessListing | null>(null);
-  const [activeCategoryFilter, setActiveCategoryFilter] = useState("All");
-  const [searchQuery, setSearchQuery] = useState("");
-  const [selectedRegion, setSelectedRegion] = useState("All Morocco");
+
 
   useEffect(() => {
     trackEvent("page_view", { source: document.referrer || "direct" });
@@ -63,35 +61,7 @@ export default function Home() {
     setInquiryModalOpen(true);
   };
 
-  const handleSearch = (query: string, region: string) => {
-    setSearchQuery(query);
-    setSelectedRegion(region);
-  };
 
-  const clearDiscoveryFilters = () => {
-    setSearchQuery("");
-    setSelectedRegion("All Morocco");
-    setActiveCategoryFilter("All");
-  };
-
-  // Filter listings based on category pill selection
-  const categoryMap: Record<string, BusinessListing["category"] | undefined> = {
-    "Riads & Stays": "Riad & Stay",
-    "Sahara Camps": "Desert Expeditions",
-    "Surf & Coast": "Surf & Ocean",
-    "Artisan Crafts": "Cultural & Crafts",
-    "Tagine & Food": "Food & Culinary",
-  };
-
-  const normalizedQuery = searchQuery.toLowerCase();
-  const filteredListings = BUSINESS_LISTINGS.filter((business) => {
-    const hasCategory = !categoryMap[activeCategoryFilter] || business.category === categoryMap[activeCategoryFilter];
-    const hasRegion = selectedRegion === "All Morocco" || business.location.includes(selectedRegion) || business.region.includes(selectedRegion);
-    const searchableText = `${business.name} ${business.category} ${business.location} ${business.region} ${business.shortDesc} ${business.amenities.join(" ")}`.toLowerCase();
-    const hasQuery = !normalizedQuery || searchableText.includes(normalizedQuery);
-
-    return hasCategory && hasRegion && hasQuery;
-  });
 
   // Helper for generating category icons — kept for any future use
   // (now delegated to ListingsCarousel internally)
@@ -111,9 +81,9 @@ export default function Home() {
         
         {/* HERO SECTION - SPLIT IMMERSIVE SHOWCASE */}
         <HeroSection 
-          onSearch={handleSearch}
-          onSelectCategory={(cat) => setActiveCategoryFilter(cat)}
-          onOpenInquiry={(bizId) => handleInquireById(bizId || "biz-1")}
+          onSearch={() => {}}
+          onSelectCategory={() => {}}
+          onOpenInquiry={() => handleOpenGeneralInquiry()}
         />
 
         {/* ESCAPES SECTION - PRE-PACKAGED TRIP MODULES */}
@@ -186,76 +156,6 @@ export default function Home() {
               itinerary={ITINERARIES[0]}
               onInquirePartner={handleInquireById}
             />
-
-          </div>
-        </section>
-
-
-        {/* VERIFIED BUSINESS LISTINGS SECTION */}
-        <section id="verified-partners" className="py-20 pb-32 bg-[#f2e9dc] border-t border-[#e5dacb]">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-            
-            <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
-              <div>
-                <div className="flex items-center gap-2 mb-1">
-                  <span className="px-2.5 py-0.5 rounded-full bg-[#ecfdf5] text-[#059669] text-xs font-bold border border-[#a7f3d0]">
-                    ✓ Safar Verified Index
-                  </span>
-                </div>
-                <h2 className="text-3xl sm:text-4xl font-serif font-black text-[#121a17] tracking-tight">
-                  Verified Local Tourism Partners
-                </h2>
-              </div>
-
-              {/* Category Filter Pills */}
-              <div className="flex flex-wrap gap-2">
-                {["All", "Riads & Stays", "Sahara Camps", "Surf & Coast", "Artisan Crafts", "Tagine & Food"].map((cat) => (
-                  <button
-                    key={cat}
-                    onClick={() => setActiveCategoryFilter(cat)}
-                    className={`cursor-pointer px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#c95e3d] ${
-                      activeCategoryFilter === cat
-                        ? "bg-[#123b34] text-white shadow-sm"
-                        : "bg-white text-[#4e5e57] border border-[#e5dacb] hover:bg-[#faf6f0]"
-                    }`}
-                  >
-                    {cat}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            {/* Listings Grid */}
-            <div className="space-y-4">
-              <div className="flex flex-wrap items-center justify-between gap-3 text-xs text-[#4e5e57]">
-                <p>
-                  Showing <strong className="text-[#121a17]">{filteredListings.length}</strong> verified local {filteredListings.length === 1 ? "option" : "options"}
-                  {selectedRegion !== "All Morocco" ? ` in ${selectedRegion}` : ""}
-                  {searchQuery ? ` for “${searchQuery}”` : ""}.
-                </p>
-                {(searchQuery || selectedRegion !== "All Morocco" || activeCategoryFilter !== "All") && (
-                  <button onClick={clearDiscoveryFilters} className="font-bold text-[#123b34] hover:text-[#c95e3d]">
-                    Clear filters
-                  </button>
-                )}
-              </div>
-
-              {filteredListings.length > 0 ? (
-                <ListingsCarousel
-                  listings={filteredListings}
-                  onInquire={handleOpenPartnerInquiry}
-                />
-              ) : (
-                <div className="rounded-3xl border border-dashed border-[#e5dacb] bg-white/70 p-10 text-center">
-                  <h3 className="text-lg font-serif font-black text-[#121a17]">No exact match found</h3>
-                  <p className="mx-auto mt-2 max-w-md text-sm text-[#4e5e57]">Try a broader destination or category. You can also send one inquiry and we will match it with a relevant verified partner.</p>
-                  <button onClick={handleOpenGeneralInquiry} className="mt-5 rounded-xl bg-[#123b34] px-5 py-3 text-xs font-bold text-white hover:bg-[#121a17]">
-                    Ask for a recommendation
-                  </button>
-                </div>
-              )}
-
-            </div>
 
           </div>
         </section>
