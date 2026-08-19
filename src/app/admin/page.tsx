@@ -3,8 +3,9 @@
 import { FormEvent, useState, useEffect, CSSProperties } from "react";
 import { Lead, leadStatuses, LeadStatus } from "../../lib/leadTypes";
 import { PartnerApplication, PartnerStatus } from "../../lib/partnerStore";
+import { ESCAPES_PACKAGES } from "../../data/mockData";
 
-type Tab = "dashboard" | "leads" | "partners";
+type Tab = "dashboard" | "leads" | "escapes" | "partners" | "finance";
 
 const leadLabels: Record<LeadStatus, string> = {
   new: "New Request",
@@ -34,9 +35,11 @@ const statusColor: Record<LeadStatus, string> = {
 };
 
 const navItems: { id: Tab; icon: string; label: string }[] = [
-  { id: "dashboard", icon: "⊞", label: "Dashboard" },
-  { id: "leads", icon: "📬", label: "Journey Requests" },
+  { id: "dashboard", icon: "⊞", label: "HQ Command Center" },
+  { id: "leads", icon: "📬", label: "Bookings Pipeline" },
+  { id: "escapes", icon: "🐪", label: "Escapes Catalog" },
   { id: "partners", icon: "🤝", label: "Vetted Suppliers" },
+  { id: "finance", icon: "📊", label: "Finance & Net Costs" },
 ];
 
 // Style helpers
@@ -331,16 +334,16 @@ export default function AdminPage() {
                           </div>
 
                           <div style={{ display: "grid", gap: 8, minWidth: 200, alignContent: "start" }}>
-                            <label style={{ fontSize: 10, fontWeight: 700, color: "#5a7a6e", textTransform: "uppercase" }}>Status</label>
+                            <label style={{ fontSize: 10, fontWeight: 700, color: "#5a7a6e", textTransform: "uppercase" }}>Journey Status</label>
                             <select value={lead.status} onChange={e => updateLead(lead, { status: e.target.value as LeadStatus })} style={selectStyle}>
                               {leadStatuses.map(s => <option key={s} value={s}>{leadLabels[s]}</option>)}
                             </select>
                             
-                            <label style={{ fontSize: 10, fontWeight: 700, color: "#5a7a6e", textTransform: "uppercase", marginTop: 4 }}>Trip Financials</label>
-                            <input type="number" min="0" placeholder="Booking value (€)" value={lead.bookingValue ?? ""}
+                            <label style={{ fontSize: 10, fontWeight: 700, color: "#5a7a6e", textTransform: "uppercase", marginTop: 4 }}>DMC Costing & Margin Engine</label>
+                            <input type="number" min="0" placeholder="Selling price (€)" value={lead.bookingValue ?? ""}
                               onChange={e => updateLead(lead, { bookingValue: e.target.value === "" ? null : Number(e.target.value) })}
                               style={inputStyle} />
-                            <input type="number" min="0" max="100" placeholder="Margin / Commission %" value={lead.commissionRate ?? ""}
+                            <input type="number" min="0" max="100" placeholder="Margin % (e.g. 20%)" value={lead.commissionRate ?? ""}
                               onChange={e => updateLead(lead, { commissionRate: e.target.value === "" ? null : Number(e.target.value) })}
                               style={inputStyle} />
                           </div>
@@ -384,6 +387,68 @@ export default function AdminPage() {
                 ))
               }
             </>
+          {/* ESCAPES CATALOG TAB */}
+          {tab === "escapes" && (
+            <div style={{ display: "grid", gap: 16 }}>
+              <div style={{ background: "#15241e", border: "1px solid #1e362d", borderRadius: 16, padding: 20 }}>
+                <h3 style={{ margin: "0 0 4px", fontSize: 18, color: "#e8f0ed" }}>🐪 Packaged Escapes Catalog</h3>
+                <p style={{ margin: 0, fontSize: 12, color: "#6b8c7e" }}>Sellable 1–3 day journey modules managed by SafarAtlas.</p>
+              </div>
+
+              {ESCAPES_PACKAGES.map((pkg) => (
+                <div key={pkg.id} style={card}>
+                  <div style={{ display: "flex", flexWrap: "wrap", gap: 20, justifyContent: "space-between", alignItems: "center" }}>
+                    <div style={{ flex: 1, minWidth: 240 }}>
+                      <span style={{ fontSize: 10, fontWeight: 800, textTransform: "uppercase", color: "#c95e3d" }}>{pkg.badge} · {pkg.location}</span>
+                      <h4 style={{ margin: "4px 0", fontSize: 18, color: "#e8f0ed" }}>{pkg.title}</h4>
+                      <p style={{ margin: "0 0 8px", fontSize: 12, color: "#6b8c7e" }}>{pkg.summary}</p>
+                      <p style={{ margin: 0, fontSize: 11, color: "#4ade80" }}>Public Price: €{pkg.priceFromEur} / person · Duration: {pkg.duration}</p>
+                    </div>
+                    <a
+                      href={`/escapes/${pkg.slug}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{
+                        padding: "8px 16px",
+                        borderRadius: 8,
+                        background: "#1e362d",
+                        color: "#f4c36b",
+                        fontSize: 12,
+                        fontWeight: 700,
+                        textDecoration: "none",
+                      }}
+                    >
+                      View Public Page →
+                    </a>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+
+          {/* FINANCE & NET COSTS TAB */}
+          {tab === "finance" && (
+            <div style={{ display: "grid", gap: 16 }}>
+              <div style={{ background: "#15241e", border: "1px solid #1e362d", borderRadius: 16, padding: 20 }}>
+                <h3 style={{ margin: "0 0 4px", fontSize: 18, color: "#e8f0ed" }}>📊 Finance & Net Costs Breakdown</h3>
+                <p style={{ margin: 0, fontSize: 12, color: "#6b8c7e" }}>DMC Profitability, gross revenue, net supplier costs, and net margin tracking.</p>
+              </div>
+
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 16 }}>
+                <div style={statCard}>
+                  <p style={statLabel}>Total Confirmed Revenue</p>
+                  <p style={statVal}>€{leads.filter(l => l.status === "booked" || l.status === "deposit_paid").reduce((s, l) => s + (l.bookingValue || 0), 0).toFixed(2)}</p>
+                </div>
+                <div style={statCard}>
+                  <p style={statLabel}>Expected SafarAtlas Margin</p>
+                  <p style={{ ...statVal, color: "#4ade80" }}>€{leads.reduce((s, l) => s + (l.expectedMargin || 0), 0).toFixed(2)}</p>
+                </div>
+                <div style={statCard}>
+                  <p style={statLabel}>Active Leads Count</p>
+                  <p style={statVal}>{leads.length}</p>
+                </div>
+              </div>
+            </div>
           )}
 
         </div>

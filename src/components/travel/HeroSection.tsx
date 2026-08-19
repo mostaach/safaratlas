@@ -128,13 +128,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             {/* Integrated Search Console with Category Tabs */}
             <FadeIn delay={0.4}>
               <div className="flex flex-col sm:flex-row items-center gap-4 pt-2">
-                <button
-                  type="button"
-                  onClick={() => onOpenInquiry && onOpenInquiry()}
+                <a
+                  href="/journey"
                   className="w-full sm:w-auto px-8 py-4 rounded-2xl bg-[#123b34] hover:bg-[#0b2621] text-[#f4c36b] text-sm font-black tracking-widest shadow-xl transition-all transform hover:-translate-y-0.5 cursor-pointer flex items-center justify-center gap-2 border border-[#2a5b50]"
                 >
-                  <span>Build My Morocco Journey</span>
-                </button>
+                  <span>Build My Morocco Journey →</span>
+                </a>
                 <button
                   type="button"
                   onClick={() => document.getElementById("escapes-section")?.scrollIntoView({ behavior: "smooth", block: "start" })}

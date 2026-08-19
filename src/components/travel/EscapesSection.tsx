@@ -215,10 +215,26 @@ export const EscapesSection: React.FC<EscapesSectionProps> = ({
                   </div>
 
                   <button
-                    onClick={() => onInquireEscape?.(item)}
+                    onClick={() => {
+                      if (typeof window !== "undefined") {
+                        const { addEscapeToJourney } = require("../../lib/journeyStore");
+                        addEscapeToJourney({
+                          id: item.id,
+                          slug: item.slug,
+                          title: item.title,
+                          duration: item.duration,
+                          location: item.location,
+                          priceFromEur: item.priceFromEur,
+                          image: item.image,
+                          badge: item.badge,
+                        });
+                        window.location.href = "/journey";
+                      }
+                      if (onInquireEscape) onInquireEscape(item);
+                    }}
                     className="w-full cursor-pointer py-2.5 rounded-xl bg-[#c95e3d] hover:bg-[#aa4a2c] text-white text-xs font-black tracking-wide shadow-md transition-all flex items-center justify-center gap-1.5"
                   >
-                    <span>Add to Journey</span>
+                    <span>+ Add to My Journey</span>
                     <svg
                       className="w-3.5 h-3.5"
                       viewBox="0 0 20 20"

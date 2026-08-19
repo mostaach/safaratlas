@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Script from "next/script";
 import { ESCAPES_PACKAGES } from "../../../data/mockData";
+import { AddEscapeToJourneyButton } from "../../../components/travel/AddEscapeToJourneyButton";
 
 export async function generateStaticParams() {
   return ESCAPES_PACKAGES.map((pkg) => ({
@@ -251,11 +252,7 @@ export default function EscapePage({ params }: { params: { slug: string } }) {
               </p>
             </div>
 
-            <Link href={`/?inquire=${escapePkg.slug}`} className="w-full py-4 rounded-xl bg-[#c95e3d] hover:bg-[#aa4a2c] text-white text-xs font-black tracking-widest shadow-lg transition-all transform hover:-translate-y-0.5 flex flex-col items-center justify-center gap-1 text-center">
-              <span>Add to My Morocco Journey →</span>
-              <span className="text-[10px] font-medium text-white/70 normal-case tracking-normal">Direct Inquiry</span>
-            </Link>
-            
+            <AddEscapeToJourneyButton escapePkg={escapePkg} />
           </div>
         </div>
 
