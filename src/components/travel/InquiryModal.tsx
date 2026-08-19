@@ -33,12 +33,12 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({
   
   const getInitialMessage = () => {
     if (selectedEscape) {
-      return `Hi! I would like to inquire about adding the ${selectedEscape.title} (${selectedEscape.duration}) to my Morocco trip.`;
+      return `Hi! I would like to include the ${selectedEscape.title} (${selectedEscape.duration}) in my Morocco journey.`;
     }
     if (selectedBusiness) {
       return `Hi! I would like to ask about availability and details for ${selectedBusiness.name}.`;
     }
-    return "Hi! I am planning a trip to Morocco and would like SafarAtlas to manage my journey with local partners.";
+    return "Hi! I am planning a trip to Morocco and would like SafarAtlas to manage my journey, including transport, stays, and local experiences.";
   };
 
   const [formData, setFormData] = useState({
@@ -120,14 +120,14 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({
         {step === "form" ? (
           <>
             <header className="bg-gradient-to-r from-[#123b34] to-[#1e5a4e] p-6 pr-14 text-white">
-              <p className="text-xs font-bold uppercase tracking-widest text-[#f4c36b]">SafarAtlas Managed Travel</p>
+              <p className="text-xs font-bold uppercase tracking-widest text-[#f4c36b]">SafarAtlas Journey Builder</p>
               <h3 id="inquiry-title" className="mt-2 text-2xl font-black tracking-tight">
-                {selectedEscape ? `Book ${selectedEscape.title}` : selectedBusiness ? `Inquire: ${selectedBusiness.name}` : "Build Your Morocco Journey"}
+                {selectedEscape ? `Add ${selectedEscape.title}` : selectedBusiness ? `Inquire: ${selectedBusiness.name}` : "Build My Morocco Journey"}
               </h3>
               <p className="mt-2 text-xs leading-relaxed text-white/80">
                 {selectedEscape
                   ? "Insert this Escape module into your custom trip. SafarAtlas will organize all local transfers, camps, and guides under one transparent quote."
-                  : "Tell us your dates and vision. SafarAtlas manages your full trip with trusted, verified local partners."}
+                  : "Tell us your dates and vision. SafarAtlas manages your full trip combining ready-made Escapes and verified local partners."}
               </p>
             </header>
 

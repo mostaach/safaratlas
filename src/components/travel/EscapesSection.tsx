@@ -23,7 +23,7 @@ export const EscapesSection: React.FC<EscapesSectionProps> = ({
 
   return (
     <section
-      id="escapes"
+      id="escapes-section"
       className="py-20 bg-[#faf6f0] border-t border-[#e5dacb] relative overflow-hidden"
     >
       {/* Background Decorative Accent */}

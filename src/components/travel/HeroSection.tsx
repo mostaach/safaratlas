@@ -114,53 +114,35 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             {/* Headline */}
             <SlideUp delay={0.2}>
               <h1 className="text-4xl sm:text-6xl font-serif font-black tracking-tight leading-[1.02] text-[#121a17]">
-                Your Morocco journey, <span className="gradient-terracotta-text">managed locally.</span>
+                Your Morocco trip, <span className="gradient-terracotta-text">planned and managed for you.</span>
               </h1>
             </SlideUp>
 
             {/* Subhead */}
             <SlideUp delay={0.3}>
               <p className="text-base sm:text-lg text-[#4e5e57] leading-relaxed max-w-xl font-medium">
-                Discover Morocco, select modular <strong>Escapes</strong>, and let SafarAtlas orchestrate your complete journey with trusted local partners. One point of contact, one transparent price.
+                Combine ready-made <strong>Escapes</strong>, local experiences and destinations into one journey. SafarAtlas coordinates trusted Moroccan partners, transport and stays under one transparent plan.
               </p>
             </SlideUp>
 
             {/* Integrated Search Console with Category Tabs */}
             <FadeIn delay={0.4}>
-              <div className="p-3 sm:p-4 rounded-3xl bg-white/90 backdrop-blur-xl shadow-2xl border border-[#e5dacb] space-y-3">
-                
-                {/* Search Bar Form */}
-                <form 
-                  onSubmit={handleFormSubmit}
-                  className="flex flex-col sm:flex-row items-center gap-2"
+              <div className="flex flex-col sm:flex-row items-center gap-4 pt-2">
+                <button
+                  type="button"
+                  onClick={() => onOpenInquiry && onOpenInquiry()}
+                  className="w-full sm:w-auto px-8 py-4 rounded-2xl bg-[#123b34] hover:bg-[#0b2621] text-[#f4c36b] text-sm font-black tracking-widest shadow-xl transition-all transform hover:-translate-y-0.5 cursor-pointer flex items-center justify-center gap-2 border border-[#2a5b50]"
                 >
-                  {/* Search Input */}
-                  <div className="flex-1 flex items-center gap-3 px-3 py-2 w-full bg-[#faf6f0]/70 rounded-2xl border border-[#e5dacb]/60 focus-within:border-[#c95e3d]">
-                    <div className="w-8 h-8 rounded-xl bg-[#c95e3d]/10 text-[#c95e3d] flex items-center justify-center shrink-0 font-bold">
-                      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                      </svg>
-                    </div>
-                    <input 
-                      type="text"
-                      value={query}
-                      onChange={(e) => setQuery(e.target.value)}
-                      placeholder="Search Escapes (Sahara, Agafay), experiences, destinations..."
-                      className="w-full text-xs sm:text-sm font-medium text-[#121a17] bg-transparent outline-none placeholder:text-[#4e5e57]/60"
-                    />
-                  </div>
-
-                  {/* Submit Button */}
-                  <button
-                    type="submit"
-                    className="w-full sm:w-auto px-6 py-3.5 rounded-2xl bg-[#c95e3d] hover:bg-[#aa4a2c] text-white text-xs font-bold tracking-widest shadow-lg shadow-[#c95e3d]/25 transition-all shrink-0 flex items-center justify-center gap-2 transform hover:-translate-y-0.5 cursor-pointer"
-                  >
-                    <span>Explore</span>
-                    <svg className="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
-                      <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
-                    </svg>
-                  </button>
-                </form>
+                  <span>Build My Morocco Journey</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => document.getElementById("escapes-section")?.scrollIntoView({ behavior: "smooth", block: "start" })}
+                  className="w-full sm:w-auto px-8 py-4 rounded-2xl bg-white hover:bg-[#faf6f0] text-[#121a17] text-sm font-bold tracking-widest shadow-lg transition-all border border-[#e5dacb] transform hover:-translate-y-0.5 cursor-pointer flex items-center justify-center gap-2"
+                >
+                  <span>Explore Escapes</span>
+                  <span className="text-[#c95e3d]">↓</span>
+                </button>
               </div>
             </FadeIn>
 

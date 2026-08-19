@@ -391,6 +391,15 @@ export interface EscapePackage {
     image: string;
     highlights: string[];
   }[];
+  // Internal Operational Components
+  startingLocation?: string;
+  endingLocation?: string;
+  accommodation?: string;
+  transport?: string;
+  activities?: string[];
+  partnerRequirements?: string[];
+  internalPartnerCostEur?: number;
+  safarAtlasMarginEur?: number;
 }
 
 export const ESCAPES_PACKAGES: EscapePackage[] = [
@@ -413,6 +422,14 @@ export const ESCAPES_PACKAGES: EscapePackage[] = [
     ],
     included: ["Private 4x4 / Minivan with AC", "Dedicated English/French Speaking Driver", "Luxury Private Tent with Ensuite Bathroom", "Daily Breakfast & Traditional Dinners", "Sunset & Sunrise Camel Caravans"],
     notIncluded: ["Lunches along the road", "Personal drinks & gratuities"],
+    startingLocation: "Marrakech",
+    endingLocation: "Marrakech",
+    accommodation: "Boutique Kasbah (Night 1), Luxury Desert Camp (Night 2)",
+    transport: "Private AC Minivan / 4x4",
+    activities: ["Aït Benhaddou Tour", "Camel Trekking", "Campfire Music"],
+    partnerRequirements: ["English-speaking driver", "Luxury camp with ensuite bathroom", "Kasbah with heating/AC"],
+    internalPartnerCostEur: 280,
+    safarAtlasMarginEur: 140,
     summary: "The iconic Moroccan desert journey packaged into a seamless 3-day module. Perfect to insert into any longer Morocco trip or book standalone.",
     fullDescription: "Experience the ultimate Moroccan desert road trip across the High Atlas mountains, historic red clay kasbahs, dramatic gorges, and the towering golden dunes of Merzouga. SafarAtlas coordinates your private vehicle, driver, boutique kasbah night in Dades, and luxury Bedouin desert camp.",
     itineraryDays: [
