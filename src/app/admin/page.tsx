@@ -36,7 +36,7 @@ const statusColor: Record<LeadStatus, string> = {
 const navItems: { id: Tab; icon: string; label: string }[] = [
   { id: "dashboard", icon: "⊞", label: "Dashboard" },
   { id: "leads", icon: "📬", label: "Journey Requests" },
-  { id: "partners", icon: "🤝", label: "Partner Applications" },
+  { id: "partners", icon: "🤝", label: "Vetted Suppliers" },
 ];
 
 // Style helpers
@@ -263,33 +263,91 @@ export default function AdminPage() {
               {leadsError && <p style={{ color: "#ef4444", fontWeight: 700, marginBottom: 12 }}>{leadsError}</p>}
               {leads.length === 0
                 ? <div style={emptyState}><p style={{ fontSize: 36, marginBottom: 12 }}>📬</p><p>No journey requests yet.</p></div>
-                : leads.map(lead => (
-                  <div key={lead.id} style={card}>
-                    <div style={{ display: "flex", flexWrap: "wrap", gap: 20, justifyContent: "space-between" }}>
-                      <div style={{ flex: 1, minWidth: 0 }}>
-                        <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 4 }}>
-                          <p style={{ ...cardId, margin: 0 }}>{lead.id}</p>
-                          <span style={pillStyle(statusColor[lead.status])}>{leadLabels[lead.status]}</span>
+                : leads.map(lead => {
+                    const cleanPhone = (lead.whatsapp || "").replace(/[^0-9]/g, "");
+                    const waMessage = encodeURIComponent(`Hello ${lead.travelerName}, thank you for reaching out to SafarAtlas regarding your Morocco trip! We received your request (${lead.id}).`);
+                    const waLink = cleanPhone ? `https://wa.me/${cleanPhone.startsWith('212') ? cleanPhone : '212' + cleanPhone.replace(/^0/, '')}?text=${waMessage}` : null;
+                    const mailtoLink = `mailto:${lead.email}?subject=${encodeURIComponent(`SafarAtlas Journey Inquiry — ${lead.id}`)}&body=${encodeURIComponent(`Hi ${lead.travelerName},\n\nThank you for reaching out to SafarAtlas!`)}`;
+
+                    return (
+                      <div key={lead.id} style={card}>
+                        <div style={{ display: "flex", flexWrap: "wrap", gap: 20, justifyContent: "space-between" }}>
+                          <div style={{ flex: 1, minWidth: 0 }}>
+                            <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 6 }}>
+                              <p style={{ ...cardId, margin: 0 }}>{lead.id}</p>
+                              <span style={pillStyle(statusColor[lead.status])}>{leadLabels[lead.status]}</span>
+                            </div>
+                            <p style={cardTitle}>{lead.travelerName}</p>
+                            <p style={cardSub}>{lead.email}{lead.whatsapp ? ` · ${lead.whatsapp}` : ""} · {lead.travelDates} · {lead.groupSize}</p>
+                            <p style={cardMsg}>{lead.message}</p>
+                            {lead.expectedMargin ? (
+                              <p style={{ fontSize: 12, fontWeight: 700, color: "#4ade80", margin: "6px 0 0" }}>
+                                Expected margin: €{lead.expectedMargin.toFixed(2)} (Val: €{lead.bookingValue} @ {lead.commissionRate}%)
+                              </p>
+                            ) : null}
+
+                            {/* Action Buttons: 1-Click WhatsApp & Email */}
+                            <div style={{ display: "flex", gap: 10, marginTop: 12, flexWrap: "wrap" }}>
+                              {waLink && (
+                                <a
+                                  href={waLink}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  style={{
+                                    display: "inline-flex",
+                                    alignItems: "center",
+                                    gap: 6,
+                                    padding: "6px 12px",
+                                    borderRadius: 8,
+                                    background: "#25D366",
+                                    color: "#fff",
+                                    fontSize: 11,
+                                    fontWeight: 800,
+                                    textDecoration: "none",
+                                  }}
+                                >
+                                  💬 Chat on WhatsApp
+                                </a>
+                              )}
+                              <a
+                                href={mailtoLink}
+                                style={{
+                                  display: "inline-flex",
+                                  alignItems: "center",
+                                  gap: 6,
+                                  padding: "6px 12px",
+                                  borderRadius: 8,
+                                  background: "#1e2e28",
+                                  border: "1px solid #2a3e34",
+                                  color: "#e8f0ed",
+                                  fontSize: 11,
+                                  fontWeight: 700,
+                                  textDecoration: "none",
+                                }}
+                              >
+                                ✉️ Email Traveler
+                              </a>
+                            </div>
+                          </div>
+
+                          <div style={{ display: "grid", gap: 8, minWidth: 200, alignContent: "start" }}>
+                            <label style={{ fontSize: 10, fontWeight: 700, color: "#5a7a6e", textTransform: "uppercase" }}>Status</label>
+                            <select value={lead.status} onChange={e => updateLead(lead, { status: e.target.value as LeadStatus })} style={selectStyle}>
+                              {leadStatuses.map(s => <option key={s} value={s}>{leadLabels[s]}</option>)}
+                            </select>
+                            
+                            <label style={{ fontSize: 10, fontWeight: 700, color: "#5a7a6e", textTransform: "uppercase", marginTop: 4 }}>Trip Financials</label>
+                            <input type="number" min="0" placeholder="Booking value (€)" value={lead.bookingValue ?? ""}
+                              onChange={e => updateLead(lead, { bookingValue: e.target.value === "" ? null : Number(e.target.value) })}
+                              style={inputStyle} />
+                            <input type="number" min="0" max="100" placeholder="Margin / Commission %" value={lead.commissionRate ?? ""}
+                              onChange={e => updateLead(lead, { commissionRate: e.target.value === "" ? null : Number(e.target.value) })}
+                              style={inputStyle} />
+                          </div>
                         </div>
-                        <p style={cardTitle}>{lead.travelerName}</p>
-                        <p style={cardSub}>{lead.email}{lead.whatsapp ? ` · ${lead.whatsapp}` : ""} · {lead.travelDates} · {lead.groupSize}</p>
-                        <p style={cardMsg}>{lead.message}</p>
-                        {lead.expectedMargin ? <p style={{ fontSize: 12, fontWeight: 700, color: "#4ade80", margin: 0 }}>Expected margin: €{lead.expectedMargin.toFixed(2)}</p> : null}
                       </div>
-                      <div style={{ display: "grid", gap: 8, minWidth: 200 }}>
-                        <select value={lead.status} onChange={e => updateLead(lead, { status: e.target.value as LeadStatus })} style={selectStyle}>
-                          {leadStatuses.map(s => <option key={s} value={s}>{leadLabels[s]}</option>)}
-                        </select>
-                        <input type="number" min="0" placeholder="Booking value (€)" value={lead.bookingValue ?? ""}
-                          onChange={e => updateLead(lead, { bookingValue: e.target.value === "" ? null : Number(e.target.value) })}
-                          style={inputStyle} />
-                        <input type="number" min="0" max="100" placeholder="Commission %" value={lead.commissionRate ?? ""}
-                          onChange={e => updateLead(lead, { commissionRate: e.target.value === "" ? null : Number(e.target.value) })}
-                          style={inputStyle} />
-                      </div>
-                    </div>
-                  </div>
-                ))
+                    );
+                  })
               }
             </>
           )}

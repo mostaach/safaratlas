@@ -216,9 +216,19 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({
               <div className="flex justify-between gap-4"><span className="text-[#4e5e57]">Travel Dates</span><strong className="text-[#121a17]">{formData.travelDates}</strong></div>
               <div className="flex justify-between gap-4"><span className="text-[#4e5e57]">Group Size</span><strong className="text-[#121a17]">{formData.groupSize}</strong></div>
             </div>
-            <button onClick={handleClose} className="w-full rounded-xl bg-[#123b34] py-3 text-xs font-bold text-white hover:bg-[#0b110f] cursor-pointer">
-              Back to SafarAtlas
-            </button>
+            <div className="space-y-2 pt-2">
+              <a
+                href={`https://wa.me/212698017323?text=${encodeURIComponent(`Hi SafarAtlas! I just submitted request ${leadReference} for ${itemName} (${formData.travelDates}). I'd like to chat on WhatsApp.`)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 w-full rounded-xl bg-[#25D366] hover:bg-[#1eb855] py-3 text-xs font-bold text-white shadow-md cursor-pointer"
+              >
+                💬 Chat with Concierge on WhatsApp Now
+              </a>
+              <button onClick={handleClose} className="w-full rounded-xl bg-[#123b34] py-3 text-xs font-bold text-white hover:bg-[#0b110f] cursor-pointer">
+                Back to SafarAtlas
+              </button>
+            </div>
           </div>
         )}
       </section>
