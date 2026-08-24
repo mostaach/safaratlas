@@ -100,6 +100,7 @@ export default function AdminPage() {
   const [leads, setLeads] = useState<Lead[]>([]);
   const [applications, setApplications] = useState<PartnerApplication[]>([]);
   const [loading, setLoading] = useState(false);
+  const [refreshing, setRefreshing] = useState(false);
   const [leadsError, setLeadsError] = useState("");
   const [now, setNow] = useState("");
 
@@ -107,20 +108,31 @@ export default function AdminPage() {
     setNow(new Date().toLocaleDateString("en-GB", { weekday: "long", year: "numeric", month: "long", day: "numeric" }));
   }, []);
 
-  const loadAll = async (event?: FormEvent) => {
+  const loadAll = async (event?: FormEvent, isRefresh = false) => {
     event?.preventDefault();
     setAuthError("");
-    setLoading(true);
+    if (isRefresh) setRefreshing(true); else setLoading(true);
     const cleanToken = token.trim();
-    const [lr, ar] = await Promise.all([
-      fetch("/api/leads", { headers: { authorization: `Bearer ${cleanToken}` }, cache: "no-store" }),
-      fetch("/api/partner-applications", { headers: { authorization: `Bearer ${cleanToken}` }, cache: "no-store" }),
-    ]);
-    setLoading(false);
-    if (!lr.ok) { const d = await lr.json(); setAuthError(d.error ?? "Invalid token."); return; }
-    setAuthenticated(true);
-    const ld = await lr.json(); setLeads(ld.leads);
-    if (ar.ok) { const ad = await ar.json(); setApplications(ad.applications); }
+    try {
+      const [lr, ar] = await Promise.all([
+        fetch("/api/leads", { headers: { authorization: `Bearer ${cleanToken}` }, cache: "no-store" }),
+        fetch("/api/partner-applications", { headers: { authorization: `Bearer ${cleanToken}` }, cache: "no-store" }),
+      ]);
+      if (!lr.ok) {
+        const d = await lr.json();
+        setAuthError(d.error ?? "Invalid token.");
+        return;
+      }
+      setAuthenticated(true);
+      const [ld, ad] = await Promise.all([lr.json(), ar.ok ? ar.json() : Promise.resolve(null)]);
+      setLeads(ld.leads ?? []);
+      if (ad) setApplications(ad.applications ?? []);
+    } catch {
+      setAuthError("Network error — please try again.");
+    } finally {
+      setLoading(false);
+      setRefreshing(false);
+    }
   };
 
   const updateLead = async (lead: Lead, changes: Partial<Lead>) => {
@@ -207,8 +219,12 @@ export default function AdminPage() {
             <p style={{ fontSize: 11, color: "#5a7a6e", margin: "2px 0 0" }}>{now}</p>
           </div>
           <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
-            <button onClick={() => loadAll()} style={{ padding: "8px 16px", borderRadius: 8, border: "1px solid #2a3e34", background: "transparent", color: "#8aaba0", fontSize: 12, fontWeight: 700, cursor: "pointer" }}>
-              ↺ Refresh
+            <button
+              onClick={() => loadAll(undefined, true)}
+              disabled={refreshing}
+              style={{ padding: "8px 16px", borderRadius: 8, border: "1px solid #2a3e34", background: refreshing ? "#1a2e26" : "transparent", color: refreshing ? "#4ade80" : "#8aaba0", fontSize: 12, fontWeight: 700, cursor: refreshing ? "not-allowed" : "pointer", opacity: refreshing ? 0.8 : 1, transition: "all 0.2s" }}
+            >
+              {refreshing ? "⟳ Refreshing…" : "↺ Refresh"}
             </button>
             <span style={pillStyle("#10b981")}>● Live</span>
           </div>
