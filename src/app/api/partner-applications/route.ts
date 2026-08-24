@@ -7,6 +7,7 @@ import {
   PartnerCategory,
   updateApplication,
 } from "../../../lib/partnerStore";
+import { isJsonRequest, isRateLimited } from "../../../lib/requestGuards";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -14,7 +15,7 @@ export const dynamic = "force-dynamic";
 const validCategories: PartnerCategory[] = ["airport_transfer", "riad", "desert_trip", "guided_tour", "activity", "restaurant", "other"];
 
 const isAdmin = (request: NextRequest) => {
-  const expectedToken = process.env.ADMIN_API_TOKEN;
+  const expectedToken = process.env.ADMIN_API_TOKEN?.trim();
   return Boolean(expectedToken) && request.headers.get("authorization") === `Bearer ${expectedToken}`;
 };
 
@@ -22,6 +23,8 @@ const text = (value: unknown, maxLength: number) =>
   typeof value === "string" ? value.trim().slice(0, maxLength) : "";
 
 export async function POST(request: NextRequest) {
+  if (!isJsonRequest(request)) return Response.json({ error: "Invalid submission." }, { status: 415 });
+  if (isRateLimited(request, "partner-application")) return Response.json({ error: "Please wait before submitting another application." }, { status: 429 });
   const body = await request.json().catch(() => null) as CreatePartnerApplicationInput | null;
   if (!body || body.website_hp) return Response.json({ error: "Invalid submission." }, { status: 400 });
 
@@ -52,13 +55,22 @@ export async function POST(request: NextRequest) {
     return Response.json({ error: "Please complete all required fields." }, { status: 400 });
   }
 
-  const application = await addApplication(input as Parameters<typeof addApplication>[0]);
+  let application;
+  try {
+    application = await addApplication(input as Parameters<typeof addApplication>[0]);
+  } catch {
+    return Response.json({ error: "We could not save your application. Please try again shortly." }, { status: 503 });
+  }
   return Response.json({ id: application.id, status: application.status }, { status: 201 });
 }
 
 export async function GET(request: NextRequest) {
   if (!isAdmin(request)) return Response.json({ error: "Unauthorized" }, { status: 401 });
-  return Response.json({ applications: await listApplications() });
+  try {
+    return Response.json({ applications: await listApplications() });
+  } catch {
+    return Response.json({ error: "Partner storage is temporarily unavailable." }, { status: 503 });
+  }
 }
 
 export async function PATCH(request: NextRequest) {
@@ -70,7 +82,12 @@ export async function PATCH(request: NextRequest) {
   if (isPartnerStatus(body.status)) updates.status = body.status;
   if (typeof body.adminNotes === "string") updates.adminNotes = body.adminNotes.trim().slice(0, 2000);
 
-  const updated = await updateApplication(body.id, updates);
+  let updated;
+  try {
+    updated = await updateApplication(body.id, updates);
+  } catch {
+    return Response.json({ error: "Partner storage is temporarily unavailable." }, { status: 503 });
+  }
   if (!updated) return Response.json({ error: "Application not found." }, { status: 404 });
   return Response.json({ application: updated });
 }

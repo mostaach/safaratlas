@@ -86,6 +86,9 @@ const cardSub: CSSProperties = { fontSize: 12, color: "#6b8c7e", marginBottom: 6
 const cardMsg: CSSProperties = { fontSize: 12, color: "#8aaba0", lineHeight: 1.6, marginBottom: 6 };
 const selectStyle: CSSProperties = { borderRadius: 8, border: "1px solid #2a3e34", background: "#0a1410", color: "#e8f0ed", padding: "8px 10px", fontSize: 12, fontWeight: 700, outline: "none", width: "100%" };
 const inputStyle: CSSProperties = { borderRadius: 8, border: "1px solid #2a3e34", background: "#0a1410", color: "#e8f0ed", padding: "8px 10px", fontSize: 12, outline: "none", width: "100%" };
+const statCard: CSSProperties = { background: "#111e18", border: "1px solid #1e2e28", borderRadius: 14, padding: "20px" };
+const statLabel: CSSProperties = { fontSize: 10, fontWeight: 700, letterSpacing: 2, textTransform: "uppercase", color: "#5a7a6e", margin: "0 0 8px" };
+const statVal: CSSProperties = { fontSize: 24, fontWeight: 900, color: "#e8f0ed", margin: 0 };
 const emptyState: CSSProperties = { textAlign: "center", padding: "60px 24px", color: "#3d5a50" };
 const badge: CSSProperties = { background: "#c95e3d", color: "#fff", borderRadius: "50%", width: 18, height: 18, fontSize: 10, fontWeight: 900, display: "flex", alignItems: "center", justifyContent: "center" };
 
@@ -108,9 +111,10 @@ export default function AdminPage() {
     event?.preventDefault();
     setAuthError("");
     setLoading(true);
+    const cleanToken = token.trim();
     const [lr, ar] = await Promise.all([
-      fetch("/api/leads", { headers: { authorization: `Bearer ${token}` }, cache: "no-store" }),
-      fetch("/api/partner-applications", { headers: { authorization: `Bearer ${token}` }, cache: "no-store" }),
+      fetch("/api/leads", { headers: { authorization: `Bearer ${cleanToken}` }, cache: "no-store" }),
+      fetch("/api/partner-applications", { headers: { authorization: `Bearer ${cleanToken}` }, cache: "no-store" }),
     ]);
     setLoading(false);
     if (!lr.ok) { const d = await lr.json(); setAuthError(d.error ?? "Invalid token."); return; }
@@ -122,7 +126,7 @@ export default function AdminPage() {
   const updateLead = async (lead: Lead, changes: Partial<Lead>) => {
     const res = await fetch("/api/leads", {
       method: "PATCH",
-      headers: { "content-type": "application/json", authorization: `Bearer ${token}` },
+      headers: { "content-type": "application/json", authorization: `Bearer ${token.trim()}` },
       body: JSON.stringify({ id: lead.id, status: lead.status, bookingValue: lead.bookingValue, commissionRate: lead.commissionRate, reconciliationStatus: lead.reconciliationStatus, ...changes }),
     });
     const data = await res.json();
@@ -133,7 +137,7 @@ export default function AdminPage() {
   const updateApp = async (app: PartnerApplication, changes: Partial<PartnerApplication>) => {
     const res = await fetch("/api/partner-applications", {
       method: "PATCH",
-      headers: { "content-type": "application/json", authorization: `Bearer ${token}` },
+      headers: { "content-type": "application/json", authorization: `Bearer ${token.trim()}` },
       body: JSON.stringify({ id: app.id, ...changes }),
     });
     const data = await res.json();
@@ -387,6 +391,7 @@ export default function AdminPage() {
                 ))
               }
             </>
+          )}
           {/* ESCAPES CATALOG TAB */}
           {tab === "escapes" && (
             <div style={{ display: "grid", gap: 16 }}>

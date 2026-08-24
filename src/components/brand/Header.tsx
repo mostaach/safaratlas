@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { Logo } from "./Logo";
 import { getStoredJourney } from "../../lib/journeyStore";
+import { WhatsAppButton } from "../ui/WhatsAppButton";
 
 interface HeaderProps {
   onOpenInquiryModal?: () => void;
@@ -89,15 +90,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenInquiryModal }) => {
 
         {/* Action CTAs */}
         <div className="hidden sm:flex items-center gap-2.5">
-          <a
-            href="https://wa.me/212698017323?text=Hello%20SafarAtlas!%20I'd%20like%20to%20plan%20a%20Morocco%20trip."
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-3.5 py-2.5 rounded-full bg-[#25D366]/10 text-[#25D366] border border-[#25D366]/30 hover:bg-[#25D366] hover:text-white text-xs font-bold transition-all duration-200 flex items-center gap-1.5 cursor-pointer"
-            title="Chat with Concierge"
-          >
-            <span>💬 WhatsApp</span>
-          </a>
+          <WhatsAppButton />
           <Link
             href="/journey"
             className="px-6 py-2.5 rounded-full bg-[#c95e3d] text-white text-xs font-bold tracking-widest shadow-md hover:bg-[#aa4a2c] transition-all duration-200 flex items-center gap-2 transform hover:-translate-y-0.5 cursor-pointer"

@@ -238,47 +238,53 @@ export default function Home() {
             </div>
 
             {/* Example Journey Timeline */}
-            <div className="max-w-3xl mx-auto bg-[#121a17] p-6 sm:p-8 rounded-3xl border border-[#2a5b50] shadow-2xl text-left space-y-6">
-              <div className="flex items-center justify-between border-b border-white/10 pb-4">
+            <SlideUp className="max-w-3xl mx-auto bg-[#121a17] p-6 sm:p-8 rounded-3xl border border-[#2a5b50] shadow-2xl text-left space-y-6 relative overflow-hidden group">
+              {/* Subtle background glow effect */}
+              <div className="absolute inset-0 bg-gradient-to-tr from-[#c95e3d]/10 via-transparent to-[#f4c36b]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+              
+              <div className="flex flex-col sm:flex-row items-center justify-between border-b border-white/10 pb-4 gap-2 relative z-10">
                 <span className="text-xs font-bold uppercase tracking-wider text-[#f4c36b]">Example 10-Day Journey</span>
                 <span className="text-xs font-bold text-white/70">Marrakech ➔ Sahara ➔ Taghazout ➔ Essaouira</span>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-5 gap-3 text-center text-xs">
-                <div className="p-3 rounded-xl bg-white/5 border border-white/10">
+              <StaggerContainer className="grid grid-cols-1 sm:grid-cols-5 gap-3 text-center text-xs relative z-10">
+                <StaggerItem className="p-3 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors duration-300 cursor-default">
                   <span className="text-[#f4c36b] font-bold block">Marrakech</span>
                   <span className="text-[10px] text-white/60">2 Nights</span>
-                </div>
-                <div className="p-3 rounded-xl bg-[#c95e3d]/20 border border-[#c95e3d]/40">
-                  <span className="text-white font-bold block">3-Day Sahara Escape</span>
-                  <span className="text-[10px] text-[#f4c36b]">Desert & Glamping</span>
-                </div>
-                <div className="p-3 rounded-xl bg-white/5 border border-white/10">
+                </StaggerItem>
+                <StaggerItem className="p-3 rounded-xl bg-[#c95e3d]/20 border border-[#c95e3d]/40 hover:bg-[#c95e3d]/30 transition-colors duration-300 cursor-default relative overflow-hidden group/item">
+                  <div className="absolute inset-0 bg-[#c95e3d]/20 scale-x-0 group-hover/item:scale-x-100 transform origin-left transition-transform duration-500 ease-out pointer-events-none" />
+                  <span className="text-white font-bold block relative z-10">3-Day Sahara Escape</span>
+                  <span className="text-[10px] text-[#f4c36b] relative z-10">Desert & Glamping</span>
+                </StaggerItem>
+                <StaggerItem className="p-3 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors duration-300 cursor-default">
                   <span className="text-[#f4c36b] font-bold block">Marrakech</span>
                   <span className="text-[10px] text-white/60">1 Night Transit</span>
-                </div>
-                <div className="p-3 rounded-xl bg-[#059669]/20 border border-[#059669]/40">
-                  <span className="text-white font-bold block">Taghazout Escape</span>
-                  <span className="text-[10px] text-[#a7f3d0]">Coast & Surf</span>
-                </div>
-                <div className="p-3 rounded-xl bg-white/5 border border-white/10">
+                </StaggerItem>
+                <StaggerItem className="p-3 rounded-xl bg-[#059669]/20 border border-[#059669]/40 hover:bg-[#059669]/30 transition-colors duration-300 cursor-default relative overflow-hidden group/item">
+                  <div className="absolute inset-0 bg-[#059669]/20 scale-x-0 group-hover/item:scale-x-100 transform origin-left transition-transform duration-500 ease-out pointer-events-none" />
+                  <span className="text-white font-bold block relative z-10">Taghazout Escape</span>
+                  <span className="text-[10px] text-[#a7f3d0] relative z-10">Coast & Surf</span>
+                </StaggerItem>
+                <StaggerItem className="p-3 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors duration-300 cursor-default">
                   <span className="text-[#f4c36b] font-bold block">Essaouira</span>
                   <span className="text-[10px] text-white/60">2 Nights</span>
-                </div>
-              </div>
+                </StaggerItem>
+              </StaggerContainer>
 
-              <div className="pt-2 flex flex-col sm:flex-row items-center justify-between gap-4">
+              <div className="pt-2 flex flex-col sm:flex-row items-center justify-between gap-4 relative z-10">
                 <p className="text-xs text-white/70">
                   SafarAtlas handles transport, private drivers, riad reservations, and activities.
                 </p>
                 <a
                   href="/journey"
-                  className="px-8 py-3.5 rounded-xl bg-[#c95e3d] hover:bg-[#aa4a2c] text-white text-xs font-black tracking-widest shadow-lg transition-all transform hover:scale-105 shrink-0"
+                  className="relative overflow-hidden px-8 py-3.5 rounded-xl bg-[#c95e3d] text-white text-xs font-black tracking-widest shadow-lg transition-all hover:scale-105 shrink-0 group/btn"
                 >
-                  Build My Journey →
+                  <span className="absolute inset-0 bg-white/20 translate-y-full group-hover/btn:translate-y-0 transition-transform duration-300 ease-out" />
+                  <span className="relative z-10">Build My Journey →</span>
                 </a>
               </div>
-            </div>
+            </SlideUp>
           </div>
         </section>
 

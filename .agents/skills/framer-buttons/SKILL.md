@@ -1,16 +1,38 @@
+---
+name: framer-buttons
+description: "A reusable skill for creating highly polished, interactive buttons using Framer Motion and Tailwind CSS. Includes gradient buttons with hover effects, pulsing icons, and scale animations."
+---
+
+# Framer Motion Buttons (framer-buttons)
+
+This skill provides ready-to-use, polished button components built with React, Framer Motion, and Tailwind CSS. Use this when you need premium, high-converting CTAs or social interaction buttons (like WhatsApp, Contact, etc.).
+
+## Key Design Principles
+- **Tactile Feedback:** Use `whileHover={{ scale: 1.05 }}` and `whileTap={{ scale: 0.95 }}` for natural interactions.
+- **Visual Depth:** Combine gradient backgrounds (`bg-gradient-to-r`) with colored shadows (`shadow-[color]/30`).
+- **Micro-Animations:** Use a subtle `animate-ping` effect behind icons to draw attention without being overwhelming.
+- **Gradient Sweeps:** Add a pseudo-element or absolute overlay that slides in on hover (`translate-y-full group-hover:translate-y-0`) for a premium gloss effect.
+
+## Reusable Component: WhatsApp Gradient Button
+
+Use this pattern for a premium WhatsApp or Messaging CTA.
+
+```tsx
 "use client";
 
-import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import React from "react";
+import { motion } from "framer-motion";
 
 interface WhatsAppButtonProps {
-  phoneNumber?: string;
+  phoneNumber: string;
   defaultMessage?: string;
+  label?: string;
 }
 
 export const WhatsAppButton: React.FC<WhatsAppButtonProps> = ({
-  phoneNumber = "212698017323", // SafarAtlas Moroccan Concierge WhatsApp Line
-  defaultMessage = "Hello SafarAtlas Concierge! I'm interested in planning a Morocco journey.",
+  phoneNumber,
+  defaultMessage = "Hello!",
+  label = "WhatsApp"
 }) => {
   const cleanPhone = phoneNumber.replace(/[^0-9]/g, "");
   const whatsappUrl = `https://wa.me/${cleanPhone}?text=${encodeURIComponent(defaultMessage)}`;
@@ -23,8 +45,9 @@ export const WhatsAppButton: React.FC<WhatsAppButtonProps> = ({
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
       className="relative flex items-center gap-1.5 px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-full bg-gradient-to-r from-[#25D366] to-[#1DA851] text-white shadow-sm shadow-[#25D366]/30 hover:shadow-md hover:shadow-[#25D366]/50 transition-shadow duration-300 overflow-hidden cursor-pointer group"
-      title="Chat with Concierge"
+      title={`Chat on ${label}`}
     >
+      {/* Glossy sweep effect */}
       <span className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
       
       {/* Icon with ping effect */}
@@ -36,8 +59,9 @@ export const WhatsAppButton: React.FC<WhatsAppButtonProps> = ({
       </div>
 
       <span className="relative z-10 text-[11px] sm:text-xs font-bold tracking-wide">
-        WhatsApp
+        {label}
       </span>
     </motion.a>
   );
 };
+```

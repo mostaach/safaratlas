@@ -2,6 +2,9 @@ import "server-only";
 import { Resend } from "resend";
 import { Lead } from "./leadTypes";
 
+const escapeHtml = (value: string) => value.replace(/[&<>"]/g, character => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[character]!);
+const singleLine = (value: string) => value.replace(/[\r\n]/g, " ");
+
 /**
  * Sends a new-lead notification to the admin inbox.
  * No-ops gracefully if RESEND_API_KEY is not set — so the app works
@@ -18,7 +21,12 @@ export async function sendLeadNotification(lead: Lead): Promise<void> {
   }
 
   const resend = new Resend(apiKey);
-  const subject = `🧳 New lead: ${lead.travelerName} → ${lead.listingName}`;
+  const subject = `🧳 New lead: ${singleLine(lead.travelerName)} → ${singleLine(lead.listingName)}`;
+  const safe = {
+    id: escapeHtml(lead.id), travelerName: escapeHtml(lead.travelerName), listingName: escapeHtml(lead.listingName),
+    email: escapeHtml(lead.email), whatsapp: escapeHtml(lead.whatsapp), travelDates: escapeHtml(lead.travelDates),
+    groupSize: escapeHtml(lead.groupSize), message: escapeHtml(lead.message), partnerName: escapeHtml(lead.partnerName || "Unassigned"),
+  };
 
   const html = `
 <!DOCTYPE html>
@@ -39,7 +47,7 @@ export async function sendLeadNotification(lead: Lead): Promise<void> {
             <tr>
               <td style="padding:0 0 24px;">
                 <p style="margin:0 0 4px;font-family:Arial,sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#c95e3d;font-weight:700;">Lead ID</p>
-                <p style="margin:0;font-family:monospace;font-size:14px;font-weight:700;color:#17211d;">${lead.id}</p>
+                <p style="margin:0;font-family:monospace;font-size:14px;font-weight:700;color:#17211d;">${safe.id}</p>
               </td>
             </tr>
             <tr>
@@ -47,11 +55,11 @@ export async function sendLeadNotification(lead: Lead): Promise<void> {
                 <table width="100%"><tr>
                   <td width="50%" style="padding:0 16px 0 0;">
                     <p style="margin:0 0 4px;font-family:Arial,sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#52615a;">Traveler</p>
-                    <p style="margin:0;font-size:16px;font-weight:700;color:#17211d;">${lead.travelerName}</p>
+                    <p style="margin:0;font-size:16px;font-weight:700;color:#17211d;">${safe.travelerName}</p>
                   </td>
                   <td width="50%">
                     <p style="margin:0 0 4px;font-family:Arial,sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#52615a;">Listing</p>
-                    <p style="margin:0;font-size:16px;font-weight:700;color:#17211d;">${lead.listingName}</p>
+                    <p style="margin:0;font-size:16px;font-weight:700;color:#17211d;">${safe.listingName}</p>
                   </td>
                 </tr></table>
               </td>
@@ -59,17 +67,17 @@ export async function sendLeadNotification(lead: Lead): Promise<void> {
             <tr><td style="padding:20px 0 0;">
               <table width="100%" cellpadding="8" style="background:#f7f3ec;border-radius:12px;">
                 <tr>
-                  <td style="font-family:Arial,sans-serif;font-size:12px;color:#52615a;padding:8px 16px 4px;">📧 <strong>Email:</strong> <a href="mailto:${lead.email}" style="color:#c95e3d;">${lead.email}</a></td>
+                  <td style="font-family:Arial,sans-serif;font-size:12px;color:#52615a;padding:8px 16px 4px;">📧 <strong>Email:</strong> <a href="mailto:${safe.email}" style="color:#c95e3d;">${safe.email}</a></td>
                 </tr>
-                ${lead.whatsapp ? `<tr><td style="font-family:Arial,sans-serif;font-size:12px;color:#52615a;padding:4px 16px;">📱 <strong>WhatsApp:</strong> ${lead.whatsapp}</td></tr>` : ""}
-                <tr><td style="font-family:Arial,sans-serif;font-size:12px;color:#52615a;padding:4px 16px;">📅 <strong>Dates:</strong> ${lead.travelDates}</td></tr>
-                <tr><td style="font-family:Arial,sans-serif;font-size:12px;color:#52615a;padding:4px 16px;">👥 <strong>Group size:</strong> ${lead.groupSize}</td></tr>
-                <tr><td style="font-family:Arial,sans-serif;font-size:12px;color:#52615a;padding:4px 16px 8px;">🏨 <strong>Partner:</strong> ${lead.partnerName || "Unassigned"}</td></tr>
+                ${lead.whatsapp ? `<tr><td style="font-family:Arial,sans-serif;font-size:12px;color:#52615a;padding:4px 16px;">📱 <strong>WhatsApp:</strong> ${safe.whatsapp}</td></tr>` : ""}
+                <tr><td style="font-family:Arial,sans-serif;font-size:12px;color:#52615a;padding:4px 16px;">📅 <strong>Dates:</strong> ${safe.travelDates}</td></tr>
+                <tr><td style="font-family:Arial,sans-serif;font-size:12px;color:#52615a;padding:4px 16px;">👥 <strong>Group size:</strong> ${safe.groupSize}</td></tr>
+                <tr><td style="font-family:Arial,sans-serif;font-size:12px;color:#52615a;padding:4px 16px 8px;">🏨 <strong>Partner:</strong> ${safe.partnerName}</td></tr>
               </table>
             </td></tr>
             <tr><td style="padding:20px 0 0;">
               <p style="margin:0 0 8px;font-family:Arial,sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#52615a;font-weight:700;">Traveler Message</p>
-              <p style="margin:0;font-size:14px;color:#17211d;line-height:1.6;background:#fff8f0;border-left:3px solid #c95e3d;padding:12px 16px;border-radius:0 8px 8px 0;">${lead.message}</p>
+              <p style="margin:0;font-size:14px;color:#17211d;line-height:1.6;background:#fff8f0;border-left:3px solid #c95e3d;padding:12px 16px;border-radius:0 8px 8px 0;">${safe.message}</p>
             </td></tr>
             <tr><td style="padding:28px 0 0;text-align:center;">
               <a href="${process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"}/admin" style="display:inline-block;background:#194c43;color:#ffffff;font-family:Arial,sans-serif;font-size:13px;font-weight:700;padding:14px 28px;border-radius:10px;text-decoration:none;letter-spacing:0.5px;">Open Lead Pipeline →</a>

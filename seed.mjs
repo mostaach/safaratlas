@@ -1,19 +1,24 @@
-const fs = require('fs');
-const { createClient } = require('@supabase/supabase-js');
+import { readFile } from "node:fs/promises";
+import { createClient } from "@supabase/supabase-js";
 
-const supabaseUrl = 'https://lhmbwvkqqxhfqmzmxkrz.supabase.co';
-const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxobWJ3dmtxcXhoZnFtem14a3J6Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc4NzEzMzIyMSwiZXhwIjoyMTAyNzA5MjIxfQ.h5o4klLZhTNkT6GEuvGGpgcaAh1qPZGZuArfyMLfZa0';
-const supabase = createClient(supabaseUrl, supabaseKey);
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+
+if (!supabaseUrl || !serviceRoleKey) {
+  console.error("Missing NEXT_PUBLIC_SUPABASE_URL or SUPABASE_SERVICE_ROLE_KEY.");
+  process.exit(1);
+}
+
+const supabase = createClient(supabaseUrl, serviceRoleKey);
 
 async function seed() {
   try {
-    const raw = fs.readFileSync('.data/pilot-leads.json', 'utf8');
-    const cleanRaw = raw.replace(/\]\s*\]$/, ']');
-    const leads = JSON.parse(cleanRaw);
-    
+    const raw = await readFile(".data/pilot-leads.json", "utf8");
+    const leads = JSON.parse(raw.replace(/\]\s*\]$/, "]"));
+
     for (const lead of leads) {
-      console.log('Inserting lead:', lead.id);
-      const { error } = await supabase.from('leads').insert([{
+      console.log("Inserting lead:", lead.id);
+      const { error } = await supabase.from("leads").insert([{
         id: lead.id,
         status: lead.status,
         source: lead.source,
@@ -36,8 +41,10 @@ async function seed() {
       if (error) console.error(error);
     }
     console.log("Done inserting leads.");
-  } catch (err) {
-    console.error(err);
+  } catch (error) {
+    console.error(error);
+    process.exitCode = 1;
   }
 }
-seed();
+
+void seed();

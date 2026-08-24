@@ -1,11 +1,5 @@
--- ============================================================
--- SAFARATLAS — SUPABASE DATABASE SCHEMA
--- Run this in: https://supabase.com/dashboard/project/vexceojggtgvwbgdznlv/sql/new
--- ============================================================
+-- SafarAtlas initial Supabase schema.
 
--- --------------------------------------------------
--- TABLE: leads (Journey Requests from travelers)
--- --------------------------------------------------
 CREATE TABLE IF NOT EXISTS public.leads (
   id                      TEXT          PRIMARY KEY,
   status                  TEXT          NOT NULL DEFAULT 'new',
@@ -27,21 +21,12 @@ CREATE TABLE IF NOT EXISTS public.leads (
   updated_at              TIMESTAMPTZ   NOT NULL DEFAULT NOW()
 );
 
--- Enable Row Level Security
 ALTER TABLE public.leads ENABLE ROW LEVEL SECURITY;
 
--- RLS is enabled, meaning all public access is blocked.
--- The Next.js API uses the SUPABASE_SERVICE_ROLE_KEY, which securely bypasses RLS.
-
--- Indexes for fast querying in admin dashboard
 CREATE INDEX IF NOT EXISTS leads_status_idx     ON public.leads (status);
 CREATE INDEX IF NOT EXISTS leads_created_at_idx ON public.leads (created_at DESC);
 CREATE INDEX IF NOT EXISTS leads_email_idx      ON public.leads (email);
 
-
--- --------------------------------------------------
--- TABLE: partner_applications (Partner onboarding)
--- --------------------------------------------------
 CREATE TABLE IF NOT EXISTS public.partner_applications (
   id                  TEXT          PRIMARY KEY,
   status              TEXT          NOT NULL DEFAULT 'pending',
@@ -62,9 +47,6 @@ CREATE TABLE IF NOT EXISTS public.partner_applications (
 );
 
 ALTER TABLE public.partner_applications ENABLE ROW LEVEL SECURITY;
-
--- RLS is enabled, meaning all public access is blocked.
--- The Next.js API uses the SUPABASE_SERVICE_ROLE_KEY, which securely bypasses RLS.
 
 CREATE INDEX IF NOT EXISTS partner_apps_status_idx     ON public.partner_applications (status);
 CREATE INDEX IF NOT EXISTS partner_apps_created_at_idx ON public.partner_applications (created_at DESC);

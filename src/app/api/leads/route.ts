@@ -2,19 +2,21 @@ import { NextRequest } from "next/server";
 import { addLead, isLeadStatus, listLeads, updateLead } from "../../../lib/leadStore";
 import { CreateLeadInput } from "../../../lib/leadTypes";
 import { sendLeadNotification } from "../../../lib/sendLeadEmail";
-import { addEvent } from "../../../lib/analyticsStore";
+import { isJsonRequest, isRateLimited } from "../../../lib/requestGuards";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 const isAdmin = (request: NextRequest) => {
-  const expectedToken = process.env.ADMIN_API_TOKEN;
+  const expectedToken = process.env.ADMIN_API_TOKEN?.trim();
   return Boolean(expectedToken) && request.headers.get("authorization") === `Bearer ${expectedToken}`;
 };
 
 const text = (value: unknown, maxLength: number) => typeof value === "string" ? value.trim().slice(0, maxLength) : "";
 
 export async function POST(request: NextRequest) {
+  if (!isJsonRequest(request)) return Response.json({ error: "Invalid submission." }, { status: 415 });
+  if (isRateLimited(request, "lead")) return Response.json({ error: "Please wait before submitting another request." }, { status: 429 });
   const body = await request.json().catch(() => null) as CreateLeadInput | null;
   if (!body || body.website) return Response.json({ error: "Invalid submission." }, { status: 400 });
 
@@ -35,7 +37,12 @@ export async function POST(request: NextRequest) {
     return Response.json({ error: "Please complete the required fields." }, { status: 400 });
   }
 
-  const lead = await addLead({ ...input, status: "new", source: "website", bookingValue: null, commissionRate: null, expectedMargin: null, reconciliationStatus: "not_applicable" });
+  let lead;
+  try {
+    lead = await addLead({ ...input, status: "new", source: "website", bookingValue: null, commissionRate: null, expectedMargin: null, reconciliationStatus: "not_applicable" });
+  } catch {
+    return Response.json({ error: "We could not save your request. Please try again shortly." }, { status: 503 });
+  }
 
   // Fire-and-forget — never block the response on email latency
   void sendLeadNotification(lead);
@@ -44,7 +51,11 @@ export async function POST(request: NextRequest) {
 
 export async function GET(request: NextRequest) {
   if (!isAdmin(request)) return Response.json({ error: "Unauthorized" }, { status: 401 });
-  return Response.json({ leads: await listLeads() });
+  try {
+    return Response.json({ leads: await listLeads() });
+  } catch {
+    return Response.json({ error: "Lead storage is temporarily unavailable." }, { status: 503 });
+  }
 }
 
 export async function PATCH(request: NextRequest) {
@@ -56,14 +67,13 @@ export async function PATCH(request: NextRequest) {
   const commissionRate = typeof body.commissionRate === "number" && body.commissionRate >= 0 && body.commissionRate <= 100 ? body.commissionRate : undefined;
   const expectedMargin = bookingValue !== undefined && commissionRate !== undefined ? Number((bookingValue * commissionRate / 100).toFixed(2)) : undefined;
   const reconciliationStatus = ["not_applicable", "expected", "invoiced", "paid"].includes(String(body.reconciliationStatus)) ? String(body.reconciliationStatus) as "not_applicable" | "expected" | "invoiced" | "paid" : undefined;
-  const updated = await updateLead(body.id, { status: isLeadStatus(body.status) ? body.status : undefined, bookingValue, commissionRate, expectedMargin, reconciliationStatus });
-  if (!updated) return Response.json({ error: "Lead not found." }, { status: 404 });
-
-  if (body.status === "in_review") {
-    await addEvent({ eventName: "lead_in_review", properties: { leadId: updated.id, source: "admin" } });
-  } else if (body.status === "proposal_sent") {
-    await addEvent({ eventName: "proposal_sent", properties: { leadId: updated.id } });
+  let updated;
+  try {
+    updated = await updateLead(body.id, { status: isLeadStatus(body.status) ? body.status : undefined, bookingValue, commissionRate, expectedMargin, reconciliationStatus });
+  } catch {
+    return Response.json({ error: "Lead storage is temporarily unavailable." }, { status: 503 });
   }
+  if (!updated) return Response.json({ error: "Lead not found." }, { status: 404 });
 
   return Response.json({ lead: updated });
 }

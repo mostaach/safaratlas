@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Outfit } from "next/font/google";
 import "./globals.css";
-import { WhatsAppButton } from "../components/ui/WhatsAppButton";
+import Script from "next/script";
 
 const serifFont = Cormorant_Garamond({
   variable: "--font-serif",
@@ -51,8 +51,6 @@ export const metadata: Metadata = {
   },
 };
 
-import Script from "next/script";
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -65,15 +63,6 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col font-sans bg-[#faf6f0] text-[#16221e]" suppressHydrationWarning>
-        <Script id="microsoft-clarity" strategy="afterInteractive">
-          {`
-            (function(c,l,a,r,i,t,y){
-                c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-                t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-                y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-            })(window, document, "clarity", "script", "YOUR_CLARITY_ID_HERE");
-          `}
-        </Script>
         <Script
           id="schema-org"
           type="application/ld+json"
@@ -108,7 +97,6 @@ export default function RootLayout({
           }}
         />
         {children}
-        <WhatsAppButton />
       </body>
     </html>
   );

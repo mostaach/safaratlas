@@ -83,6 +83,8 @@ export const Footer: React.FC = () => {
             <a href="/legal/privacy" className="hover:text-white">Privacy</a>
             <span>•</span>
             <a href="/legal/terms" className="hover:text-white">Terms</a>
+            <span>•</span>
+            <a href="/blog" className="hover:text-white">Journal / Blog</a>
           </div>
         </div>
       </div>
