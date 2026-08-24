@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "functions": {
+    "/api/analytics": {},
+    "/api/leads": {},
+    "/api/partner-applications": {},
+    "/api/waitlist": {}
+  }
+}

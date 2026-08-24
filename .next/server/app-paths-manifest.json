@@ -1,0 +1,17 @@
+{
+  "/_global-error/page": "app/_global-error/page.js",
+  "/_not-found/page": "app/_not-found/page.js",
+  "/admin/page": "app/admin/page.js",
+  "/api/analytics/route": "app/api/analytics/route.js",
+  "/api/leads/route": "app/api/leads/route.js",
+  "/api/partner-applications/route": "app/api/partner-applications/route.js",
+  "/api/waitlist/route": "app/api/waitlist/route.js",
+  "/concept-b/page": "app/concept-b/page.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/legal/privacy/page": "app/legal/privacy/page.js",
+  "/legal/terms/page": "app/legal/terms/page.js",
+  "/page": "app/page.js",
+  "/partners/page": "app/partners/page.js",
+  "/sitemap.xml/route": "app/sitemap.xml/route.js",
+  "/waitlist/page": "app/waitlist/page.js"
+}

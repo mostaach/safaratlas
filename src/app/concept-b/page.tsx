@@ -1,6 +1,7 @@
 "use client";
 
-import { CalendarDays, ChevronDown, ChevronLeft, ChevronRight, Heart, MapPin, Search, Star, Users } from "lucide-react";
+import Link from "next/link";
+import { CalendarDays, ChevronDown, ChevronLeft, ChevronRight, Heart, Search, Star, Users } from "lucide-react";
 import { FormEvent, useState } from "react";
 
 const nearby = [
@@ -40,7 +41,7 @@ export default function ConceptBPage() {
         <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(30,30,30,.28),rgba(0,0,0,.64))]" />
 
         <nav className="relative mx-auto flex max-w-[1320px] items-start justify-between px-5 pt-5 sm:px-8 sm:pt-7">
-          <a href="/" className="pt-0.5 text-lg font-medium tracking-tight sm:text-2xl">Bookme.<span className="text-[.48em]">com</span></a>
+          <Link href="/" className="pt-0.5 text-lg font-medium tracking-tight sm:text-2xl">Bookme.<span className="text-[.48em]">com</span></Link>
           <div className="absolute left-1/2 top-0 hidden -translate-x-1/2 items-center gap-12 rounded-b-[2rem] bg-[#f0efef] px-14 py-5 text-[11px] font-semibold text-[#252525] shadow-sm lg:flex">
             <a href="#footer" className="hover:text-[#c49c74]">List your property</a>
             <a href="#benefits" className="hover:text-[#c49c74]">Support</a>

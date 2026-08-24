@@ -1,0 +1,17 @@
+{
+  "/_global-error/page": "/_global-error",
+  "/_not-found/page": "/_not-found",
+  "/admin/page": "/admin",
+  "/api/analytics/route": "/api/analytics",
+  "/api/leads/route": "/api/leads",
+  "/api/partner-applications/route": "/api/partner-applications",
+  "/api/waitlist/route": "/api/waitlist",
+  "/concept-b/page": "/concept-b",
+  "/favicon.ico/route": "/favicon.ico",
+  "/legal/privacy/page": "/legal/privacy",
+  "/legal/terms/page": "/legal/terms",
+  "/page": "/",
+  "/partners/page": "/partners",
+  "/sitemap.xml/route": "/sitemap.xml",
+  "/waitlist/page": "/waitlist"
+}
