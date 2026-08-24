@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Cormorant_Garamond, Outfit } from "next/font/google";
 import "./globals.css";
 import { WhatsAppButton } from "../components/ui/WhatsAppButton";
+import { Analytics } from '@vercel/analytics/next';
 
 const serifFont = Cormorant_Garamond({
   variable: "--font-serif",
@@ -109,6 +110,7 @@ export default function RootLayout({
         />
         {children}
         <WhatsAppButton />
+        <Analytics />
       </body>
     </html>
   );

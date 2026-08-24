@@ -88,6 +88,9 @@ const selectStyle: CSSProperties = { borderRadius: 8, border: "1px solid #2a3e34
 const inputStyle: CSSProperties = { borderRadius: 8, border: "1px solid #2a3e34", background: "#0a1410", color: "#e8f0ed", padding: "8px 10px", fontSize: 12, outline: "none", width: "100%" };
 const emptyState: CSSProperties = { textAlign: "center", padding: "60px 24px", color: "#3d5a50" };
 const badge: CSSProperties = { background: "#c95e3d", color: "#fff", borderRadius: "50%", width: 18, height: 18, fontSize: 10, fontWeight: 900, display: "flex", alignItems: "center", justifyContent: "center" };
+const statCard: CSSProperties = { background: "#15241e", border: "1px solid #1e362d", borderRadius: 12, padding: 16 };
+const statLabel: CSSProperties = { fontSize: 11, fontWeight: 700, color: "#6b8c7e", textTransform: "uppercase", marginBottom: 6 };
+const statVal: CSSProperties = { fontSize: 24, fontWeight: 900, color: "#e8f0ed", margin: 0 };
 
 export default function AdminPage() {
   const [token, setToken] = useState("");
@@ -387,6 +390,8 @@ export default function AdminPage() {
                 ))
               }
             </>
+          )}
+
           {/* ESCAPES CATALOG TAB */}
           {tab === "escapes" && (
             <div style={{ display: "grid", gap: 16 }}>
