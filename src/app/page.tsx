@@ -223,68 +223,133 @@ export default function Home() {
         </section>
 
         {/* SECTION 4: BUILD YOUR JOURNEY PREVIEW */}
-        <section className="py-20 bg-[#123b34] text-white border-t border-[#2a5b50]">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 text-center">
-            <div className="max-w-2xl mx-auto space-y-3">
-              <span className="text-xs font-extrabold uppercase tracking-widest text-[#f4c36b] bg-[#121a17] px-3.5 py-1 rounded-full border border-[#f4c36b]/30">
+        <section className="py-24 bg-[#123b34] text-white border-t border-[#2a5b50]">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-14 text-center">
+
+            {/* Section header */}
+            <FadeIn className="max-w-3xl mx-auto space-y-4">
+              <span className="inline-flex items-center gap-2 text-xs font-extrabold uppercase tracking-widest text-[#f4c36b] bg-[#121a17] px-4 py-1.5 rounded-full border border-[#f4c36b]/30">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#f4c36b] animate-pulse" />
                 Interactive Journey Engine
               </span>
-              <h2 className="text-3xl sm:text-5xl font-serif font-black tracking-tight text-white">
-                Build Your Morocco Journey
+              <h2 className="text-4xl sm:text-6xl font-serif font-black tracking-tight text-white leading-tight">
+                Build Your<br className="hidden sm:block" /> Morocco Journey
               </h2>
-              <p className="text-sm sm:text-base text-white/80 leading-relaxed">
-                Combine destinations and Escapes into one personalized Morocco trip.
+              <p className="text-sm sm:text-lg text-white/70 leading-relaxed max-w-xl mx-auto">
+                Mix destinations and Escapes. SafarAtlas handles every detail — transport, riads, guides, and transfers.
               </p>
-            </div>
+            </FadeIn>
 
-            {/* Example Journey Timeline */}
-            <SlideUp className="max-w-3xl mx-auto bg-[#121a17] p-6 sm:p-8 rounded-3xl border border-[#2a5b50] shadow-2xl text-left space-y-6 relative overflow-hidden group">
-              {/* Subtle background glow effect */}
-              <div className="absolute inset-0 bg-gradient-to-tr from-[#c95e3d]/10 via-transparent to-[#f4c36b]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
-              
-              <div className="flex flex-col sm:flex-row items-center justify-between border-b border-white/10 pb-4 gap-2 relative z-10">
-                <span className="text-xs font-bold uppercase tracking-wider text-[#f4c36b]">Example 10-Day Journey</span>
-                <span className="text-xs font-bold text-white/70">Marrakech ➔ Sahara ➔ Taghazout ➔ Essaouira</span>
-              </div>
+            {/* Journey cards with connecting line */}
+            <SlideUp>
+              <div className="relative max-w-5xl mx-auto">
 
-              <StaggerContainer className="grid grid-cols-1 sm:grid-cols-5 gap-3 text-center text-xs relative z-10">
-                <StaggerItem className="p-3 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors duration-300 cursor-default">
-                  <span className="text-[#f4c36b] font-bold block">Marrakech</span>
-                  <span className="text-[10px] text-white/60">2 Nights</span>
-                </StaggerItem>
-                <StaggerItem className="p-3 rounded-xl bg-[#c95e3d]/20 border border-[#c95e3d]/40 hover:bg-[#c95e3d]/30 transition-colors duration-300 cursor-default relative overflow-hidden group/item">
-                  <div className="absolute inset-0 bg-[#c95e3d]/20 scale-x-0 group-hover/item:scale-x-100 transform origin-left transition-transform duration-500 ease-out pointer-events-none" />
-                  <span className="text-white font-bold block relative z-10">3-Day Sahara Escape</span>
-                  <span className="text-[10px] text-[#f4c36b] relative z-10">Desert & Glamping</span>
-                </StaggerItem>
-                <StaggerItem className="p-3 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors duration-300 cursor-default">
-                  <span className="text-[#f4c36b] font-bold block">Marrakech</span>
-                  <span className="text-[10px] text-white/60">1 Night Transit</span>
-                </StaggerItem>
-                <StaggerItem className="p-3 rounded-xl bg-[#059669]/20 border border-[#059669]/40 hover:bg-[#059669]/30 transition-colors duration-300 cursor-default relative overflow-hidden group/item">
-                  <div className="absolute inset-0 bg-[#059669]/20 scale-x-0 group-hover/item:scale-x-100 transform origin-left transition-transform duration-500 ease-out pointer-events-none" />
-                  <span className="text-white font-bold block relative z-10">Taghazout Escape</span>
-                  <span className="text-[10px] text-[#a7f3d0] relative z-10">Coast & Surf</span>
-                </StaggerItem>
-                <StaggerItem className="p-3 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors duration-300 cursor-default">
-                  <span className="text-[#f4c36b] font-bold block">Essaouira</span>
-                  <span className="text-[10px] text-white/60">2 Nights</span>
-                </StaggerItem>
-              </StaggerContainer>
+                {/* Connecting dashed route line — desktop */}
+                <div
+                  className="absolute top-[56px] left-[10%] right-[10%] h-px hidden sm:block"
+                  style={{ backgroundImage: "repeating-linear-gradient(to right, #f4c36b44 0px, #f4c36b44 8px, transparent 8px, transparent 16px)" }}
+                />
 
-              <div className="pt-2 flex flex-col sm:flex-row items-center justify-between gap-4 relative z-10">
-                <p className="text-xs text-white/70">
-                  SafarAtlas handles transport, private drivers, riad reservations, and activities.
-                </p>
-                <a
-                  href="/journey"
-                  className="relative overflow-hidden px-8 py-3.5 rounded-xl bg-[#c95e3d] text-white text-xs font-black tracking-widest shadow-lg transition-all hover:scale-105 shrink-0 group/btn"
-                >
-                  <span className="absolute inset-0 bg-white/20 translate-y-full group-hover/btn:translate-y-0 transition-transform duration-300 ease-out" />
-                  <span className="relative z-10">Build My Journey →</span>
-                </a>
+                <StaggerContainer className="grid grid-cols-2 sm:grid-cols-5 gap-4 sm:gap-3 relative z-10">
+
+                  {/* Card 1: Marrakech */}
+                  <StaggerItem className="flex flex-col items-center gap-3 group cursor-default">
+                    <div className="w-[112px] h-[112px] rounded-2xl bg-[#1e3a2f] border-2 border-[#2a5b50] group-hover:border-[#f4c36b]/60 transition-all duration-300 flex flex-col items-center justify-center gap-1.5 shadow-lg group-hover:shadow-[0_8px_32px_rgba(244,195,107,0.15)] group-hover:-translate-y-1">
+                      <span className="text-3xl">🕌</span>
+                      <span className="text-[10px] font-black uppercase tracking-widest text-[#f4c36b]">City</span>
+                    </div>
+                    <div className="text-center space-y-0.5">
+                      <p className="text-sm font-bold text-white">Marrakech</p>
+                      <p className="text-[11px] text-white/50">2 Nights · Riad Stay</p>
+                    </div>
+                  </StaggerItem>
+
+                  {/* Card 2: Sahara Escape */}
+                  <StaggerItem className="flex flex-col items-center gap-3 group cursor-default">
+                    <div className="relative w-[112px] h-[112px] rounded-2xl bg-gradient-to-br from-[#c95e3d] to-[#a84830] border-2 border-[#c95e3d] flex flex-col items-center justify-center gap-1.5 shadow-[0_8px_40px_rgba(201,94,61,0.4)] group-hover:shadow-[0_12px_50px_rgba(201,94,61,0.6)] group-hover:-translate-y-2 transition-all duration-300">
+                      <span className="absolute -top-2.5 left-1/2 -translate-x-1/2 text-[9px] font-black uppercase tracking-widest bg-[#f4c36b] text-[#121a17] px-2.5 py-0.5 rounded-full whitespace-nowrap">⭐ Escape</span>
+                      <span className="text-3xl">🐪</span>
+                      <span className="text-[10px] font-black uppercase tracking-widest text-white/90">Desert</span>
+                    </div>
+                    <div className="text-center space-y-0.5">
+                      <p className="text-sm font-bold text-white">Sahara Escape</p>
+                      <p className="text-[11px] text-[#f4c36b]">3 Days · Glamping</p>
+                    </div>
+                  </StaggerItem>
+
+                  {/* Card 3: Transit */}
+                  <StaggerItem className="flex flex-col items-center gap-3 group cursor-default">
+                    <div className="w-[112px] h-[112px] rounded-2xl bg-[#1e3a2f] border-2 border-dashed border-[#2a5b50] group-hover:border-white/30 transition-all duration-300 flex flex-col items-center justify-center gap-1.5 opacity-75 group-hover:opacity-100">
+                      <span className="text-3xl">✈️</span>
+                      <span className="text-[10px] font-black uppercase tracking-widest text-white/50">Transit</span>
+                    </div>
+                    <div className="text-center space-y-0.5">
+                      <p className="text-sm font-bold text-white/70">Marrakech</p>
+                      <p className="text-[11px] text-white/40">1 Night Transit</p>
+                    </div>
+                  </StaggerItem>
+
+                  {/* Card 4: Taghazout Escape */}
+                  <StaggerItem className="flex flex-col items-center gap-3 group cursor-default">
+                    <div className="relative w-[112px] h-[112px] rounded-2xl bg-gradient-to-br from-[#0d6e4a] to-[#059669] border-2 border-[#059669] flex flex-col items-center justify-center gap-1.5 shadow-[0_8px_40px_rgba(5,150,105,0.3)] group-hover:shadow-[0_12px_50px_rgba(5,150,105,0.5)] group-hover:-translate-y-2 transition-all duration-300">
+                      <span className="absolute -top-2.5 left-1/2 -translate-x-1/2 text-[9px] font-black uppercase tracking-widest bg-[#f4c36b] text-[#121a17] px-2.5 py-0.5 rounded-full whitespace-nowrap">⭐ Escape</span>
+                      <span className="text-3xl">🏄</span>
+                      <span className="text-[10px] font-black uppercase tracking-widest text-white/90">Coast</span>
+                    </div>
+                    <div className="text-center space-y-0.5">
+                      <p className="text-sm font-bold text-white">Taghazout</p>
+                      <p className="text-[11px] text-emerald-300">3 Days · Surf Camp</p>
+                    </div>
+                  </StaggerItem>
+
+                  {/* Card 5: Essaouira */}
+                  <StaggerItem className="flex flex-col items-center gap-3 group cursor-default">
+                    <div className="w-[112px] h-[112px] rounded-2xl bg-[#1e3a2f] border-2 border-[#2a5b50] group-hover:border-[#f4c36b]/60 transition-all duration-300 flex flex-col items-center justify-center gap-1.5 shadow-lg group-hover:shadow-[0_8px_32px_rgba(244,195,107,0.15)] group-hover:-translate-y-1">
+                      <span className="text-3xl">🌊</span>
+                      <span className="text-[10px] font-black uppercase tracking-widest text-[#f4c36b]">Coast</span>
+                    </div>
+                    <div className="text-center space-y-0.5">
+                      <p className="text-sm font-bold text-white">Essaouira</p>
+                      <p className="text-[11px] text-white/50">2 Nights · Medina</p>
+                    </div>
+                  </StaggerItem>
+
+                </StaggerContainer>
+
+                {/* Journey meta strip */}
+                <div className="mt-12 mx-auto max-w-4xl flex flex-col sm:flex-row items-center justify-between gap-5 bg-[#0f2921] border border-[#2a5b50] rounded-2xl px-6 py-5">
+                  <div className="flex flex-wrap items-center justify-center sm:justify-start gap-5 text-center sm:text-left">
+                    <div>
+                      <p className="text-[10px] font-black uppercase tracking-widest text-[#f4c36b] mb-0.5">Duration</p>
+                      <p className="text-base font-bold text-white">10 Days</p>
+                    </div>
+                    <div className="w-px h-8 bg-white/10 hidden sm:block" />
+                    <div>
+                      <p className="text-[10px] font-black uppercase tracking-widest text-[#f4c36b] mb-0.5">From</p>
+                      <p className="text-base font-bold text-white">€890 <span className="text-xs font-normal text-white/50">/ person</span></p>
+                    </div>
+                    <div className="w-px h-8 bg-white/10 hidden sm:block" />
+                    <div>
+                      <p className="text-[10px] font-black uppercase tracking-widest text-[#f4c36b] mb-0.5">Managed by</p>
+                      <p className="text-base font-bold text-white">SafarAtlas Concierge</p>
+                    </div>
+                  </div>
+                  <a
+                    href="/journey"
+                    className="relative overflow-hidden shrink-0 inline-flex items-center gap-2.5 px-8 py-3.5 rounded-xl bg-[#c95e3d] text-white text-xs font-black tracking-widest shadow-[0_6px_30px_rgba(201,94,61,0.5)] hover:shadow-[0_8px_40px_rgba(201,94,61,0.7)] transition-all duration-300 hover:-translate-y-0.5 group/btn"
+                  >
+                    <span className="absolute inset-0 bg-white/15 translate-y-full group-hover/btn:translate-y-0 transition-transform duration-300 ease-out" />
+                    <svg className="w-4 h-4 relative z-10" viewBox="0 0 20 20" fill="currentColor">
+                      <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+                      <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+                    </svg>
+                    <span className="relative z-10">Build My Journey</span>
+                  </a>
+                </div>
+
               </div>
             </SlideUp>
+
           </div>
         </section>
 
