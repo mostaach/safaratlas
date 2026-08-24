@@ -14,8 +14,8 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({ onSelectHotspot,
   const [selectedHotspot, setSelectedHotspot] = useState<MapHotspot>(MAP_HOTSPOTS[0]);
   
   const mapContainerRef = useRef<HTMLDivElement | null>(null);
-  const mapRef = useRef<any>(null);
-  const markersRef = useRef<Map<string, any>>(new Map());
+  const mapRef = useRef<import('leaflet').Map | null>(null);
+  const markersRef = useRef<Map<string, import('leaflet').Marker>>(new Map());
 
   const filteredHotspots = filter === 'All' 
     ? MAP_HOTSPOTS 
@@ -64,53 +64,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({ onSelectHotspot,
     };
   }, []);
 
-  // Handle Markers
-  useEffect(() => {
-    if (!mapRef.current) return;
-
-    import("leaflet").then((L) => {
-      const map = mapRef.current;
-      
-      // Remove stale markers
-      const activeIds = new Set(filteredHotspots.map((h) => h.id));
-      markersRef.current.forEach((marker, id) => {
-        if (!activeIds.has(id)) {
-          map.removeLayer(marker);
-          markersRef.current.delete(id);
-        }
-      });
-
-      // Add new markers
-      filteredHotspots.forEach((spot) => {
-        if (markersRef.current.has(spot.id)) {
-           // Update icon style if selected/unselected
-           const marker = markersRef.current.get(spot.id);
-           const isSelected = selectedHotspot.id === spot.id;
-           const color = spot.type === 'Desert' ? '#f4c36b' : spot.type === 'Coast' ? '#38bdf8' : '#10b981';
-           const size = isSelected ? 42 : 32;
-           marker.setIcon(createPinMarker(L, color, size, isSelected));
-           return;
-        }
-
-        const color = spot.type === 'Desert' ? '#f4c36b' : spot.type === 'Coast' ? '#38bdf8' : '#10b981';
-        const isSelected = selectedHotspot.id === spot.id;
-        
-        const marker = L.marker([spot.lat, spot.lng], {
-          icon: createPinMarker(L, color, isSelected ? 42 : 32, isSelected),
-        }).addTo(map);
-
-        marker.on("click", () => {
-          setSelectedHotspot(spot);
-          if (onSelectHotspot) onSelectHotspot(spot);
-          map.setView([spot.lat, spot.lng], 7, { animate: true });
-        });
-
-        markersRef.current.set(spot.id, marker);
-      });
-    });
-  }, [filteredHotspots, selectedHotspot, onSelectHotspot]);
-
-  function createPinMarker(L: any, color: string, size = 32, isSelected = false): any {
+  function createPinMarker(L: typeof import('leaflet'), color: string, size = 32, isSelected = false) {
     return L.divIcon({
       html: `
         <div style="
@@ -142,6 +96,52 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({ onSelectHotspot,
       iconAnchor: [size / 2, size],
     });
   }
+
+  // Handle Markers
+  useEffect(() => {
+    if (!mapRef.current) return;
+
+    import("leaflet").then((L) => {
+      const map = mapRef.current!;
+      
+      // Remove stale markers
+      const activeIds = new Set(filteredHotspots.map((h) => h.id));
+      markersRef.current.forEach((marker, id) => {
+        if (!activeIds.has(id)) {
+          map.removeLayer(marker);
+          markersRef.current.delete(id);
+        }
+      });
+
+      // Add new markers
+      filteredHotspots.forEach((spot) => {
+        if (markersRef.current.has(spot.id)) {
+           // Update icon style if selected/unselected
+           const marker = markersRef.current.get(spot.id);
+           const isSelected = selectedHotspot.id === spot.id;
+           const color = spot.type === 'Desert' ? '#f4c36b' : spot.type === 'Coast' ? '#38bdf8' : '#10b981';
+           const size = isSelected ? 42 : 32;
+           marker!.setIcon(createPinMarker(L, color, size, isSelected));
+           return;
+        }
+
+        const color = spot.type === 'Desert' ? '#f4c36b' : spot.type === 'Coast' ? '#38bdf8' : '#10b981';
+        const isSelected = selectedHotspot.id === spot.id;
+        
+        const marker = L.marker([spot.lat, spot.lng], {
+          icon: createPinMarker(L, color, isSelected ? 42 : 32, isSelected),
+        }).addTo(map);
+
+        marker.on("click", () => {
+          setSelectedHotspot(spot);
+          if (onSelectHotspot) onSelectHotspot(spot);
+          map.setView([spot.lat, spot.lng], 7, { animate: true });
+        });
+
+        markersRef.current.set(spot.id, marker);
+      });
+    });
+  }, [filteredHotspots, selectedHotspot, onSelectHotspot]);
 
   return (
     <div className="bg-[#121a17] text-white rounded-3xl border border-[#2a3a34] p-6 sm:p-8 shadow-2xl relative overflow-hidden zellige-pattern-dark">

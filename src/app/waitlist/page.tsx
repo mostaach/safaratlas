@@ -5,7 +5,6 @@ import { Logo } from "../../components/brand/Logo";
 import { trackEvent } from "../../lib/trackEvent";
 import { FadeIn } from "../../components/animations/FadeIn";
 import { SlideUp } from "../../components/animations/SlideUp";
-import { ScaleIn } from "../../components/animations/ScaleIn";
 
 export default function WaitlistPage() {
   const [email, setEmail] = useState("");
@@ -36,7 +35,7 @@ export default function WaitlistPage() {
       setMsg(data.message || "You're on the list!");
       trackEvent("waitlist_join", { email_domain: email.split("@")[1] });
       setEmail("");
-    } catch (err) {
+    } catch {
       setStatus("error");
       setMsg("Failed to connect. Please try again.");
     }

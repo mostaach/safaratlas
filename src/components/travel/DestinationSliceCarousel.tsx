@@ -106,7 +106,7 @@ export const DestinationSliceCarousel: React.FC<DestinationSliceCarouselProps> =
         className="hidden md:flex items-stretch gap-3 h-[480px] select-none cursor-grab active:cursor-grabbing"
         onMouseDown={onMouseDown}
         onMouseUp={onMouseUp}
-        onMouseLeave={onMouseUp as any}
+        onMouseLeave={onMouseUp as React.MouseEventHandler<HTMLDivElement>}
         onTouchStart={onTouchStart}
         onTouchEnd={onTouchEnd}
       >
@@ -191,7 +191,7 @@ export const DestinationSliceCarousel: React.FC<DestinationSliceCarouselProps> =
                       {dest.name}
                     </h3>
                     <p className="text-sm text-white/80 mt-1 italic line-clamp-1">
-                      "{dest.tagline}"
+                      &quot;{dest.tagline}&quot;
                     </p>
                   </div>
 

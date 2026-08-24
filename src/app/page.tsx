@@ -12,12 +12,10 @@ import { ItineraryTimeline } from "../components/travel/ItineraryTimeline";
 import { InquiryModal } from "../components/travel/InquiryModal";
 import { ListingDetailModal } from "../components/travel/ListingDetailModal";
 import { ListingsCarousel } from "../components/travel/ListingsCarousel";
-import { FadeIn } from "../components/animations/FadeIn";
-import { SlideUp } from "../components/animations/SlideUp";
 import { StaggerContainer, StaggerItem } from "../components/animations/StaggerContainer";
 import { TestimonialsStrip } from "../components/travel/TestimonialsStrip";
 import { EscapesSection } from "../components/travel/EscapesSection";
-import { Toaster, toast } from "sonner";
+import { Toaster } from "sonner";
 import { 
   DESTINATIONS, 
   BUSINESS_LISTINGS, 

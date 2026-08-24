@@ -48,11 +48,6 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({
 
   useEffect(() => {
     if (isOpen) {
-      setFormData((prev) => ({
-        ...prev,
-        message: getInitialMessage(),
-      }));
-
       trackEvent("lead_start", {
         partnerId: selectedEscape?.id ?? selectedBusiness?.id ?? "manual_match",
         partnerName: selectedEscape?.title ?? selectedBusiness?.name ?? "journey_builder",

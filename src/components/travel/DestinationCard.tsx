@@ -73,7 +73,7 @@ export const DestinationCard: React.FC<DestinationCardProps> = ({ destination, o
             </span>
           </div>
           <p className="text-xs font-medium text-white/90 line-clamp-1 italic">
-            "{destination.tagline}"
+            &quot;{destination.tagline}&quot;
           </p>
         </div>
 

@@ -1,0 +1,15 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/concept-b/layout,_N_T_/concept-b/page,_N_T_/concept-b"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/concept-b/__PAGE__",
+    "/concept-b",
+    "/_index",
+    "/_head"
+  ]
+}
