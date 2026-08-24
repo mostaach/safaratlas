@@ -17,6 +17,7 @@ const sansFont = Outfit({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://safaratlas.com"),
   title: "SafarAtlas | Managed Morocco Journeys & Escapes",
   description: "Discover Morocco, select modular Escapes (Sahara, Agafay, Taghazout), and let SafarAtlas orchestrate your complete journey with trusted local partners.",
   icons: {
