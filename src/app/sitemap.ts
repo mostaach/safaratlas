@@ -8,6 +8,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     { url: baseUrl, lastModified, changeFrequency: "weekly", priority: 1 },
+    { url: `${baseUrl}/offers/agafay-vip`, lastModified, changeFrequency: "weekly", priority: 0.9 },
     { url: `${baseUrl}/journey`, lastModified, changeFrequency: "monthly", priority: 0.9 },
     { url: `${baseUrl}/partners`, lastModified, changeFrequency: "monthly", priority: 0.6 },
     { url: `${baseUrl}/blog`, lastModified, changeFrequency: "weekly", priority: 0.8 },

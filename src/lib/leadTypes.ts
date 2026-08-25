@@ -15,7 +15,7 @@ export interface Lead {
   travelDates: string;
   groupSize: string;
   message: string;
-  source: "website";
+  source: "website" | "agafay-vip-offer";
   bookingValue: number | null;
   commissionRate: number | null;
   expectedMargin: number | null;
@@ -34,4 +34,5 @@ export interface CreateLeadInput {
   message: string;
   consent: boolean;
   website?: string;
+  source?: string;
 }

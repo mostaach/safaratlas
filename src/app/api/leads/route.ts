@@ -37,9 +37,10 @@ export async function POST(request: NextRequest) {
     return Response.json({ error: "Please complete the required fields." }, { status: 400 });
   }
 
+  const leadSource = body.source === "agafay-vip-offer" ? "agafay-vip-offer" : "website";
   let lead;
   try {
-    lead = await addLead({ ...input, status: "new", source: "website", bookingValue: null, commissionRate: null, expectedMargin: null, reconciliationStatus: "not_applicable" });
+    lead = await addLead({ ...input, status: "new", source: leadSource, bookingValue: null, commissionRate: null, expectedMargin: null, reconciliationStatus: "not_applicable" });
   } catch {
     return Response.json({ error: "We could not save your request. Please try again shortly." }, { status: 503 });
   }
