@@ -2,7 +2,7 @@
 
 import React, { useEffect } from "react";
 import Link from "next/link";
-import { trackEvent } from "../../../lib/trackEvent";
+import { trackEvent } from "../../lib/trackEvent";
 
 const WHATSAPP_NUMBER = "212698017323";
 const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Hi SafarAtlas! I'm coming from Instagram and would like help planning my Morocco trip.")}`;

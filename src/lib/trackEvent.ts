@@ -1,2 +1,5 @@
-// Analytics is intentionally disabled until a privacy-reviewed provider is configured.
-export const trackEvent = (_eventName: string, _properties?: Record<string, unknown>) => undefined;
+export function trackEvent(eventName: string, properties?: Record<string, any>) {
+  if (typeof window !== "undefined") {
+    console.log(`[Event Tracked]: ${eventName}`, properties || {});
+  }
+}
