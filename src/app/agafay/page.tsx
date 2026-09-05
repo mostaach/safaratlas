@@ -1,31 +1,19 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
+import Image from "next/image";
 
 const WHATSAPP_NUMBER = "212698017323"; // Official WhatsApp concierge number
 const DISPLAY_PHONE = "+212 698 017 323"; // SafarAtlas official phone line
-const CONTACT_EMAIL = "contactsafaratlas@gmail.com"; // SafarAtlas contact email
 
 export default function AgafayPage() {
-  const [travelers, setTravelers] = useState<number>(2);
-  const [activeTab, setActiveTab] = useState<string>("overview");
-
   const pricePerPerson = 34; // €34 Launch Price
-  const grandTotal = pricePerPerson * travelers;
 
   const waMessage = encodeURIComponent(
-    `Hi SafarAtlas! I'd like to reserve the Agafay Desert Full Experience for ${travelers} traveler(s) at €34/person (€${grandTotal} total).\n` +
+    `Hi SafarAtlas! I'd like to reserve the Agafay Desert Full Experience at €${pricePerPerson}/person.\n` +
       `Includes: Marrakech Transfer + Quad Biking + Camel Ride + Mint Tea + Sunset View + Tagine Dinner & Gnaoua Show.\n` +
       `Can you confirm availability for our travel dates?`
   );
-
-  const scrollToSection = (id: string) => {
-    setActiveTab(id);
-    const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
-    }
-  };
 
   return (
     <>
@@ -64,13 +52,15 @@ export default function AgafayPage() {
           max-width: 1280px;
           margin: 0 auto;
           border-radius: 32px;
-          border: 1px solid rgba(255, 255, 255, 0.28);
-          box-shadow: 0 0 50px rgba(214, 183, 138, 0.12), 0 30px 80px rgba(0, 0, 0, 0.9);
+          border: 1px solid rgba(255, 255, 255, 0.2);
+          box-shadow: 0 26px 70px rgba(0, 0, 0, 0.82);
           overflow: hidden;
           display: flex;
           flex-direction: column;
           justify-content: space-between;
-          background: linear-gradient(180deg, rgba(8, 12, 16, 0.25) 0%, rgba(8, 12, 16, 0.82) 100%),
+          background: radial-gradient(circle at 28% 58%, rgba(7, 11, 15, 0.78) 0%, rgba(7, 11, 15, 0.46) 28%, rgba(7, 11, 15, 0) 54%),
+                      linear-gradient(90deg, rgba(8, 12, 16, 0.62) 0%, rgba(8, 12, 16, 0.16) 48%, rgba(8, 12, 16, 0.34) 100%),
+                      linear-gradient(180deg, rgba(8, 12, 16, 0.18) 0%, rgba(8, 12, 16, 0.76) 100%),
                       url('/agafay-hero-quads.jpg') center/cover no-repeat;
           padding: 2.5rem;
         }
@@ -86,8 +76,8 @@ export default function AgafayPage() {
           align-items: center;
           width: 100%;
           z-index: 20;
-          padding-bottom: 1rem;
-          border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+          padding-bottom: 0.75rem;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.07);
         }
 
         .brand-header-left {
@@ -97,8 +87,8 @@ export default function AgafayPage() {
         }
 
         .brand-logo-img {
-          width: 44px;
-          height: 44px;
+          width: 38px;
+          height: 38px;
           object-fit: contain;
           background: transparent;
           opacity: 1;
@@ -113,9 +103,9 @@ export default function AgafayPage() {
 
         .brand-title-main {
           font-family: 'Playfair Display', serif;
-          font-size: 1.3rem;
+          font-size: 1.18rem;
           font-weight: 700;
-          letter-spacing: 0.12em;
+          letter-spacing: 0.14em;
           color: #ffffff;
         }
 
@@ -178,11 +168,11 @@ export default function AgafayPage() {
         /* MAIN POSTER GRID LAYOUT */
         .poster-grid-layout {
           display: grid;
-          grid-template-columns: auto 1fr auto;
-          gap: 3rem;
-          align-items: center;
+          grid-template-columns: minmax(0, 1fr) 290px;
+          gap: clamp(1.75rem, 6vw, 5.5rem);
+          align-items: end;
           margin: auto 0;
-          padding: 2rem 0;
+          padding: 2.5rem 0 1.25rem;
           z-index: 10;
         }
 
@@ -193,30 +183,44 @@ export default function AgafayPage() {
           }
         }
 
-        /* PURPOSEFUL VERTICAL LEFT NAVIGATION PILLAR */
+        /* QUIET EXPERIENCE RAIL */
         .vertical-glass-pillar {
-          background: rgba(13, 34, 57, 0.75);
-          backdrop-filter: blur(28px);
-          -webkit-backdrop-filter: blur(28px);
-          border: 1px solid rgba(255, 255, 255, 0.2);
-          border-radius: 999px;
-          padding: 1.5rem 0.75rem;
+          background: rgba(10, 25, 39, 0.42);
+          backdrop-filter: blur(18px);
+          -webkit-backdrop-filter: blur(18px);
+          border: 1px solid rgba(255, 255, 255, 0.12);
+          border-radius: 22px;
+          padding: 1.05rem 0.6rem;
           display: flex;
           flex-direction: column;
-          gap: 1.1rem;
+          gap: 0.78rem;
           align-items: center;
-          width: 90px;
-          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+          width: 78px;
+          box-shadow: 0 16px 34px rgba(0, 0, 0, 0.34);
+        }
+
+        .rail-kicker {
+          writing-mode: vertical-rl;
+          transform: rotate(180deg);
+          font-family: 'Playfair Display', serif;
+          font-size: 0.66rem;
+          font-weight: 700;
+          letter-spacing: 0.2em;
+          color: rgba(214, 183, 138, 0.9);
+          text-transform: uppercase;
+          margin-bottom: 0.15rem;
         }
 
         @media (max-width: 900px) {
           .vertical-glass-pillar {
             flex-direction: row;
             width: 100%;
-            border-radius: 20px;
+            border-radius: 16px;
             justify-content: space-around;
-            padding: 0.65rem;
+            padding: 0.58rem;
           }
+
+          .rail-kicker { display: none; }
         }
 
         .nav-node-btn {
@@ -226,12 +230,13 @@ export default function AgafayPage() {
           gap: 0.3rem;
           background: transparent;
           border: none;
-          color: rgba(255, 255, 255, 0.7);
+          color: rgba(255, 255, 255, 0.66);
           cursor: pointer;
-          font-size: 0.62rem;
+          font-size: 0.58rem;
           font-weight: 700;
-          letter-spacing: 0.03em;
+          letter-spacing: 0.08em;
           text-align: center;
+          text-transform: uppercase;
           transition: all 0.25s ease;
         }
 
@@ -240,33 +245,35 @@ export default function AgafayPage() {
         }
 
         .nav-circle-icon {
-          width: 40px;
-          height: 40px;
+          width: 34px;
+          height: 34px;
           border-radius: 50%;
-          background: rgba(255, 255, 255, 0.08);
-          border: 1px solid rgba(255, 255, 255, 0.15);
+          background: rgba(255, 255, 255, 0.05);
+          border: 1px solid rgba(255, 255, 255, 0.11);
           display: flex;
           align-items: center;
           justify-content: center;
-          font-size: 1.1rem;
+          font-size: 0.95rem;
           transition: all 0.25s ease;
         }
 
         .nav-node-btn.active .nav-circle-icon {
-          background: rgba(214, 183, 138, 0.25);
-          border-color: var(--warm-sand);
+          background: rgba(214, 183, 138, 0.16);
+          border-color: rgba(214, 183, 138, 0.55);
           color: var(--warm-sand);
-          box-shadow: 0 0 15px rgba(214, 183, 138, 0.4);
+          box-shadow: none;
         }
 
         /* HERO EDITORIAL TYPOGRAPHY */
         .hero-editorial-box {
           max-width: 560px;
+          align-self: end;
+          padding-bottom: 0.45rem;
         }
 
         .hero-editorial-title {
           font-family: 'Playfair Display', serif;
-          font-size: clamp(2.8rem, 5.5vw, 4.4rem);
+          font-size: clamp(3rem, 6vw, 5.1rem);
           font-weight: 700;
           line-height: 1.05;
           color: #ffffff;
@@ -275,34 +282,36 @@ export default function AgafayPage() {
         }
 
         .hero-editorial-subtitle {
-          font-size: clamp(1.1rem, 2vw, 1.35rem);
-          font-weight: 600;
+          font-size: clamp(0.95rem, 1.55vw, 1.18rem);
+          font-weight: 800;
           color: var(--warm-sand);
-          margin-bottom: 1.25rem;
+          margin-bottom: 1rem;
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
           text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
         }
 
         .hero-editorial-text {
-          font-size: 0.95rem;
-          line-height: 1.6;
-          color: rgba(246, 242, 236, 0.85);
-          max-width: 500px;
+          font-size: 1rem;
+          line-height: 1.58;
+          color: rgba(246, 242, 236, 0.88);
+          max-width: 470px;
           text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
         }
 
         /* FLOATING GLASS PRICE CARD */
         .glass-price-card {
-          background: rgba(13, 34, 57, 0.82);
-          backdrop-filter: blur(28px);
-          -webkit-backdrop-filter: blur(28px);
-          border: 1px solid var(--glass-border);
-          border-radius: 24px;
-          padding: 2.2rem 1.8rem;
-          width: 270px;
-          box-shadow: 0 25px 50px -10px rgba(0, 0, 0, 0.8), 0 0 35px rgba(214, 183, 138, 0.15);
+          background: rgba(13, 34, 57, 0.7);
+          backdrop-filter: blur(22px);
+          -webkit-backdrop-filter: blur(22px);
+          border: 1px solid rgba(255, 255, 255, 0.16);
+          border-radius: 20px;
+          padding: 1.7rem;
+          width: 290px;
+          box-shadow: 0 22px 44px -14px rgba(0, 0, 0, 0.72);
           display: flex;
           flex-direction: column;
-          gap: 1.25rem;
+          gap: 0.95rem;
         }
 
         @media (max-width: 900px) {
@@ -310,20 +319,23 @@ export default function AgafayPage() {
         }
 
         .price-label-sm {
-          font-size: 0.85rem;
-          font-weight: 500;
-          color: rgba(246, 242, 236, 0.7);
+          font-size: 0.7rem;
+          font-weight: 800;
+          color: rgba(214, 183, 138, 0.9);
+          text-transform: uppercase;
+          letter-spacing: 0.14em;
         }
 
         .price-display-big {
-          font-size: 3.5rem;
+          font-size: 2.85rem;
           font-weight: 900;
           color: #ffffff;
-          line-height: 0.9;
+          line-height: 1;
+          letter-spacing: 0;
         }
         .price-display-big span {
-          font-size: 1.8rem;
-          font-weight: 700;
+          font-size: 1.05rem;
+          font-weight: 800;
           color: var(--warm-sand);
         }
 
@@ -339,10 +351,11 @@ export default function AgafayPage() {
           justify-content: center;
           background: var(--gold-gradient);
           color: var(--atlas-navy);
-          font-size: 1rem;
+          font-size: 0.9rem;
           font-weight: 800;
-          padding: 1rem 1.5rem;
-          border-radius: 14px;
+          letter-spacing: 0.06em;
+          padding: 0.95rem 1.35rem;
+          border-radius: 12px;
           text-decoration: none;
           box-shadow: 0 10px 25px rgba(214, 183, 138, 0.4);
           transition: all 0.25s ease;
@@ -360,7 +373,7 @@ export default function AgafayPage() {
           justify-content: space-between;
           background: rgba(255, 255, 255, 0.06);
           border: 1px solid rgba(255, 255, 255, 0.12);
-          border-radius: 12px;
+          border-radius: 10px;
           padding: 0.4rem 0.75rem;
         }
 
@@ -380,23 +393,23 @@ export default function AgafayPage() {
         .poster-footer-bars {
           display: flex;
           flex-direction: column;
-          gap: 0.75rem;
+          gap: 0.55rem;
           width: 100%;
           z-index: 10;
           margin-top: 1rem;
         }
 
         .glass-feature-bar {
-          background: rgba(13, 34, 57, 0.82);
-          backdrop-filter: blur(24px);
-          -webkit-backdrop-filter: blur(24px);
-          border: 1px solid var(--glass-border);
-          border-radius: 20px;
-          padding: 1.25rem 2rem;
+          background: rgba(13, 34, 57, 0.62);
+          backdrop-filter: blur(18px);
+          -webkit-backdrop-filter: blur(18px);
+          border: 1px solid rgba(255, 255, 255, 0.15);
+          border-radius: 16px;
+          padding: 1rem 1.4rem;
           display: grid;
-          grid-template-columns: repeat(5, 1fr);
+          grid-template-columns: repeat(4, 1fr);
           gap: 1rem;
-          box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+          box-shadow: 0 15px 32px rgba(0, 0, 0, 0.38);
         }
 
         @media (max-width: 768px) {
@@ -412,7 +425,7 @@ export default function AgafayPage() {
           flex-direction: column;
           align-items: center;
           text-align: center;
-          gap: 0.4rem;
+          gap: 0.32rem;
           border-right: 1px solid rgba(255, 255, 255, 0.1);
           padding-right: 0.5rem;
         }
@@ -422,34 +435,37 @@ export default function AgafayPage() {
         }
 
         .feature-node-icon {
-          font-size: 1.4rem;
+          font-size: 1.28rem;
           color: var(--warm-sand);
         }
 
         .feature-node-title {
-          font-size: 0.78rem;
-          font-weight: 700;
+          font-size: clamp(0.82rem, 1vw, 0.95rem);
+          font-weight: 800;
+          letter-spacing: 0.06em;
+          text-transform: uppercase;
           color: #ffffff;
         }
 
         .feature-node-sub {
-          font-size: 0.65rem;
-          color: rgba(246, 242, 236, 0.65);
+          font-size: 0.68rem;
+          color: rgba(246, 242, 236, 0.72);
+          font-style: italic;
         }
 
         .glass-trust-bar {
-          background: rgba(13, 34, 57, 0.55);
-          backdrop-filter: blur(16px);
-          -webkit-backdrop-filter: blur(16px);
-          border: 1px solid rgba(255, 255, 255, 0.12);
-          border-radius: 14px;
-          padding: 0.6rem 1.5rem;
+          background: rgba(13, 34, 57, 0.28);
+          backdrop-filter: blur(10px);
+          -webkit-backdrop-filter: blur(10px);
+          border: 1px solid rgba(255, 255, 255, 0.08);
+          border-radius: 12px;
+          padding: 0.48rem 1.25rem;
           display: flex;
           justify-content: center;
-          gap: 2.5rem;
-          font-size: 0.76rem;
+          gap: 1.35rem;
+          font-size: 0.68rem;
           font-weight: 600;
-          color: rgba(246, 242, 236, 0.85);
+          color: rgba(246, 242, 236, 0.72);
         }
 
         @media (max-width: 600px) {
@@ -466,7 +482,7 @@ export default function AgafayPage() {
         .content-section-container {
           max-width: 1100px;
           margin: 0 auto;
-          padding: 5rem 1.5rem 8rem;
+          padding: 3.75rem 1.5rem 6rem;
         }
 
         .section-badge-pill {
@@ -488,14 +504,14 @@ export default function AgafayPage() {
           font-size: clamp(2rem, 4vw, 3rem);
           font-weight: 700;
           color: #ffffff;
-          margin-bottom: 2.5rem;
+          margin-bottom: 1.75rem;
         }
 
         .glass-cards-grid {
           display: grid;
           grid-template-columns: repeat(2, 1fr);
           gap: 1.5rem;
-          margin-bottom: 4rem;
+          margin-bottom: 3rem;
         }
 
         @media (max-width: 768px) {
@@ -537,7 +553,7 @@ export default function AgafayPage() {
           -webkit-backdrop-filter: blur(28px) saturate(180%);
           border: 1px solid rgba(255, 255, 255, 0.2);
           border-radius: 22px;
-          padding: 1.85rem;
+          padding: 1.65rem;
           box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.25), 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 25px rgba(214, 183, 138, 0.06);
           transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
           display: flex;
@@ -554,20 +570,21 @@ export default function AgafayPage() {
         .timeline-header {
           display: flex;
           justify-content: space-between;
-          align-items: center;
-          margin-bottom: 1rem;
+          align-items: flex-start;
+          margin-bottom: 0.9rem;
         }
 
         .timeline-badge {
-          background: rgba(214, 183, 138, 0.18);
-          border: 1px solid rgba(214, 183, 138, 0.35);
+          background: transparent;
+          border: none;
           color: var(--warm-sand);
-          font-size: 0.75rem;
+          font-size: 1.7rem;
           font-weight: 800;
-          padding: 0.35rem 0.8rem;
-          border-radius: 999px;
-          letter-spacing: 0.05em;
-          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+          padding: 0;
+          border-radius: 0;
+          letter-spacing: 0;
+          box-shadow: none;
+          line-height: 1;
         }
 
         .timeline-icon {
@@ -836,10 +853,12 @@ export default function AgafayPage() {
         {/* CLEAN BRAND HEADER NAVBAR */}
         <header className="poster-header-top">
           <div className="brand-header-left">
-            <img 
+            <Image 
               src="/safaratlas-brand-logo.png" 
               alt="SafarAtlas Logo" 
               className="brand-logo-img" 
+              width={38}
+              height={38}
             />
             <div>
               <div className="brand-title-main">SAFARATLAS</div>
@@ -866,41 +885,6 @@ export default function AgafayPage() {
 
         {/* MAIN POSTER GRID LAYOUT */}
         <main className="poster-grid-layout">
-          {/* PURPOSEFUL VERTICAL LEFT NAVIGATION PILLAR */}
-          <nav className="vertical-glass-pillar">
-            <button 
-              className={`nav-node-btn ${activeTab === "overview" ? "active" : ""}`}
-              onClick={() => scrollToSection("overview")}
-            >
-              <div className="nav-circle-icon">🏜️</div>
-              <span>Overview</span>
-            </button>
-
-            <button 
-              className={`nav-node-btn ${activeTab === "activities" ? "active" : ""}`}
-              onClick={() => scrollToSection("activities")}
-            >
-              <div className="nav-circle-icon">🏎️</div>
-              <span>Activities</span>
-            </button>
-
-            <button 
-              className={`nav-node-btn ${activeTab === "timeline" ? "active" : ""}`}
-              onClick={() => scrollToSection("timeline")}
-            >
-              <div className="nav-circle-icon">⏱️</div>
-              <span>Timeline</span>
-            </button>
-
-            <button 
-              className={`nav-node-btn ${activeTab === "reviews" ? "active" : ""}`}
-              onClick={() => scrollToSection("reviews")}
-            >
-              <div className="nav-circle-icon">⭐</div>
-              <span>Reviews</span>
-            </button>
-          </nav>
-
           {/* HERO EDITORIAL TYPOGRAPHY */}
           <div className="hero-editorial-box">
             <h1 className="hero-editorial-title">
@@ -909,43 +893,17 @@ export default function AgafayPage() {
             </h1>
             <div className="hero-editorial-subtitle">Just outside Marrakech</div>
             <p className="hero-editorial-text">
-              A unique getaway in a stunning desert landscape. Quad biking, sunset camel ride, candlelit tagine dinner and live Gnaoua show — just a short drive from Marrakech.
+              Desert adventure, Moroccan tradition and sunset dining in one unforgettable Agafay evening.
             </p>
           </div>
 
           {/* FLOATING GLASS PRICE CARD */}
           <div className="glass-price-card">
-            <div className="price-label-sm" style={{ textTransform: "uppercase", letterSpacing: "0.12em", fontSize: "0.72rem", fontWeight: 800, color: "var(--warm-sand)" }}>
-              From
-            </div>
+            <div className="price-label-sm">Opening offer</div>
             <div className="price-display-big">
-              34<span>€</span>
+              €34 <span>/ person</span>
             </div>
-            <div className="price-sub-pax" style={{ marginBottom: "0.85rem" }}>per person</div>
-
-            {/* Traveler counter */}
-            <div className="traveler-counter-mini">
-              <span style={{ fontSize: "0.75rem", fontWeight: 600 }}>Travelers:</span>
-              <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
-                <button className="counter-btn-mini" onClick={() => setTravelers(Math.max(1, travelers - 1))}>-</button>
-                <span style={{ fontWeight: 800, fontSize: "0.85rem" }}>{travelers}</span>
-                <button className="counter-btn-mini" onClick={() => setTravelers(travelers + 1)}>+</button>
-              </div>
-            </div>
-
-            <div style={{ 
-              fontSize: "0.78rem", 
-              fontWeight: 700, 
-              textAlign: "center", 
-              color: "var(--warm-sand)", 
-              background: "rgba(214, 183, 138, 0.12)", 
-              padding: "0.4rem 0.6rem", 
-              borderRadius: "8px", 
-              border: "1px solid rgba(214, 183, 138, 0.25)",
-              marginBottom: "1rem"
-            }}>
-              Total: {grandTotal}€ ({travelers} traveler{travelers > 1 ? "s" : ""})
-            </div>
+            <div className="price-sub-pax" style={{ marginBottom: "0.55rem" }}>Premium desert evening. Accessible early-access price.</div>
 
             <a 
               href={`https://wa.me/${WHATSAPP_NUMBER}?text=${waMessage}`} 
@@ -953,7 +911,7 @@ export default function AgafayPage() {
               rel="noreferrer" 
               className="btn-glass-cta"
             >
-              BOOK NOW
+              BOOK YOUR ESCAPE →
             </a>
           </div>
         </main>
@@ -963,7 +921,7 @@ export default function AgafayPage() {
           <div className="glass-feature-bar">
             <div className="feature-node">
               <div className="feature-node-icon">🏎️</div>
-              <div className="feature-node-title">Quad Biking</div>
+              <div className="feature-node-title">Quad Adventure</div>
               <div className="feature-node-sub">1-Hour Guided</div>
             </div>
 
@@ -975,45 +933,51 @@ export default function AgafayPage() {
 
             <div className="feature-node">
               <div className="feature-node-icon">🍵</div>
-              <div className="feature-node-title">Mint Tea</div>
+              <div className="feature-node-title">Moroccan Tea</div>
               <div className="feature-node-sub">Atlas Viewpoint</div>
             </div>
 
             <div className="feature-node">
               <div className="feature-node-icon">🕯️</div>
-              <div className="feature-node-title">Tagine Dinner</div>
+              <div className="feature-node-title">Sunset & Dinner</div>
               <div className="feature-node-sub">Gnaoua Fire Show</div>
-            </div>
-
-            <div className="feature-node">
-              <div className="feature-node-icon">🚐</div>
-              <div className="feature-node-title">Hotel Transfer</div>
-              <div className="feature-node-sub">Roundtrip A/C</div>
             </div>
           </div>
 
           <div className="glass-trust-bar">
             <div className="trust-item">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D6B78A" strokeWidth="2.5">
+                <path d="M5 17h14l-1.5-6h-11L5 17z"/>
+                <path d="M7 17v2"/>
+                <path d="M17 17v2"/>
+                <path d="M7 11V7h10v4"/>
+              </svg>
+              <span>Hotel transfer included</span>
+            </div>
+
+            <div className="trust-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D6B78A" strokeWidth="2.5">
                 <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
                 <path d="M9 12l2 2 4-4"/>
               </svg>
-              <span>Safe & Insured Experience</span>
+              <span>Safe & insured</span>
+            </div>
+
+            <div className="trust-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D6B78A" strokeWidth="2.5">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                <circle cx="9" cy="7" r="4"/>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+              </svg>
+              <span>Small groups</span>
             </div>
 
             <a href={`tel:+${WHATSAPP_NUMBER}`} className="trust-item" style={{ color: "inherit", textDecoration: "none" }}>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D6B78A" strokeWidth="2.5">
                 <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
               </svg>
-              <span>Call: {DISPLAY_PHONE}</span>
-            </a>
-
-            <a href={`mailto:${CONTACT_EMAIL}`} className="trust-item" style={{ color: "inherit", textDecoration: "none" }}>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D6B78A" strokeWidth="2.5">
-                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                <polyline points="22,6 12,13 2,6"/>
-              </svg>
-              <span>Email: {CONTACT_EMAIL}</span>
+              <span>{DISPLAY_PHONE}</span>
             </a>
           </div>
         </footer>
@@ -1022,7 +986,7 @@ export default function AgafayPage() {
       {/* ── EXPANDED CONTENT SECTIONS ── */}
       <div className="content-section-container">
         {/* ACTIVITIES SECTION (Editorial Punchy Format) */}
-        <section id="activities" style={{ marginBottom: "5rem" }}>
+        <section id="activities" style={{ marginBottom: "3.75rem" }}>
           <span className="section-badge-pill">The Experience</span>
           <h2 className="section-editorial-title">What Makes Agafay Unforgettable</h2>
 
@@ -1032,7 +996,7 @@ export default function AgafayPage() {
               <h3 style={{ fontSize: "1.2rem", fontWeight: 800, color: "#fff", marginBottom: "0.25rem" }}>QUAD BIKING</h3>
               <div style={{ fontSize: "0.78rem", fontWeight: 700, color: "var(--warm-sand)", fontStyle: "italic", marginBottom: "0.75rem" }}>1 Hour · Guided Safari</div>
               <p style={{ fontSize: "0.86rem", lineHeight: 1.5, color: "rgba(246, 242, 236, 0.78)" }}>
-                Navigate stone dunes & rocky canyons with protective helmets, goggles, and local guides.
+                Navigate Agafay&apos;s rocky desert terrain with a local guide and full safety gear.
               </p>
             </div>
 
@@ -1041,7 +1005,7 @@ export default function AgafayPage() {
               <h3 style={{ fontSize: "1.2rem", fontWeight: 800, color: "#fff", marginBottom: "0.25rem" }}>SUNSET CAMEL TREK</h3>
               <div style={{ fontSize: "0.78rem", fontWeight: 700, color: "var(--warm-sand)", fontStyle: "italic", marginBottom: "0.75rem" }}>20 Min · Nomad Dress</div>
               <p style={{ fontSize: "0.86rem", lineHeight: 1.5, color: "rgba(246, 242, 236, 0.78)" }}>
-                Glide along high ridges in traditional blue robes as the golden sun sets behind Atlas peaks.
+                Cross the desert at golden hour in nomad dress with the Atlas Mountains ahead.
               </p>
             </div>
 
@@ -1050,7 +1014,7 @@ export default function AgafayPage() {
               <h3 style={{ fontSize: "1.2rem", fontWeight: 800, color: "#fff", marginBottom: "0.25rem" }}>CANDLELIT TAGINE FEAST</h3>
               <div style={{ fontSize: "0.78rem", fontWeight: 700, color: "var(--warm-sand)", fontStyle: "italic", marginBottom: "0.75rem" }}>3 Courses · Camp Tent</div>
               <p style={{ fontSize: "0.86rem", lineHeight: 1.5, color: "rgba(246, 242, 236, 0.78)" }}>
-                Harira soup, slow-cooked tender tagines, fresh Moroccan salads, fruits & mint tea under starry skies.
+                Sit down to a warm Moroccan dinner in an atmospheric desert camp.
               </p>
             </div>
 
@@ -1059,14 +1023,14 @@ export default function AgafayPage() {
               <h3 style={{ fontSize: "1.2rem", fontWeight: 800, color: "#fff", marginBottom: "0.25rem" }}>GNAWA MUSIC & FIRE SHOW</h3>
               <div style={{ fontSize: "0.78rem", fontWeight: 700, color: "var(--warm-sand)", fontStyle: "italic", marginBottom: "0.75rem" }}>Live Show · Campfire</div>
               <p style={{ fontSize: "0.86rem", lineHeight: 1.5, color: "rgba(246, 242, 236, 0.78)" }}>
-                Gather around the central bonfire for rhythmic Berber drumming, Gnaoua singing, and fire dancing.
+                Close the evening with live Gnawa music, fire performance and campfire energy.
               </p>
             </div>
           </div>
         </section>
 
         {/* TIMELINE CARDS SECTION */}
-        <section id="timeline" style={{ marginBottom: "5rem" }}>
+        <section id="timeline" style={{ marginBottom: "3.75rem" }}>
           <span className="section-badge-pill">Your Evening</span>
           <h2 className="section-editorial-title">Step-by-Step Desert Timeline</h2>
 
@@ -1152,62 +1116,60 @@ export default function AgafayPage() {
         </section>
 
         {/* REVIEWS SECTION */}
-        <section id="reviews" style={{ marginBottom: "5rem" }}>
-          <span className="section-badge-pill">Real Guest Experiences</span>
-          <h2 className="section-editorial-title">Loved by Travelers</h2>
+        <section id="reviews" style={{ marginBottom: "3.75rem" }}>
+          <span className="section-badge-pill">Early Guest Promise</span>
+          <h2 className="section-editorial-title">Be Among Our First Guests</h2>
 
-          {/* Social Proof Rating Banner */}
           <div className="rating-score-banner">
-            <div className="rating-score-stars">★★★★★</div>
-            <div className="rating-score-number">4.9 / 5.0</div>
-            <div className="rating-score-sub">• Based on 140+ verified traveler reviews</div>
+            <div className="rating-score-number">Direct WhatsApp confirmation</div>
+            <div className="rating-score-sub">• Clear itinerary • Pay on arrival • Local coordination</div>
           </div>
 
           <div className="reviews-grid">
             <div className="review-card">
               <div>
-                <div className="review-stars">★★★★★</div>
+                <div className="review-stars">01</div>
                 <p className="review-quote">
-                  "Unbelievable evening! Booking directly via WhatsApp took 2 minutes. The quad biking at sunset was pure magic and dinner was delicious."
+                  A full Agafay evening designed for travelers who want adventure, dinner and sunset atmosphere without planning stress.
                 </p>
               </div>
               <div className="review-author-box">
-                <div className="review-avatar">EM</div>
+                <div className="review-avatar">WA</div>
                 <div>
-                  <div className="review-name">Emma M.</div>
-                  <div className="review-meta">London, UK · Verified Traveler</div>
+                  <div className="review-name">WhatsApp Concierge</div>
+                  <div className="review-meta">Fast answers before you book</div>
                 </div>
               </div>
             </div>
 
             <div className="review-card">
               <div>
-                <div className="review-stars">★★★★★</div>
+                <div className="review-stars">02</div>
                 <p className="review-quote">
-                  "At €34 this is the best value experience in Marrakech. Professional driver, incredible fire show, and no hassle. 10/10 recommendation!"
+                  Your evening is structured around the moments that matter: quad terrain, camel photos, mint tea, dinner and a live show.
                 </p>
               </div>
               <div className="review-author-box">
-                <div className="review-avatar">JD</div>
+                <div className="review-avatar">EV</div>
                 <div>
-                  <div className="review-name">Julian D.</div>
-                  <div className="review-meta">Paris, France · Verified Traveler</div>
+                  <div className="review-name">Planned Evening Flow</div>
+                  <div className="review-meta">Pickup to return, clearly sequenced</div>
                 </div>
               </div>
             </div>
 
             <div className="review-card">
               <div>
-                <div className="review-stars">★★★★★</div>
+                <div className="review-stars">03</div>
                 <p className="review-quote">
-                  "The sunset camel ride with mint tea was unforgettable. Smooth organization from pickup to drop-off. SafarAtlas made our holiday!"
+                  The opening offer keeps the entry price accessible while the experience stays visually and operationally premium.
                 </p>
               </div>
               <div className="review-author-box">
-                <div className="review-avatar">SK</div>
+                <div className="review-avatar">€</div>
                 <div>
-                  <div className="review-name">Sofia & Kevin</div>
-                  <div className="review-meta">Madrid, Spain · Verified Traveler</div>
+                  <div className="review-name">From €34 / Person</div>
+                  <div className="review-meta">Confirm details before payment</div>
                 </div>
               </div>
             </div>
@@ -1215,7 +1177,7 @@ export default function AgafayPage() {
         </section>
 
         {/* ── INCLUDED + GOOD TO KNOW REASSURANCE BLOCK ── */}
-        <section id="reassurance" style={{ marginBottom: "5rem" }}>
+        <section id="reassurance" style={{ marginBottom: "3.75rem" }}>
           <div className="reassurance-glass-card">
             <div className="reassurance-col">
               <h3 className="reassurance-title">
@@ -1223,15 +1185,15 @@ export default function AgafayPage() {
                   <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
                   <polyline points="22 4 12 14.01 9 11.01"/>
                 </svg>
-                What's Included
+                What&apos;s Included
               </h3>
               <ul className="reassurance-list">
-                <li><span className="check-icon">✓</span> Roundtrip Hotel Pickup & Drop-off (A/C Comfort)</li>
-                <li><span className="check-icon">✓</span> 1-Hour Guided Quad Biking + Full Safety Gear</li>
-                <li><span className="check-icon">✓</span> 20-Minute Sunset Camel Ride in Nomad Attire</li>
-                <li><span className="check-icon">✓</span> Fresh Moroccan Mint Tea at High Atlas Viewpoint</li>
-                <li><span className="check-icon">✓</span> 3-Course Traditional Tagine Dinner in Desert Camp</li>
-                <li><span className="check-icon">✓</span> Live Gnaoua Berber Music & Fire Performance</li>
+                <li><span className="check-icon">✓</span> Roundtrip hotel pickup</li>
+                <li><span className="check-icon">✓</span> 1-hour guided quad biking</li>
+                <li><span className="check-icon">✓</span> 20-minute sunset camel ride</li>
+                <li><span className="check-icon">✓</span> Moroccan mint tea</li>
+                <li><span className="check-icon">✓</span> 3-course traditional dinner</li>
+                <li><span className="check-icon">✓</span> Gnawa music & fire performance</li>
               </ul>
             </div>
 
@@ -1273,7 +1235,7 @@ export default function AgafayPage() {
                 rel="noreferrer" 
                 className="btn-glass-cta-large"
               >
-                BOOK YOUR AGAFAY EXPERIENCE (€{grandTotal})
+                BOOK NOW →
               </a>
               <div className="final-cta-guarantee">
                 <span>⚡ 2-Minute Direct Booking</span>
@@ -1290,8 +1252,8 @@ export default function AgafayPage() {
       {/* ── STICKY BAR MOBILE ── */}
       <div className="sticky-bar-lux">
         <div>
-          <div style={{ fontSize: "1.2rem", fontWeight: 900, color: "var(--warm-sand)" }}>34€ <span style={{ fontSize: "0.75rem", color: "rgba(246,242,236,0.7)" }}>/ pax</span></div>
-          <div style={{ fontSize: "0.7rem", color: "rgba(246,242,236,0.7)" }}>{travelers} traveler(s) · €{grandTotal} Total</div>
+          <div style={{ fontSize: "1.2rem", fontWeight: 900, color: "var(--warm-sand)" }}>€34 <span style={{ fontSize: "0.75rem", color: "rgba(246,242,236,0.7)" }}>/ pax</span></div>
+          <div style={{ fontSize: "0.7rem", color: "rgba(246,242,236,0.7)" }}>Instant WhatsApp confirmation</div>
         </div>
         <a 
           href={`https://wa.me/${WHATSAPP_NUMBER}?text=${waMessage}`} 
@@ -1306,4 +1268,3 @@ export default function AgafayPage() {
     </>
   );
 }
-
