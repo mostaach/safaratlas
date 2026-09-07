@@ -2,6 +2,7 @@
 
 import React, { useState, useRef } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { ESCAPES_PACKAGES, EscapePackage } from "../../data/mockData";
 import { addEscapeToJourney } from "../../lib/journeyStore";
 import { ChevronLeft, ChevronRight, Sparkles } from "lucide-react";
@@ -109,35 +110,67 @@ export const EscapesSection: React.FC<EscapesSectionProps> = ({
               className="snap-start shrink-0 w-[300px] sm:w-[350px] lg:w-[365px] group bg-white rounded-2xl border border-[#e5dacb] overflow-hidden shadow-[0_12px_32px_-16px_rgba(18,59,52,0.12)] hover:shadow-[0_24px_48px_-12px_rgba(18,59,52,0.2)] hover:border-[#c95e3d]/35 transition-all duration-300 hover:-translate-y-1.5 flex flex-col"
             >
               {/* Image with Parallax & Hover Depth */}
-              <div
-                onClick={() => onSelectEscapeDetail?.(item)}
-                className="relative h-52 sm:h-56 overflow-hidden cursor-pointer shrink-0"
-              >
-                <Image
-                  src={item.image}
-                  alt={item.title}
-                  fill
-                  sizes="(min-width: 1024px) 365px, (min-width: 640px) 350px, 300px"
-                  loading="lazy"
-                  className="object-cover transform group-hover:scale-108 transition-transform duration-700 ease-out"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
+              {item.id === "escape-agafay-1d" ? (
+                <Link
+                  href="/agafay"
+                  className="relative h-52 sm:h-56 overflow-hidden block cursor-pointer shrink-0"
+                >
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    fill
+                    sizes="(min-width: 1024px) 365px, (min-width: 640px) 350px, 300px"
+                    loading="lazy"
+                    className="object-cover transform group-hover:scale-108 transition-transform duration-700 ease-out"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
 
-                {/* Badge */}
-                <span className="absolute top-3.5 left-3.5 px-3 py-1 rounded-lg bg-[#123b34]/90 backdrop-blur-md text-[#f4c36b] text-[11px] font-extrabold uppercase tracking-wider border border-[#f4c36b]/30 shadow-xs">
-                  {item.badge}
-                </span>
-
-                {/* Location & Title */}
-                <div className="absolute bottom-3.5 left-3.5 right-3.5 text-white">
-                  <span className="text-[11px] font-black text-[#f4c36b] uppercase tracking-widest block drop-shadow-sm">
-                    {item.location}
+                  {/* Badge */}
+                  <span className="absolute top-3.5 left-3.5 px-3 py-1 rounded-lg bg-[#123b34]/90 backdrop-blur-md text-[#f4c36b] text-[11px] font-extrabold uppercase tracking-wider border border-[#f4c36b]/30 shadow-xs">
+                    {item.badge}
                   </span>
-                  <h3 className="text-lg font-serif font-black tracking-tight drop-shadow-md text-white group-hover:text-[#f4c36b] transition-colors line-clamp-1">
-                    {item.title}
-                  </h3>
+
+                  {/* Location & Title */}
+                  <div className="absolute bottom-3.5 left-3.5 right-3.5 text-white">
+                    <span className="text-[11px] font-black text-[#f4c36b] uppercase tracking-widest block drop-shadow-sm">
+                      {item.location}
+                    </span>
+                    <h3 className="text-lg font-serif font-black tracking-tight drop-shadow-md text-white group-hover:text-[#f4c36b] transition-colors line-clamp-1">
+                      {item.title}
+                    </h3>
+                  </div>
+                </Link>
+              ) : (
+                <div
+                  onClick={() => onSelectEscapeDetail?.(item)}
+                  className="relative h-52 sm:h-56 overflow-hidden cursor-pointer shrink-0"
+                >
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    fill
+                    sizes="(min-width: 1024px) 365px, (min-width: 640px) 350px, 300px"
+                    loading="lazy"
+                    className="object-cover transform group-hover:scale-108 transition-transform duration-700 ease-out"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
+
+                  {/* Badge */}
+                  <span className="absolute top-3.5 left-3.5 px-3 py-1 rounded-lg bg-[#123b34]/90 backdrop-blur-md text-[#f4c36b] text-[11px] font-extrabold uppercase tracking-wider border border-[#f4c36b]/30 shadow-xs">
+                    {item.badge}
+                  </span>
+
+                  {/* Location & Title */}
+                  <div className="absolute bottom-3.5 left-3.5 right-3.5 text-white">
+                    <span className="text-[11px] font-black text-[#f4c36b] uppercase tracking-widest block drop-shadow-sm">
+                      {item.location}
+                    </span>
+                    <h3 className="text-lg font-serif font-black tracking-tight drop-shadow-md text-white group-hover:text-[#f4c36b] transition-colors line-clamp-1">
+                      {item.title}
+                    </h3>
+                  </div>
                 </div>
-              </div>
+              )}
 
               {/* Card Body */}
               <div className="p-5 flex flex-col flex-1 gap-4 bg-white">
@@ -158,43 +191,68 @@ export const EscapesSection: React.FC<EscapesSectionProps> = ({
                       </span>
                     </div>
 
-                    <button
-                      type="button"
-                      onClick={() => onSelectEscapeDetail?.(item)}
-                      className="cursor-pointer text-xs font-extrabold text-[#123b34] hover:text-[#c95e3d] underline underline-offset-4 transition-colors"
-                    >
-                      View details →
-                    </button>
+                    {item.id === "escape-agafay-1d" ? (
+                      <Link
+                        href="/agafay"
+                        className="cursor-pointer text-xs font-extrabold text-[#123b34] hover:text-[#c95e3d] underline underline-offset-4 transition-colors"
+                      >
+                        View details →
+                      </Link>
+                    ) : (
+                      <button
+                        type="button"
+                        onClick={() => onSelectEscapeDetail?.(item)}
+                        className="cursor-pointer text-xs font-extrabold text-[#123b34] hover:text-[#c95e3d] underline underline-offset-4 transition-colors"
+                      >
+                        View details →
+                      </button>
+                    )}
                   </div>
 
-                  <button
-                    type="button"
-                    onClick={() => {
-                      if (typeof window !== "undefined") {
-                        addEscapeToJourney({
-                          id: item.id,
-                          slug: item.slug,
-                          title: item.title,
-                          duration: item.duration,
-                          location: item.location,
-                          priceFromEur: item.priceFromEur,
-                          image: item.image,
-                          badge: item.badge,
-                        });
-                      }
-                      if (onInquireEscape) onInquireEscape(item);
-                    }}
-                    className="w-full cursor-pointer py-2.5 rounded-xl bg-[#c95e3d] hover:bg-[#aa4a2c] text-white text-xs font-black tracking-wider shadow-[0_6px_20px_rgba(201,94,61,0.35)] hover:shadow-[0_8px_25px_rgba(201,94,61,0.5)] transition-all flex items-center justify-center gap-1.5 active:scale-98"
-                  >
-                    <span>Plan with this escape</span>
-                    <svg className="w-3.5 h-3.5" viewBox="0 0 20 20" fill="currentColor">
-                      <path
-                        fillRule="evenodd"
-                        d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                  </button>
+                  {item.id === "escape-agafay-1d" ? (
+                    <Link
+                      href="/agafay"
+                      className="w-full cursor-pointer py-2.5 rounded-xl bg-[#c95e3d] hover:bg-[#aa4a2c] text-white text-xs font-black tracking-wider shadow-[0_6px_20px_rgba(201,94,61,0.35)] hover:shadow-[0_8px_25px_rgba(201,94,61,0.5)] transition-all flex items-center justify-center gap-1.5 active:scale-98"
+                    >
+                      <span>Explore Agafay Escape</span>
+                      <svg className="w-3.5 h-3.5" viewBox="0 0 20 20" fill="currentColor">
+                        <path
+                          fillRule="evenodd"
+                          d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                    </Link>
+                  ) : (
+                    <button
+                      type="button"
+                      onClick={() => {
+                        if (typeof window !== "undefined") {
+                          addEscapeToJourney({
+                            id: item.id,
+                            slug: item.slug,
+                            title: item.title,
+                            duration: item.duration,
+                            location: item.location,
+                            priceFromEur: item.priceFromEur,
+                            image: item.image,
+                            badge: item.badge,
+                          });
+                        }
+                        if (onInquireEscape) onInquireEscape(item);
+                      }}
+                      className="w-full cursor-pointer py-2.5 rounded-xl bg-[#c95e3d] hover:bg-[#aa4a2c] text-white text-xs font-black tracking-wider shadow-[0_6px_20px_rgba(201,94,61,0.35)] hover:shadow-[0_8px_25px_rgba(201,94,61,0.5)] transition-all flex items-center justify-center gap-1.5 active:scale-98"
+                    >
+                      <span>Plan with this escape</span>
+                      <svg className="w-3.5 h-3.5" viewBox="0 0 20 20" fill="currentColor">
+                        <path
+                          fillRule="evenodd"
+                          d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                    </button>
+                  )}
                 </div>
               </div>
             </div>

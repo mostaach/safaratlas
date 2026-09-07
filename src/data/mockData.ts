@@ -556,11 +556,11 @@ export const ESCAPES_PACKAGES: EscapePackage[] = [
     title: "Agafay Desert Sunset & Quad Escape",
     slug: "agafay-escape-1d",
     subtitle: "30-min from Marrakech → Rocky Desert Oasis",
-    duration: "1 Day / Sunset",
+    duration: "8h Journey",
     category: "Desert",
     location: "Agafay Desert (Marrakech)",
-    priceFromEur: 110,
-    image: "/escapes/agafay-1d.jpg",
+    priceFromEur: 34,
+    image: "/agafay-hero-quads.jpg",
     badge: "Marrakech Express",
     highlights: [
       "Sunset camel walk over rocky desert hills",
@@ -570,14 +570,14 @@ export const ESCAPES_PACKAGES: EscapePackage[] = [
     ],
     included: ["Roundtrip Private Hotel Transfer", "Quad Bike & Safety Helmet", "Sunset Camel Walk", "Full 3-Course Tagine Dinner"],
     notIncluded: ["Alcoholic beverages"],
-    summary: "Short on time? Experience desert magic without the 8-hour drive. An afternoon and evening escape directly from your Marrakech riad.",
+    summary: "Short on time? Experience desert magic without the long drive. An 8-hour afternoon and evening escape directly from your Marrakech riad.",
     fullDescription: "Escape the bustling medina of Marrakech for the serene moonscape of Agafay. Just 40 minutes away, ride quads across stony hills, enjoy a peaceful camel walk at sunset, and dine under candlelit Berber tents with acoustic music.",
     itineraryDays: [
       {
         dayNumber: 1,
         title: "Afternoon Transfer → Quad Adventure → Sunset Dinner",
-        description: "Pickup from your Marrakech riad at 16:00. Arrive in Agafay desert camp. Gear up for a 1-hour quad biking ride over rocky hills. Followed by a quiet camel walk as the sun sets over the High Atlas horizon. Finish with a gourmet tagine dinner around the bonfire.",
-        image: "/escapes/agafay-1d.jpg",
+        description: "Pickup from your Marrakech riad at 16:30. Arrive in Agafay desert camp. Gear up for a 1-hour quad biking ride over rocky hills. Followed by a quiet camel walk as the sun sets over the High Atlas horizon. Finish with a gourmet tagine dinner and live fire show around the bonfire.",
+        image: "/agafay-hero-quads.jpg",
         highlights: ["1-hour quad biking", "Atlas sunset views", "Bonfire Berber music"]
       }
     ]

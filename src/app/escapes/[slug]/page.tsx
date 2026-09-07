@@ -1,5 +1,5 @@
 import React from "react";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
@@ -37,6 +37,10 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 }
 
 export default function EscapePage({ params }: { params: { slug: string } }) {
+  if (params.slug === "agafay-escape-1d") {
+    redirect("/agafay");
+  }
+
   const escapePkg = ESCAPES_PACKAGES.find((pkg) => pkg.slug === params.slug);
 
   if (!escapePkg) {
