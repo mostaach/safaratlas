@@ -10,7 +10,7 @@ interface HeaderProps {
   onOpenInquiryModal?: () => void;
 }
 
-export const Header: React.FC<HeaderProps> = ({ onOpenInquiryModal }) => {
+export const Header: React.FC<HeaderProps> = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [journeyCount, setJourneyCount] = useState(0);
@@ -49,35 +49,34 @@ export const Header: React.FC<HeaderProps> = ({ onOpenInquiryModal }) => {
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-1 bg-white/90 backdrop-blur-md p-1.5 rounded-full border border-[#e5dacb] shadow-xs">
+        <nav className="hidden md:flex items-center gap-1.5 bg-white/90 backdrop-blur-md p-1.5 rounded-full border border-[#e5dacb] shadow-xs">
+          <a 
+            href="#itineraries" 
+            className="px-4 py-2.5 rounded-full text-sm font-semibold tracking-wide text-[#121a17] hover:text-[#c95e3d] hover:bg-[#faf6f0] transition-all"
+          >
+            Sample Route
+          </a>
           <a 
             href="#escapes" 
-            className="px-4 py-2 rounded-full text-xs font-semibold tracking-wide text-[#121a17] hover:text-[#c95e3d] hover:bg-[#faf6f0] transition-all"
+            className="px-4 py-2.5 rounded-full text-sm font-semibold tracking-wide text-[#121a17] hover:text-[#c95e3d] hover:bg-[#faf6f0] transition-all"
           >
             Escapes
           </a>
           <a 
             href="#destinations" 
-            className="px-4 py-2 rounded-full text-xs font-semibold tracking-wide text-[#121a17] hover:text-[#c95e3d] hover:bg-[#faf6f0] transition-all"
+            className="px-4 py-2.5 rounded-full text-sm font-semibold tracking-wide text-[#121a17] hover:text-[#c95e3d] hover:bg-[#faf6f0] transition-all"
           >
             Destinations
           </a>
           <a 
-            href="#map-explorer" 
-            className="px-4 py-2 rounded-full text-xs font-semibold tracking-wide text-[#121a17] hover:text-[#c95e3d] hover:bg-[#faf6f0] transition-all flex items-center gap-1.5"
-          >
-            <span className="w-2 h-2 rounded-full bg-[#059669] animate-pulse" />
-            Atlas Map
-          </a>
-          <a 
             href="#how-it-works" 
-            className="px-4 py-2 rounded-full text-xs font-semibold tracking-wide text-[#121a17] hover:text-[#c95e3d] hover:bg-[#faf6f0] transition-all"
+            className="px-4 py-2.5 rounded-full text-sm font-semibold tracking-wide text-[#121a17] hover:text-[#c95e3d] hover:bg-[#faf6f0] transition-all"
           >
             How it Works
           </a>
           <Link
             href="/journey"
-            className="px-4 py-2 rounded-full text-xs font-bold tracking-wide text-[#123b34] bg-[#123b34]/10 hover:bg-[#123b34] hover:text-white transition-all flex items-center gap-1.5"
+            className="px-4 py-2.5 rounded-full text-sm font-bold tracking-wide text-[#123b34] bg-[#123b34]/10 hover:bg-[#123b34] hover:text-white transition-all flex items-center gap-1.5"
           >
             <span>My Journey</span>
             {journeyCount > 0 && (
@@ -93,13 +92,13 @@ export const Header: React.FC<HeaderProps> = ({ onOpenInquiryModal }) => {
           <WhatsAppButton />
           <Link
             href="/journey"
-            className="px-6 py-2.5 rounded-full bg-[#c95e3d] text-white text-xs font-bold tracking-widest shadow-md hover:bg-[#aa4a2c] transition-all duration-200 flex items-center gap-2 transform hover:-translate-y-0.5 cursor-pointer"
+            className="px-6 py-3 rounded-full bg-[#c95e3d] text-white text-sm font-bold tracking-wide shadow-md hover:bg-[#aa4a2c] transition-all duration-200 flex items-center gap-2 transform hover:-translate-y-0.5 cursor-pointer"
           >
             <svg className="w-3.5 h-3.5" viewBox="0 0 20 20" fill="currentColor">
               <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
               <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
             </svg>
-            <span>Build My Journey</span>
+            <span>Plan My Trip</span>
           </Link>
         </div>
 
@@ -129,6 +128,13 @@ export const Header: React.FC<HeaderProps> = ({ onOpenInquiryModal }) => {
         <div className="md:hidden bg-cream border-b border-slate-200 px-6 py-6 space-y-4 shadow-xl animate-in slide-in-from-top-4 duration-200">
           <div className="flex flex-col space-y-3 font-bold text-sm">
             <a 
+              href="#itineraries" 
+              onClick={() => setMobileMenuOpen(false)}
+              className="px-3 py-2 rounded-lg hover:bg-cream-dark text-slate-900"
+            >
+              Sample Route
+            </a>
+            <a 
               href="#escapes" 
               onClick={() => setMobileMenuOpen(false)}
               className="px-3 py-2 rounded-lg hover:bg-cream-dark text-slate-900"
@@ -141,14 +147,6 @@ export const Header: React.FC<HeaderProps> = ({ onOpenInquiryModal }) => {
               className="px-3 py-2 rounded-lg hover:bg-cream-dark text-slate-900"
             >
               Destinations
-            </a>
-            <a 
-              href="#map-explorer" 
-              onClick={() => setMobileMenuOpen(false)}
-              className="px-3 py-2 rounded-lg hover:bg-cream-dark text-slate-900 flex items-center justify-between"
-            >
-              <span>Atlas Map</span>
-              <span className="text-xs bg-accent px-2 py-0.5 rounded-full text-slate-900 font-black">Live</span>
             </a>
             <Link
               href="/journey"
@@ -169,7 +167,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenInquiryModal }) => {
               onClick={() => setMobileMenuOpen(false)}
               className="w-full py-3 rounded-xl bg-[#c95e3d] text-white text-xs font-bold tracking-widest text-center shadow-md block"
             >
-              Build My Morocco Journey
+              Plan My Morocco Trip
             </Link>
           </div>
         </div>

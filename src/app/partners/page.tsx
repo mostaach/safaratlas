@@ -1,6 +1,8 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
 
 type Category = "airport_transfer" | "riad" | "desert_trip" | "guided_tour" | "activity" | "restaurant" | "other";
 
@@ -68,6 +70,22 @@ export default function PartnersPage() {
 
   return (
     <main style={{ minHeight: "100vh", background: "#fcf8f1", fontFamily: "'Georgia', serif", color: "#17211d" }}>
+      {/* Top Brand Bar */}
+      <nav style={{ background: "#0a1410", padding: "14px 24px", display: "flex", alignItems: "center", justifyContent: "space-between", borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
+        <Link href="/" style={{ display: "flex", alignItems: "center", gap: 10, textDecoration: "none" }}>
+          <Image src="/safar-atlas-logo-white.svg" alt="SafarAtlas" width={28} height={28} style={{ objectFit: "contain" }} />
+          <span style={{ fontFamily: "'Georgia', serif", fontWeight: 900, fontSize: 18, color: "#fff", letterSpacing: -0.5 }}>
+            Safar<span style={{ color: "#C4A258" }}>Atlas</span>
+          </span>
+          <span style={{ fontSize: 10, fontWeight: 800, letterSpacing: 2, textTransform: "uppercase", color: "#C4A258", background: "#16375A", padding: "3px 8px", borderRadius: 99 }}>
+            Partners
+          </span>
+        </Link>
+        <Link href="/" style={{ fontSize: 12, fontWeight: 700, textTransform: "uppercase", letterSpacing: 1, color: "rgba(255,255,255,0.7)", textDecoration: "none" }}>
+          ← Back to Journeys
+        </Link>
+      </nav>
+
       {/* Hero */}
       <section style={{ background: "linear-gradient(135deg, #194c43 0%, #0f2e27 100%)", padding: "80px 24px 64px", textAlign: "center", position: "relative", overflow: "hidden" }}>
         <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(circle at 20% 50%, rgba(201,94,61,0.15) 0%, transparent 60%), radial-gradient(circle at 80% 20%, rgba(255,255,255,0.05) 0%, transparent 50%)" }} />

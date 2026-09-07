@@ -358,5 +358,75 @@ When we manage a couple's Morocco itinerary, everything is pre-arranged:
 
 *Ready to start designing your Morocco journey? Tell us your dates and vision.*
 `
+  },
+  {
+    id: "post-things-to-do-marrakech",
+    slug: "things-to-do-in-marrakech-guide",
+    title: "Top 7 Things to Do in Marrakech (That Are Actually Worth Your Time)",
+    subtitle: "Skip the crowded tourist traps. Our local scouts share the 7 curated experiences that define an incredible Marrakech trip.",
+    category: "Insider Tips",
+    author: {
+      name: "Mehdi El Ksir",
+      role: "SafarAtlas Founder & Local Scout",
+      avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80"
+    },
+    publishedAt: "August 30, 2026",
+    readTime: "6 min read",
+    coverImage: "https://images.unsplash.com/photo-1539650116574-75c0c6d73f6e?auto=format&fit=crop&w=1200&q=80",
+    summary: "From sunset mint tea over the Medina to a private Agafay desert evening just 45 minutes away, discover the top 7 experiences in Marrakech recommended by local experts.",
+    recommendedEscapeSlug: "agafay-vip",
+    contentMarkdown: `
+# Top 7 Things to Do in Marrakech (That Are Actually Worth Your Time)
+
+Marrakech is a sensory explosion. With thousands of options competing for your attention, it's easy for first-time visitors to get caught in tourist traps or feel overwhelmed by long bus tours.
+
+Our team of local scouts at SafarAtlas curated this refined list of **7 non-negotiable experiences** that guarantee an unforgettable Marrakech trip.
+
+---
+
+## 1. The Agafay Desert Golden Hour Escape (45 Mins Away)
+If you don't have time for a 3-day Sahara road trip, **Agafay** is the ultimate desert solution. Located just 45 minutes south of Marrakech, this rocky moonscape desert comes alive at golden hour.
+- **What to do:** Private sunset camel trek across stone ridges, fresh mint tea on a private lounge hill, followed by a candlelit 3-course dinner under a starlit canopy with acoustic Berber musicians.
+- **Local Tip:** Avoid shared tour buses with 15 strangers. Book a private 4x4 transfer that picks you up directly at your Riad door at 3:00 PM and brings you back by 9:30 PM.
+
+---
+
+## 2. Rooftop Sunset & Mint Tea Ritual in Mouassine
+Before the sun sets over the Medina, head up to a quiet rooftop in the Mouassine or Rahba Kedima quarter. Watch the sky turn pastel pink over the Koutoubia Mosque as the call to prayer echoes across the ancient city.
+
+---
+
+## 3. Early Morning Walk Through Jardin Majorelle & YSL Museum
+Designed by French painter Jacques Majorelle and saved by Yves Saint Laurent, these electric cobalt-blue botanical gardens are world-famous.
+- **Local Tip:** Book your ticket online for the 8:30 AM slot — the light is magnificent and you'll beat the afternoon tourist crowds.
+
+---
+
+## 4. Authentic Moroccan Hammam & Argan Spa Session
+Skip the hotel showers and indulge in a traditional 2-hour black soap exfoliation, eucalyptus steam, and argan oil massage. It is the single best way to wash off travel fatigue after arriving in Morocco.
+
+---
+
+## 5. Secret Artisan Souk Trail (Rahba Kedima & Souk Cherifia)
+Instead of aimlessly wandering the main thoroughfares, explore the artisan workshops hidden in quiet courtyards:
+- **Zellige Tiles:** Watch master craftsmen chisel terracotta pieces by hand.
+- **Leather & Brass Lamps:** Discover custom brass lampmakers near Place des Épices.
+
+---
+
+## 6. Day Escape to Imlil & High Atlas Berber Villages
+Just 1 hour south of Marrakech lies Imlil, the gateway to Mount Toubkal (North Africa's highest peak). Hike through walnut groves, cross mountain streams, and enjoy homemade tagine at a local Berber family home.
+
+---
+
+## 7. Night Food Tasting at Jemaa el-Fnaa
+As night falls, Marrakech's central square transforms into an open-air theater of food stalls, storytelling, and musicians. Taste grilled lamb skewers, spiced harira soup, and fresh-squeezed orange juice.
+
+---
+
+## Plan Your Marrakech Escapes with SafarAtlas
+Want to experience Marrakech without the stress of haggling or coordinating transport? SafarAtlas arranges private 4x4 transfers, vetted local guides, and luxury desert dinners with 24/7 WhatsApp Concierge support.
+`
   }
 ];
+

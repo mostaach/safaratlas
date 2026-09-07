@@ -2,29 +2,29 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
-import { MapPin, Map, Route, ShieldCheck, MessageCircle } from "lucide-react";
+import { MapPin, Map, Route, Compass, MessageCircle } from "lucide-react";
 
 interface FloatingNavProps {
   onOpenInquiry?: () => void;
 }
 
-const FloatingNav: React.FC<FloatingNavProps> = ({ onOpenInquiry }) => {
+const FloatingNav: React.FC<FloatingNavProps> = () => {
   const [active, setActive] = useState(0);
   const [indicatorStyle, setIndicatorStyle] = useState({ width: 0, left: 0 });
   const containerRef = useRef<HTMLDivElement>(null);
   const btnRefs = useRef<(HTMLAnchorElement | HTMLButtonElement | null)[]>([]);
 
   const items = [
-    { id: 0, icon: <MapPin size={22} />, label: "Escapes", href: "#escapes-section" },
-    { id: 1, icon: <Map size={22} />, label: "Places", href: "#destinations" },
-    { id: 2, icon: <Route size={22} />, label: "Map", href: "#map-explorer" },
-    { id: 3, icon: <ShieldCheck size={22} />, label: "Journey", href: "/journey" },
+    { id: 0, icon: <Route size={22} />, label: "Route", href: "#itineraries" },
+    { id: 1, icon: <Compass size={22} />, label: "Escapes", href: "#escapes" },
+    { id: 2, icon: <MapPin size={22} />, label: "Places", href: "#destinations" },
+    { id: 3, icon: <Map size={22} />, label: "Map", href: "#map-explorer" },
     { id: 4, icon: <MessageCircle size={22} />, label: "WhatsApp", action: () => window.open("https://wa.me/212698017323?text=Hello%20SafarAtlas!%20I'd%20like%20to%20plan%20a%20Morocco%20trip.", "_blank") },
   ];
 
   useEffect(() => {
     const handleScroll = () => {
-      const sectionIds = ["destinations", "map-explorer", "itineraries", "verified-partners"];
+      const sectionIds = ["itineraries", "escapes", "destinations", "map-explorer"];
       const scrollPos = window.scrollY + 200;
 
       for (let i = sectionIds.length - 1; i >= 0; i--) {

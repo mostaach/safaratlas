@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
+import Image from "next/image";
 import { trackEvent } from "../../lib/trackEvent";
 import { BusinessListing, EscapePackage } from "../../data/mockData";
 
@@ -31,7 +32,7 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({
   const [leadReference, setLeadReference] = useState("");
   const [submissionError, setSubmissionError] = useState("");
   
-  const getInitialMessage = () => {
+  const initialMessage = useMemo(() => {
     if (selectedEscape) {
       return `Hi! I would like to include the ${selectedEscape.title} (${selectedEscape.duration}) in my Morocco journey.`;
     }
@@ -39,20 +40,15 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({
       return `Hi! I would like to ask about availability and details for ${selectedBusiness.name}.`;
     }
     return "Hi! I am planning a trip to Morocco and would like SafarAtlas to manage my journey, including transport, stays, and local experiences.";
-  };
+  }, [selectedBusiness, selectedEscape]);
 
   const [formData, setFormData] = useState({
     ...initialForm,
-    message: getInitialMessage(),
+    message: initialMessage,
   });
 
   useEffect(() => {
     if (isOpen) {
-      setFormData((prev) => ({
-        ...prev,
-        message: getInitialMessage(),
-      }));
-
       trackEvent("lead_start", {
         partnerId: selectedEscape?.id ?? selectedBusiness?.id ?? "manual_match",
         partnerName: selectedEscape?.title ?? selectedBusiness?.name ?? "journey_builder",
@@ -120,9 +116,9 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({
         {step === "form" ? (
           <>
             <header className="bg-gradient-to-r from-[#123b34] to-[#1e5a4e] p-6 pr-14 text-white">
-              <p className="text-xs font-bold uppercase tracking-widest text-[#f4c36b]">SafarAtlas Journey Builder</p>
+              <p className="text-xs font-bold uppercase tracking-widest text-[#f4c36b]">SafarAtlas managed planning</p>
               <h3 id="inquiry-title" className="mt-2 text-2xl font-black tracking-tight">
-                {selectedEscape ? `Add ${selectedEscape.title}` : selectedBusiness ? `Inquire: ${selectedBusiness.name}` : "Build My Morocco Journey"}
+                {selectedEscape ? `Plan with ${selectedEscape.title}` : selectedBusiness ? `Inquire: ${selectedBusiness.name}` : "Plan My Morocco Trip"}
               </h3>
               <p className="mt-2 text-xs leading-relaxed text-white/80">
                 {selectedEscape
@@ -136,7 +132,7 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({
               {/* Selected Escape Item Banner */}
               {selectedEscape && (
                 <div className="flex items-center gap-3 rounded-2xl border border-[#e5dacb] bg-white p-3 shadow-sm">
-                  <img src={selectedEscape.image} alt={selectedEscape.title} className="h-14 w-14 rounded-xl object-cover" />
+                  <Image src={selectedEscape.image} alt={selectedEscape.title} width={56} height={56} className="h-14 w-14 rounded-xl object-cover" />
                   <div className="flex-1">
                     <span className="text-[10px] font-extrabold uppercase tracking-wide text-[#c95e3d]">Packaged Escape Module</span>
                     <p className="text-sm font-bold text-[#121a17]">{selectedEscape.title}</p>
@@ -148,7 +144,7 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({
               {/* Selected Partner Item Banner */}
               {selectedBusiness && !selectedEscape && (
                 <div className="flex items-center gap-3 rounded-2xl border border-[#e5dacb] bg-white p-3 shadow-sm">
-                  <img src={selectedBusiness.image} alt={selectedBusiness.name} className="h-12 w-12 rounded-xl object-cover" />
+                  <Image src={selectedBusiness.image} alt={selectedBusiness.name} width={48} height={48} className="h-12 w-12 rounded-xl object-cover" />
                   <div>
                     <p className="text-[10px] font-extrabold uppercase tracking-wide text-[#059669]">Verified Partner</p>
                     <p className="text-sm font-bold text-[#121a17]">{selectedBusiness.name}</p>

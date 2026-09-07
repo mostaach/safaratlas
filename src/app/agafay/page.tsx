@@ -854,7 +854,7 @@ export default function AgafayPage() {
         <header className="poster-header-top">
           <div className="brand-header-left">
             <Image 
-              src="/safaratlas-brand-logo.png" 
+              src="/safar-atlas-navbar.svg" 
               alt="SafarAtlas Logo" 
               className="brand-logo-img" 
               width={38}

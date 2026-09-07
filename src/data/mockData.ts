@@ -80,7 +80,7 @@ export const DESTINATIONS: Destination[] = [
     region: "High Atlas & Plains",
     tagline: "Red City, Secret Courtyards & Vibrant Souks",
     description: "Immerse yourself in historic medina riads, rooftop sunset teas, fragrant spice markets, and majestic palaces backed by snow-capped Atlas peaks.",
-    image: "/marrakech_hero.png",
+    image: "/destinations/marrakech.jpg",
     accentColor: "from-amber-600 via-rose-600 to-orange-700",
     highlights: ["Jemaa el-Fnaa Rooftops", "Historic Medina Riads", "Majorelle & Secret Gardens", "Agafay Desert Sunsets"],
     bestTime: "Oct – May",
@@ -94,7 +94,7 @@ export const DESTINATIONS: Destination[] = [
     region: "Sahara Desert",
     tagline: "Towering Golden Dunes & Starlit Nights",
     description: "Embark on camel treks over 150-meter golden sand dunes, sleep in luxury Amazigh desert camps, and experience starry night skies like nowhere else.",
-    image: "https://images.unsplash.com/photo-1489493585363-d69421e0edd3?auto=format&fit=crop&w=1200&q=80",
+    image: "/destinations/merzouga.jpg",
     accentColor: "from-amber-400 via-orange-500 to-amber-700",
     highlights: ["Sunset Camel Caravans", "Luxury Bedouin Glamping", "Traditional Gnawa Music", "Sandboarding at Sunrise"],
     bestTime: "Oct – Apr",
@@ -108,7 +108,7 @@ export const DESTINATIONS: Destination[] = [
     region: "Atlantic Coast",
     tagline: "World-Class Waves, Ocean Air & Chill Vibes",
     description: "Morocco's premier surf haven where pristine point breaks meet sun-drenched coastal cafes, yoga retreats, and fresh seafood markets.",
-    image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1200&q=80",
+    image: "/destinations/taghazout.jpg",
     accentColor: "from-teal-500 via-cyan-600 to-emerald-700",
     highlights: ["Anchor Point Surfing", "Sunset Roof Yoga", "Paradise Valley Pools", "Fresh Fish Grills"],
     bestTime: "Year-Round",
@@ -122,7 +122,7 @@ export const DESTINATIONS: Destination[] = [
     region: "Rif Mountains",
     tagline: "The Blue Pearl Nestled in the Rif Peaks",
     description: "Wander enchanted cobalt-blue alleyways, taste artisan goat cheese, and hike scenic waterfall trails in northern Morocco's most tranquil mountain refuge.",
-    image: "https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=1200&q=80",
+    image: "/destinations/chefchaouen.jpg",
     accentColor: "from-blue-500 via-indigo-600 to-sky-700",
     highlights: ["Cobalt Blue Alleyways", "Spanish Mosque Viewpoint", "Akchour Waterfalls", "Handwoven Rif Textiles"],
     bestTime: "Sep – May",
@@ -136,7 +136,7 @@ export const DESTINATIONS: Destination[] = [
     region: "Middle Atlas",
     tagline: "Living Ancient Capital of Craft & Heritage",
     description: "Step into the world's largest car-free urban area, home to 9,000 alleys, centuries-old leather tanneries, and spiritual UNESCO monuments.",
-    image: "https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1200&q=80",
+    image: "/destinations/fes.jpg",
     accentColor: "from-emerald-600 via-teal-700 to-emerald-900",
     highlights: ["Chouara Leather Tannery", "Bou Inania Medersa", "Artisan Copper Souks", "Traditional Zellige Tilework"],
     bestTime: "Oct – May",
@@ -150,7 +150,7 @@ export const DESTINATIONS: Destination[] = [
     region: "Atlantic Coast",
     tagline: "Windy Atlantic Ramparts & Bohemian Soul",
     description: "Historic Portuguese ramparts, Gnaoua music heritage, thuya woodcraft workshops, and fresh ocean breezes in Morocco's laid-back port city.",
-    image: "https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?auto=format&fit=crop&w=1200&q=80",
+    image: "/destinations/essaouira.jpg",
     accentColor: "from-sky-400 via-teal-600 to-slate-800",
     highlights: ["Historic Skala Fort", "Fresh Portside Grills", "Gnaoua World Music", "Kitesurfing & Wind"],
     bestTime: "Year-Round",
@@ -394,7 +394,7 @@ export const MAP_HOTSPOTS: MapHotspot[] = [
     shortTag: "Red City & Medina Riads",
     listingCount: 28,
     topHighlight: "Jemaa el-Fnaa & Palaces",
-    thumbnail: "https://images.unsplash.com/photo-1597212618440-806262de4f6b?auto=format&fit=crop&w=400&q=80"
+    thumbnail: "/destinations/marrakech.jpg"
   },
   {
     id: "merzouga",
@@ -407,7 +407,7 @@ export const MAP_HOTSPOTS: MapHotspot[] = [
     shortTag: "Erg Chebbi Glamping",
     listingCount: 16,
     topHighlight: "Luxury Camps & Stargazing",
-    thumbnail: "https://images.unsplash.com/photo-1489493585363-d69421e0edd3?auto=format&fit=crop&w=400&q=80"
+    thumbnail: "/destinations/merzouga.jpg"
   },
   {
     id: "taghazout",
@@ -420,7 +420,7 @@ export const MAP_HOTSPOTS: MapHotspot[] = [
     shortTag: "Surf Breaks & Yoga",
     listingCount: 19,
     topHighlight: "Anchor Point Surfing",
-    thumbnail: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=400&q=80"
+    thumbnail: "/destinations/taghazout.jpg"
   },
   {
     id: "chefchaouen",
@@ -433,7 +433,7 @@ export const MAP_HOTSPOTS: MapHotspot[] = [
     shortTag: "Blue Medina & Rif Trails",
     listingCount: 14,
     topHighlight: "Blue Alleyways & Waterfalls",
-    thumbnail: "https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=400&q=80"
+    thumbnail: "/destinations/chefchaouen.jpg"
   },
   {
     id: "fes",
@@ -446,7 +446,7 @@ export const MAP_HOTSPOTS: MapHotspot[] = [
     shortTag: "Ancient Craft & Tanneries",
     listingCount: 22,
     topHighlight: "UNESCO Medina & Zellige",
-    thumbnail: "https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=400&q=80"
+    thumbnail: "/destinations/fes.jpg"
   },
   {
     id: "essaouira",
@@ -459,7 +459,7 @@ export const MAP_HOTSPOTS: MapHotspot[] = [
     shortTag: "Atlantic Fortress & Wind",
     listingCount: 15,
     topHighlight: "Historic Ramparts & Seafood",
-    thumbnail: "https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?auto=format&fit=crop&w=400&q=80"
+    thumbnail: "/destinations/essaouira.jpg"
   }
 ];
 
@@ -507,7 +507,7 @@ export const ESCAPES_PACKAGES: EscapePackage[] = [
     category: "Desert",
     location: "High Atlas & Merzouga",
     priceFromEur: 420,
-    image: "https://images.unsplash.com/photo-1489493585363-d69421e0edd3?auto=format&fit=crop&w=800&q=80",
+    image: "/escapes/sahara-3d.jpg",
     badge: "Most Popular Escape",
     highlights: [
       "Aït Benhaddou UNESCO Kasbah tour",
@@ -532,21 +532,21 @@ export const ESCAPES_PACKAGES: EscapePackage[] = [
         dayNumber: 1,
         title: "Marrakech → Tizi n'Tichka → Aït Benhaddou → Dades Valley",
         description: "Depart Marrakech early morning climbing through the High Atlas Mountains via Tizi n'Tichka pass (2,260m). Stop at UNESCO World Heritage site Aït Benhaddou, famous for Game of Thrones and Gladiator. Continue through Ouarzazate and the Valley of Roses to sleep in a boutique kasbah in Dades Gorge.",
-        image: "https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=600&q=80",
+        image: "/destinations/marrakech.jpg",
         highlights: ["High Atlas mountain views", "Guided Aït Benhaddou Kasbah walk", "Valley of Roses scenery"]
       },
       {
         dayNumber: 2,
         title: "Dades Gorge → Todra Canyon → Merzouga Sahara Camp",
         description: "After breakfast, drive through the towering 300-meter cliffs of Todra Gorge. Pass ancient Berber palm oases before arriving at Merzouga. Mount your camel for a 1-hour sunset trek across the golden Erg Chebbi dunes into your private luxury desert camp. Enjoy a 3-course dinner, campfire, and live Gnaoua drumming under the galaxy.",
-        image: "https://images.unsplash.com/photo-1489493585363-d69421e0edd3?auto=format&fit=crop&w=600&q=80",
+        image: "/escapes/sahara-3d.jpg",
         highlights: ["Todra Gorge canyon walk", "Erg Chebbi sunset camel trek", "Luxury desert camp & stargazing"]
       },
       {
         dayNumber: 3,
         title: "Sahara Sunrise → Draa Valley → Marrakech",
         description: "Wake early for a magical sunrise over the dunes. Return by camel or 4x4 for breakfast. Begin the return journey through the Draa Valley palm groves and Ouarzazate, arriving back in Marrakech by early evening.",
-        image: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?auto=format&fit=crop&w=600&q=80",
+        image: "/destinations/merzouga.jpg",
         highlights: ["Dune sunrise photos", "Draa Valley palm oasis drive", "Marrakech arrival"]
       }
     ]
@@ -560,7 +560,7 @@ export const ESCAPES_PACKAGES: EscapePackage[] = [
     category: "Desert",
     location: "Agafay Desert (Marrakech)",
     priceFromEur: 110,
-    image: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?auto=format&fit=crop&w=800&q=80",
+    image: "/escapes/agafay-1d.jpg",
     badge: "Marrakech Express",
     highlights: [
       "Sunset camel walk over rocky desert hills",
@@ -577,7 +577,7 @@ export const ESCAPES_PACKAGES: EscapePackage[] = [
         dayNumber: 1,
         title: "Afternoon Transfer → Quad Adventure → Sunset Dinner",
         description: "Pickup from your Marrakech riad at 16:00. Arrive in Agafay desert camp. Gear up for a 1-hour quad biking ride over rocky hills. Followed by a quiet camel walk as the sun sets over the High Atlas horizon. Finish with a gourmet tagine dinner around the bonfire.",
-        image: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?auto=format&fit=crop&w=600&q=80",
+        image: "/escapes/agafay-1d.jpg",
         highlights: ["1-hour quad biking", "Atlas sunset views", "Bonfire Berber music"]
       }
     ]
@@ -591,7 +591,7 @@ export const ESCAPES_PACKAGES: EscapePackage[] = [
     category: "Coast",
     location: "Taghazout & Tamraght",
     priceFromEur: 290,
-    image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800&q=80",
+    image: "/escapes/taghazout-surf.jpg",
     badge: "Ocean & Vibes",
     highlights: [
       "Daily surf lessons with ISA-certified local coaches",
@@ -608,21 +608,21 @@ export const ESCAPES_PACKAGES: EscapePackage[] = [
         dayNumber: 1,
         title: "Arrival → Villa Check-in → Sunset Rooftop Yoga",
         description: "Transfer to Taghazout villa. Settle into your oceanview room. Meet your surf coaches for a briefing, followed by a 75-minute sunset yoga session on the roof terrace overlooking the waves.",
-        image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=600&q=80",
+        image: "/escapes/taghazout-surf.jpg",
         highlights: ["Oceanfront villa check-in", "Sunset rooftop yoga"]
       },
       {
         dayNumber: 2,
         title: "Morning Surf Session → Paradise Valley Trip",
         description: "2-hour guided surf lesson at beginner or intermediate breaks (Devil's Rock or Panorama). After lunch, head inland to Paradise Valley for a cliff walk and swim in natural palm rock pools.",
-        image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80",
+        image: "/destinations/taghazout.jpg",
         highlights: ["Guided surf coaching", "Paradise Valley natural pools"]
       },
       {
         dayNumber: 3,
         title: "Sunrise Surf → Fresh Seafood Lunch → Departure",
         description: "Catch morning waves at Anchor Point or Tamraght. Enjoy fresh acai bowls or traditional avocado juice before your afternoon departure transfer.",
-        image: "https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?auto=format&fit=crop&w=600&q=80",
+        image: "/escapes/taghazout-surf.jpg",
         highlights: ["Sunrise surf session", "Fresh coastal seafood"]
       }
     ]
@@ -636,7 +636,7 @@ export const ESCAPES_PACKAGES: EscapePackage[] = [
     category: "Coast",
     location: "Essaouira Atlantic Port",
     priceFromEur: 180,
-    image: "https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?auto=format&fit=crop&w=800&q=80",
+    image: "/escapes/essaouira-coastal.jpg",
     badge: "Culture & Breeze",
     highlights: [
       "Guided walk of Portuguese fortress ramparts & medina",
@@ -652,14 +652,14 @@ export const ESCAPES_PACKAGES: EscapePackage[] = [
         dayNumber: 1,
         title: "Marrakech → Argan Cooperative → Essaouira Port & Ramparts",
         description: "2.5-hour drive from Marrakech with a stop at a women's argan oil cooperative. Arrive in Essaouira, check into your historic riad, and explore the Skala du Port ramparts where Game of Thrones was filmed.",
-        image: "https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?auto=format&fit=crop&w=600&q=80",
+        image: "/escapes/essaouira-coastal.jpg",
         highlights: ["Argan oil cooperative visit", "Historic Skala ramparts walk"]
       },
       {
         dayNumber: 2,
         title: "Artisan Souks → Beach Walk → Return to Marrakech",
         description: "Wander the laid-back car-free medina souks, visit thuya wood workshops, enjoy a beachside lunch, and return to Marrakech by late afternoon.",
-        image: "https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=600&q=80",
+        image: "/destinations/essaouira.jpg",
         highlights: ["Artisan woodcraft souks", "Beach promenade walk"]
       }
     ]
@@ -673,7 +673,7 @@ export const ESCAPES_PACKAGES: EscapePackage[] = [
     category: "Mountain",
     location: "Imlil & High Atlas",
     priceFromEur: 160,
-    image: "https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=800&q=80",
+    image: "/escapes/atlas-mountains.jpg",
     badge: "Nature & Trek",
     highlights: [
       "Guided village trek through walnut orchards and terraced fields",
@@ -689,14 +689,14 @@ export const ESCAPES_PACKAGES: EscapePackage[] = [
         dayNumber: 1,
         title: "Marrakech → Asni Valley → Imlil Village Trek",
         description: "90-minute scenic drive into the High Atlas. Meet your local guide in Imlil and trek through Aroumd village to your lodge perched high above the valley with views of Mount Toubkal.",
-        image: "https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=600&q=80",
+        image: "/escapes/atlas-mountains.jpg",
         highlights: ["Guided mountain village walk", "Terraced walnut orchards", "Panoramic lodge stay"]
       },
       {
         dayNumber: 2,
         title: "Waterfall Trek → Berber Family Mint Tea → Marrakech",
         description: "Morning trek to the Imlil waterfalls, followed by lunch hosted by a local Amazigh family. Return drive to Marrakech by 16:00.",
-        image: "https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=600&q=80",
+        image: "/escapes/atlas-mountains.jpg",
         highlights: ["Imlil waterfall trek", "Traditional home mint tea"]
       }
     ]

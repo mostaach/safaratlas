@@ -22,11 +22,15 @@ export const metadata: Metadata = {
   description: "Discover Morocco, select modular Escapes (Sahara, Agafay, Taghazout), and let SafarAtlas orchestrate your complete journey with trusted local partners.",
   icons: {
     icon: [
-      { url: "/favicon.ico" },
-      { url: "/icon.png", type: "image/png" }
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon-32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-16.png", sizes: "16x16", type: "image/png" },
     ],
     shortcut: "/favicon.ico",
-    apple: "/apple-icon.png",
+    apple: [
+      { url: "/favicon-180.png", sizes: "180x180", type: "image/png" },
+    ],
   },
   openGraph: {
     title: "SafarAtlas | Managed Morocco Journeys & Escapes",
@@ -76,7 +80,7 @@ export default function RootLayout({
                   "@id": "https://safaratlas.com/#organization",
                   "name": "SafarAtlas",
                   "url": "https://safaratlas.com",
-                  "logo": "https://safaratlas.com/icon.png",
+                  "logo": "https://safaratlas.com/safar-atlas-logo.svg",
                   "description": "Managed Morocco Journeys & Travel Escapes",
                   "contactPoint": {
                     "@type": "ContactPoint",

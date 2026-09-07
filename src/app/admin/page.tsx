@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useState, useEffect, CSSProperties } from "react";
+import Image from "next/image";
 import { Lead, leadStatuses, LeadStatus } from "../../lib/leadTypes";
 import { PartnerApplication, PartnerStatus } from "../../lib/partnerStore";
 import { ESCAPES_PACKAGES } from "../../data/mockData";
@@ -70,7 +71,7 @@ const pillStyle = (color: string): CSSProperties => ({
 const page: CSSProperties = { display: "flex", minHeight: "100vh", background: "#0e1a16", fontFamily: "'Inter', -apple-system, sans-serif", color: "#e8f0ed" };
 const sidebar: CSSProperties = { width: 220, background: "#0a1410", borderRight: "1px solid #1e2e28", display: "flex", flexDirection: "column", flexShrink: 0 };
 const sidebarHeader: CSSProperties = { padding: "24px 20px 16px", borderBottom: "1px solid #1e2e28" };
-const logoIcon: CSSProperties = { width: 36, height: 36, borderRadius: 10, background: "linear-gradient(135deg,#c95e3d,#e8a87c)", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 900, fontSize: 14, color: "#fff", marginBottom: 8 };
+const logoIcon: CSSProperties = { width: 36, height: 36, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 8 };
 const logoTitle: CSSProperties = { fontSize: 14, fontWeight: 800, color: "#e8f0ed", display: "block" };
 const logoSub: CSSProperties = { fontSize: 10, color: "#5a7a6e", fontWeight: 600, letterSpacing: 2, textTransform: "uppercase" };
 const sectionLabel: CSSProperties = { fontSize: 9, fontWeight: 800, letterSpacing: 3, textTransform: "uppercase", color: "#3d5a50", padding: "16px 20px 6px" };
@@ -166,7 +167,9 @@ export default function AdminPage() {
     return (
       <div style={{ ...page, alignItems: "center", justifyContent: "center" }}>
         <div style={{ width: 400, padding: "40px", background: "#111e18", border: "1px solid #1e2e28", borderRadius: 20 }}>
-          <div style={{ ...logoIcon, marginBottom: 20 }}>SA</div>
+          <div style={{ ...logoIcon, width: 44, height: 44, marginBottom: 20 }}>
+            <Image src="/safar-atlas-navbar.svg" alt="SafarAtlas" width={44} height={44} style={{ objectFit: "contain" }} priority />
+          </div>
           <p style={{ fontSize: 10, fontWeight: 800, letterSpacing: 3, textTransform: "uppercase", color: "#c95e3d", marginBottom: 6 }}>SafarAtlas Internal</p>
           <h1 style={{ fontSize: 22, fontWeight: 900, color: "#e8f0ed", marginBottom: 4 }}>Operations Dashboard</h1>
           <p style={{ fontSize: 12, color: "#5a7a6e", marginBottom: 24 }}>Enter your admin token to access the pipeline.</p>
@@ -188,7 +191,9 @@ export default function AdminPage() {
       {/* Sidebar */}
       <nav style={sidebar}>
         <div style={sidebarHeader}>
-          <div style={logoIcon}>SA</div>
+          <div style={logoIcon}>
+            <Image src="/safar-atlas-navbar.svg" alt="SafarAtlas" width={36} height={36} style={{ objectFit: "contain" }} priority />
+          </div>
           <span style={logoTitle}>SafarAtlas</span>
           <span style={logoSub}>Operations OS</span>
         </div>

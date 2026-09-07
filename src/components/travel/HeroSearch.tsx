@@ -25,7 +25,7 @@ export const HeroSearch: React.FC<HeroSearchProps> = ({ onSearch, onSelectCatego
   const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (onSearch) onSearch(query.trim(), selectedRegion);
-    document.getElementById("verified-partners")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    document.getElementById("destinations")?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
   return (

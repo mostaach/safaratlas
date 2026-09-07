@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { trackEvent } from "../../../lib/trackEvent";
 
 const WHATSAPP_NUMBER = "212698017323";
@@ -102,14 +103,15 @@ export default function AgafayVipOfferPage() {
           href="https://safaratlas.com" 
           className="group flex items-center gap-2.5 text-white/90 hover:text-white transition-opacity"
         >
-          <div className="w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center bg-white rounded-full shadow-lg p-1.5 group-hover:scale-105 transition-transform">
-            <svg viewBox="0 0 100 100" className="w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg">
-              {/* Warm Sand Peaks */}
-              <path d="M 15 70 L 50 15 L 65 40" stroke="#c6a476" strokeWidth="10" strokeLinecap="round" strokeLinejoin="round" />
-              <path d="M 60 55 L 85 85 L 65 85" stroke="#c6a476" strokeWidth="10" strokeLinecap="round" strokeLinejoin="round" />
-              {/* Deep Atlas Blue Main Peak & 'S' */}
-              <path d="M 10 85 L 50 85 C 70 85, 70 60, 50 60 L 40 60 C 20 60, 20 40, 40 40 L 50 40 L 65 20" stroke="#0a233f" strokeWidth="10" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
+          <div className="w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center bg-white rounded-full shadow-lg p-1 group-hover:scale-105 transition-transform overflow-hidden">
+            <Image
+              src="/safar-atlas-navbar.svg"
+              alt="SafarAtlas Logo"
+              width={36}
+              height={36}
+              className="w-full h-full object-contain"
+              priority
+            />
           </div>
           <span className="font-serif text-xl sm:text-2xl font-bold tracking-tight text-white group-hover:text-[#c6a476] transition-colors drop-shadow-md">
             SafarAtlas

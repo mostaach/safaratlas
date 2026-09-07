@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { BLOG_POSTS } from "../../../data/blogData";
@@ -76,6 +77,27 @@ export default async function BlogPostPage({ params }: Props) {
 
   return (
     <div className="min-h-screen bg-[#faf6f0]">
+      {/* Brand Nav Bar */}
+      <nav className="w-full bg-[#121a17] text-white px-6 py-4 flex items-center justify-between sticky top-0 z-40 shadow-sm">
+        <Link href="/" className="flex items-center gap-2.5 cursor-pointer group">
+          <Image
+            src="/safar-atlas-logo-white.svg"
+            alt="SafarAtlas Logo"
+            width={28}
+            height={28}
+            className="shrink-0 object-contain transition-transform group-hover:scale-105"
+          />
+          <div className="font-serif font-black tracking-tight text-xl text-white">
+            Safar<span className="text-[#C4A258] font-sans font-extrabold group-hover:text-[#f4c36b] transition-colors">Atlas</span>
+          </div>
+          <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#C4A258] bg-[#16375A] border border-[#C4A258]/30 px-2 py-0.5 rounded-full ml-2 hidden sm:inline-block">
+            Journal
+          </span>
+        </Link>
+        <Link href="/blog" className="text-xs font-bold uppercase tracking-widest text-white/70 hover:text-white transition-colors">
+          ← All Articles
+        </Link>
+      </nav>
 
       {/* Cover Hero */}
       <div className="relative h-72 sm:h-[480px] w-full overflow-hidden">

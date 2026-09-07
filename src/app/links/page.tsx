@@ -2,6 +2,7 @@
 
 import React, { useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { trackEvent } from "../../lib/trackEvent";
 
 const WHATSAPP_NUMBER = "212698017323";
@@ -22,12 +23,15 @@ export default function LinksPage() {
         
         {/* Profile Header */}
         <div className="text-center space-y-4">
-          <div className="w-24 h-24 mx-auto bg-white rounded-full p-4 shadow-2xl shadow-[#c6a476]/20">
-            <svg viewBox="0 0 100 100" className="w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M 15 70 L 50 15 L 65 40" stroke="#c6a476" strokeWidth="10" strokeLinecap="round" strokeLinejoin="round" />
-              <path d="M 60 55 L 85 85 L 65 85" stroke="#c6a476" strokeWidth="10" strokeLinecap="round" strokeLinejoin="round" />
-              <path d="M 10 85 L 50 85 C 70 85, 70 60, 50 60 L 40 60 C 20 60, 20 40, 40 40 L 50 40 L 65 20" stroke="#0a233f" strokeWidth="10" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
+          <div className="w-24 h-24 mx-auto bg-white rounded-full p-4 shadow-2xl shadow-[#C4A258]/20 flex items-center justify-center overflow-hidden">
+            <Image
+              src="/safar-atlas-navbar.svg"
+              alt="SafarAtlas Logo"
+              width={72}
+              height={72}
+              className="w-full h-full object-contain"
+              priority
+            />
           </div>
           <div>
             <h1 className="text-2xl font-serif font-black tracking-tight text-white mt-4">SafarAtlas</h1>

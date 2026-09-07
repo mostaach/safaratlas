@@ -2,6 +2,7 @@ import React from "react";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import Script from "next/script";
 import { ESCAPES_PACKAGES } from "../../../data/mockData";
 import { AddEscapeToJourneyButton } from "../../../components/travel/AddEscapeToJourneyButton";
@@ -73,9 +74,17 @@ export default function EscapePage({ params }: { params: { slug: string } }) {
       
       {/* Navbar Minimal */}
       <nav className="w-full bg-[#121a17] text-white px-6 py-4 flex items-center justify-between sticky top-0 z-40">
-        <Link href="/" className="flex items-center gap-2 cursor-pointer">
-          <span className="text-xl">🌟</span>
-          <span className="font-serif font-black tracking-tight text-xl">SafarAtlas</span>
+        <Link href="/" className="flex items-center gap-2.5 cursor-pointer group">
+          <Image
+            src="/safar-atlas-logo-white.svg"
+            alt="SafarAtlas"
+            width={28}
+            height={28}
+            className="shrink-0 object-contain transition-transform group-hover:scale-105"
+          />
+          <div className="font-serif font-black tracking-tight text-xl text-white">
+            Safar<span className="text-[#C4A258] font-sans font-extrabold group-hover:text-[#f4c36b] transition-colors">Atlas</span>
+          </div>
         </Link>
         <Link href="/" className="text-xs font-bold uppercase tracking-widest text-white/70 hover:text-white transition-colors">
           ← Back to Journeys

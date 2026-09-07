@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { getStoredJourney, removeEscapeFromJourney, saveJourney, clearJourney } from "../../lib/journeyStore";
 import { JourneyState } from "../../lib/journeyTypes";
 import { ESCAPES_PACKAGES } from "../../data/mockData";
@@ -144,10 +145,18 @@ export default function JourneyPage() {
     <main className="min-h-screen bg-[#faf6f0] text-[#121a17]">
       {/* Header */}
       <header className="w-full bg-[#121a17] text-white px-6 py-4 flex items-center justify-between sticky top-0 z-40 shadow-md">
-        <Link href="/" className="flex items-center gap-2 cursor-pointer">
-          <span className="text-xl">🌟</span>
-          <span className="font-serif font-black tracking-tight text-xl">SafarAtlas</span>
-          <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#f4c36b] bg-[#123b34] px-2 py-0.5 rounded-full ml-2 hidden sm:inline-block">
+        <Link href="/" className="flex items-center gap-2.5 cursor-pointer group">
+          <Image
+            src="/safar-atlas-logo-white.svg"
+            alt="SafarAtlas"
+            width={28}
+            height={28}
+            className="shrink-0 object-contain transition-transform group-hover:scale-105"
+          />
+          <div className="font-serif font-black tracking-tight text-xl text-white">
+            Safar<span className="text-[#C4A258] font-sans font-extrabold group-hover:text-[#f4c36b] transition-colors">Atlas</span>
+          </div>
+          <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#C4A258] bg-[#16375A] border border-[#C4A258]/30 px-2 py-0.5 rounded-full ml-2 hidden sm:inline-block">
             Journey Builder
           </span>
         </Link>

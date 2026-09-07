@@ -14,11 +14,7 @@ interface HeroSectionProps {
 
 export const HeroSection: React.FC<HeroSectionProps> = ({
   onSearch,
-  onSelectCategory,
-  onOpenInquiry,
 }) => {
-  const [query, setQuery] = useState("");
-  const [activeTab, setActiveTab] = useState("All");
   const [activeDestinationIndex, setActiveDestinationIndex] = useState(0);
 
   const activeDest = DESTINATIONS[activeDestinationIndex];
@@ -31,97 +27,28 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
     return () => clearInterval(timer);
   }, []);
 
-  const handleFormSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (onSearch) onSearch(query.trim(), "All Morocco");
-    document.getElementById("verified-partners")?.scrollIntoView({ behavior: "smooth", block: "start" });
-  };
-
   return (
-    <section id="top" className="relative pt-24 pb-16 lg:pt-32 lg:pb-24 overflow-hidden zellige-pattern">
-      {/* ANIMATED BACKGROUND LIGHTING LAYER */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {/* Floating Glowing Orb 1 */}
-        <motion.div 
-          animate={{
-            x: [0, 50, -30, 0],
-            y: [0, -40, 30, 0],
-            scale: [1, 1.15, 0.9, 1],
-          }}
-          transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute -top-10 left-1/4 w-[550px] h-[550px] rounded-full bg-gradient-to-br from-[#f4c36b]/25 via-[#c95e3d]/15 to-transparent blur-3xl"
-        />
-
-        {/* Floating Glowing Orb 2 */}
-        <motion.div 
-          animate={{
-            x: [0, -60, 40, 0],
-            y: [0, 50, -30, 0],
-            scale: [1, 0.9, 1.2, 1],
-          }}
-          transition={{ duration: 22, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute bottom-0 right-1/4 w-[500px] h-[500px] rounded-full bg-gradient-to-tl from-[#123b34]/20 via-[#2a7b6c]/10 to-transparent blur-3xl"
-        />
-
-        {/* Pulsing Center Highlight */}
-        <motion.div 
-          animate={{ opacity: [0.3, 0.6, 0.3] }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-radial from-[#f4c36b]/15 via-transparent to-transparent blur-3xl"
-        />
-
-        {/* Saharan Golden Floating Dust Particles */}
-        {[...Array(10)].map((_, i) => (
-          <motion.div
-            key={i}
-            initial={{
-              x: `${10 + i * 9}%`,
-              y: `${80 + (i % 3) * 10}%`,
-              opacity: 0.2 + (i % 4) * 0.15,
-              scale: 0.6 + (i % 3) * 0.4,
-            }}
-            animate={{
-              y: ["80%", "-10%"],
-              x: [`${10 + i * 9}%`, `${10 + i * 9 + (i % 2 === 0 ? 5 : -5)}%`],
-              opacity: [0, 0.7, 0.8, 0],
-            }}
-            transition={{
-              duration: 12 + (i % 5) * 3,
-              repeat: Infinity,
-              delay: i * 1.2,
-              ease: "easeInOut",
-            }}
-            className="absolute w-1.5 h-1.5 rounded-full bg-[#f4c36b] shadow-[0_0_8px_#f4c36b]"
-          />
-        ))}
-      </div>
+    <section id="top" className="relative pt-24 pb-14 lg:pt-32 lg:pb-20 overflow-hidden zellige-pattern">
+      <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(115deg,rgba(250,246,240,0.92)_0%,rgba(250,246,240,0.78)_45%,rgba(242,233,220,0.55)_100%)]" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           
           {/* LEFT COLUMN: Text, Mode Switcher & Search Bar */}
-          <div className="lg:col-span-7 space-y-6">
-            
-            {/* Pill Badge */}
-            <FadeIn delay={0.1}>
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#123b34]/10 border border-[#123b34]/20 text-[#123b34] text-xs font-bold uppercase tracking-widest">
-                <span className="w-2.5 h-2.5 rounded-full bg-[#c95e3d] animate-pulse" />
-                <span>Managed Morocco Travel Platform</span>
-              </div>
-            </FadeIn>
+          <div className="lg:col-span-7 space-y-7">
 
             {/* Headline */}
             <SlideUp delay={0.2}>
-              <h1 className="text-4xl sm:text-6xl font-serif font-black tracking-tight leading-[1.02] text-[#121a17]">
-                Your Morocco trip, <span className="gradient-terracotta-text">planned and managed for you.</span>
+              <h1 className="max-w-3xl text-5xl sm:text-6xl xl:text-7xl font-serif font-black tracking-tight leading-[0.96] text-[#121a17]">
+                Your Morocco trip, <span className="text-[#c95e3d]">planned and managed for you.</span>
               </h1>
             </SlideUp>
 
             {/* Subhead */}
             <SlideUp delay={0.3}>
-              <p className="text-base sm:text-lg text-[#4e5e57] leading-relaxed max-w-xl font-medium">
-                Combine ready-made <strong>Escapes</strong>, local experiences and destinations into one journey. SafarAtlas coordinates trusted Moroccan partners, transport and stays under one transparent plan.
+              <p className="text-base sm:text-lg text-[#4e5e57] leading-relaxed max-w-2xl font-medium">
+                From the first idea to your final sunset, SafarAtlas brings your stays, transport, experiences and itinerary together in one managed journey.
               </p>
             </SlideUp>
 
@@ -129,17 +56,18 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             <FadeIn delay={0.4}>
               <div className="flex flex-col sm:flex-row items-center gap-4 pt-2">
                 <a
+                  id="hero-cta"
                   href="/journey"
-                  className="w-full sm:w-auto px-8 py-4 rounded-2xl bg-[#123b34] hover:bg-[#0b2621] text-[#f4c36b] text-sm font-black tracking-widest shadow-xl transition-all transform hover:-translate-y-0.5 cursor-pointer flex items-center justify-center gap-2 border border-[#2a5b50]"
+                  className="w-full sm:w-auto px-8 py-4 rounded-xl bg-[#c95e3d] hover:bg-[#aa4a2c] text-white text-sm font-black tracking-widest shadow-[0_16px_36px_rgba(201,94,61,0.26)] transition-all transform hover:-translate-y-0.5 cursor-pointer flex items-center justify-center gap-2"
                 >
-                  <span>Build My Morocco Journey →</span>
+                  <span>Plan My Morocco Trip →</span>
                 </a>
                 <button
                   type="button"
-                  onClick={() => document.getElementById("escapes-section")?.scrollIntoView({ behavior: "smooth", block: "start" })}
-                  className="w-full sm:w-auto px-8 py-4 rounded-2xl bg-white hover:bg-[#faf6f0] text-[#121a17] text-sm font-bold tracking-widest shadow-lg transition-all border border-[#e5dacb] transform hover:-translate-y-0.5 cursor-pointer flex items-center justify-center gap-2"
+                  onClick={() => document.getElementById("itineraries")?.scrollIntoView({ behavior: "smooth", block: "start" })}
+                  className="w-full sm:w-auto px-8 py-4 rounded-xl bg-white/80 hover:bg-white text-[#123b34] text-sm font-bold tracking-wide shadow-sm transition-all border border-[#d9cbb8] transform hover:-translate-y-0.5 cursor-pointer flex items-center justify-center gap-2"
                 >
-                  <span>Explore Escapes</span>
+                  <span>See sample journey</span>
                   <span className="text-[#c95e3d]">↓</span>
                 </button>
               </div>
@@ -147,17 +75,17 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
             {/* Trust Metrics Bar */}
             <FadeIn delay={0.5}>
-              <div className="pt-2 flex flex-wrap items-center gap-6 text-xs font-bold tracking-wide text-[#4e5e57]">
+              <div className="pt-1 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm font-semibold tracking-wide text-[#4e5e57]">
                 <div className="flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-[#059669]" />
                   <span>One Point of Contact</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="text-[#123b34]">⚡</span>
+                  <span className="w-2 h-2 rounded-full bg-[#f4c36b]" />
                   <span>One Transparent Price</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="text-[#c95e3d]">🇲🇦</span>
+                  <span className="w-2 h-2 rounded-full bg-[#c95e3d]" />
                   <span>Managed Local Partner Network</span>
                 </div>
               </div>
@@ -172,10 +100,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               <div className="relative mx-auto max-w-md lg:max-w-none">
                 
                 {/* Decorative Glowing Backdrop */}
-                <div className="absolute -inset-2 bg-gradient-to-r from-[#c95e3d]/30 via-[#f4c36b]/30 to-[#123b34]/30 rounded-3xl blur-2xl opacity-70 animate-pulse pointer-events-none" />
-
                 {/* Main Showcase Card */}
-                <div className="relative rounded-3xl bg-white border border-[#e5dacb] shadow-2xl overflow-hidden group">
+                <div className="relative rounded-2xl bg-white border border-[#e5dacb] shadow-[0_28px_70px_-36px_rgba(18,26,23,0.55)] overflow-hidden group">
                   
                   {/* Image Container */}
                   <div className="relative h-64 sm:h-72 w-full overflow-hidden bg-[#121a17]">
@@ -197,15 +123,14 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
                     {/* Floating Top Badge: Arabic Name */}
                     <div className="absolute top-4 left-4 z-10">
-                      <span className="px-3 py-1 rounded-full bg-white/90 backdrop-blur-md text-[#123b34] text-[10px] font-bold uppercase tracking-widest shadow-lg border border-white/40 flex items-center gap-1.5">
-                        <span className="text-[#c95e3d]">✦</span>
+                      <span className="px-3 py-1 rounded-lg bg-white/90 backdrop-blur-md text-[#123b34] text-xs font-bold shadow-lg border border-white/40">
                         {activeDest.arabicName}
                       </span>
                     </div>
 
                     {/* Floating Top Right Badge: Best Time */}
                     <div className="absolute top-4 right-4 z-10">
-                      <span className="px-3 py-1 rounded-full bg-[#123b34]/90 backdrop-blur-md text-[#f4c36b] text-xs font-bold tracking-wide shadow-lg border border-[#f4c36b]/30 flex items-center gap-1">
+                      <span className="px-3 py-1 rounded-lg bg-[#123b34]/90 backdrop-blur-md text-[#f4c36b] text-xs font-bold tracking-wide shadow-lg border border-[#f4c36b]/30 flex items-center gap-1">
                         <span className="text-white/70 text-[10px] font-medium tracking-normal">Best:</span>
                         <span>{activeDest.bestTime}</span>
                       </span>
@@ -213,8 +138,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
                     {/* Title & Region Overlay on Image Bottom */}
                     <div className="absolute bottom-4 left-4 right-4 text-white z-10">
-                      <span className="text-[10px] font-bold uppercase tracking-widest text-[#f4c36b]">
-                        📍 {activeDest.region}
+                      <span className="text-xs font-bold uppercase tracking-widest text-[#f4c36b]">
+                        {activeDest.region}
                       </span>
                       <h3 className="text-xl font-serif font-bold tracking-tight text-white leading-tight mt-0.5">
                         {activeDest.name}
@@ -224,7 +149,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
                   {/* Card Content & Actions */}
                   <div className="p-5 space-y-4 bg-white">
-                    <p className="text-xs text-[#4e5e57] leading-relaxed line-clamp-2">
+                    <p className="text-sm text-[#4e5e57] leading-relaxed line-clamp-2">
                       {activeDest.tagline}
                     </p>
 
@@ -239,7 +164,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                         type="button"
                         onClick={() => {
                           if (onSearch) onSearch("", activeDest.name);
-                          document.getElementById("verified-partners")?.scrollIntoView({ behavior: "smooth", block: "start" });
+                          document.getElementById("destinations")?.scrollIntoView({ behavior: "smooth", block: "start" });
                         }}
                         className="px-5 py-2.5 rounded-xl bg-[#123b34] hover:bg-[#0b2621] text-[#f4c36b] text-xs font-bold tracking-wide transition-all shadow-md flex items-center gap-1.5 transform hover:scale-105"
                       >
