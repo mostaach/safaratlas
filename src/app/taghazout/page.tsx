@@ -39,9 +39,9 @@ export default function TaghazoutPage() {
   const currentTitle = selectedRhythm === "slow" ? "Slow Escape" : "Active Escape";
 
   const waMessage = encodeURIComponent(
-    `Hi Taghazout Escapes! I'm interested in booking the 3-Day ${currentTitle} (€${currentPrice}/person, 2 sharing).\n` +
+    `Hi Taghazout Escapes! I'm interested in booking the 3-Day ${currentTitle}.\n` +
     `Stay: Ocean-view private room · Agadir Airport Transfer · 2 Breakfasts · ${selectedRhythm === "slow" ? "Restorative Hammam & Yoga" : "Surf Guidance & Equipment"}.\n` +
-    `Can you confirm availability for our travel dates?`
+    `Can you confirm pricing & availability for our travel dates?`
   );
 
   const handleAddToJourney = () => {
@@ -163,7 +163,7 @@ export default function TaghazoutPage() {
                   }`}
                 >
                   <Wind className="w-3.5 h-3.5" />
-                  <span>Slow Escape (€349)</span>
+                  <span>Slow Escape · Rest & Reset</span>
                 </button>
 
                 <button
@@ -176,7 +176,7 @@ export default function TaghazoutPage() {
                   }`}
                 >
                   <Waves className="w-3.5 h-3.5" />
-                  <span>Active Escape (€399)</span>
+                  <span>Active Escape · Surf & Move</span>
                 </button>
               </div>
             </div>
@@ -194,14 +194,12 @@ export default function TaghazoutPage() {
                 </div>
 
                 <div>
-                  <div className="text-4xl sm:text-5xl font-black text-white">
-                    €{currentPrice}
-                    <span className="text-sm sm:text-base font-normal text-[#f4c36b] ml-2">
-                      / person
-                    </span>
+                  <div className="flex items-center gap-3">
+                    <span className="text-2xl sm:text-3xl font-black text-[#25D366]">Pricing on WhatsApp</span>
+                    <span className="px-2 py-0.5 rounded-full text-[10px] font-black bg-[#f4c36b]/15 text-[#f4c36b] border border-[#f4c36b]/30">3D / 2N</span>
                   </div>
                   <p className="text-xs text-white/60 mt-1">
-                    Based on 2 guests sharing an oceanfront room · Client payment in EUR
+                    Message us to get a personalised quote · Oceanfront private room included
                   </p>
                 </div>
 
@@ -343,8 +341,9 @@ export default function TaghazoutPage() {
                   <p className="text-xs sm:text-sm text-[#f4c36b] font-medium mt-1">Relax, disconnect, reset.</p>
                 </div>
 
-                <div className="text-3xl sm:text-4xl font-black text-white">
-                  €349 <span className="text-xs font-normal text-white/60">/ person (2 sharing)</span>
+                <div className="flex items-center gap-2 pt-1">
+                  <span className="text-lg font-black text-[#25D366]">Pricing via WhatsApp</span>
+                  <span className="px-2 py-0.5 rounded-full text-[10px] font-black bg-[#25D366]/15 text-[#25D366] border border-[#25D366]/30">Ask us</span>
                 </div>
 
                 <ul className="space-y-3 pt-4 border-t border-white/10 text-xs sm:text-sm text-white/85">
@@ -378,7 +377,7 @@ export default function TaghazoutPage() {
               <div className="pt-6 mt-6 border-t border-white/10">
                 <a
                   href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
-                    "Hi Taghazout Escapes! I'd like to check availability for the Slow Escape (€349/person). Dates: [Preferred Dates] · Guests: [Count]."
+                    "Hi Taghazout Escapes! I'd like to check availability for the Slow Escape (Rest & Reset). Preferred Dates: [Dates] · Guests: [Count]."
                   )}`}
                   target="_blank"
                   rel="noreferrer"
@@ -412,8 +411,9 @@ export default function TaghazoutPage() {
                   <p className="text-xs sm:text-sm text-[#f4c36b] font-medium mt-1">Surf, explore, move.</p>
                 </div>
 
-                <div className="text-3xl sm:text-4xl font-black text-white">
-                  €399 <span className="text-xs font-normal text-white/60">/ person (2 sharing)</span>
+                <div className="flex items-center gap-2 pt-1">
+                  <span className="text-lg font-black text-[#25D366]">Pricing via WhatsApp</span>
+                  <span className="px-2 py-0.5 rounded-full text-[10px] font-black bg-[#25D366]/15 text-[#25D366] border border-[#25D366]/30">Ask us</span>
                 </div>
 
                 <ul className="space-y-3 pt-4 border-t border-white/10 text-xs sm:text-sm text-white/85">
@@ -447,7 +447,7 @@ export default function TaghazoutPage() {
               <div className="pt-6 mt-6 border-t border-white/10">
                 <a
                   href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
-                    "Hi Taghazout Escapes! I'd like to check availability for the Active Escape (€399/person). Dates: [Preferred Dates] · Guests: [Count]."
+                    "Hi Taghazout Escapes! I'd like to check availability for the Active Escape (Surf & Move). Preferred Dates: [Dates] · Guests: [Count]."
                   )}`}
                   target="_blank"
                   rel="noreferrer"
