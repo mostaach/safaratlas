@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import { trackEvent } from "../lib/trackEvent";
 import FloatingNav from "../components/ui/floating-nav";
 import { Header } from "../components/brand/Header";
@@ -25,6 +26,7 @@ import {
 } from "../data/mockData";
 
 export default function Home() {
+  const router = useRouter();
   const [inquiryModalOpen, setInquiryModalOpen] = useState(false);
   const [selectedBusinessForInquiry, setSelectedBusinessForInquiry] = useState<BusinessListing | null>(null);
   const [selectedEscapeForInquiry, setSelectedEscapeForInquiry] = useState<EscapePackage | null>(null);
@@ -114,7 +116,15 @@ export default function Home() {
             {/* Focus Slice Carousel */}
             <DestinationSliceCarousel
               destinations={DESTINATIONS}
-              onSelect={() => handleOpenGeneralInquiry()}
+              onSelect={(dest) => {
+                if (dest.id === "taghazout") {
+                  router.push("/taghazout");
+                } else if (dest.id === "marrakech") {
+                  router.push("/agafay");
+                } else {
+                  handleOpenGeneralInquiry();
+                }
+              }}
             />
 
           </div>

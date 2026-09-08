@@ -514,8 +514,25 @@ ${form.notes || "None provided."}`;
                   </label>
 
                   {error && (
-                    <div className="p-2.5 rounded-xl bg-red-50 border border-red-200 text-xs font-bold text-red-600 text-center">
-                      {error}
+                    <div className="p-3.5 rounded-xl bg-red-50 border border-red-200 text-xs font-medium text-red-700 space-y-2">
+                      <p className="font-bold text-red-800 text-center">{error}</p>
+                      <a
+                        href={`https://wa.me/212698017323?text=${encodeURIComponent(
+                          `Hi SafarAtlas! I wanted to request a quote for my Morocco trip:\n` +
+                          `• Name: ${form.name}\n` +
+                          `• Email: ${form.email}\n` +
+                          `• Travel Dates: ${form.travelDates}\n` +
+                          `• Group Size: ${form.groupSize}\n` +
+                          `• Style: ${form.accommodationStyle}\n` +
+                          `• Transport: ${form.transportPreference}\n` +
+                          `• Notes: ${form.notes || "None"}`
+                        )}`}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="w-full py-2.5 px-3 rounded-lg bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold text-center block shadow-sm transition-all"
+                      >
+                        <span>💬 Tap here to send via WhatsApp instead</span>
+                      </a>
                     </div>
                   )}
 

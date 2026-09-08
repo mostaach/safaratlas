@@ -110,9 +110,9 @@ export const EscapesSection: React.FC<EscapesSectionProps> = ({
               className="snap-start shrink-0 w-[300px] sm:w-[350px] lg:w-[365px] group bg-white rounded-2xl border border-[#e5dacb] overflow-hidden shadow-[0_12px_32px_-16px_rgba(18,59,52,0.12)] hover:shadow-[0_24px_48px_-12px_rgba(18,59,52,0.2)] hover:border-[#c95e3d]/35 transition-all duration-300 hover:-translate-y-1.5 flex flex-col"
             >
               {/* Image with Parallax & Hover Depth */}
-              {item.id === "escape-agafay-1d" ? (
+              {item.id === "escape-agafay-1d" || item.id === "escape-taghazout-3d" ? (
                 <Link
-                  href="/agafay"
+                  href={item.id === "escape-agafay-1d" ? "/agafay" : "/taghazout"}
                   className="relative h-52 sm:h-56 overflow-hidden block cursor-pointer shrink-0"
                 >
                   <Image
@@ -198,6 +198,13 @@ export const EscapesSection: React.FC<EscapesSectionProps> = ({
                       >
                         View details →
                       </Link>
+                    ) : item.id === "escape-taghazout-3d" ? (
+                      <Link
+                        href="/taghazout"
+                        className="cursor-pointer text-xs font-extrabold text-[#123b34] hover:text-[#c95e3d] underline underline-offset-4 transition-colors"
+                      >
+                        View details →
+                      </Link>
                     ) : (
                       <button
                         type="button"
@@ -215,6 +222,20 @@ export const EscapesSection: React.FC<EscapesSectionProps> = ({
                       className="w-full cursor-pointer py-2.5 rounded-xl bg-[#c95e3d] hover:bg-[#aa4a2c] text-white text-xs font-black tracking-wider shadow-[0_6px_20px_rgba(201,94,61,0.35)] hover:shadow-[0_8px_25px_rgba(201,94,61,0.5)] transition-all flex items-center justify-center gap-1.5 active:scale-98"
                     >
                       <span>Explore Agafay Escape</span>
+                      <svg className="w-3.5 h-3.5" viewBox="0 0 20 20" fill="currentColor">
+                        <path
+                          fillRule="evenodd"
+                          d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                    </Link>
+                  ) : item.id === "escape-taghazout-3d" ? (
+                    <Link
+                      href="/taghazout"
+                      className="w-full cursor-pointer py-2.5 rounded-xl bg-[#c95e3d] hover:bg-[#aa4a2c] text-white text-xs font-black tracking-wider shadow-[0_6px_20px_rgba(201,94,61,0.35)] hover:shadow-[0_8px_25px_rgba(201,94,61,0.5)] transition-all flex items-center justify-center gap-1.5 active:scale-98"
+                    >
+                      <span>Explore Taghazout Escape</span>
                       <svg className="w-3.5 h-3.5" viewBox="0 0 20 20" fill="currentColor">
                         <path
                           fillRule="evenodd"

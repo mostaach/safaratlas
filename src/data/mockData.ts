@@ -584,25 +584,31 @@ export const ESCAPES_PACKAGES: EscapePackage[] = [
   },
   {
     id: "escape-taghazout-3d",
-    title: "3-Day Taghazout Ocean & Surf Escape",
-    slug: "taghazout-surf-escape",
-    subtitle: "Atlantic Surf Coast → Anchor Point → Yoga Shala",
+    title: "Taghazout Escapes: The 72-Hour Reset",
+    slug: "taghazout-escapes",
+    subtitle: "Two Rhythms (Slow or Active) · Boutique Ocean Stay · Agadir Transfer",
     duration: "3 Days / 2 Nights",
     category: "Coast",
-    location: "Taghazout & Tamraght",
-    priceFromEur: 290,
+    location: "Taghazout Coast",
+    priceFromEur: 349,
     image: "/escapes/taghazout-surf.jpg",
-    badge: "Ocean & Vibes",
+    badge: "Two Rhythms",
     highlights: [
-      "Daily surf lessons with ISA-certified local coaches",
-      "Sunset rooftop yoga sessions overlooking Anchor Point",
-      "Fresh harbor seafood dinner in Agadir/Taghazout",
-      "Excursion to Paradise Valley palm pools"
+      "Two distinct rhythms: Slow Reset or Active Ocean",
+      "Ocean-view boutique room with peaceful privacy",
+      "One-way VIP Agadir airport transfer included",
+      "Private surf guidance or restorative hammam & yoga"
     ],
-    included: ["Surf Board & Wetsuit Rental", "2 Morning Surf Coaching Sessions", "Oceanfront Villa Room", "Daily Rooftop Yoga", "Paradise Valley Trip"],
-    notIncluded: ["Dinners (except 1 welcome seafood dinner)"],
-    summary: "Unwind on the Atlantic coast. Combine ocean waves, rooftop sunsets, and healthy local cuisine in Morocco's premier surf sanctuary.",
-    fullDescription: "Combine active water sports with oceanfront relaxation in Taghazout. Perfect for solo travelers, couples, or friends looking to experience Morocco's coast.",
+    included: [
+      "Boutique Ocean-view room (3 Days / 2 Nights)",
+      "2 Organic coastal breakfasts",
+      "One-way Agadir airport transfer",
+      "Core activity (Surf coach & gear OR Hammam & Yoga shala)",
+      "Direct 24/7 human WhatsApp concierge"
+    ],
+    notIncluded: ["Lunches & dinners", "Flights"],
+    summary: "Not everyone wants a surf camp. Two rhythms: slow & restorative or active & ocean-led. One message. Everything handled.",
+    fullDescription: "Escape for 3 days. Come back reset. Stay by the ocean in Taghazout without camp pressure or forced group routines. Choose Slow Escape for recovery or Active Escape for surf and movement.",
     itineraryDays: [
       {
         dayNumber: 1,

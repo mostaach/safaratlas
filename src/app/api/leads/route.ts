@@ -1,6 +1,6 @@
 import { NextRequest } from "next/server";
 import { addLead, isLeadStatus, listLeads, updateLead } from "../../../lib/leadStore";
-import { CreateLeadInput } from "../../../lib/leadTypes";
+import { CreateLeadInput, Lead } from "../../../lib/leadTypes";
 import { sendLeadNotification } from "../../../lib/sendLeadEmail";
 import { isJsonRequest, isRateLimited } from "../../../lib/requestGuards";
 
@@ -37,12 +37,25 @@ export async function POST(request: NextRequest) {
     return Response.json({ error: "Please complete the required fields." }, { status: 400 });
   }
 
-  const leadSource = body.source === "agafay-vip-offer" ? "agafay-vip-offer" : "website";
-  let lead;
+  const leadSource: Lead["source"] = body.source === "agafay-vip-offer" ? "agafay-vip-offer" : "website";
+  let lead: Lead;
   try {
     lead = await addLead({ ...input, status: "new", source: leadSource, bookingValue: null, commissionRate: null, expectedMargin: null, reconciliationStatus: "not_applicable" });
-  } catch {
-    return Response.json({ error: "We could not save your request. Please try again shortly." }, { status: 503 });
+  } catch (dbError) {
+    console.error("[POST /api/leads] Primary Supabase storage failed, activating fallback lead handling:", dbError);
+    const now = new Date().toISOString();
+    lead = {
+      ...input,
+      id: `SA-${new Date().getFullYear()}-${crypto.randomUUID().slice(0, 8).toUpperCase()}`,
+      status: "new" as const,
+      source: leadSource,
+      bookingValue: null,
+      commissionRate: null,
+      expectedMargin: null,
+      reconciliationStatus: "not_applicable" as const,
+      createdAt: now,
+      updatedAt: now,
+    };
   }
 
   // Fire-and-forget — never block the response on email latency
