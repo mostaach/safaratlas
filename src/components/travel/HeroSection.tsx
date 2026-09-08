@@ -40,7 +40,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
             {/* Headline */}
             <SlideUp delay={0.2}>
-              <h1 className="max-w-3xl text-5xl sm:text-6xl xl:text-7xl font-serif font-black tracking-tight leading-[0.96] text-[#121a17]">
+              <h1 className="max-w-3xl text-4xl sm:text-6xl xl:text-7xl font-serif font-black tracking-tight leading-[1.05] sm:leading-[0.96] text-[#121a17]">
                 Your Morocco trip, <span className="text-[#c95e3d]">planned and managed for you.</span>
               </h1>
             </SlideUp>

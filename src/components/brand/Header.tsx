@@ -125,26 +125,26 @@ export const Header: React.FC<HeaderProps> = () => {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-cream border-b border-slate-200 px-6 py-6 space-y-4 shadow-xl animate-in slide-in-from-top-4 duration-200">
+        <div className="md:hidden bg-[#faf6f0] border-b border-[#e5dacb] px-6 py-6 space-y-4 shadow-xl animate-in slide-in-from-top-4 duration-200">
           <div className="flex flex-col space-y-3 font-bold text-sm">
             <a 
               href="#itineraries" 
               onClick={() => setMobileMenuOpen(false)}
-              className="px-3 py-2 rounded-lg hover:bg-cream-dark text-slate-900"
+              className="px-3 py-2 rounded-lg hover:bg-[#ebdccb] text-[#121a17]"
             >
               Sample Route
             </a>
             <a 
               href="#escapes" 
               onClick={() => setMobileMenuOpen(false)}
-              className="px-3 py-2 rounded-lg hover:bg-cream-dark text-slate-900"
+              className="px-3 py-2 rounded-lg hover:bg-[#ebdccb] text-[#121a17]"
             >
               Escapes
             </a>
             <a 
               href="#destinations" 
               onClick={() => setMobileMenuOpen(false)}
-              className="px-3 py-2 rounded-lg hover:bg-cream-dark text-slate-900"
+              className="px-3 py-2 rounded-lg hover:bg-[#ebdccb] text-[#121a17]"
             >
               Destinations
             </a>
@@ -162,6 +162,9 @@ export const Header: React.FC<HeaderProps> = () => {
             </Link>
           </div>
           <div className="pt-4 border-t border-[#e5dacb] flex flex-col gap-2.5">
+            <div className="flex items-center justify-center">
+              <WhatsAppButton />
+            </div>
             <Link
               href="/journey"
               onClick={() => setMobileMenuOpen(false)}

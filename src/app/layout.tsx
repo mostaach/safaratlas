@@ -76,16 +76,26 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@graph": [
                 {
-                  "@type": "Organization",
+                  "@type": "TravelAgency",
                   "@id": "https://safaratlas.com/#organization",
                   "name": "SafarAtlas",
                   "url": "https://safaratlas.com",
                   "logo": "https://safaratlas.com/safar-atlas-logo.svg",
-                  "description": "Managed Morocco Journeys & Travel Escapes",
+                  "description": "Curated private tours, desert escapes, and coordinated journeys across Morocco.",
+                  "telephone": "+212698017323",
+                  "priceRange": "€€",
+                  "areaServed": "Morocco",
+                  "address": {
+                    "@type": "PostalAddress",
+                    "addressLocality": "Marrakech",
+                    "postalCode": "40000",
+                    "addressCountry": "MA"
+                  },
                   "contactPoint": {
                     "@type": "ContactPoint",
                     "contactType": "customer support",
-                    "email": "contactsafaratlas@gmail.com"
+                    "email": "contactsafaratlas@gmail.com",
+                    "telephone": "+212698017323"
                   }
                 },
                 {
