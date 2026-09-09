@@ -27,7 +27,7 @@ export const BLOG_POSTS: BlogPost[] = [
     author: {
       name: "Mehdi El Ksir",
       role: "SafarAtlas Founder & Local Scout",
-      avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80"
+      avatar: "https://ui-avatars.com/api/?name=Mehdi+El+Ksir&background=123b34&color=f4c36b&size=200&bold=true&font-size=0.4"
     },
     publishedAt: "August 15, 2026",
     readTime: "5 min read",
@@ -82,7 +82,7 @@ Merzouga features **Erg Chebbi**, a massive sea of golden sand dunes rising up t
     author: {
       name: "SafarAtlas Editorial",
       role: "Moroccan Journey Architects",
-      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80"
+      avatar: "https://ui-avatars.com/api/?name=SafarAtlas+Editorial&background=0d2239&color=d6b78a&size=200&bold=true&font-size=0.35"
     },
     publishedAt: "August 12, 2026",
     readTime: "7 min read",
@@ -128,7 +128,7 @@ Instead of booking 8 different hosts and worrying about whether the driver will 
     author: {
       name: "SafarAtlas Editorial",
       role: "Coast & Ocean Scout",
-      avatar: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=200&q=80"
+      avatar: "https://ui-avatars.com/api/?name=SafarAtlas+Coast&background=0369a1&color=ffffff&size=200&bold=true&font-size=0.35"
     },
     publishedAt: "August 8, 2026",
     readTime: "4 min read",
@@ -164,7 +164,7 @@ With our **3-Day Taghazout Surf Escape**, you get private transfers, ISA-certifi
     author: {
       name: "Mehdi El Ksir",
       role: "SafarAtlas Founder & Local Scout",
-      avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80"
+      avatar: "https://ui-avatars.com/api/?name=Mehdi+El+Ksir&background=123b34&color=f4c36b&size=200&bold=true&font-size=0.4"
     },
     publishedAt: "August 19, 2026",
     readTime: "6 min read",
@@ -225,7 +225,7 @@ When we build a Marrakech stay into your managed itinerary, we match the riad to
     author: {
       name: "SafarAtlas Editorial",
       role: "Moroccan Journey Architects",
-      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80"
+      avatar: "https://ui-avatars.com/api/?name=SafarAtlas+Editorial&background=0d2239&color=d6b78a&size=200&bold=true&font-size=0.35"
     },
     publishedAt: "August 19, 2026",
     readTime: "8 min read",
@@ -295,7 +295,7 @@ If you are planning a 7-day managed Morocco journey and you have flexibility on 
     author: {
       name: "SafarAtlas Editorial",
       role: "Moroccan Journey Architects",
-      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80"
+      avatar: "https://ui-avatars.com/api/?name=SafarAtlas+Editorial&background=0d2239&color=d6b78a&size=200&bold=true&font-size=0.35"
     },
     publishedAt: "August 19, 2026",
     readTime: "7 min read",
@@ -368,7 +368,7 @@ When we manage a couple's Morocco itinerary, everything is pre-arranged:
     author: {
       name: "Mehdi El Ksir",
       role: "SafarAtlas Founder & Local Scout",
-      avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80"
+      avatar: "https://ui-avatars.com/api/?name=Mehdi+El+Ksir&background=123b34&color=f4c36b&size=200&bold=true&font-size=0.4"
     },
     publishedAt: "August 30, 2026",
     readTime: "6 min read",
@@ -427,6 +427,267 @@ As night falls, Marrakech's central square transforms into an open-air theater o
 ## Plan Your Marrakech Escapes with SafarAtlas
 Want to experience Marrakech without the stress of haggling or coordinating transport? SafarAtlas arranges private 4x4 transfers, vetted local guides, and luxury desert dinners with 24/7 WhatsApp Concierge support.
 `
-  }
-];
+  },
+  {
+    id: "post-agafay-night-glamping",
+    slug: "agafay-desert-night-stargazing-glamping",
+    title: "Agafay Desert at Night: Stargazing, Glamping & What to Actually Expect",
+    subtitle: "The stone desert outside Marrakech transforms completely after dark. Here's the honest guide to a luxury Agafay night experience.",
+    category: "Desert Guides",
+    author: {
+      name: "Mehdi El Ksir",
+      role: "SafarAtlas Founder & Local Scout",
+      avatar: "https://ui-avatars.com/api/?name=Mehdi+El+Ksir&background=123b34&color=f4c36b&size=200&bold=true&font-size=0.4"
+    },
+    publishedAt: "September 1, 2026",
+    readTime: "5 min read",
+    coverImage: "https://images.unsplash.com/photo-1464852045489-bccb7d17fe39?auto=format&fit=crop&w=1200&q=80",
+    summary: "Most visitors arrive at Agafay for sunset and leave by 9 PM. Those who stay discover something completely different: a sky so dense with stars it looks fake, total silence broken only by Berber drums, and a canvas tent warmer than any hotel room.",
+    recommendedEscapeSlug: "agafay-vip",
+    contentMarkdown: `
+# Agafay Desert at Night — The Honest Guide
 
+Most people book an Agafay day trip and think they've experienced the desert. They haven't.
+
+The real Agafay reveals itself after the last tour bus leaves. As the horizon swallows the sun, the stone desert exhales — temperature drops 8 degrees in 20 minutes, the sky flushes crimson, then purple, then the stars arrive.
+
+---
+
+## What Happens at Agafay After Dark
+
+### The Stars
+Agafay sits at 700 meters altitude with zero light pollution from Marrakech (the city is behind a ridge). On a clear night — which is most nights — you can see the Milky Way band with the naked eye. This is not an exaggeration.
+
+**Best months for stargazing:** October through February. Skies are clearest and there's no summer heat haze.
+
+### The Silence
+Agafay is one of the quietest places accessible from a major Moroccan city. Once the generators cut (most luxury camps switch to battery power after 10 PM), the silence is absolute. This disorienting quiet is part of the experience.
+
+### The Temperature
+**Bring layers. Always.** Even in summer, Agafay nights drop to 15–18°C. In winter (November–February), nights can reach 4–6°C. Luxury camps provide blankets and outdoor firepits, but guests who didn't pack a fleece regret it every time.
+
+---
+
+## Glamping at Agafay: What "Luxury" Actually Means
+
+### The Good Camps
+Top-tier Agafay camps offer:
+- **King-size beds inside proper canvas tents** with real mattresses, not camping roll mats
+- **Private terraces** facing the open desert — no tent is closer than 30 metres to the next
+- **On-site bathrooms** attached directly to the tent (not a shared block)
+- **Electricity** for charging devices and reading lamps
+- **Heated water** for showers (crucial for winter stays)
+
+### What to Watch Out For
+Some operators market "glamping" but deliver basic camping with a lantern and a prayer mat. Signs of a low-quality camp:
+- Shared toilet block more than 50 meters away
+- Foam mattresses instead of proper hotel-grade beds
+- No electricity inside the tent
+- A fixed 3-course menu with no dietary options
+
+---
+
+## The Full Agafay Night Programme
+
+A well-managed Agafay overnight experience looks like this:
+
+**15:30 — Departure from Marrakech** in a private 4x4. The road south through olive groves takes 40 minutes.
+
+**16:30 — Arrival at the camp.** Mint tea welcome, tent orientation, first sunset walk on the ridge.
+
+**18:00 — Camel trek** across the stone plateau as the sun disappears behind the High Atlas.
+
+**19:30 — Sundowner** with cocktails (mocktails available), live gnawa or Berber music.
+
+**21:00 — Candlelit dinner** under a starlit canopy. Traditional Moroccan feast: harira soup, mixed salads, slow-cooked lamb tagine, saffron couscous, pastilla dessert.
+
+**23:00 — Open fire, stargazing.** Optional astronomy session with a telescope.
+
+**07:00 — Sunrise.** Coffee at the tent door. The morning light on the Atlas is unlike anywhere else.
+
+---
+
+## The SafarAtlas Agafay Night Recommendation
+
+We arrange private Agafay overnights with transfers, private tents, and full board included. Ask us about availability for your travel dates — night experiences book out weeks in advance during peak season (March–May, September–November).
+`
+  },
+  {
+    id: "post-morocco-packing-list",
+    slug: "morocco-packing-list-what-to-wear-and-bring",
+    title: "Morocco Packing List: What to Wear & Bring for Every Season",
+    subtitle: "From medina day trips to Sahara overnights to Atlantic surf weeks — the complete local-approved packing guide.",
+    category: "Insider Tips",
+    author: {
+      name: "SafarAtlas Editorial",
+      role: "Moroccan Journey Architects",
+      avatar: "https://ui-avatars.com/api/?name=SafarAtlas+Editorial&background=0d2239&color=d6b78a&size=200&bold=true&font-size=0.35"
+    },
+    publishedAt: "September 5, 2026",
+    readTime: "7 min read",
+    coverImage: "https://images.unsplash.com/photo-1553361371-9b22f78e8b1d?auto=format&fit=crop&w=1200&q=80",
+    summary: "The single most Googled pre-Morocco question: what should I pack? The answer depends entirely on where you're going, when you're going, and how you want to travel. This is the list we send every SafarAtlas traveler before departure.",
+    contentMarkdown: `
+# The Complete Morocco Packing List
+
+Before we get into specific items, one rule overrides everything else:
+
+**Pack for two Moroccos simultaneously.** The same day you walk through 38°C Fes medina, you may be sitting in a 10°C High Atlas village that evening. Morocco's climate diversity is extreme — and most first-time visitors underestimate it dramatically.
+
+---
+
+## Clothing: The Core System
+
+### The Layering Rule
+Morocco is not one climate zone. You need a layering system, not a "summer wardrobe" or a "winter wardrobe."
+
+**Core layer:** Lightweight breathable base. Merino wool is ideal — regulates temperature in both heat and cold and doesn't smell after a long travel day.
+
+**Mid layer:** A fleece or thin down jacket. This is non-negotiable for anyone going to the desert, mountains, or Atlantic coast.
+
+**Outer layer:** A windproof shell. The Essaouira and Taghazout coast winds are relentless. A light waterproof jacket doubles perfectly.
+
+### What to Wear in the Medina
+Morocco is a predominantly Muslim country and respectful dress is both appropriate and genuinely appreciated.
+
+- **Women:** Loose linen trousers or maxi skirts are perfect. Shoulders covered in medinas and religious sites. A light scarf that doubles as a wrap is the most versatile single item you can pack.
+- **Men:** Shorts are fine everywhere except mosques. Long trousers are more comfortable in hot medinas (less skin exposed to the sun).
+- **Everyone:** Comfortable walking shoes that can handle cobblestones. The Marrakech medina alleys are uneven, slippery when wet, and long.
+
+---
+
+## Essentials by Zone
+
+### For the Sahara Desert (Merzouga / Erg Chebbi)
+- **Buff or face scarf** — sandstorms can arise suddenly; protect your face and camera
+- **Goggles** (optional but brilliant) for camel treks
+- **Cold layer** — even in summer, Sahara nights drop dramatically
+- **Dry bag or zip-lock bags** — sand destroys electronics; protect your phone and camera
+
+### For the Atlantic Coast (Taghazout / Essaouira)
+- **Windproof jacket** — the Alizé trade winds are constant and surprisingly cold
+- **Sun cream SPF 50+** — the Atlantic reflection doubles UV exposure
+- **Rash vest** if surfing
+- **Flip-flops** that can handle salt water
+
+### For the Agafay Desert
+- **Walking shoes with grip** — the stone plateau is uneven
+- **Warm fleece** for after sunset
+- **Headlamp** — useful for navigating between tent and facilities in the dark
+- **Camera with manual settings** — the Milky Way is genuinely photographable here
+
+### For Marrakech Medina
+- **A small crossbody bag** with a zip — not for safety concerns, but for convenience in narrow souks
+- **Portable charger** — a full medina day will drain your phone (Google Maps, photos)
+- **Small cash wallet** — many small artisan stalls are cash only
+
+---
+
+## Health & Comfort Essentials
+
+- **Electrolyte tablets or sachets** — dehydration in summer heat is the #1 cause of ruined Morocco days
+- **Rehydration salts** — in case of stomach upset (common in the first day if tap water is consumed accidentally; always drink bottled)
+- **Lip balm with SPF** — the desert air is intensely dry
+- **Aloe vera gel** — doubles as sunburn relief and a light moisturiser in dry climates
+
+---
+
+## What NOT to Pack
+
+- **A huge checked suitcase** — medina riads often have steep, narrow staircases. A 26" spinner is a nightmare. Use a 20" cabin bag + soft duffel.
+- **Expensive jewellery** — unnecessary and draws unwanted attention
+- **Full-size toiletries** — Morocco has excellent pharmacies; buy locally and save the weight
+
+---
+
+## The SafarAtlas Pre-Departure Checklist
+
+Every traveler we manage receives a personalised packing list based on their specific itinerary (desert, coastal, medina, or mountain). Tell us your journey and we'll send yours before you fly.
+`
+  },
+  {
+    id: "post-essaouira-vs-taghazout",
+    slug: "essaouira-vs-taghazout-atlantic-coast-guide",
+    title: "Essaouira vs. Taghazout: Which Atlantic Coast Town Should You Visit?",
+    subtitle: "Two completely different personalities on the same coastline. Here is how to choose the right one for your Morocco journey.",
+    category: "Coastal Travel",
+    author: {
+      name: "SafarAtlas Editorial",
+      role: "Coast & Ocean Scout",
+      avatar: "https://ui-avatars.com/api/?name=SafarAtlas+Coast&background=0369a1&color=ffffff&size=200&bold=true&font-size=0.35"
+    },
+    publishedAt: "September 8, 2026",
+    readTime: "5 min read",
+    coverImage: "https://images.unsplash.com/photo-1493558103817-58b2924bce98?auto=format&fit=crop&w=1200&q=80",
+    summary: "Essaouira is a windswept UNESCO medina of blue-and-white walls and rampart sunsets. Taghazout is a surf village of rooftop shalas and point breaks. Both are on Morocco's Atlantic coast. Neither is better — they're completely different. Here's how to choose.",
+    recommendedEscapeSlug: "taghazout-surf-escape",
+    contentMarkdown: `
+# Essaouira vs. Taghazout — The Honest Comparison
+
+Both towns sit on Morocco's Atlantic coast. Both offer ocean sunsets, fresh seafood, and a completely different pace from the intensity of Marrakech.
+
+But they are, in personality, almost opposites.
+
+---
+
+## Essaouira: The UNESCO Medina of Wind & Art
+
+**Distance from Marrakech:** 175 km (2.5 hours)
+
+Essaouira is one of the most beautiful towns in North Africa. Its blue-and-white medina is a UNESCO World Heritage Site — a Portuguese-built fortress-city with massive sea ramparts, fishing harbour, and labyrinthine artisan quarter.
+
+### Who Essaouira is for
+- **Couples and honeymooners** — the rampart sunset is one of the most romantic spots in Morocco
+- **History and architecture lovers** — the medina walls, blue boats, and gnawa street musicians create an atmosphere unlike anywhere else
+- **Foodies** — the fresh fish grills at the port are legendary (buy your fish from the fisherman stall, pay the grill station to cook it)
+- **Art collectors** — Essaouira has produced a remarkable number of Moroccan fine artists and its gallery scene is genuine
+- **Slower-paced travelers** — fewer tourist touts than Marrakech, much more relaxed
+
+### The Wind Factor
+Essaouira is nicknamed **Windy City of Africa** for a reason. The Alizé trade winds blow constantly — typically 25–40 km/h. This makes it brilliant for kite surfing and windsurfing, and keeps summer temperatures at a perfect 22–25°C. But it means leisurely beach sunbathing is genuinely impossible most of the year. Bring a jacket.
+
+---
+
+## Taghazout: The Surf Village on the Point Break
+
+**Distance from Agadir:** 20 km (25 minutes)
+
+Taghazout is where the surf world discovered Morocco. A former Berber fishing village stacked up a hillside above a perfect right-hand point break, it became a secret among serious surfers in the 1970s and has been growing quietly ever since.
+
+### Who Taghazout is for
+- **Surfers of all levels** — Anchor Point for experts, nearby Taghazout Bay beach for beginners
+- **Yoga and wellness travelers** — rooftop shalas with 180-degree ocean views are everywhere
+- **Younger travelers and digital nomads** — the vibe is relaxed, international, and unpretentious
+- **Anyone wanting ocean-first, beach-focused days** — the bay beaches here are swimmable (unlike Essaouira, which is too windy)
+- **Couples who want activity** — surf lessons together, yoga at sunrise, Paradise Valley excursion
+
+### The Scale Factor
+Taghazout is small — and that's the point. It's two main streets wide. No traffic, no medina crowds, no loud souks. It's genuinely peaceful in a way that larger coastal towns are not.
+
+---
+
+## Head-to-Head Comparison
+
+| Factor | Essaouira | Taghazout |
+|--------|-----------|-----------|
+| **Vibe** | UNESCO historic, artsy, windswept | Surf village, relaxed, international |
+| **Beach swimming** | Difficult (too windy) | Excellent at Taghazout Bay |
+| **Surfing** | Kitesurfing / windsurfing only | World-class point breaks |
+| **Food** | Exceptional (port fish grills) | Good (fresh, simple, ocean-focused) |
+| **Nightlife** | Very quiet | Also very quiet |
+| **Day trips** | None essential | Paradise Valley (essential) |
+| **Best for** | Culture + romance | Activity + wellness |
+| **Time needed** | 1–2 nights minimum | 3–5 nights to fully experience |
+
+---
+
+## The SafarAtlas Verdict
+
+**Choose Essaouira if:** You want history, architecture, a UNESCO medina atmosphere, and the most romantic sunset in Morocco. Budget 1–2 nights.
+
+**Choose Taghazout if:** You want ocean activity, surf lessons, yoga, and a genuinely relaxed pace. Budget 3–5 nights.
+
+**Best of all:** Add both. The drive between Essaouira and Taghazout via Agadir takes 3 hours — we run managed itineraries that include both as a 5-day Atlantic Coast module.
+`
+  }
+]
