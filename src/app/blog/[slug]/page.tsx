@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import Script from "next/script";
 import { BLOG_POSTS } from "../../../data/blogData";
 import { ESCAPES_PACKAGES } from "../../../data/mockData";
 
@@ -18,9 +19,42 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const post = BLOG_POSTS.find((p) => p.slug === slug);
   if (!post) return { title: "Post Not Found" };
+
+  const url = `https://safaratlas.com/blog/${post.slug}`;
+  const ogImage = post.coverImage.startsWith("http")
+    ? post.coverImage
+    : `https://safaratlas.com${post.coverImage}`;
+
   return {
     title: `${post.title} | SafarAtlas Journal`,
     description: post.summary,
+    alternates: {
+      canonical: url,
+    },
+    openGraph: {
+      title: `${post.title} | SafarAtlas Journal`,
+      description: post.summary,
+      url,
+      siteName: "SafarAtlas",
+      type: "article",
+      publishedTime: post.publishedAt,
+      authors: [post.author.name],
+      images: [
+        {
+          url: ogImage,
+          width: 1200,
+          height: 630,
+          alt: post.title,
+        },
+      ],
+      locale: "en_US",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.summary,
+      images: [ogImage],
+    },
   };
 }
 
@@ -77,6 +111,69 @@ export default async function BlogPostPage({ params }: Props) {
 
   return (
     <div className="min-h-screen bg-[#faf6f0]">
+      {/* Article & Breadcrumbs Schema (SEO / AEO / GEO) */}
+      <Script
+        id={`schema-blog-${post.slug}`}
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@graph": [
+              {
+                "@type": "BlogPosting",
+                "@id": `https://safaratlas.com/blog/${post.slug}#article`,
+                "headline": post.title,
+                "description": post.summary,
+                "image": post.coverImage.startsWith("http") ? post.coverImage : `https://safaratlas.com${post.coverImage}`,
+                "datePublished": post.publishedAt,
+                "author": {
+                  "@type": "Person",
+                  "name": post.author.name,
+                  "jobTitle": post.author.role
+                },
+                "publisher": {
+                  "@type": "Organization",
+                  "name": "SafarAtlas",
+                  "url": "https://safaratlas.com",
+                  "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://safaratlas.com/safar-atlas-logo.svg"
+                  }
+                },
+                "mainEntityOfPage": {
+                  "@type": "WebPage",
+                  "@id": `https://safaratlas.com/blog/${post.slug}`
+                }
+              },
+              {
+                "@type": "BreadcrumbList",
+                "@id": `https://safaratlas.com/blog/${post.slug}#breadcrumbs`,
+                "itemListElement": [
+                  {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Home",
+                    "item": "https://safaratlas.com"
+                  },
+                  {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Journal",
+                    "item": "https://safaratlas.com/blog"
+                  },
+                  {
+                    "@type": "ListItem",
+                    "position": 3,
+                    "name": post.title,
+                    "item": `https://safaratlas.com/blog/${post.slug}`
+                  }
+                ]
+              }
+            ]
+          })
+        }}
+      />
+
       {/* Brand Nav Bar */}
       <nav className="w-full bg-[#121a17] text-white px-6 py-4 flex items-center justify-between sticky top-0 z-40 shadow-sm">
         <Link href="/" className="flex items-center gap-2.5 cursor-pointer group">
