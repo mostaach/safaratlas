@@ -6,7 +6,7 @@ import { Logo } from "./Logo";
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="bg-[#0f1715] text-white pt-16 pb-12 border-t border-navy/40 zellige-pattern relative overflow-hidden">
+    <footer className="bg-[#0f1715] text-white pt-16 pb-12 border-t border-white/10 zellige-pattern-dark relative overflow-hidden">
       {/* Gradient Vignette overlay */}
       <div className="absolute inset-0 bg-gradient-to-t from-[#0f1715] via-[#0f1715]/90 to-transparent pointer-events-none" />
 
@@ -34,11 +34,12 @@ export const Footer: React.FC = () => {
               Explore
             </h4>
             <ul className="space-y-2.5 text-sm text-white/80 font-medium">
-              <li><a href="#destinations" className="hover:text-gold transition-colors">Marrakech</a></li>
-              <li><a href="#destinations" className="hover:text-gold transition-colors">Agafay</a></li>
-              <li><a href="#destinations" className="hover:text-gold transition-colors">Sahara</a></li>
-              <li><a href="#destinations" className="hover:text-gold transition-colors">Atlas Mountains</a></li>
-              <li><a href="#destinations" className="hover:text-gold transition-colors">Essaouira</a></li>
+              <li><Link href="/#destinations" className="hover:text-gold transition-colors">Marrakech</Link></li>
+              <li><Link href="/agafay" className="hover:text-gold transition-colors">Agafay Desert</Link></li>
+              <li><Link href="/taghazout" className="hover:text-gold transition-colors">Taghazout Escapes</Link></li>
+              <li><Link href="/#destinations" className="hover:text-gold transition-colors">Sahara Desert</Link></li>
+              <li><Link href="/#destinations" className="hover:text-gold transition-colors">Atlas Mountains</Link></li>
+              <li><Link href="/#destinations" className="hover:text-gold transition-colors">Essaouira</Link></li>
             </ul>
           </div>
 
@@ -48,11 +49,11 @@ export const Footer: React.FC = () => {
               Plan
             </h4>
             <ul className="space-y-2.5 text-sm text-white/80 font-medium">
-              <li><a href="#itineraries" className="hover:text-gold transition-colors">7-Day Sahara Dunes Odyssey</a></li>
-              <li><a href="#itineraries" className="hover:text-gold transition-colors">5-Day Atlantic Surf & Coast</a></li>
-              <li><a href="#escapes" className="hover:text-gold transition-colors">Add an Experience</a></li>
-              <li><a href="#how-it-works" className="hover:text-gold transition-colors">How SafarAtlas Works</a></li>
-              <li><a href="/journey" className="hover:text-gold transition-colors">Plan My Morocco Trip</a></li>
+              <li><Link href="/#itineraries" className="hover:text-gold transition-colors">7-Day Sahara Dunes Odyssey</Link></li>
+              <li><Link href="/#itineraries" className="hover:text-gold transition-colors">5-Day Atlantic Surf & Coast</Link></li>
+              <li><Link href="/#escapes" className="hover:text-gold transition-colors">Add an Experience</Link></li>
+              <li><Link href="/#how-it-works" className="hover:text-gold transition-colors">How SafarAtlas Works</Link></li>
+              <li><Link href="/journey" className="hover:text-gold transition-colors">Plan My Morocco Trip</Link></li>
             </ul>
           </div>
 
@@ -62,13 +63,12 @@ export const Footer: React.FC = () => {
             <p className="text-sm text-white/70 leading-relaxed">
               Tell us your vision and our local team will craft a fully managed, personalised itinerary just for you.
             </p>
-            <button
-              type="button"
-              onClick={() => document.getElementById('hero-cta')?.click()}
+            <Link
+              href="/journey"
               className="inline-block w-full text-center py-2.5 rounded-xl bg-[#c95e3d] hover:bg-[#aa4a2c] text-white text-xs font-bold transition-all shadow-md cursor-pointer"
             >
               Plan My Morocco Trip →
-            </button>
+            </Link>
           </div>
 
         </div>

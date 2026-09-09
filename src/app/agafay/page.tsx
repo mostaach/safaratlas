@@ -27,7 +27,7 @@ export default function AgafayPage() {
     <div className="min-h-screen flex flex-col bg-[#080c10] text-[#f6f2ec] selection:bg-[#d6b78a] selection:text-[#0d2239]">
       {/* Global Brand Header with custom dark accent support */}
       <div className="relative z-50">
-        <Header onOpenInquiryModal={() => setInquiryOpen(true)} />
+        <Header variant="dark" onOpenInquiryModal={() => setInquiryOpen(true)} />
       </div>
 
       <main className="flex-1 w-full max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 pt-24 sm:pt-28 pb-20">
