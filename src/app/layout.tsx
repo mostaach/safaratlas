@@ -69,9 +69,10 @@ export default function RootLayout({
       className={`${serifFont.variable} ${sansFont.variable} h-full antialiased scroll-smooth`}
       suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col font-sans bg-[#faf6f0] text-[#16221e]" suppressHydrationWarning>
-        {/* Google Analytics 4 */}
+      <head>
+        {/* Google tag (gtag.js) */}
         <Script
+          async
           strategy="afterInteractive"
           src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
         />
@@ -83,12 +84,13 @@ export default function RootLayout({
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', '${GA_MEASUREMENT_ID}', {
-                page_path: window.location.pathname,
-              });
+
+              gtag('config', '${GA_MEASUREMENT_ID}');
             `,
           }}
         />
+      </head>
+      <body className="min-h-full flex flex-col font-sans bg-[#faf6f0] text-[#16221e]" suppressHydrationWarning>
 
         <Script
           id="schema-org"
