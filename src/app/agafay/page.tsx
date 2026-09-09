@@ -12,13 +12,12 @@ const WHATSAPP_NUMBER = "212698017323";
 const DISPLAY_PHONE = "+212 698 017 323";
 
 export default function AgafayPage() {
-  const pricePerPerson = 34; // €34 Launch Price
   const [inquiryOpen, setInquiryOpen] = useState(false);
 
   const waMessage = encodeURIComponent(
-    `Hi SafarAtlas! I'd like to reserve the Agafay Desert Full Experience at €${pricePerPerson}/person.\n` +
+    `Hi SafarAtlas! I'd like to check rates for the Agafay Desert Full Experience.\n` +
       `Includes: Marrakech Transfer + Quad Biking + Camel Ride + Mint Tea + Sunset View + Tagine Dinner & Gnaoua Show.\n` +
-      `Can you confirm availability for our travel dates?`
+      `Dates: [insert dates] | Group size: [number of people]. Could you send a quote?`
   );
 
   const agafayPackage = ESCAPES_PACKAGES.find((p) => p.id === "escape-agafay-1d") || null;
@@ -86,7 +85,7 @@ export default function AgafayPage() {
               <div className="rounded-2xl p-6 bg-[#0d2239]/80 backdrop-blur-xl border border-white/20 shadow-2xl space-y-4">
                 <div className="flex items-center justify-between">
                   <span className="text-xs font-bold uppercase tracking-wider text-[#d6b78a]">
-                    Special Launch Offer
+                    Fully Private Experience
                   </span>
                   <span className="px-2.5 py-0.5 rounded-full text-[10px] font-black bg-[#25D366]/20 text-[#25D366] border border-[#25D366]/30">
                     Pay on Arrival
@@ -94,14 +93,14 @@ export default function AgafayPage() {
                 </div>
 
                 <div>
-                  <div className="text-4xl sm:text-5xl font-black text-white">
-                    €{pricePerPerson}
-                    <span className="text-sm sm:text-base font-normal text-[#d6b78a] ml-2">
-                      / person
-                    </span>
+                  <div className="text-2xl sm:text-3xl font-serif font-black text-white">
+                    Pricing via WhatsApp
                   </div>
-                  <p className="text-xs text-[#f6f2ec]/70 mt-1">
-                    Everything included: Roundtrip transfer, Quad, Camel, Tea & 3-Course Dinner.
+                  <p className="text-xs text-[#d6b78a] font-medium mt-1">
+                    Custom rates based on season & your group size
+                  </p>
+                  <p className="text-[11px] text-[#f6f2ec]/70 mt-1">
+                    Includes private roundtrip 4x4, quad biking, camel trek, sunset tea & 3-course dinner with live show.
                   </p>
                 </div>
 
@@ -353,7 +352,7 @@ export default function AgafayPage() {
               Ready to Experience Agafay?
             </h2>
             <p className="text-sm sm:text-base text-[#f6f2ec]/85 max-w-md mx-auto">
-              From <strong>€34 / person</strong>. Message our WhatsApp Concierge for rapid confirmation and door-to-door logistics.
+              Private door-to-door experience. Message our WhatsApp Concierge with your dates and group size for an instant quote.
             </p>
 
             <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -363,7 +362,7 @@ export default function AgafayPage() {
                 rel="noreferrer"
                 className="w-full sm:w-auto px-8 py-4 rounded-full font-black text-xs uppercase tracking-widest bg-gradient-to-r from-[#d6b78a] to-[#c89a4e] text-[#0d2239] shadow-2xl hover:scale-105 active:scale-95 transition-all"
               >
-                Book via WhatsApp Now →
+                Get Quote via WhatsApp →
               </a>
               <button
                 type="button"
@@ -375,7 +374,7 @@ export default function AgafayPage() {
             </div>
 
             <div className="pt-3 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-[#d6b78a]">
-              <span>⚡ Fast confirmation</span>
+              <span>⚡ Instant response</span>
               <span>•</span>
               <span>🛡️ Free cancel up to 24h</span>
               <span>•</span>
@@ -391,10 +390,10 @@ export default function AgafayPage() {
       {/* ── STICKY MOBILE BOOKING BAR (Fixed to bottom on mobile only) ── */}
       <div className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-[#0d2239]/95 backdrop-blur-xl border-t border-[#d6b78a]/30 px-4 py-3 flex items-center justify-between shadow-2xl">
         <div>
-          <div className="text-base font-black text-[#d6b78a]">
-            €{pricePerPerson} <span className="text-xs font-normal text-[#f6f2ec]/70">/ person</span>
+          <div className="text-sm font-black text-[#d6b78a]">
+            Pricing via WhatsApp
           </div>
-          <div className="text-[10px] text-[#f6f2ec]/70">Pay on arrival · Free cancellation</div>
+          <div className="text-[10px] text-[#f6f2ec]/70">Seasonal rates · Pay on arrival</div>
         </div>
 
         <a
@@ -403,7 +402,7 @@ export default function AgafayPage() {
           rel="noreferrer"
           className="px-5 py-2.5 rounded-full text-xs font-black uppercase tracking-wider bg-gradient-to-r from-[#25D366] to-[#1eb757] text-white shadow-lg active:scale-95 transition-all flex items-center gap-1.5"
         >
-          <span>Book WhatsApp</span>
+          <span>Get Quote</span>
           <span>→</span>
         </a>
       </div>

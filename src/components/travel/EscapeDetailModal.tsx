@@ -189,19 +189,15 @@ export const EscapeDetailModal: React.FC<EscapeDetailModalProps> = ({
           <div className="bg-[#123b34] text-white p-6 rounded-3xl border border-[#2a5b50] flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl">
             <div className="space-y-2 text-center md:text-left">
               <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#f4c36b]">
-                Transparent Managed Pricing
+                Seasonal & Group-Tiered Pricing
               </span>
-              <div className="flex items-center gap-4">
-                <div>
-                  <span className="text-2xl font-serif font-black text-white">
-                    €{calculatedPricePerPerson}
-                  </span>
-                  <span className="text-xs text-white/70"> / person</span>
-                </div>
-                <div className="h-6 w-px bg-white/20" />
-                <div className="text-xs text-white/80">
-                  Total Estimate: <strong className="text-[#f4c36b]">€{totalEstimate}</strong> for {travelersCount} traveler{travelersCount > 1 ? 's' : ''}
-                </div>
+              <div>
+                <span className="text-2xl font-serif font-black text-white">
+                  Pricing via WhatsApp
+                </span>
+                <p className="text-xs text-white/70 mt-0.5">
+                  Exact rates tailored to your dates & party size ({travelersCount} traveler{travelersCount > 1 ? 's' : ''})
+                </p>
               </div>
 
               {/* Group Size Selector */}
@@ -223,16 +219,26 @@ export const EscapeDetailModal: React.FC<EscapeDetailModalProps> = ({
               </div>
             </div>
 
-            {/* CTA Button */}
-            <button
-              onClick={() => {
-                onClose();
-                onInquire(escapePkg);
-              }}
-              className="w-full md:w-auto px-8 py-4 rounded-2xl bg-[#c95e3d] hover:bg-[#aa4a2c] text-white text-xs font-black tracking-widest shadow-xl transition-all transform hover:-translate-y-0.5 cursor-pointer flex items-center justify-center gap-2"
-            >
-              <span>Add to My Morocco Journey →</span>
-            </button>
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row items-center gap-3 w-full md:w-auto">
+              <a
+                href={`https://wa.me/212698017323?text=${encodeURIComponent(`Hi SafarAtlas! I'm interested in the ${escapePkg.title} for ${travelersCount} traveler${travelersCount > 1 ? 's' : ''}. Could you share current seasonal rates?`)}`}
+                target="_blank"
+                rel="noreferrer"
+                className="w-full md:w-auto px-6 py-3.5 rounded-2xl bg-[#25D366] hover:bg-[#1da851] text-white text-xs font-black tracking-wider shadow-lg transition-all flex items-center justify-center gap-2"
+              >
+                <span>WhatsApp Quote</span>
+              </a>
+              <button
+                onClick={() => {
+                  onClose();
+                  onInquire(escapePkg);
+                }}
+                className="w-full md:w-auto px-6 py-3.5 rounded-2xl bg-[#c95e3d] hover:bg-[#aa4a2c] text-white text-xs font-black tracking-widest shadow-xl transition-all cursor-pointer flex items-center justify-center gap-2"
+              >
+                <span>Add to Journey →</span>
+              </button>
+            </div>
           </div>
 
         </div>

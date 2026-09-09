@@ -182,18 +182,11 @@ export const EscapesSection: React.FC<EscapesSectionProps> = ({
                 <div className="pt-3.5 border-t border-[#e5dacb] space-y-3.5 mt-auto">
                   <div className="flex items-center justify-between">
                     <div>
-                      {item.id === "escape-taghazout-3d" ? (
-                        <span className="text-base font-serif font-black text-[#123b34]">
-                          Price on WhatsApp
-                        </span>
-                      ) : (
-                        <span className="text-xl font-serif font-black text-[#123b34]">
-                          €{item.priceFromEur}
-                          <span className="text-xs font-normal text-[#4e5e57]"> / person</span>
-                        </span>
-                      )}
-                      <span className="block text-[11px] font-bold text-[#4e5e57] tracking-tight">
-                        {item.duration}
+                      <span className="text-base font-serif font-black text-[#123b34]">
+                        Price on WhatsApp
+                      </span>
+                      <span className="block text-[11px] font-semibold text-[#4e5e57] tracking-tight">
+                        {item.duration} · Seasonal rates
                       </span>
                     </div>
 

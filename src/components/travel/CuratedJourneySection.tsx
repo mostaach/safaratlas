@@ -370,8 +370,8 @@ export const CuratedJourneySection: React.FC<CuratedJourneySectionProps> = ({ on
                   }`}
                 >
                   <span>{preset.label}</span>
-                  <span className={`ml-2 text-[10px] ${isSelected ? "text-[#121a17]/80" : "text-[#f4c36b]"}`}>
-                    ~€{preset.priceEur}
+                  <span className={`ml-2 text-[10px] ${isSelected ? "text-[#121a17]/80 font-bold" : "text-[#f4c36b]"}`}>
+                    {preset.durationDays} Days
                   </span>
                 </button>
               );
@@ -582,10 +582,10 @@ export const CuratedJourneySection: React.FC<CuratedJourneySectionProps> = ({ on
             {/* Metric 2: Estimated Price */}
             <div>
               <p className="text-[10px] font-black uppercase tracking-widest text-[#f4c36b] mb-0.5">
-                From
+                Pricing
               </p>
               <p className="text-base sm:text-lg font-black text-white tracking-tight">
-                €{currentPreset.priceEur} <span className="text-xs font-normal text-white/50">/ person</span>
+                Tailored Quote <span className="text-xs font-normal text-white/50">via WhatsApp</span>
               </p>
             </div>
 

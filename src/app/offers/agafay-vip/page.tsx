@@ -476,10 +476,11 @@ export default function AgafayVipOfferPage() {
                 <h3 className="text-2xl font-serif font-bold text-white">The Slow Escape</h3>
                 <p className="text-xs text-[#c6a476] font-bold uppercase tracking-widest">For Relaxation & Romance</p>
                 <div className="pt-2 pb-4">
-                  <span className="text-sm text-white/60">From</span>
-                  <div className="text-5xl font-serif font-black text-white my-1">
-                    €120 <span className="text-base font-sans font-normal text-white/60">/ person</span>
+                  <span className="text-sm text-white/60">Rates</span>
+                  <div className="text-3xl font-serif font-black text-white my-1">
+                    Price on WhatsApp
                   </div>
+                  <span className="text-xs text-[#c6a476] font-semibold">Seasonal rate · Fully Private SUV</span>
                 </div>
                 <ul className="space-y-3 text-sm text-white/80 pb-6">
                   <li className="flex items-start gap-2"><span className="text-[#10b981]">✓</span> Private SUV transfer</li>
@@ -489,13 +490,13 @@ export default function AgafayVipOfferPage() {
                 </ul>
               </div>
               <a
-                href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Hi SafarAtlas! I'm interested in The Slow Escape (€120) for Agafay. When is the next available date?")}`}
+                href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Hi SafarAtlas! I'm interested in The Slow Escape for Agafay. Could you provide a seasonal quote for our dates?")}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => trackEvent("click_cta", { type: "whatsapp_slow" })}
                 className="w-full text-center py-4 rounded-xl border border-white/20 hover:bg-white/10 text-white text-sm font-extrabold transition-all"
               >
-                Book The Slow Escape
+                Get Quote: The Slow Escape
               </a>
             </div>
 
@@ -508,10 +509,11 @@ export default function AgafayVipOfferPage() {
                 <h3 className="text-2xl font-serif font-bold text-white">The Active Escape</h3>
                 <p className="text-xs text-[#c6a476] font-bold uppercase tracking-widest">For Adrenaline & Views</p>
                 <div className="pt-2 pb-4">
-                  <span className="text-sm text-white/60">From</span>
-                  <div className="text-5xl font-serif font-black text-white my-1">
-                    €160 <span className="text-base font-sans font-normal text-white/60">/ person</span>
+                  <span className="text-sm text-white/60">Rates</span>
+                  <div className="text-3xl font-serif font-black text-white my-1">
+                    Price on WhatsApp
                   </div>
+                  <span className="text-xs text-[#c6a476] font-semibold">Includes 1-Hour Private Quad Biking</span>
                 </div>
                 <ul className="space-y-3 text-sm text-white/80 pb-6">
                   <li className="flex items-start gap-2"><span className="text-[#10b981]">✓</span> Everything in The Slow Escape</li>
@@ -520,13 +522,13 @@ export default function AgafayVipOfferPage() {
                 </ul>
               </div>
               <a
-                href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Hi SafarAtlas! I'm interested in The Active Escape (€160) for Agafay. When is the next available date?")}`}
+                href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Hi SafarAtlas! I'm interested in The Active Escape for Agafay. Could you provide a seasonal quote for our dates?")}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => trackEvent("click_cta", { type: "whatsapp_active" })}
                 className="w-full text-center py-4 rounded-xl bg-[#c6a476] hover:bg-[#aa4a2c] text-white text-sm font-extrabold shadow-lg transition-all"
               >
-                Book The Active Escape
+                Get Quote: The Active Escape
               </a>
             </div>
 
@@ -594,8 +596,8 @@ export default function AgafayVipOfferPage() {
                       onChange={(e) => setFormData({ ...formData, packageType: e.target.value })} 
                       className="mt-1.5 w-full rounded-xl border border-[#e5dacb] bg-white px-4 py-3 text-xs font-medium outline-none focus:border-[#c6a476]"
                     >
-                      <option>The Slow Escape (€120/person)</option>
-                      <option>The Active Escape (€160/person)</option>
+                      <option>The Slow Escape (Relaxation & Romance)</option>
+                      <option>The Active Escape (Adrenaline & ATV Quad)</option>
                     </select>
                   </label>
                 </div>
@@ -776,7 +778,7 @@ export default function AgafayVipOfferPage() {
         <div className="max-w-5xl mx-auto flex items-center justify-between gap-4">
           <div>
             <p className="text-xs font-bold text-white">1-Day Agafay VIP Escape</p>
-            <p className="text-[11px] text-[#c6a476]">From €120/person · Fully Private</p>
+            <p className="text-[11px] text-[#c6a476]">Pricing via WhatsApp · Fully Private</p>
           </div>
           <a
             href={WHATSAPP_URL}

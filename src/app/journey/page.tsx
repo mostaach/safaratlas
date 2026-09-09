@@ -307,8 +307,8 @@ ${form.notes || "None provided."}`;
                           <p className="text-xs text-[#4e5e57]">
                             Duration: <strong>{item.durationDays} Days / {item.durationNights} Nights</strong>
                           </p>
-                          <p className="text-xs font-black text-[#c95e3d] pt-0.5">
-                            From €{item.priceFromEur} / person
+                          <p className="text-xs font-black text-[#123b34] pt-0.5">
+                            Pricing via WhatsApp · Seasonal rates
                           </p>
                         </div>
 
@@ -391,11 +391,11 @@ ${form.notes || "None provided."}`;
                 {/* Pricing Banner */}
                 <div className="p-3.5 rounded-2xl bg-[#faf6f0] border border-[#e5dacb] flex items-center justify-between">
                   <div>
-                    <span className="text-[10px] font-bold uppercase text-[#4e5e57] block">Estimated Base Price</span>
+                    <span className="text-[10px] font-bold uppercase text-[#4e5e57] block">Pricing Status</span>
                     <span className="text-xl sm:text-2xl font-serif font-black text-[#c95e3d]">
-                      {estimatedPriceEur > 0 ? `€${estimatedPriceEur}` : "Tailored Quote"}
+                      Tailored Quote
                     </span>
-                    {estimatedPriceEur > 0 && <span className="text-[10px] text-[#4e5e57] ml-1">/ person</span>}
+                    <span className="block text-[10px] text-[#4e5e57] mt-0.5">Seasonal & group rates via WhatsApp</span>
                   </div>
                   <span className="text-[10px] font-extrabold uppercase text-[#059669] bg-[#ecfdf5] px-2.5 py-1 rounded-full border border-[#a7f3d0]">
                     Zero Booking Fees

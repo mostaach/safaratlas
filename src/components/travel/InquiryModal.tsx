@@ -136,7 +136,7 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({
                   <div className="flex-1">
                     <span className="text-[10px] font-extrabold uppercase tracking-wide text-[#c95e3d]">Packaged Escape Module</span>
                     <p className="text-sm font-bold text-[#121a17]">{selectedEscape.title}</p>
-                    <p className="text-xs text-[#4e5e57]">{selectedEscape.duration} · From €{selectedEscape.priceFromEur} / person</p>
+                    <p className="text-xs text-[#4e5e57]">{selectedEscape.duration} · Tailored quote on WhatsApp</p>
                   </div>
                 </div>
               )}
