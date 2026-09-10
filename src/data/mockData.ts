@@ -706,6 +706,99 @@ export const ESCAPES_PACKAGES: EscapePackage[] = [
         highlights: ["Imlil waterfall trek", "Traditional home mint tea"]
       }
     ]
+  },
+  {
+    id: "escape-imlil-1d",
+    title: "Imlil Valley & High Atlas Mountain Experience",
+    slug: "imlil-valley-high-atlas",
+    subtitle: "Marrakech → Asni → Imlil Valley & Toubkal Foothills",
+    duration: "Full Day (8–9h)",
+    category: "Mountain",
+    location: "Imlil & High Atlas",
+    priceFromEur: 65,
+    image: "/destinations/atlas.jpg",
+    badge: "Mountain Immersion",
+    highlights: [
+      "Private hotel/riad pickup & scenic High Atlas mountain drive",
+      "Gentle guided mountain hike adapted to your personal fitness level",
+      "Authentic Moroccan mint tea with a local Amazigh family in Imlil",
+      "Traditional Moroccan lunch overlooking Mount Toubkal peaks",
+      "Certified local English/French-speaking mountain guide"
+    ],
+    included: ["Private AC Vehicle", "Dedicated Mountain Guide", "Traditional Lunch in Imlil", "Tea with Berber Family", "Hotel Pickup & Dropoff"],
+    summary: "Escape Marrakech to discover traditional Amazigh stone villages, walnut groves, and dramatic mountain panoramas at the foot of Mount Toubkal.",
+    fullDescription: "A pure mountain reset 90 minutes south of Marrakech. Wander through the lush Imlil Valley, explore authentic Berber stone architecture, and share mint tea with a local family before a relaxed mountain lunch.",
+    itineraryDays: [
+      {
+        dayNumber: 1,
+        title: "Marrakech → Asni Gorge → Imlil Valley → Berber Lunch",
+        description: "08:30 private pickup in Marrakech. Scenic climb into the High Atlas with photo stops at Tahanaout and Asni. Arrive in Imlil, meet your certified guide, walk through traditional villages, enjoy tea in a local home, and savor a freshly cooked tagine lunch with valley views before afternoon return.",
+        image: "/destinations/atlas.jpg",
+        highlights: ["High Atlas mountain pass drive", "Imlil valley village walk", "Traditional Berber lunch"]
+      }
+    ]
+  },
+  {
+    id: "escape-ouzoud-1d",
+    title: "Ouzoud Waterfalls Spectacular Day Escape",
+    slug: "ouzoud-waterfalls-experience",
+    subtitle: "Marrakech → Middle Atlas Foothills → 110m Cascades",
+    duration: "Full Day (10–11h)",
+    category: "Mountain",
+    location: "Ouzoud Cascades",
+    priceFromEur: 60,
+    image: "/destinations/marrakech.jpg",
+    badge: "Natural Wonder",
+    highlights: [
+      "Private pickup & scenic drive through the Moroccan countryside",
+      "Guided walk through ancient olive groves around the 110m waterfalls",
+      "Meet the wild native Barbary macaque monkeys along the canyon",
+      "Traditional wooden boat ride right up to the waterfall spray",
+      "Traditional Moroccan lunch overlooking the cascading falls"
+    ],
+    included: ["Private AC Vehicle", "Guided Canyon & Falls Walk", "Traditional Boat Ride", "Moroccan Lunch with Waterfall View", "Hotel Pickup & Return"],
+    summary: "Discover Morocco's most magnificent waterfalls cascading 110 meters into a red-rock gorge, surrounded by friendly Barbary monkeys and olive groves.",
+    fullDescription: "Located 2.5 hours northeast of Marrakech, Ouzoud is one of North Africa's natural crowns. Enjoy clean country air, cooling canyon mist, and scenic boat crossings on a completely private day journey.",
+    itineraryDays: [
+      {
+        dayNumber: 1,
+        title: "Marrakech → Tadla Plains → Ouzoud Waterfalls & Monkeys",
+        description: "08:00 pickup from your accommodation. Travel through scenic agricultural plains to the Middle Atlas foothills. Walk down canyon paths among olive trees, watch Barbary monkeys, board a wooden boat to the waterfall mist, and dine on a shaded terrace overlooking the falls.",
+        image: "/destinations/marrakech.jpg",
+        highlights: ["110m waterfall view", "Barbary monkeys in wild", "Traditional boat crossing"]
+      }
+    ]
+  },
+  {
+    id: "escape-ourika-1d",
+    title: "Ourika 3 Valleys & Setti Fatma Escape",
+    slug: "ourika-3-valleys-experience",
+    subtitle: "Marrakech → 3 Atlas Valleys → Setti Fatma Waterfalls",
+    duration: "Full Day (8–9h)",
+    category: "Mountain",
+    location: "Ourika Valley & Atlas",
+    priceFromEur: 55,
+    image: "/escapes/atlas-mountains.jpg",
+    badge: "Riverside & Canyons",
+    highlights: [
+      "Panoramic 3 Valleys scenic mountain drive through the Atlas",
+      "Guided hike to the famous 7 waterfalls of Setti Fatma",
+      "Visit traditional Amazigh stone villages along river canyons",
+      "Traditional Moroccan tagine lunch served right by the flowing river",
+      "Authentic mint tea hospitality with mountain families"
+    ],
+    included: ["Private AC Transport", "Certified Mountain Guide for Falls", "Berber Family Tea", "Riverside Moroccan Lunch", "Hotel Pickup & Return"],
+    summary: "A refreshing full-day mountain drive through three distinct Atlas valleys, ending with riverside dining and a waterfall hike in Setti Fatma.",
+    fullDescription: "Escape the city heat into the cool green canyon of Ourika. Dip your feet in rushing mountain streams, hike to rocky cascades, and experience Amazigh heritage just 45 minutes from Marrakech.",
+    itineraryDays: [
+      {
+        dayNumber: 1,
+        title: "Marrakech → 3 Valleys Route → Setti Fatma Hike → Riverside Lunch",
+        description: "09:00 departure towards the High Atlas. Traverse the Ourika, Oukaimeden, and Asni foothills with stops at panoramic ridges. Hike to the Setti Fatma cascades with your guide, relax by the river with mint tea, and enjoy lunch at a riverside table before returning by 17:00.",
+        image: "/escapes/atlas-mountains.jpg",
+        highlights: ["3 Valleys mountain route", "Setti Fatma waterfall hike", "Riverside tagine dining"]
+      }
+    ]
   }
 ];
 

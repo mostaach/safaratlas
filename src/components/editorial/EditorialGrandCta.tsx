@@ -1,0 +1,96 @@
+"use client";
+
+import React from "react";
+import { SiWhatsapp, SiInstagram } from "react-icons/si";
+
+export default function EditorialGrandCta() {
+  const whatsappUrl = `https://wa.me/212698017323?text=${encodeURIComponent(
+    "Hello SafarAtlas, I am planning a journey to Morocco and would like to craft a private bespoke itinerary."
+  )}`;
+
+  return (
+    <section
+      id="availability"
+      className="relative w-full overflow-hidden bg-[#080c10] pt-28 md:pt-40 border-t border-[#f6f2ec]/10"
+    >
+      <div className="max-w-6xl mx-auto px-6 md:px-12 lg:px-16">
+        <div className="grid grid-cols-12 gap-x-8 gap-y-16">
+          <header className="col-span-12 md:col-span-5">
+            <p className="flex items-center gap-3 text-[11px] uppercase tracking-[0.4em] text-[#d6b78a]">
+              <span className="h-px w-8 bg-[#d6b78a]" />
+              Direct Communication
+            </p>
+            <h2
+              className="mt-8 font-serif font-medium leading-[1.02] tracking-tight text-[#f6f2ec] text-balance"
+              style={{ fontSize: "clamp(2rem, 4.5vw, 3.75rem)" }}
+            >
+              Start your journey{" "}
+              <span className="italic text-[#d6b78a]">with one conversation.</span>
+            </h2>
+            <p className="mt-8 max-w-sm font-sans text-base font-light leading-relaxed text-[#f6f2ec]/60">
+              Speak directly with our local concierge in Morocco. No endless online search, no generic packages.
+            </p>
+          </header>
+
+          <div className="col-span-12 md:col-span-7">
+            <div className="border-y border-[#f6f2ec]/15 py-10 md:py-12">
+              <p className="font-serif text-2xl font-medium leading-tight text-[#f6f2ec] md:text-3xl">
+                Tell us your dream dates, rhythm, and party size.
+              </p>
+              <p className="mt-6 max-w-xl font-sans text-base font-light leading-relaxed text-[#f6f2ec]/70">
+                Whether you want 48 hours under Agafay stars, a surf retreat in Taghazout, or a comprehensive 10-day cross-country expedition, we prepare your proposal within hours.
+              </p>
+
+              <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+                <a
+                  href={whatsappUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="group inline-flex items-center justify-center gap-3 bg-[#d6b78a] px-8 py-5 text-xs font-semibold uppercase tracking-[0.3em] text-[#080c10] transition-all duration-300 hover:bg-[#c9a675] hover:tracking-[0.35em]"
+                >
+                  <SiWhatsapp className="w-4 h-4" />
+                  <span>Request Bespoke Itinerary</span>
+                  <span className="transition-transform duration-300 group-hover:translate-x-1">
+                    →
+                  </span>
+                </a>
+                <a
+                  href="https://www.instagram.com/safaratlas/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="group inline-flex items-center justify-center gap-2 border border-[#f6f2ec]/20 px-8 py-5 text-xs uppercase tracking-[0.3em] text-[#f6f2ec] transition-all duration-300 hover:border-[#d6b78a] hover:text-[#d6b78a]"
+                >
+                  <SiInstagram className="w-4 h-4" />
+                  <span>Instagram</span>
+                </a>
+              </div>
+
+              <p className="mt-8 font-sans text-[10px] uppercase tracking-[0.25em] text-[#f6f2ec]/40">
+                Direct WhatsApp Concierge · Response within 2 hours
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Massive Graphic Watermark */}
+      <div
+        className="w-full flex justify-center items-end leading-none pointer-events-none select-none px-4 md:px-8 mt-16 md:mt-24 mb-[-2rem] md:mb-[-4rem]"
+      >
+        <span
+          className="text-[#d6b78a] whitespace-nowrap opacity-[0.08]"
+          style={{
+            fontFamily: 'var(--font-cormorant), "Times New Roman", serif',
+            fontSize: "clamp(4rem, 18vw, 18rem)",
+            letterSpacing: "0.08em",
+            lineHeight: 0.85,
+            fontWeight: 700,
+            textTransform: "uppercase",
+          }}
+        >
+          SAFAR ATLAS
+        </span>
+      </div>
+    </section>
+  );
+}
