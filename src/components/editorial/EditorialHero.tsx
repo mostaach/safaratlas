@@ -1,97 +1,105 @@
 "use client";
 
 import React from "react";
-import Link from "next/link";
-import { ArrowRight, MessageCircle } from "lucide-react";
 
 export const EditorialHero: React.FC = () => {
   const waPrefill = encodeURIComponent(
-    "Hi SafarAtlas! I'm planning a trip to Morocco and would love your team to design a private managed itinerary for us."
+    "Hello SafarAtlas! I'm planning a trip to Morocco and would love your team to design a private managed itinerary for us."
   );
 
   return (
-    <header className="relative min-h-[95svh] sm:min-h-[100svh] w-full overflow-hidden bg-[#080c10] text-[#f6f2ec] flex flex-col justify-between">
-      {/* Background Hero Image with atmospheric vignette */}
+    <header className="relative min-h-[100svh] w-full overflow-hidden bg-[#080c10]">
+
+      {/* Background image with Ken Burns drift */}
       <div className="absolute inset-0">
         <img
           src="/agafay_rocky_desert_hero.png"
-          alt="Atmospheric dusk across Morocco's High Atlas and desert horizon"
-          className="h-full w-full object-cover object-center brightness-85 contrast-105"
+          alt="Atmospheric dusk across Morocco's Agafay desert and High Atlas mountains"
+          className="h-full w-full object-cover animate-kenburns"
+          loading="eager"
         />
-        {/* Radial vignette & gradient fade to dark base */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#080c10]/40 via-[#080c10]/50 to-[#080c10]" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_25%,rgba(8,12,16,0.7)_100%)]" />
+        {/* Hero gradient — matches Taghazout exactly */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_30%,rgba(8,12,16,0.65)_100%)]" />
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(180deg, rgba(8,12,16,0.15) 0%, rgba(8,12,16,0.5) 55%, #080c10 100%)",
+          }}
+        />
       </div>
 
-      {/* Top spacing placeholder for global Header */}
-      <div className="pt-28 sm:pt-32" />
+      {/* Hero content */}
+      <div className="relative z-10 container-editorial flex min-h-[100svh] flex-col justify-center pt-24">
+        <div className="max-w-5xl">
 
-      {/* Hero content container */}
-      <div className="relative z-10 max-w-6xl mx-auto w-full px-6 sm:px-8 lg:px-12 py-12 flex flex-col justify-center flex-1">
-        <div className="max-w-4xl space-y-6">
-          {/* Kicker hairline */}
-          <div className="flex items-center gap-3 text-[11px] font-black uppercase tracking-[0.35em] text-[#d6b78a]">
-            <span className="h-px w-8 sm:w-12 bg-[#d6b78a]" />
-            <span>Curated Morocco Journeys · 100% Private</span>
-          </div>
-
-          {/* Main Serif Headline */}
-          <h1
-            className="font-serif font-normal leading-[0.95] tracking-tight text-white drop-shadow-xl"
-            style={{ fontSize: "clamp(2.5rem, 7.5vw, 5.75rem)" }}
-          >
-            Morocco, orchestrated <br />
-            <span className="italic text-[#d6b78a]">without the noise.</span>
-          </h1>
-
-          {/* Subtitle */}
-          <p
-            className="mt-6 max-w-2xl text-base sm:text-lg font-light text-[#f6f2ec]/85 leading-relaxed tracking-wide"
-            style={{ lineHeight: 1.65 }}
-          >
-            Forget chaotic group tours and stressful logistics. We orchestrate private desert camps, High Atlas mountain lodges, coastal retreats, and door-to-door private 4x4 drivers under one dedicated WhatsApp concierge.
+          {/* Eyebrow */}
+          <p className="animate-rise mb-6 flex items-center gap-3 text-[11px] uppercase tracking-[0.4em] text-[#d6b78a]">
+            <span className="h-px w-10 bg-[#d6b78a]" />
+            Morocco · Private Managed Journeys
           </p>
 
-          {/* Action CTAs */}
-          <div className="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+          {/* Main headline */}
+          <h1
+            className="animate-rise anim-delay-100 font-serif font-medium leading-[0.95] tracking-tight text-[#f6f2ec] text-shadow-deep"
+            style={{ fontSize: "clamp(2.5rem, 7.5vw, 6rem)" }}
+          >
+            Morocco, orchestrated
+            <br />
+            <span className="italic text-[#f6f2ec]/95">chapter by chapter.</span>
+          </h1>
+
+          {/* Sub */}
+          <p
+            className="animate-rise anim-delay-200 mt-8 max-w-xl font-sans text-base md:text-lg font-light text-[#f6f2ec]/70 tracking-wide"
+            style={{ lineHeight: 1.6 }}
+          >
+            Forget chaotic group tours. We orchestrate private desert camps,
+            High Atlas lodges, coastal retreats and door-to-door 4×4 drivers
+            under one dedicated WhatsApp concierge.
+          </p>
+
+          {/* CTAs — exact Taghazout button DNA */}
+          <div className="animate-rise anim-delay-300 mt-14 flex flex-wrap items-center gap-8">
             <a
               href={`https://wa.me/212698017323?text=${waPrefill}`}
               target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl text-xs font-black uppercase tracking-widest text-[#080c10] bg-gradient-to-r from-[#d6b78a] via-[#e2c79d] to-[#c89a4e] hover:brightness-105 active:scale-98 transition-all shadow-[0_10px_35px_rgba(214,183,138,0.3)]"
+              rel="noreferrer"
+              className="group inline-flex items-center gap-3 bg-[#d6b78a] px-10 py-5 text-xs uppercase tracking-[0.3em] text-[#080c10] transition-all duration-300 hover:bg-[#e2c79d] hover:tracking-[0.35em]"
+              style={{ boxShadow: "var(--shadow-gold)" }}
             >
-              <MessageCircle className="w-4 h-4 fill-current" />
-              <span>Design My Journey on WhatsApp</span>
+              <span>Check Availability</span>
+              <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
             </a>
 
             <a
               href="#destinations"
-              className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl text-xs font-bold uppercase tracking-widest text-white/80 hover:text-white bg-white/5 hover:bg-white/10 border border-white/15 transition-all"
+              className="link-sweep text-xs uppercase tracking-[0.3em] text-[#f6f2ec]/70 hover:text-[#f6f2ec]"
             >
-              <span>Explore Signature Escapes</span>
-              <ArrowRight className="w-3.5 h-3.5 text-[#d6b78a]" />
+              Explore Signature Escapes
             </a>
           </div>
 
-          {/* Trust micro-row */}
-          <div className="pt-6 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-[#d6b78a]/90 font-medium">
-            <span className="flex items-center gap-1.5">
-              <span className="text-[#25D366]">✦</span> Private door-to-door transfers
-            </span>
-            <span className="hidden sm:inline text-white/30">•</span>
-            <span className="flex items-center gap-1.5">
-              <span className="text-[#25D366]">✦</span> Vetted boutique riads & camps
-            </span>
-            <span className="hidden sm:inline text-white/30">•</span>
-            <span className="flex items-center gap-1.5">
-              <span className="text-[#25D366]">✦</span> 24/7 on-the-ground support
-            </span>
+          {/* Trust row */}
+          <div className="animate-rise anim-delay-300 mt-10 flex flex-wrap items-center gap-x-8 gap-y-2 text-[11px] uppercase tracking-[0.25em] text-[#f6f2ec]/40">
+            <span>Private door-to-door transfers</span>
+            <span className="hidden sm:inline">·</span>
+            <span>Vetted boutique riads &amp; camps</span>
+            <span className="hidden sm:inline">·</span>
+            <span>24/7 local concierge</span>
           </div>
         </div>
-      </div>
 
-      {/* Subtle bottom fade transition */}
-      <div className="h-12 w-full bg-gradient-to-b from-transparent to-[#faf6f0]" />
+        {/* Scroll indicator — Taghazout exact */}
+        <div className="pointer-events-none absolute bottom-8 right-8 hidden flex-col items-center gap-3 md:flex">
+          <span className="text-[10px] uppercase tracking-[0.4em] text-[#f6f2ec]/40 [writing-mode:vertical-rl]">
+            Scroll
+          </span>
+          <span className="block h-12 w-px overflow-hidden bg-[#f6f2ec]/15">
+            <span className="block h-full w-full origin-top bg-[#d6b78a] animate-scrollline" />
+          </span>
+        </div>
+      </div>
     </header>
   );
 };
