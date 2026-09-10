@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Cormorant_Garamond, Outfit } from "next/font/google";
 import "./globals.css";
 import Script from "next/script";
+import { CookieConsent } from "../components/ui/CookieConsent";
 
 const serifFont = Cormorant_Garamond({
   variable: "--font-serif",
@@ -83,14 +84,29 @@ export default function RootLayout({
             __html: `
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
 
+              var consentState = 'denied';
+              try {
+                if (localStorage.getItem('safaratlas_cookie_consent') === 'all') {
+                  consentState = 'granted';
+                }
+              } catch (e) {}
+
+              gtag('consent', 'default', {
+                'analytics_storage': consentState,
+                'ad_storage': consentState,
+                'ad_user_data': consentState,
+                'ad_personalization': consentState
+              });
+
+              gtag('js', new Date());
               gtag('config', '${GA_MEASUREMENT_ID}');
             `,
           }}
         />
       </head>
       <body className="min-h-full flex flex-col font-sans bg-[#faf6f0] text-[#16221e]" suppressHydrationWarning>
+        <CookieConsent />
 
         <Script
           id="schema-org"
