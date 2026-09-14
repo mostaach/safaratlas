@@ -71,6 +71,14 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <head>
+        {/* LCP Image Preload */}
+        <link
+          rel="preload"
+          as="image"
+          href="/agafay_rocky_desert_hero.png"
+          fetchPriority="high"
+        />
+        <link rel="preconnect" href="https://www.googletagmanager.com" crossOrigin="anonymous" />
         {/* Google tag (gtag.js) */}
         <Script
           async
