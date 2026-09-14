@@ -35,13 +35,13 @@ export default function EditorialFaq() {
   return (
     <section
       id="faq"
-      className="relative w-full overflow-hidden bg-[#07192d] py-28 md:py-40 border-t border-[#d6b78a]/15"
+      className="relative w-full overflow-hidden bg-[#07192d] py-28 md:py-40 border-t border-[#f4c36b]/15"
     >
       <div className="max-w-6xl mx-auto px-6 md:px-12 lg:px-16">
         <div className="grid grid-cols-12 gap-x-8 gap-y-16">
           <header className="col-span-12 md:col-span-4">
-            <p className="flex items-center gap-3 text-[11px] uppercase tracking-[0.4em] text-[#d6b78a]">
-              <span className="h-px w-8 bg-[#d6b78a]" />
+            <p className="flex items-center gap-3 text-[11px] uppercase tracking-[0.4em] text-[#f4c36b]">
+              <span className="h-px w-8 bg-[#f4c36b]" />
               Questions & Clarity
             </p>
             <h2
@@ -49,7 +49,7 @@ export default function EditorialFaq() {
               style={{ fontSize: "clamp(2rem, 4.5vw, 3.75rem)" }}
             >
               Everything you need{" "}
-              <span className="italic text-[#d6b78a]">to know.</span>
+              <span className="italic text-[#f4c36b]">to know.</span>
             </h2>
             <p className="mt-8 max-w-sm font-sans text-base font-light leading-relaxed text-[#f6f2ec]/60">
               Clear, transparent answers on how we plan, coordinate, and safeguard your journey across Morocco.
@@ -67,14 +67,14 @@ export default function EditorialFaq() {
                       className="w-full flex items-center justify-between text-left group transition-colors"
                     >
                       <span className="flex items-baseline gap-5 pr-4">
-                        <span className="text-[11px] font-sans uppercase tracking-[0.3em] text-[#d6b78a]/70">
+                        <span className="text-[11px] font-sans uppercase tracking-[0.3em] text-[#f4c36b]/70">
                           {String(i + 1).padStart(2, "0")}
                         </span>
                         <span
                           className={`font-serif text-lg md:text-xl transition-colors duration-300 ${
                             isOpen
-                              ? "text-[#d6b78a]"
-                              : "text-[#f6f2ec] group-hover:text-[#d6b78a]"
+                              ? "text-[#f4c36b]"
+                              : "text-[#f6f2ec] group-hover:text-[#f4c36b]"
                           }`}
                         >
                           {item.q}
@@ -82,7 +82,7 @@ export default function EditorialFaq() {
                       </span>
                       <span
                         className={`text-xl font-light transition-transform duration-300 ${
-                          isOpen ? "rotate-45 text-[#d6b78a]" : "text-[#f6f2ec]/40"
+                          isOpen ? "rotate-45 text-[#f4c36b]" : "text-[#f6f2ec]/40"
                         }`}
                       >
                         +

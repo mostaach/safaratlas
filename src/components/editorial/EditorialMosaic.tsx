@@ -43,21 +43,21 @@ const ITEMS: MosaicItem[] = [
 
 export const EditorialMosaic: React.FC = () => {
   return (
-    <section className="relative w-full bg-[#07192d] text-[#f6f2ec] py-28 md:py-40 border-t border-[#d6b78a]/15">
+    <section className="relative w-full bg-[#07192d] text-[#f6f2ec] py-28 md:py-40 border-t border-[#f4c36b]/15">
       <div className="container-editorial">
         {/* Section Header */}
         <div className="flex flex-col items-center text-center mb-16 md:mb-24 space-y-4">
-          <p className="flex items-center gap-3 text-[11px] uppercase tracking-[0.4em] text-[#d6b78a]">
-            <span className="h-px w-8 bg-[#d6b78a]" />
+          <p className="flex items-center gap-3 text-[11px] uppercase tracking-[0.4em] text-[#f4c36b]">
+            <span className="h-px w-8 bg-[#f4c36b]" />
             Moroccan Contrasts
-            <span className="h-px w-8 bg-[#d6b78a]" />
+            <span className="h-px w-8 bg-[#f4c36b]" />
           </p>
 
           <h2
             className="font-serif font-medium leading-[1.02] tracking-tight text-[#f6f2ec] max-w-2xl text-balance"
             style={{ fontSize: "clamp(2rem, 4.5vw, 3.75rem)" }}
           >
-            Beyond the <span className="italic text-[#d6b78a]">guidebooks.</span>
+            Beyond the <span className="italic text-[#f4c36b]">guidebooks.</span>
           </h2>
 
           <p className="max-w-xl text-sm sm:text-base font-light text-[#f6f2ec]/70 leading-relaxed">
@@ -70,7 +70,7 @@ export const EditorialMosaic: React.FC = () => {
           {ITEMS.map((item) => (
             <div
               key={item.id}
-              className={`group relative overflow-hidden bg-[#0a1e34] border border-[#d6b78a]/15 hover:border-[#d6b78a]/50 transition-colors duration-500 ${item.className}`}
+              className={`group relative overflow-hidden bg-[#0a1e34] border border-[#f4c36b]/15 hover:border-[#f4c36b]/50 transition-colors duration-500 ${item.className}`}
             >
               <img
                 src={item.image}
@@ -82,13 +82,13 @@ export const EditorialMosaic: React.FC = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-[#07192d]/95 via-[#07192d]/30 to-transparent pointer-events-none" />
               
               <div className="absolute bottom-6 left-6 right-6 md:bottom-8 md:left-8 md:right-8">
-                <span className="text-[10px] uppercase tracking-[0.35em] text-[#d6b78a] font-medium block mb-2">
+                <span className="text-[10px] uppercase tracking-[0.35em] text-[#f4c36b] font-medium block mb-2">
                   {item.subtitle}
                 </span>
                 <h3 className="font-serif text-2xl sm:text-3xl md:text-4xl font-medium text-[#f6f2ec] tracking-tight">
                   {item.title}
                 </h3>
-                <div className="mt-3 h-px w-8 bg-[#d6b78a] transition-all duration-500 group-hover:w-16" />
+                <div className="mt-3 h-px w-8 bg-[#f4c36b] transition-all duration-500 group-hover:w-16" />
               </div>
             </div>
           ))}

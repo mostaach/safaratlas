@@ -44,7 +44,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenInquiryModal }) => {
             <span
               className="font-serif tracking-tight text-[#f6f2ec] text-lg sm:text-xl leading-none font-bold"
             >
-              Safar<span className="text-[#d6b78a] font-sans font-extrabold group-hover:text-[#e2c79d] transition-colors">Atlas</span>
+              Safar<span className="text-[#f4c36b] font-sans font-extrabold group-hover:text-[#fadca0] transition-colors">Atlas</span>
             </span>
             <span className="text-[8px] uppercase tracking-[0.25em] text-[#f6f2ec]/50 font-sans mt-0.5">
               Morocco Travel
@@ -68,13 +68,13 @@ export const Header: React.FC<HeaderProps> = ({ onOpenInquiryModal }) => {
           </a>
         </div>
 
-        {/* Primary CTA — exact Taghazout gold flat button */}
+        {/* Primary CTA — exact Taghazout gold flat button with SafarAtlas Sunset Gold */}
         <div className="hidden md:block">
           <a
             href={waUrl}
             target="_blank"
             rel="noreferrer"
-            className="group inline-flex items-center gap-3 bg-[#d6b78a] px-8 py-3.5 text-[10px] uppercase tracking-[0.3em] text-[#07192d] font-semibold transition-all duration-300 hover:bg-[#e2c79d] hover:tracking-[0.35em]"
+            className="group inline-flex items-center gap-3 bg-[#f4c36b] px-8 py-3.5 text-[10px] uppercase tracking-[0.3em] text-[#07192d] font-semibold transition-all duration-300 hover:bg-[#fadca0] hover:tracking-[0.35em]"
             style={{ boxShadow: "var(--shadow-gold)" }}
           >
             <span>Check Availability</span>
@@ -85,7 +85,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenInquiryModal }) => {
         {/* Mobile hamburger */}
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="md:hidden p-2 text-[#f6f2ec]/70 hover:text-[#d6b78a] transition-colors"
+          className="md:hidden p-2 text-[#f6f2ec]/70 hover:text-[#f4c36b] transition-colors"
           aria-label="Toggle menu"
         >
           <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -102,17 +102,17 @@ export const Header: React.FC<HeaderProps> = ({ onOpenInquiryModal }) => {
       {mobileMenuOpen && (
         <div className="md:hidden bg-[#07192d]/98 backdrop-blur-xl border-t border-white/10 px-6 py-8 space-y-6">
           <div className="flex flex-col gap-5 text-[11px] uppercase tracking-[0.3em] text-[#f6f2ec]/70">
-            <a href="#manifesto" onClick={() => setMobileMenuOpen(false)} className="hover:text-[#d6b78a] transition-colors">Our Approach</a>
-            <a href="#destinations" onClick={() => setMobileMenuOpen(false)} className="hover:text-[#d6b78a] transition-colors">Escapes</a>
-            <a href="#compare" onClick={() => setMobileMenuOpen(false)} className="hover:text-[#d6b78a] transition-colors">Why SafarAtlas</a>
-            <a href="#faq" onClick={() => setMobileMenuOpen(false)} className="hover:text-[#d6b78a] transition-colors">FAQ</a>
+            <a href="#manifesto" onClick={() => setMobileMenuOpen(false)} className="hover:text-[#f4c36b] transition-colors">Our Approach</a>
+            <a href="#destinations" onClick={() => setMobileMenuOpen(false)} className="hover:text-[#f4c36b] transition-colors">Escapes</a>
+            <a href="#compare" onClick={() => setMobileMenuOpen(false)} className="hover:text-[#f4c36b] transition-colors">Why SafarAtlas</a>
+            <a href="#faq" onClick={() => setMobileMenuOpen(false)} className="hover:text-[#f4c36b] transition-colors">FAQ</a>
           </div>
           <div className="pt-4 border-t border-white/10">
             <a
               href={waUrl}
               target="_blank"
               rel="noreferrer"
-              className="w-full inline-flex items-center justify-center gap-3 bg-[#d6b78a] px-8 py-4 text-[10px] uppercase tracking-[0.3em] text-[#07192d] font-semibold"
+              className="w-full inline-flex items-center justify-center gap-3 bg-[#f4c36b] px-8 py-4 text-[10px] uppercase tracking-[0.3em] text-[#07192d] font-semibold"
               style={{ boxShadow: "var(--shadow-gold)" }}
             >
               <span>Check Availability</span>

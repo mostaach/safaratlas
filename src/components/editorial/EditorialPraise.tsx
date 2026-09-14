@@ -31,22 +31,22 @@ export default function EditorialPraise() {
   return (
     <section
       id="testimonials"
-      className="relative w-full overflow-hidden bg-[#07192d] py-28 md:py-40 border-t border-[#d6b78a]/15"
+      className="relative w-full overflow-hidden bg-[#07192d] py-28 md:py-40 border-t border-[#f4c36b]/15"
     >
       <div className="container-editorial">
         {/* Section header */}
         <div className="flex flex-col items-center text-center mb-16">
-          <p className="flex items-center gap-3 text-[10px] uppercase tracking-[0.4em] text-[#d6b78a]">
-            <span className="h-px w-8 bg-[#d6b78a]" />
+          <p className="flex items-center gap-3 text-[10px] uppercase tracking-[0.4em] text-[#f4c36b]">
+            <span className="h-px w-8 bg-[#f4c36b]" />
             Traveller Stories
-            <span className="h-px w-8 bg-[#d6b78a]" />
+            <span className="h-px w-8 bg-[#f4c36b]" />
           </p>
           <h2
             className="mt-6 font-serif font-medium leading-tight tracking-tight text-[#f6f2ec]"
             style={{ fontSize: "clamp(1.75rem, 4vw, 3rem)" }}
           >
             What they say{" "}
-            <span className="italic text-[#d6b78a]">after the journey.</span>
+            <span className="italic text-[#f4c36b]">after the journey.</span>
           </h2>
         </div>
 
@@ -55,10 +55,10 @@ export default function EditorialPraise() {
           {quotes.map((q, i) => (
             <div
               key={i}
-              className="group relative border border-[#d6b78a]/15 bg-[#0a1e34]/70 p-8 md:p-12 transition-all duration-700 hover:border-[#d6b78a]/40"
+              className="group relative border border-[#f4c36b]/15 bg-[#0a1e34]/70 p-8 md:p-12 transition-all duration-700 hover:border-[#f4c36b]/40"
             >
               {/* Decorative quotation watermark */}
-              <span className="absolute -top-6 -left-3 pointer-events-none font-serif text-[8rem] leading-none text-[#d6b78a]/5 opacity-20 transition-all duration-700 group-hover:opacity-40 select-none">
+              <span className="absolute -top-6 -left-3 pointer-events-none font-serif text-[8rem] leading-none text-[#f4c36b]/5 opacity-20 transition-all duration-700 group-hover:opacity-40 select-none">
                 &ldquo;
               </span>
 
@@ -67,9 +67,9 @@ export default function EditorialPraise() {
               </blockquote>
 
               <div className="mt-10 flex items-center gap-5">
-                <div className="h-px w-10 bg-[#d6b78a]/40" />
+                <div className="h-px w-10 bg-[#f4c36b]/40" />
                 <div>
-                  <cite className="block font-serif text-base not-italic text-[#d6b78a]">
+                  <cite className="block font-serif text-base not-italic text-[#f4c36b]">
                     {q.name}
                   </cite>
                   <span className="mt-1 block text-[10px] uppercase tracking-[0.3em] text-[#f6f2ec]/40">
@@ -87,9 +87,9 @@ export default function EditorialPraise() {
             href="https://www.tripadvisor.com/Attraction_Review-g293734-d34660267-Reviews-Safaratlas-Marrakech_Marrakech_Safi.html"
             target="_blank"
             rel="noreferrer"
-            className="group inline-flex items-center gap-3.5 border border-[#f6f2ec]/15 px-8 py-4 text-[10px] uppercase tracking-[0.35em] text-[#f6f2ec]/60 transition-all duration-300 hover:border-[#d6b78a]/50 hover:text-[#d6b78a]"
+            className="group inline-flex items-center gap-3.5 border border-[#f6f2ec]/15 px-8 py-4 text-[10px] uppercase tracking-[0.35em] text-[#f6f2ec]/60 transition-all duration-300 hover:border-[#f4c36b]/50 hover:text-[#f4c36b]"
           >
-            <SiTripadvisor className="w-4 h-4 text-[#d6b78a] shrink-0 transition-transform duration-300 group-hover:scale-110" />
+            <SiTripadvisor className="w-4 h-4 text-[#f4c36b] shrink-0 transition-transform duration-300 group-hover:scale-110" />
             <span>Read all reviews on TripAdvisor</span>
             <span className="transition-transform duration-300 group-hover:translate-x-1">
               →
