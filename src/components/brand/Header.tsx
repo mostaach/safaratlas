@@ -35,13 +35,21 @@ export const Header: React.FC<HeaderProps> = ({ onOpenInquiryModal }) => {
 
         {/* Brand mark */}
         <Link href="/" className="flex items-center gap-3 group">
-          <div className="h-px w-8 bg-[#d6b78a] transition-all duration-500 group-hover:w-12" />
-          <span
-            className="font-serif italic tracking-wide text-[#f6f2ec]/90 transition-colors duration-300 group-hover:text-[#d6b78a]"
-            style={{ fontSize: "clamp(0.95rem, 1.5vw, 1.1rem)" }}
-          >
-            SafarAtlas
-          </span>
+          <img
+            src="/logo/safar-atlas-logo.svg"
+            alt="SafarAtlas"
+            className="w-8 h-8 object-contain shrink-0 transition-transform duration-300 group-hover:scale-105"
+          />
+          <div className="flex flex-col">
+            <span
+              className="font-serif tracking-tight text-[#f6f2ec] text-lg sm:text-xl leading-none font-bold"
+            >
+              Safar<span className="text-[#d6b78a] font-sans font-extrabold group-hover:text-[#e2c79d] transition-colors">Atlas</span>
+            </span>
+            <span className="text-[8px] uppercase tracking-[0.25em] text-[#f6f2ec]/50 font-sans mt-0.5">
+              Morocco Travel
+            </span>
+          </div>
         </Link>
 
         {/* Desktop nav links — bare, Taghazout style */}

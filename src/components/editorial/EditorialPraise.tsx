@@ -1,4 +1,4 @@
-"use client";
+import { SiTripadvisor } from "react-icons/si";
 
 const quotes = [
   {
@@ -87,8 +87,9 @@ export default function EditorialPraise() {
             href="https://www.tripadvisor.com/Attraction_Review-g293734-d34660267-Reviews-Safaratlas-Marrakech_Marrakech_Safi.html"
             target="_blank"
             rel="noreferrer"
-            className="group inline-flex items-center gap-3 border border-[#f6f2ec]/15 px-8 py-4 text-[10px] uppercase tracking-[0.35em] text-[#f6f2ec]/50 transition-all duration-300 hover:border-[#d6b78a]/50 hover:text-[#d6b78a]"
+            className="group inline-flex items-center gap-3.5 border border-[#f6f2ec]/15 px-8 py-4 text-[10px] uppercase tracking-[0.35em] text-[#f6f2ec]/60 transition-all duration-300 hover:border-[#d6b78a]/50 hover:text-[#d6b78a]"
           >
+            <SiTripadvisor className="w-4 h-4 text-[#d6b78a] shrink-0 transition-transform duration-300 group-hover:scale-110" />
             <span>Read all reviews on TripAdvisor</span>
             <span className="transition-transform duration-300 group-hover:translate-x-1">
               →

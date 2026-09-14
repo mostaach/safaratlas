@@ -1,7 +1,8 @@
 "use client";
 
 import React from "react";
-import { SiWhatsapp, SiInstagram } from "react-icons/si";
+import Link from "next/link";
+import { SiWhatsapp, SiInstagram, SiTripadvisor } from "react-icons/si";
 
 export default function EditorialGrandCta() {
   const whatsappUrl = `https://wa.me/212698017323?text=${encodeURIComponent(
@@ -14,6 +15,7 @@ export default function EditorialGrandCta() {
       className="relative w-full overflow-hidden bg-[#080c10] pt-28 md:pt-40 border-t border-[#f6f2ec]/8"
     >
       <div className="container-editorial">
+        {/* Availability / Inquiry Section */}
         <div className="grid grid-cols-12 gap-x-8 gap-y-16">
 
           {/* Left header */}
@@ -55,7 +57,7 @@ export default function EditorialGrandCta() {
                   href={whatsappUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="group inline-flex items-center justify-center gap-3 bg-[#d6b78a] px-10 py-5 text-xs uppercase tracking-[0.3em] text-[#080c10] transition-all duration-300 hover:bg-[#e2c79d] hover:tracking-[0.35em]"
+                  className="group inline-flex items-center justify-center gap-3 bg-[#d6b78a] px-10 py-5 text-xs uppercase tracking-[0.3em] text-[#080c10] font-semibold transition-all duration-300 hover:bg-[#e2c79d] hover:tracking-[0.35em]"
                   style={{ boxShadow: "var(--shadow-gold)" }}
                 >
                   <SiWhatsapp className="w-3.5 h-3.5" />
@@ -69,7 +71,7 @@ export default function EditorialGrandCta() {
                   rel="noreferrer"
                   className="group inline-flex items-center justify-center gap-3 border border-[#f6f2ec]/20 px-10 py-5 text-xs uppercase tracking-[0.3em] text-[#f6f2ec] transition-all duration-300 hover:border-[#d6b78a] hover:text-[#d6b78a]"
                 >
-                  <SiInstagram className="w-3.5 h-3.5" />
+                  <SiInstagram className="w-3.5 h-3.5 text-[#d6b78a]" />
                   <span>Instagram</span>
                 </a>
               </div>
@@ -82,15 +84,147 @@ export default function EditorialGrandCta() {
 
         </div>
 
+        {/* ── Editorial Business & Discovery Footer ── */}
+        <div className="mt-28 pt-16 border-t border-[#f6f2ec]/10">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-14 text-[#f6f2ec]">
+
+            {/* Col 1: Brand & Identity */}
+            <div className="md:col-span-4 space-y-5">
+              <div className="flex items-center gap-3">
+                <img
+                  src="/logo/safar-atlas-logo.svg"
+                  alt="SafarAtlas Logo"
+                  className="w-8 h-8 object-contain"
+                />
+                <span className="font-serif tracking-tight text-xl font-bold text-[#f6f2ec]">
+                  Safar<span className="text-[#d6b78a] font-sans font-extrabold">Atlas</span>
+                </span>
+              </div>
+              <p className="text-xs sm:text-sm font-light leading-relaxed text-[#f6f2ec]/60 max-w-sm">
+                Morocco&apos;s premier boutique tour operator. We design, coordinate, and orchestrate private journeys, scenic desert camps, and high-mountain retreats with vetted local partners.
+              </p>
+              <div className="pt-1 flex items-center gap-4 text-xs font-mono text-[#d6b78a]/80">
+                <span>Direct WhatsApp: +212 698 017 323</span>
+              </div>
+            </div>
+
+            {/* Col 2: Escapes & Destinations */}
+            <div className="md:col-span-3 space-y-4">
+              <span className="text-[10px] uppercase tracking-[0.35em] text-[#d6b78a] font-semibold block">
+                Signature Escapes
+              </span>
+              <ul className="space-y-2.5 text-xs font-light text-[#f6f2ec]/70">
+                <li>
+                  <Link href="/agafay" className="link-sweep hover:text-[#d6b78a] transition-colors">
+                    Agafay Desert Retreat
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/taghazout" className="link-sweep hover:text-[#d6b78a] transition-colors">
+                    Taghazout Coastal Surf
+                  </Link>
+                </li>
+                <li>
+                  <a href="#destinations" className="link-sweep hover:text-[#d6b78a] transition-colors">
+                    Imlil & High Atlas Mountains
+                  </a>
+                </li>
+                <li>
+                  <a href="#destinations" className="link-sweep hover:text-[#d6b78a] transition-colors">
+                    Sahara Merzouga Expedition
+                  </a>
+                </li>
+                <li>
+                  <a href="#destinations" className="link-sweep hover:text-[#d6b78a] transition-colors">
+                    Ouzoud Waterfalls Day Trip
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            {/* Col 3: Editorial Guides & Journal */}
+            <div className="md:col-span-3 space-y-4">
+              <span className="text-[10px] uppercase tracking-[0.35em] text-[#d6b78a] font-semibold block">
+                Travel Journal
+              </span>
+              <ul className="space-y-2.5 text-xs font-light text-[#f6f2ec]/70">
+                <li>
+                  <Link href="/blog/agafay-vs-sahara-desert-guide" className="link-sweep hover:text-[#d6b78a] transition-colors">
+                    Agafay vs. Sahara: Desert Guide
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/blog/7-day-managed-morocco-itinerary-guide" className="link-sweep hover:text-[#d6b78a] transition-colors">
+                    7-Day Managed Morocco Route
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/blog/taghazout-surf-yoga-coastal-guide" className="link-sweep hover:text-[#d6b78a] transition-colors">
+                    Taghazout Coastal &amp; Surf Living
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/blog" className="link-sweep text-[#d6b78a] hover:text-[#e2c79d] font-normal transition-colors">
+                    Explore all stories & guides →
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            {/* Col 4: Verified Channels & Reviews */}
+            <div className="md:col-span-2 space-y-4">
+              <span className="text-[10px] uppercase tracking-[0.35em] text-[#d6b78a] font-semibold block">
+                Trust &amp; Connect
+              </span>
+              <div className="flex flex-col gap-3">
+                <a
+                  href="https://www.tripadvisor.com/Attraction_Review-g293734-d34660267-Reviews-Safaratlas-Marrakech_Marrakech_Safi.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2.5 text-xs text-[#f6f2ec]/75 hover:text-[#d6b78a] transition-colors group"
+                >
+                  <SiTripadvisor className="w-4 h-4 text-[#d6b78a] shrink-0 group-hover:scale-110 transition-transform" />
+                  <span>TripAdvisor Reviews</span>
+                </a>
+                <a
+                  href="https://www.instagram.com/safaratlas/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2.5 text-xs text-[#f6f2ec]/75 hover:text-[#d6b78a] transition-colors group"
+                >
+                  <SiInstagram className="w-4 h-4 text-[#d6b78a] shrink-0 group-hover:scale-110 transition-transform" />
+                  <span>@safaratlas Instagram</span>
+                </a>
+                <a
+                  href={whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2.5 text-xs text-[#f6f2ec]/75 hover:text-[#d6b78a] transition-colors group"
+                >
+                  <SiWhatsapp className="w-4 h-4 text-[#d6b78a] shrink-0 group-hover:scale-110 transition-transform" />
+                  <span>Concierge WhatsApp</span>
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
         {/* Copyright bottom */}
-        <div className="mx-auto mt-20 pb-12">
+        <div className="mx-auto mt-16 pb-12">
           <div className="h-px w-full bg-[#f6f2ec]/10" />
-          <div className="mt-8 flex flex-col items-center justify-between gap-6 text-[10px] uppercase tracking-[0.3em] text-[#f6f2ec]/30 sm:flex-row">
+          <div className="mt-8 flex flex-col items-center justify-between gap-6 text-[10px] uppercase tracking-[0.3em] text-[#f6f2ec]/35 sm:flex-row">
             <span className="font-serif text-sm italic normal-case tracking-normal text-[#f6f2ec]/60">
               SafarAtlas
             </span>
             <span>Marrakech · Morocco · Premium Managed Journeys</span>
-            <span>© {new Date().getFullYear()} — All rights reserved</span>
+            <div className="flex items-center gap-4">
+              <Link href="/legal/privacy" className="hover:text-[#d6b78a] transition-colors">Privacy</Link>
+              <span>·</span>
+              <Link href="/legal/terms" className="hover:text-[#d6b78a] transition-colors">Terms</Link>
+              <span>·</span>
+              <span>© {new Date().getFullYear()}</span>
+            </div>
           </div>
         </div>
       </div>
