@@ -59,12 +59,12 @@
   --background: var(--color-desert-pearl);
   --foreground: var(--color-midnight-slate);
 
-  /* Editorial tokens with SafarAtlas Signature Sunset Gold & Deep Sahara Night Blue */
-  --gold: #f4c36b;
-  --gold-soft: #fadca0;
+  /* Editorial tokens with SafarAtlas Emblem Gold (#C4A258) & Deep Sahara Night Blue */
+  --gold: #C4A258;
+  --gold-soft: #d8bb78;
   --ink: #07192d;
   --bone: #faf6f0;
-  --shadow-gold: 0 20px 60px -20px rgba(244,195,107,0.35);
+  --shadow-gold: 0 20px 60px -20px rgba(196,162,88,0.35);
 }
 
 body {

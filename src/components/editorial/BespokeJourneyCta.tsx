@@ -8,14 +8,14 @@ export const BespokeJourneyCta: React.FC = () => {
   );
 
   return (
-    <section className="relative w-full bg-[#07192d] text-[#f6f2ec] py-28 md:py-40 border-t border-[#f4c36b]/15">
+    <section className="relative w-full bg-[#07192d] text-[#f6f2ec] py-28 md:py-40 border-t border-[#C4A258]/15">
       <div className="container-editorial">
         <div className="grid grid-cols-12 gap-x-8 gap-y-12">
 
           {/* Left header */}
           <header className="col-span-12 md:col-span-5">
-            <p className="flex items-center gap-3 text-[11px] uppercase tracking-[0.4em] text-[#f4c36b]">
-              <span className="h-px w-8 bg-[#f4c36b]" />
+            <p className="flex items-center gap-3 text-[11px] uppercase tracking-[0.4em] text-[#C4A258]">
+              <span className="h-px w-8 bg-[#C4A258]" />
               Bespoke Multi-City Journeys
             </p>
             <h2
@@ -31,7 +31,7 @@ export const BespokeJourneyCta: React.FC = () => {
 
           {/* Right content */}
           <div className="col-span-12 md:col-span-7 flex flex-col justify-center">
-            <div className="border-y border-[#f4c36b]/20 py-10 md:py-12">
+            <div className="border-y border-[#C4A258]/20 py-10 md:py-12">
               <p className="font-sans text-base font-light leading-relaxed text-[#f6f2ec]/75 max-w-xl">
                 From landing in Marrakech, crossing the High Atlas, sleeping
                 under Sahara stars, to recovering on the Atlantic coast — tell
@@ -46,7 +46,7 @@ export const BespokeJourneyCta: React.FC = () => {
                   href={`https://wa.me/212698017323?text=${waPrefill}`}
                   target="_blank"
                   rel="noreferrer"
-                  className="group inline-flex items-center justify-center gap-3 bg-[#f4c36b] px-10 py-5 text-xs uppercase tracking-[0.3em] text-[#07192d] font-semibold transition-all duration-300 hover:bg-[#fadca0] hover:tracking-[0.35em]"
+                  className="group inline-flex items-center justify-center gap-3 bg-[#C4A258] px-10 py-5 text-xs uppercase tracking-[0.3em] text-[#07192d] font-semibold transition-all duration-300 hover:bg-[#d8bb78] hover:tracking-[0.35em]"
                   style={{ boxShadow: "var(--shadow-gold)" }}
                 >
                   <span>Request Custom Itinerary</span>
@@ -55,7 +55,7 @@ export const BespokeJourneyCta: React.FC = () => {
 
                 <a
                   href="#destinations"
-                  className="link-sweep text-xs uppercase tracking-[0.3em] text-[#f6f2ec]/55 hover:text-[#f4c36b]"
+                  className="link-sweep text-xs uppercase tracking-[0.3em] text-[#f6f2ec]/55 hover:text-[#C4A258]"
                 >
                   Browse all escapes
                 </a>

@@ -12,7 +12,7 @@ export default function EditorialGrandCta() {
   return (
     <section
       id="availability"
-      className="relative w-full overflow-hidden bg-[#07192d] pt-28 md:pt-40 border-t border-[#f4c36b]/15"
+      className="relative w-full overflow-hidden bg-[#07192d] pt-28 md:pt-40 border-t border-[#C4A258]/15"
     >
       <div className="container-editorial">
         {/* Availability / Inquiry Section */}
@@ -20,8 +20,8 @@ export default function EditorialGrandCta() {
 
           {/* Left header */}
           <header className="col-span-12 md:col-span-5">
-            <p className="flex items-center gap-3 text-[11px] uppercase tracking-[0.4em] text-[#f4c36b]">
-              <span className="h-px w-8 bg-[#f4c36b]" />
+            <p className="flex items-center gap-3 text-[11px] uppercase tracking-[0.4em] text-[#C4A258]">
+              <span className="h-px w-8 bg-[#C4A258]" />
               Direct Communication
             </p>
             <h2
@@ -41,7 +41,7 @@ export default function EditorialGrandCta() {
 
           {/* Right CTA panel */}
           <div className="col-span-12 md:col-span-7">
-            <div className="border-y border-[#f4c36b]/20 py-10 md:py-12">
+            <div className="border-y border-[#C4A258]/20 py-10 md:py-12">
               <p className="font-serif text-2xl font-medium leading-tight text-[#f6f2ec] md:text-3xl md:text-4xl">
                 Tell us your dates, rhythm and party size.
               </p>
@@ -57,7 +57,7 @@ export default function EditorialGrandCta() {
                   href={whatsappUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="group inline-flex items-center justify-center gap-3 bg-[#f4c36b] px-10 py-5 text-xs uppercase tracking-[0.3em] text-[#07192d] font-semibold transition-all duration-300 hover:bg-[#fadca0] hover:tracking-[0.35em]"
+                  className="group inline-flex items-center justify-center gap-3 bg-[#C4A258] px-10 py-5 text-xs uppercase tracking-[0.3em] text-[#07192d] font-semibold transition-all duration-300 hover:bg-[#d8bb78] hover:tracking-[0.35em]"
                   style={{ boxShadow: "var(--shadow-gold)" }}
                 >
                   <SiWhatsapp className="w-3.5 h-3.5" />
@@ -69,9 +69,9 @@ export default function EditorialGrandCta() {
                   href="https://www.instagram.com/safaratlas/"
                   target="_blank"
                   rel="noreferrer"
-                  className="group inline-flex items-center justify-center gap-3 border border-[#f6f2ec]/20 px-10 py-5 text-xs uppercase tracking-[0.3em] text-[#f6f2ec] transition-all duration-300 hover:border-[#f4c36b] hover:text-[#f4c36b]"
+                  className="group inline-flex items-center justify-center gap-3 border border-[#f6f2ec]/20 px-10 py-5 text-xs uppercase tracking-[0.3em] text-[#f6f2ec] transition-all duration-300 hover:border-[#C4A258] hover:text-[#C4A258]"
                 >
-                  <SiInstagram className="w-3.5 h-3.5 text-[#f4c36b]" />
+                  <SiInstagram className="w-3.5 h-3.5 text-[#C4A258]" />
                   <span>Instagram</span>
                 </a>
               </div>
@@ -97,45 +97,45 @@ export default function EditorialGrandCta() {
                   className="w-8 h-8 object-contain"
                 />
                 <span className="font-serif tracking-tight text-xl font-bold text-[#f6f2ec]">
-                  Safar<span className="text-[#f4c36b] font-sans font-extrabold">Atlas</span>
+                  Safar<span className="text-[#C4A258] font-sans font-extrabold">Atlas</span>
                 </span>
               </div>
               <p className="text-xs sm:text-sm font-light leading-relaxed text-[#f6f2ec]/60 max-w-sm">
                 Morocco&apos;s premier boutique tour operator. We design, coordinate, and orchestrate private journeys, scenic desert camps, and high-mountain retreats with vetted local partners.
               </p>
-              <div className="pt-1 flex items-center gap-4 text-xs font-mono text-[#f4c36b]/80">
+              <div className="pt-1 flex items-center gap-4 text-xs font-mono text-[#C4A258]/80">
                 <span>Direct WhatsApp: +212 698 017 323</span>
               </div>
             </div>
 
             {/* Col 2: Escapes & Destinations */}
             <div className="md:col-span-3 space-y-4">
-              <span className="text-[10px] uppercase tracking-[0.35em] text-[#f4c36b] font-semibold block">
+              <span className="text-[10px] uppercase tracking-[0.35em] text-[#C4A258] font-semibold block">
                 Signature Escapes
               </span>
               <ul className="space-y-2.5 text-xs font-light text-[#f6f2ec]/70">
                 <li>
-                  <Link href="/agafay" className="link-sweep hover:text-[#f4c36b] transition-colors">
+                  <Link href="/agafay" className="link-sweep hover:text-[#C4A258] transition-colors">
                     Agafay Desert Retreat
                   </Link>
                 </li>
                 <li>
-                  <Link href="/taghazout" className="link-sweep hover:text-[#f4c36b] transition-colors">
+                  <Link href="/taghazout" className="link-sweep hover:text-[#C4A258] transition-colors">
                     Taghazout Coastal Surf
                   </Link>
                 </li>
                 <li>
-                  <a href="#destinations" className="link-sweep hover:text-[#f4c36b] transition-colors">
+                  <a href="#destinations" className="link-sweep hover:text-[#C4A258] transition-colors">
                     Imlil & High Atlas Mountains
                   </a>
                 </li>
                 <li>
-                  <a href="#destinations" className="link-sweep hover:text-[#f4c36b] transition-colors">
+                  <a href="#destinations" className="link-sweep hover:text-[#C4A258] transition-colors">
                     Sahara Merzouga Expedition
                   </a>
                 </li>
                 <li>
-                  <a href="#destinations" className="link-sweep hover:text-[#f4c36b] transition-colors">
+                  <a href="#destinations" className="link-sweep hover:text-[#C4A258] transition-colors">
                     Ouzoud Waterfalls Day Trip
                   </a>
                 </li>
@@ -144,27 +144,27 @@ export default function EditorialGrandCta() {
 
             {/* Col 3: Editorial Guides & Journal */}
             <div className="md:col-span-3 space-y-4">
-              <span className="text-[10px] uppercase tracking-[0.35em] text-[#f4c36b] font-semibold block">
+              <span className="text-[10px] uppercase tracking-[0.35em] text-[#C4A258] font-semibold block">
                 Travel Journal
               </span>
               <ul className="space-y-2.5 text-xs font-light text-[#f6f2ec]/70">
                 <li>
-                  <Link href="/blog/agafay-vs-sahara-desert-guide" className="link-sweep hover:text-[#f4c36b] transition-colors">
+                  <Link href="/blog/agafay-vs-sahara-desert-guide" className="link-sweep hover:text-[#C4A258] transition-colors">
                     Agafay vs. Sahara: Desert Guide
                   </Link>
                 </li>
                 <li>
-                  <Link href="/blog/7-day-managed-morocco-itinerary-guide" className="link-sweep hover:text-[#f4c36b] transition-colors">
+                  <Link href="/blog/7-day-managed-morocco-itinerary-guide" className="link-sweep hover:text-[#C4A258] transition-colors">
                     7-Day Managed Morocco Route
                   </Link>
                 </li>
                 <li>
-                  <Link href="/blog/taghazout-surf-yoga-coastal-guide" className="link-sweep hover:text-[#f4c36b] transition-colors">
+                  <Link href="/blog/taghazout-surf-yoga-coastal-guide" className="link-sweep hover:text-[#C4A258] transition-colors">
                     Taghazout Coastal &amp; Surf Living
                   </Link>
                 </li>
                 <li>
-                  <Link href="/blog" className="link-sweep text-[#f4c36b] hover:text-[#fadca0] font-normal transition-colors">
+                  <Link href="/blog" className="link-sweep text-[#C4A258] hover:text-[#d8bb78] font-normal transition-colors">
                     Explore all stories & guides →
                   </Link>
                 </li>
@@ -173,7 +173,7 @@ export default function EditorialGrandCta() {
 
             {/* Col 4: Verified Channels & Reviews */}
             <div className="md:col-span-2 space-y-4">
-              <span className="text-[10px] uppercase tracking-[0.35em] text-[#f4c36b] font-semibold block">
+              <span className="text-[10px] uppercase tracking-[0.35em] text-[#C4A258] font-semibold block">
                 Trust &amp; Connect
               </span>
               <div className="flex flex-col gap-3">
@@ -181,27 +181,27 @@ export default function EditorialGrandCta() {
                   href="https://www.tripadvisor.com/Attraction_Review-g293734-d34660267-Reviews-Safaratlas-Marrakech_Marrakech_Safi.html"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2.5 text-xs text-[#f6f2ec]/75 hover:text-[#f4c36b] transition-colors group"
+                  className="inline-flex items-center gap-2.5 text-xs text-[#f6f2ec]/75 hover:text-[#C4A258] transition-colors group"
                 >
-                  <SiTripadvisor className="w-4 h-4 text-[#f4c36b] shrink-0 group-hover:scale-110 transition-transform" />
+                  <SiTripadvisor className="w-4 h-4 text-[#C4A258] shrink-0 group-hover:scale-110 transition-transform" />
                   <span>TripAdvisor Reviews</span>
                 </a>
                 <a
                   href="https://www.instagram.com/safaratlas/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2.5 text-xs text-[#f6f2ec]/75 hover:text-[#f4c36b] transition-colors group"
+                  className="inline-flex items-center gap-2.5 text-xs text-[#f6f2ec]/75 hover:text-[#C4A258] transition-colors group"
                 >
-                  <SiInstagram className="w-4 h-4 text-[#f4c36b] shrink-0 group-hover:scale-110 transition-transform" />
+                  <SiInstagram className="w-4 h-4 text-[#C4A258] shrink-0 group-hover:scale-110 transition-transform" />
                   <span>@safaratlas Instagram</span>
                 </a>
                 <a
                   href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2.5 text-xs text-[#f6f2ec]/75 hover:text-[#f4c36b] transition-colors group"
+                  className="inline-flex items-center gap-2.5 text-xs text-[#f6f2ec]/75 hover:text-[#C4A258] transition-colors group"
                 >
-                  <SiWhatsapp className="w-4 h-4 text-[#f4c36b] shrink-0 group-hover:scale-110 transition-transform" />
+                  <SiWhatsapp className="w-4 h-4 text-[#C4A258] shrink-0 group-hover:scale-110 transition-transform" />
                   <span>Concierge WhatsApp</span>
                 </a>
               </div>
@@ -219,9 +219,9 @@ export default function EditorialGrandCta() {
             </span>
             <span>Marrakech · Morocco · Premium Managed Journeys</span>
             <div className="flex items-center gap-4">
-              <Link href="/legal/privacy" className="hover:text-[#f4c36b] transition-colors">Privacy</Link>
+              <Link href="/legal/privacy" className="hover:text-[#C4A258] transition-colors">Privacy</Link>
               <span>·</span>
-              <Link href="/legal/terms" className="hover:text-[#f4c36b] transition-colors">Terms</Link>
+              <Link href="/legal/terms" className="hover:text-[#C4A258] transition-colors">Terms</Link>
               <span>·</span>
               <span>© {new Date().getFullYear()}</span>
             </div>
@@ -235,7 +235,7 @@ export default function EditorialGrandCta() {
         style={{ marginTop: "clamp(2rem,5vw,4rem)", marginBottom: "clamp(-4rem,-10vw,-8rem)" }}
       >
         <span
-          className="text-[#f4c36b] whitespace-nowrap opacity-[0.07]"
+          className="text-[#C4A258] whitespace-nowrap opacity-[0.07]"
           style={{
             fontFamily: '"Impact","Arial Narrow","Helvetica Neue",sans-serif',
             fontSize: "clamp(5rem, 22vw, 22rem)",

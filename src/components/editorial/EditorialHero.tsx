@@ -39,8 +39,8 @@ export const EditorialHero: React.FC = () => {
         <div className="max-w-5xl">
 
           {/* Eyebrow */}
-          <p className="animate-rise mb-6 flex items-center gap-3 text-[11px] uppercase tracking-[0.4em] text-[#f4c36b]">
-            <span className="h-px w-10 bg-[#f4c36b]" />
+          <p className="animate-rise mb-6 flex items-center gap-3 text-[11px] uppercase tracking-[0.4em] text-[#C4A258]">
+            <span className="h-px w-10 bg-[#C4A258]" />
             Morocco · Private Managed Journeys
           </p>
 
@@ -70,7 +70,7 @@ export const EditorialHero: React.FC = () => {
               href={`https://wa.me/212698017323?text=${waPrefill}`}
               target="_blank"
               rel="noreferrer"
-              className="group inline-flex items-center gap-3 bg-[#f4c36b] px-10 py-5 text-xs uppercase tracking-[0.3em] text-[#07192d] transition-all duration-300 hover:bg-[#fadca0] hover:tracking-[0.35em]"
+              className="group inline-flex items-center gap-3 bg-[#C4A258] px-10 py-5 text-xs uppercase tracking-[0.3em] text-[#07192d] transition-all duration-300 hover:bg-[#d8bb78] hover:tracking-[0.35em]"
               style={{ boxShadow: "var(--shadow-gold)" }}
             >
               <span>Check Availability</span>
@@ -101,7 +101,7 @@ export const EditorialHero: React.FC = () => {
             Scroll
           </span>
           <span className="block h-12 w-px overflow-hidden bg-[#f6f2ec]/15">
-            <span className="block h-full w-full origin-top bg-[#f4c36b] animate-scrollline" />
+            <span className="block h-full w-full origin-top bg-[#C4A258] animate-scrollline" />
           </span>
         </div>
       </div>

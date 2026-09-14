@@ -59,8 +59,8 @@ export const RegionalDestinationsMenu: React.FC<Props> = ({
         {/* Section header */}
         <div className="grid grid-cols-12 gap-x-8 gap-y-10 mb-16 md:mb-20">
           <div className="col-span-12 md:col-span-6">
-            <p className="flex items-center gap-3 text-[11px] uppercase tracking-[0.4em] text-[#f4c36b]">
-              <span className="h-px w-8 bg-[#f4c36b]" />
+            <p className="flex items-center gap-3 text-[11px] uppercase tracking-[0.4em] text-[#C4A258]">
+              <span className="h-px w-8 bg-[#C4A258]" />
               Choose Your Morocco Chapter
             </p>
             <h2
@@ -68,7 +68,7 @@ export const RegionalDestinationsMenu: React.FC<Props> = ({
               style={{ fontSize: "clamp(2rem, 4.5vw, 3.75rem)" }}
             >
               Every escape,{" "}
-              <span className="italic text-[#f4c36b]">private & managed.</span>
+              <span className="italic text-[#C4A258]">private & managed.</span>
             </h2>
           </div>
 
@@ -81,8 +81,8 @@ export const RegionalDestinationsMenu: React.FC<Props> = ({
                   onClick={() => setActiveRegionId(region.id)}
                   className={`text-[10px] uppercase tracking-[0.3em] px-5 py-3 transition-all duration-300 cursor-pointer ${
                     activeRegionId === region.id
-                      ? "bg-[#f4c36b] text-[#07192d] font-semibold"
-                      : "border border-[#f6f2ec]/15 text-[#f6f2ec]/50 hover:border-[#f4c36b]/50 hover:text-[#f4c36b]"
+                      ? "bg-[#C4A258] text-[#07192d] font-semibold"
+                      : "border border-[#f6f2ec]/15 text-[#f6f2ec]/50 hover:border-[#C4A258]/50 hover:text-[#C4A258]"
                   }`}
                   style={
                     activeRegionId === region.id
@@ -123,7 +123,7 @@ export const RegionalDestinationsMenu: React.FC<Props> = ({
             return (
               <div
                 key={item.id}
-                className={`group relative overflow-hidden bg-[#0a1e34] border border-[#f4c36b]/15 hover:border-[#f4c36b]/50 transition-colors duration-500 ${bentoSpan}`}
+                className={`group relative overflow-hidden bg-[#0a1e34] border border-[#C4A258]/15 hover:border-[#C4A258]/50 transition-colors duration-500 ${bentoSpan}`}
                 style={{
                   transitionDelay: `${i * 50}ms`,
                 }}
@@ -142,7 +142,7 @@ export const RegionalDestinationsMenu: React.FC<Props> = ({
 
                 {/* Default state caption (Bottom) - smoothly fades slightly on hover to give priority to the reveal sheet */}
                 <div className="absolute inset-x-0 bottom-0 p-6 md:p-8 flex flex-col justify-end transition-opacity duration-300 group-hover:opacity-0 pointer-events-none">
-                  <span className="text-[10px] uppercase tracking-[0.35em] text-[#f4c36b] font-medium">
+                  <span className="text-[10px] uppercase tracking-[0.35em] text-[#C4A258] font-medium">
                     {item.category} · {item.duration}
                   </span>
                   <h3
@@ -151,7 +151,7 @@ export const RegionalDestinationsMenu: React.FC<Props> = ({
                   >
                     {item.title}
                   </h3>
-                  <div className="mt-3 h-px w-8 bg-[#f4c36b] transition-all duration-500 group-hover:w-16" />
+                  <div className="mt-3 h-px w-8 bg-[#C4A258] transition-all duration-500 group-hover:w-16" />
                 </div>
 
                 {/* Hover Reveal Sheet: Full clean overlay that covers card with backdrop blur & complete details without any text overlap */}
@@ -160,7 +160,7 @@ export const RegionalDestinationsMenu: React.FC<Props> = ({
                   {/* Top: Category & Title */}
                   <div>
                     <div className="flex items-center justify-between gap-4">
-                      <span className="text-[10px] uppercase tracking-[0.35em] text-[#f4c36b] font-semibold">
+                      <span className="text-[10px] uppercase tracking-[0.35em] text-[#C4A258] font-semibold">
                         {item.category} · {item.duration}
                       </span>
                       <span className="text-[9px] uppercase tracking-[0.25em] text-[#f6f2ec]/40 font-mono">
@@ -174,7 +174,7 @@ export const RegionalDestinationsMenu: React.FC<Props> = ({
                     >
                       {item.title}
                     </h3>
-                    <div className="mt-2.5 h-px w-12 bg-[#f4c36b]" />
+                    <div className="mt-2.5 h-px w-12 bg-[#C4A258]" />
 
                     {/* Summary */}
                     <p className="mt-3.5 font-sans text-xs sm:text-sm font-light leading-relaxed text-[#f6f2ec]/80">
@@ -185,7 +185,7 @@ export const RegionalDestinationsMenu: React.FC<Props> = ({
                     <ul className="mt-4 space-y-2">
                       {item.highlights.slice(0, 3).map((hl, idx) => (
                         <li key={idx} className="flex items-start gap-2.5">
-                          <span className="mt-1.5 h-px w-3 shrink-0 bg-[#f4c36b]" />
+                          <span className="mt-1.5 h-px w-3 shrink-0 bg-[#C4A258]" />
                           <span className="text-xs font-light text-[#f6f2ec]/75 leading-snug">
                             {hl}
                           </span>
@@ -200,7 +200,7 @@ export const RegionalDestinationsMenu: React.FC<Props> = ({
                       href={`https://wa.me/212698017323?text=${waPrefill}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group/btn inline-flex items-center gap-3 bg-[#f4c36b] px-5 py-3 text-[10px] uppercase tracking-[0.3em] text-[#07192d] font-semibold transition-all duration-300 hover:bg-[#fadca0] hover:tracking-[0.35em]"
+                      className="group/btn inline-flex items-center gap-3 bg-[#C4A258] px-5 py-3 text-[10px] uppercase tracking-[0.3em] text-[#07192d] font-semibold transition-all duration-300 hover:bg-[#d8bb78] hover:tracking-[0.35em]"
                       style={{ boxShadow: "var(--shadow-gold)" }}
                     >
                       <span>Check Availability</span>
@@ -210,7 +210,7 @@ export const RegionalDestinationsMenu: React.FC<Props> = ({
                     {isDedicatedPage ? (
                       <Link
                         href={dedicatedUrl}
-                        className="link-sweep text-[10px] uppercase tracking-[0.3em] text-[#f6f2ec]/65 hover:text-[#f4c36b]"
+                        className="link-sweep text-[10px] uppercase tracking-[0.3em] text-[#f6f2ec]/65 hover:text-[#C4A258]"
                       >
                         Full Guide
                       </Link>
@@ -218,7 +218,7 @@ export const RegionalDestinationsMenu: React.FC<Props> = ({
                       <button
                         type="button"
                         onClick={() => onOpenEscapeModal(item)}
-                        className="link-sweep text-[10px] uppercase tracking-[0.3em] text-[#f6f2ec]/65 hover:text-[#f4c36b] cursor-pointer"
+                        className="link-sweep text-[10px] uppercase tracking-[0.3em] text-[#f6f2ec]/65 hover:text-[#C4A258] cursor-pointer"
                       >
                         View Details
                       </button>
