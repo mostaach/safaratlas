@@ -35,7 +35,7 @@ export default function EditorialFaq() {
   return (
     <section
       id="faq"
-      className="relative w-full overflow-hidden bg-[#080c10] py-28 md:py-40 border-t border-[#f6f2ec]/10"
+      className="relative w-full overflow-hidden bg-[#07192d] py-28 md:py-40 border-t border-[#d6b78a]/15"
     >
       <div className="max-w-6xl mx-auto px-6 md:px-12 lg:px-16">
         <div className="grid grid-cols-12 gap-x-8 gap-y-16">

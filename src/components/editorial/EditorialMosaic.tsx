@@ -43,7 +43,7 @@ const ITEMS: MosaicItem[] = [
 
 export const EditorialMosaic: React.FC = () => {
   return (
-    <section className="relative w-full bg-[#080c10] text-[#f6f2ec] py-28 md:py-40 border-t border-[#f6f2ec]/8">
+    <section className="relative w-full bg-[#07192d] text-[#f6f2ec] py-28 md:py-40 border-t border-[#d6b78a]/15">
       <div className="container-editorial">
         {/* Section Header */}
         <div className="flex flex-col items-center text-center mb-16 md:mb-24 space-y-4">
@@ -70,7 +70,7 @@ export const EditorialMosaic: React.FC = () => {
           {ITEMS.map((item) => (
             <div
               key={item.id}
-              className={`group relative overflow-hidden bg-[#0d141b] border border-white/5 hover:border-[#d6b78a]/40 transition-colors duration-500 ${item.className}`}
+              className={`group relative overflow-hidden bg-[#0a1e34] border border-[#d6b78a]/15 hover:border-[#d6b78a]/50 transition-colors duration-500 ${item.className}`}
             >
               <img
                 src={item.image}
@@ -79,7 +79,7 @@ export const EditorialMosaic: React.FC = () => {
                 loading="lazy"
                 decoding="async"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#080c10]/95 via-[#080c10]/30 to-transparent pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#07192d]/95 via-[#07192d]/30 to-transparent pointer-events-none" />
               
               <div className="absolute bottom-6 left-6 right-6 md:bottom-8 md:left-8 md:right-8">
                 <span className="text-[10px] uppercase tracking-[0.35em] text-[#d6b78a] font-medium block mb-2">

@@ -12,7 +12,7 @@ export default function EditorialGrandCta() {
   return (
     <section
       id="availability"
-      className="relative w-full overflow-hidden bg-[#080c10] pt-28 md:pt-40 border-t border-[#f6f2ec]/8"
+      className="relative w-full overflow-hidden bg-[#07192d] pt-28 md:pt-40 border-t border-[#d6b78a]/15"
     >
       <div className="container-editorial">
         {/* Availability / Inquiry Section */}
@@ -41,7 +41,7 @@ export default function EditorialGrandCta() {
 
           {/* Right CTA panel */}
           <div className="col-span-12 md:col-span-7">
-            <div className="border-y border-[#f6f2ec]/15 py-10 md:py-12">
+            <div className="border-y border-[#d6b78a]/20 py-10 md:py-12">
               <p className="font-serif text-2xl font-medium leading-tight text-[#f6f2ec] md:text-3xl md:text-4xl">
                 Tell us your dates, rhythm and party size.
               </p>
@@ -57,7 +57,7 @@ export default function EditorialGrandCta() {
                   href={whatsappUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="group inline-flex items-center justify-center gap-3 bg-[#d6b78a] px-10 py-5 text-xs uppercase tracking-[0.3em] text-[#080c10] font-semibold transition-all duration-300 hover:bg-[#e2c79d] hover:tracking-[0.35em]"
+                  className="group inline-flex items-center justify-center gap-3 bg-[#d6b78a] px-10 py-5 text-xs uppercase tracking-[0.3em] text-[#07192d] font-semibold transition-all duration-300 hover:bg-[#e2c79d] hover:tracking-[0.35em]"
                   style={{ boxShadow: "var(--shadow-gold)" }}
                 >
                   <SiWhatsapp className="w-3.5 h-3.5" />

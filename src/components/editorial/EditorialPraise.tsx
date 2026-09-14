@@ -31,9 +31,9 @@ export default function EditorialPraise() {
   return (
     <section
       id="testimonials"
-      className="relative w-full overflow-hidden bg-[#080c10] py-28 md:py-40"
+      className="relative w-full overflow-hidden bg-[#07192d] py-28 md:py-40 border-t border-[#d6b78a]/15"
     >
-      <div className="max-w-6xl mx-auto px-6 md:px-12 lg:px-16">
+      <div className="container-editorial">
         {/* Section header */}
         <div className="flex flex-col items-center text-center mb-16">
           <p className="flex items-center gap-3 text-[10px] uppercase tracking-[0.4em] text-[#d6b78a]">
@@ -55,7 +55,7 @@ export default function EditorialPraise() {
           {quotes.map((q, i) => (
             <div
               key={i}
-              className="group relative border border-[#f6f2ec]/10 bg-[#f6f2ec]/[0.01] p-8 md:p-12 transition-all duration-700 hover:border-[#d6b78a]/30"
+              className="group relative border border-[#d6b78a]/15 bg-[#0a1e34]/70 p-8 md:p-12 transition-all duration-700 hover:border-[#d6b78a]/40"
             >
               {/* Decorative quotation watermark */}
               <span className="absolute -top-6 -left-3 pointer-events-none font-serif text-[8rem] leading-none text-[#d6b78a]/5 opacity-20 transition-all duration-700 group-hover:opacity-40 select-none">

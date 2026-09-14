@@ -8,7 +8,7 @@ export const EditorialHero: React.FC = () => {
   );
 
   return (
-    <header className="relative min-h-[100svh] w-full overflow-hidden bg-[#080c10]">
+    <header className="relative min-h-[100svh] w-full overflow-hidden bg-[#07192d]">
 
       {/* Background image with Ken Burns drift */}
       <div className="absolute inset-0">
@@ -23,13 +23,13 @@ export const EditorialHero: React.FC = () => {
             decoding="sync"
           />
         </picture>
-        {/* Hero gradient — matches Taghazout exactly */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_30%,rgba(8,12,16,0.65)_100%)]" />
+        {/* Hero gradient — Deep Sahara Night atmosphere */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_30%,rgba(7,25,45,0.65)_100%)]" />
         <div
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(180deg, rgba(8,12,16,0.15) 0%, rgba(8,12,16,0.5) 55%, #080c10 100%)",
+              "linear-gradient(180deg, rgba(7,25,45,0.2) 0%, rgba(7,25,45,0.6) 55%, #07192d 100%)",
           }}
         />
       </div>
@@ -70,7 +70,7 @@ export const EditorialHero: React.FC = () => {
               href={`https://wa.me/212698017323?text=${waPrefill}`}
               target="_blank"
               rel="noreferrer"
-              className="group inline-flex items-center gap-3 bg-[#d6b78a] px-10 py-5 text-xs uppercase tracking-[0.3em] text-[#080c10] transition-all duration-300 hover:bg-[#e2c79d] hover:tracking-[0.35em]"
+              className="group inline-flex items-center gap-3 bg-[#d6b78a] px-10 py-5 text-xs uppercase tracking-[0.3em] text-[#07192d] transition-all duration-300 hover:bg-[#e2c79d] hover:tracking-[0.35em]"
               style={{ boxShadow: "var(--shadow-gold)" }}
             >
               <span>Check Availability</span>

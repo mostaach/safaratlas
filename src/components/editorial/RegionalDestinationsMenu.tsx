@@ -52,7 +52,7 @@ export const RegionalDestinationsMenu: React.FC<Props> = ({
   return (
     <section
       id="destinations"
-      className="relative w-full overflow-hidden bg-[#080c10] py-28 md:py-40"
+      className="relative w-full overflow-hidden bg-[#07192d] py-28 md:py-40"
     >
       <div className="container-editorial">
 
@@ -81,7 +81,7 @@ export const RegionalDestinationsMenu: React.FC<Props> = ({
                   onClick={() => setActiveRegionId(region.id)}
                   className={`text-[10px] uppercase tracking-[0.3em] px-5 py-3 transition-all duration-300 cursor-pointer ${
                     activeRegionId === region.id
-                      ? "bg-[#d6b78a] text-[#080c10]"
+                      ? "bg-[#d6b78a] text-[#07192d] font-semibold"
                       : "border border-[#f6f2ec]/15 text-[#f6f2ec]/50 hover:border-[#d6b78a]/50 hover:text-[#d6b78a]"
                   }`}
                   style={
@@ -123,7 +123,7 @@ export const RegionalDestinationsMenu: React.FC<Props> = ({
             return (
               <div
                 key={item.id}
-                className={`group relative overflow-hidden bg-[#0d141b] border border-white/5 hover:border-[#d6b78a]/40 transition-colors duration-500 ${bentoSpan}`}
+                className={`group relative overflow-hidden bg-[#0a1e34] border border-[#d6b78a]/15 hover:border-[#d6b78a]/50 transition-colors duration-500 ${bentoSpan}`}
                 style={{
                   transitionDelay: `${i * 50}ms`,
                 }}
@@ -138,7 +138,7 @@ export const RegionalDestinationsMenu: React.FC<Props> = ({
                 />
 
                 {/* Ambient dark gradient vignette */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#080c10]/95 via-[#080c10]/40 to-transparent pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#07192d]/95 via-[#07192d]/40 to-transparent pointer-events-none" />
 
                 {/* Default state caption (Bottom) - smoothly fades slightly on hover to give priority to the reveal sheet */}
                 <div className="absolute inset-x-0 bottom-0 p-6 md:p-8 flex flex-col justify-end transition-opacity duration-300 group-hover:opacity-0 pointer-events-none">
@@ -155,7 +155,7 @@ export const RegionalDestinationsMenu: React.FC<Props> = ({
                 </div>
 
                 {/* Hover Reveal Sheet: Full clean overlay that covers card with backdrop blur & complete details without any text overlap */}
-                <div className="absolute inset-0 bg-[#080c10]/92 backdrop-blur-md opacity-0 group-hover:opacity-100 transition-all duration-400 ease-out p-6 md:p-8 flex flex-col justify-between overflow-y-auto">
+                <div className="absolute inset-0 bg-[#07192d]/95 backdrop-blur-md opacity-0 group-hover:opacity-100 transition-all duration-400 ease-out p-6 md:p-8 flex flex-col justify-between overflow-y-auto">
                   
                   {/* Top: Category & Title */}
                   <div>
@@ -200,7 +200,7 @@ export const RegionalDestinationsMenu: React.FC<Props> = ({
                       href={`https://wa.me/212698017323?text=${waPrefill}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group/btn inline-flex items-center gap-3 bg-[#d6b78a] px-5 py-3 text-[10px] uppercase tracking-[0.3em] text-[#080c10] font-semibold transition-all duration-300 hover:bg-[#e2c79d] hover:tracking-[0.35em]"
+                      className="group/btn inline-flex items-center gap-3 bg-[#d6b78a] px-5 py-3 text-[10px] uppercase tracking-[0.3em] text-[#07192d] font-semibold transition-all duration-300 hover:bg-[#e2c79d] hover:tracking-[0.35em]"
                       style={{ boxShadow: "var(--shadow-gold)" }}
                     >
                       <span>Check Availability</span>

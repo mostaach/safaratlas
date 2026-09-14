@@ -56,7 +56,7 @@ export default function Home() {
     <>
       <Toaster richColors position="top-center" />
       <div
-        className="min-h-screen flex flex-col bg-[#080c10] text-[#f6f2ec]"
+        className="min-h-screen flex flex-col bg-[#07192d] text-[#f6f2ec]"
         style={{ fontFamily: "var(--font-sans)" }}
       >
         {/* Editorial Navigation Header */}

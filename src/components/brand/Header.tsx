@@ -27,7 +27,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenInquiryModal }) => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-[#080c10]/95 backdrop-blur-xl border-b border-white/8 py-4"
+          ? "bg-[#07192d]/95 backdrop-blur-xl border-b border-white/8 py-4"
           : "bg-transparent py-6"
       }`}
     >
@@ -74,7 +74,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenInquiryModal }) => {
             href={waUrl}
             target="_blank"
             rel="noreferrer"
-            className="group inline-flex items-center gap-3 bg-[#d6b78a] px-8 py-3.5 text-[10px] uppercase tracking-[0.3em] text-[#080c10] font-semibold transition-all duration-300 hover:bg-[#e2c79d] hover:tracking-[0.35em]"
+            className="group inline-flex items-center gap-3 bg-[#d6b78a] px-8 py-3.5 text-[10px] uppercase tracking-[0.3em] text-[#07192d] font-semibold transition-all duration-300 hover:bg-[#e2c79d] hover:tracking-[0.35em]"
             style={{ boxShadow: "var(--shadow-gold)" }}
           >
             <span>Check Availability</span>
@@ -100,7 +100,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenInquiryModal }) => {
 
       {/* Mobile drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-[#080c10]/98 backdrop-blur-xl border-t border-white/10 px-6 py-8 space-y-6">
+        <div className="md:hidden bg-[#07192d]/98 backdrop-blur-xl border-t border-white/10 px-6 py-8 space-y-6">
           <div className="flex flex-col gap-5 text-[11px] uppercase tracking-[0.3em] text-[#f6f2ec]/70">
             <a href="#manifesto" onClick={() => setMobileMenuOpen(false)} className="hover:text-[#d6b78a] transition-colors">Our Approach</a>
             <a href="#destinations" onClick={() => setMobileMenuOpen(false)} className="hover:text-[#d6b78a] transition-colors">Escapes</a>
@@ -112,7 +112,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenInquiryModal }) => {
               href={waUrl}
               target="_blank"
               rel="noreferrer"
-              className="w-full inline-flex items-center justify-center gap-3 bg-[#d6b78a] px-8 py-4 text-[10px] uppercase tracking-[0.3em] text-[#080c10] font-semibold"
+              className="w-full inline-flex items-center justify-center gap-3 bg-[#d6b78a] px-8 py-4 text-[10px] uppercase tracking-[0.3em] text-[#07192d] font-semibold"
               style={{ boxShadow: "var(--shadow-gold)" }}
             >
               <span>Check Availability</span>
