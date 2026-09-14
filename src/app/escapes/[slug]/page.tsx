@@ -13,16 +13,27 @@ export async function generateStaticParams() {
   }));
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-  const escapePkg = ESCAPES_PACKAGES.find((pkg) => pkg.slug === params.slug);
+interface Props {
+  params: Promise<{ slug: string }>;
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params;
+  const escapePkg = ESCAPES_PACKAGES.find((pkg) => pkg.slug === slug);
   if (!escapePkg) return {};
+
+  const url = `https://safaratlas.com/escapes/${escapePkg.slug}`;
 
   return {
     title: `${escapePkg.title} | SafarAtlas Managed Journeys`,
     description: escapePkg.fullDescription || escapePkg.summary,
+    alternates: {
+      canonical: url,
+    },
     openGraph: {
       title: `${escapePkg.title} - SafarAtlas`,
       description: escapePkg.fullDescription || escapePkg.summary,
+      url,
       images: [
         {
           url: escapePkg.image,
@@ -36,12 +47,14 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   };
 }
 
-export default function EscapePage({ params }: { params: { slug: string } }) {
-  if (params.slug === "agafay-escape-1d") {
+export default async function EscapePage({ params }: Props) {
+  const { slug } = await params;
+
+  if (slug === "agafay-escape-1d") {
     redirect("/agafay");
   }
 
-  const escapePkg = ESCAPES_PACKAGES.find((pkg) => pkg.slug === params.slug);
+  const escapePkg = ESCAPES_PACKAGES.find((pkg) => pkg.slug === slug);
 
   if (!escapePkg) {
     notFound();

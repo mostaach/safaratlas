@@ -16,7 +16,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/blog`, lastModified, changeFrequency: "weekly", priority: 0.85 },
     { url: `${baseUrl}/legal/privacy`, lastModified, changeFrequency: "yearly", priority: 0.2 },
     { url: `${baseUrl}/legal/terms`, lastModified, changeFrequency: "yearly", priority: 0.2 },
-    ...ESCAPES_PACKAGES.map(pkg => ({ url: `${baseUrl}/escapes/${pkg.slug}`, lastModified, changeFrequency: "monthly" as const, priority: 0.8 })),
+    ...ESCAPES_PACKAGES.filter(pkg => pkg.slug !== "agafay-escape-1d" && pkg.slug !== "taghazout-escapes").map(pkg => ({
+      url: `${baseUrl}/escapes/${pkg.slug}`,
+      lastModified,
+      changeFrequency: "monthly" as const,
+      priority: 0.8
+    })),
     ...BLOG_POSTS.map(post => ({ url: `${baseUrl}/blog/${post.slug}`, lastModified, changeFrequency: "monthly" as const, priority: 0.7 })),
   ];
 }
