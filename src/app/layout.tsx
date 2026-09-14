@@ -75,7 +75,8 @@ export default function RootLayout({
         <link
           rel="preload"
           as="image"
-          href="/agafay_rocky_desert_hero.png"
+          type="image/webp"
+          href="/agafay_rocky_desert_hero.webp"
           fetchPriority="high"
         />
         <link rel="preconnect" href="https://www.googletagmanager.com" crossOrigin="anonymous" />

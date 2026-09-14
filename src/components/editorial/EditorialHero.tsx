@@ -12,14 +12,17 @@ export const EditorialHero: React.FC = () => {
 
       {/* Background image with Ken Burns drift */}
       <div className="absolute inset-0">
-        <img
-          src="/agafay_rocky_desert_hero.png"
-          alt="Atmospheric dusk across Morocco's Agafay desert and High Atlas mountains"
-          className="h-full w-full object-cover animate-kenburns"
-          loading="eager"
-          fetchPriority="high"
-          decoding="sync"
-        />
+        <picture>
+          <source srcSet="/agafay_rocky_desert_hero.webp" type="image/webp" />
+          <img
+            src="/agafay_rocky_desert_hero.png"
+            alt="Atmospheric dusk across Morocco's Agafay desert and High Atlas mountains"
+            className="h-full w-full object-cover animate-kenburns"
+            loading="eager"
+            fetchPriority="high"
+            decoding="sync"
+          />
+        </picture>
         {/* Hero gradient — matches Taghazout exactly */}
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_30%,rgba(8,12,16,0.65)_100%)]" />
         <div
