@@ -334,10 +334,10 @@ export default async function BlogPostPage({ params }: Props) {
                     </a>
                   </div>
                   <Link
-                    href="/#escapes"
+                    href={`/escapes/${recommendedEscape.slug}`}
                     className="shrink-0 px-6 py-3 rounded-2xl bg-[#C4A258] hover:bg-[#d8bb78] text-[#07192d] text-xs font-black tracking-wide shadow-lg transition-all"
                   >
-                    View This Escape →
+                    View Escape & Add to Journey →
                   </Link>
                 </div>
               </div>
@@ -385,7 +385,7 @@ export default async function BlogPostPage({ params }: Props) {
                 ← All Articles
               </Link>
               <Link
-                href="/"
+                href="/journey"
                 className="px-5 py-2.5 rounded-xl bg-[#C4A258] text-[#07192d] text-xs font-black tracking-widest hover:bg-[#d8bb78] transition-all shadow-md"
               >
                 Plan My Journey →

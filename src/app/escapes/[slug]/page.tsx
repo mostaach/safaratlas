@@ -234,8 +234,7 @@ export default async function EscapePage({ params }: Props) {
           
         </div>
 
-        {/* Sidebar Sticky (Right Col) */}
-        <div className="relative">
+          <div className="relative">
           <div className="sticky top-24 bg-[#0d2239]/80 backdrop-blur-xl p-6 rounded-3xl border border-white/10 shadow-2xl space-y-6">
             
             <div>
@@ -253,6 +252,28 @@ export default async function EscapePage({ params }: Props) {
               <p className="text-xs text-[#f6f2ec]/70 mt-2 leading-relaxed">
                 All-inclusive managed package: private transfers, vetted accommodations, and local activities. Rates adjust dynamically based on season and group volume.
               </p>
+            </div>
+
+            {/* Who it suits */}
+            <div className="p-4 rounded-2xl bg-white/5 border border-white/10 space-y-2">
+              <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#C4A258] block">
+                Who this escape suits
+              </span>
+              <div className="flex flex-wrap gap-2">
+                {[
+                  escapePkg.category === "Desert" && "Desert Lovers",
+                  escapePkg.category === "Coast" && "Surf & Ocean",
+                  escapePkg.category === "Mountain" && "Adventure Seekers",
+                  escapePkg.category === "Cultural" && "Culture & History",
+                  "Couples",
+                  "Small Groups",
+                  "Private Trips",
+                ].filter(Boolean).map((tag) => (
+                  <span key={tag as string} className="text-[10px] font-bold bg-white/5 text-[#f6f2ec]/70 px-2.5 py-1 rounded-md border border-white/10">
+                    {tag as string}
+                  </span>
+                ))}
+              </div>
             </div>
 
             <a
@@ -277,6 +298,7 @@ export default async function EscapePage({ params }: Props) {
             <AddEscapeToJourneyButton escapePkg={escapePkg} />
           </div>
         </div>
+
 
       </section>
 
