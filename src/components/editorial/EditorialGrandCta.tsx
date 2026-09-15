@@ -53,26 +53,23 @@ export default function EditorialGrandCta() {
 
               {/* CTAs — exact Taghazout button DNA */}
               <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+                <Link
+                  href="/journey"
+                  className="group inline-flex items-center justify-center gap-3 bg-[#C4A258] px-10 py-5 text-xs uppercase tracking-[0.3em] text-[#07192d] font-semibold transition-all duration-300 hover:bg-[#d8bb78] hover:tracking-[0.35em]"
+                  style={{ boxShadow: "var(--shadow-gold)" }}
+                >
+                  <span>Plan Your Morocco Journey</span>
+                  <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+                </Link>
+
                 <a
                   href={whatsappUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="group inline-flex items-center justify-center gap-3 bg-[#C4A258] px-10 py-5 text-xs uppercase tracking-[0.3em] text-[#07192d] font-semibold transition-all duration-300 hover:bg-[#d8bb78] hover:tracking-[0.35em]"
-                  style={{ boxShadow: "var(--shadow-gold)" }}
-                >
-                  <SiWhatsapp className="w-3.5 h-3.5" />
-                  <span>Request Bespoke Itinerary</span>
-                  <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
-                </a>
-
-                <a
-                  href="https://www.instagram.com/safaratlas/"
-                  target="_blank"
-                  rel="noreferrer"
                   className="group inline-flex items-center justify-center gap-3 border border-[#f6f2ec]/20 px-10 py-5 text-xs uppercase tracking-[0.3em] text-[#f6f2ec] transition-all duration-300 hover:border-[#C4A258] hover:text-[#C4A258]"
                 >
-                  <SiInstagram className="w-3.5 h-3.5 text-[#C4A258]" />
-                  <span>Instagram</span>
+                  <SiWhatsapp className="w-3.5 h-3.5 text-[#25D366]" />
+                  <span>Chat on WhatsApp</span>
                 </a>
               </div>
 

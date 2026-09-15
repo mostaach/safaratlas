@@ -142,15 +142,28 @@ export const RegionalDestinationsMenu: React.FC<Props> = ({
 
                 {/* Default state caption (Bottom) - smoothly fades slightly on hover to give priority to the reveal sheet */}
                 <div className="absolute inset-x-0 bottom-0 p-6 md:p-8 flex flex-col justify-end transition-opacity duration-300 group-hover:opacity-0 pointer-events-none">
-                  <span className="text-[10px] uppercase tracking-[0.35em] text-[#C4A258] font-medium">
-                    {item.category} · {item.duration}
-                  </span>
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className="text-[10px] uppercase tracking-[0.35em] text-[#C4A258] font-bold">
+                      {item.category}
+                    </span>
+                    <span className="text-[10px] text-[#f6f2ec]/40">•</span>
+                    <span className="text-[10px] uppercase tracking-[0.2em] text-[#f6f2ec]/80 font-medium">
+                      {item.duration}
+                    </span>
+                  </div>
                   <h3
-                    className="mt-2 font-serif font-medium leading-[1.1] text-[#f6f2ec] text-balance"
+                    className="mt-1 font-serif font-medium leading-[1.1] text-[#f6f2ec] text-balance"
                     style={{ fontSize: "clamp(1.35rem, 2.2vw, 1.85rem)" }}
                   >
                     {item.title}
                   </h3>
+                  <div className="mt-2.5 flex items-center gap-2.5 text-[11px] text-[#C4A258] font-medium">
+                    <span>✦ 100% Private</span>
+                    <span className="text-[#f6f2ec]/30">·</span>
+                    <span>Dedicated Chauffeur</span>
+                    <span className="text-[#f6f2ec]/30">·</span>
+                    <span>Tailored Quote</span>
+                  </div>
                   <div className="mt-3 h-px w-8 bg-[#C4A258] transition-all duration-500 group-hover:w-16" />
                 </div>
 

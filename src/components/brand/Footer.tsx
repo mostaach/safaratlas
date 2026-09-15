@@ -7,9 +7,9 @@ import { SiInstagram, SiTripadvisor, SiWhatsapp } from "react-icons/si";
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="bg-[#0f1715] text-white pt-16 pb-12 border-t border-white/10 zellige-pattern-dark relative overflow-hidden">
+    <footer className="bg-[#07192d] text-white pt-16 pb-12 border-t border-white/10 zellige-pattern-dark relative overflow-hidden">
       {/* Gradient Vignette overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-[#0f1715] via-[#0f1715]/90 to-transparent pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#07192d] via-[#07192d]/90 to-transparent pointer-events-none" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
@@ -21,13 +21,13 @@ export const Footer: React.FC = () => {
               Morocco&apos;s premium managed journey service. Our local experts design, book, and orchestrate flawless Moroccan experiences from start to finish.
             </p>
             <div className="space-y-1.5 text-sm text-white/80 font-medium">
-              <p>Email: <a href="mailto:contactsafaratlas@gmail.com" className="text-gold hover:underline">contactsafaratlas@gmail.com</a></p>
-              <p>WhatsApp: <a href="https://wa.me/212698017323" target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">+212 698 017 323</a></p>
+              <p>Email: <a href="mailto:contactsafaratlas@gmail.com" className="text-[#C4A258] hover:underline">contactsafaratlas@gmail.com</a></p>
+              <p>WhatsApp: <a href="https://wa.me/212698017323" target="_blank" rel="noopener noreferrer" className="text-[#C4A258] hover:underline">+212 698 017 323</a></p>
             </div>
 
             {/* Social Media & Reviews */}
             <div className="pt-2 space-y-2">
-              <span className="text-[10px] font-black uppercase tracking-widest text-[#d6b78a] block">
+              <span className="text-[10px] font-black uppercase tracking-widest text-[#C4A258] block">
                 Follow & Reviews
               </span>
               <div className="flex items-center gap-2.5">
@@ -69,37 +69,37 @@ export const Footer: React.FC = () => {
               </div>
             </div>
 
-            <div className="flex items-center gap-2 text-xs text-accent font-semibold pt-1">
-              <span>Crafted for authentic Moroccan travel</span>
+            <div className="flex items-center gap-2 text-xs text-[#C4A258] font-semibold pt-1">
+              <span>✦ Crafted for authentic Moroccan travel</span>
             </div>
           </div>
 
           {/* Col 2: Top Destinations */}
           <div>
-            <h4 className="text-xs font-extrabold uppercase tracking-widest text-accent mb-3">
+            <h4 className="text-xs font-extrabold uppercase tracking-widest text-[#C4A258] mb-3">
               Explore
             </h4>
             <ul className="space-y-2.5 text-sm text-white/80 font-medium">
-              <li><Link href="/#destinations" className="hover:text-gold transition-colors">Marrakech</Link></li>
-              <li><Link href="/agafay" className="hover:text-gold transition-colors">Agafay Desert</Link></li>
-              <li><Link href="/taghazout" className="hover:text-gold transition-colors">Taghazout Escapes</Link></li>
-              <li><Link href="/#destinations" className="hover:text-gold transition-colors">Sahara Desert</Link></li>
-              <li><Link href="/#destinations" className="hover:text-gold transition-colors">Atlas Mountains</Link></li>
-              <li><Link href="/#destinations" className="hover:text-gold transition-colors">Essaouira</Link></li>
+              <li><Link href="/#destinations" className="hover:text-[#C4A258] transition-colors">Marrakech</Link></li>
+              <li><Link href="/agafay" className="hover:text-[#C4A258] transition-colors">Agafay Desert</Link></li>
+              <li><Link href="/taghazout" className="hover:text-[#C4A258] transition-colors">Taghazout Coastal</Link></li>
+              <li><Link href="/escapes/sahara-escape-3d" className="hover:text-[#C4A258] transition-colors">Sahara Dunes (Merzouga)</Link></li>
+              <li><Link href="/escapes/imlil-toubkal-1d" className="hover:text-[#C4A258] transition-colors">Atlas Mountains</Link></li>
+              <li><Link href="/escapes/essaouira-coastal-2d" className="hover:text-[#C4A258] transition-colors">Essaouira</Link></li>
             </ul>
           </div>
 
           {/* Col 3: Experiences */}
           <div>
-            <h4 className="text-xs font-extrabold uppercase tracking-widest text-accent mb-3">
+            <h4 className="text-xs font-extrabold uppercase tracking-widest text-[#C4A258] mb-3">
               Plan
             </h4>
             <ul className="space-y-2.5 text-sm text-white/80 font-medium">
-              <li><Link href="/#itineraries" className="hover:text-gold transition-colors">7-Day Sahara Dunes Odyssey</Link></li>
-              <li><Link href="/#itineraries" className="hover:text-gold transition-colors">5-Day Atlantic Surf & Coast</Link></li>
-              <li><Link href="/#escapes" className="hover:text-gold transition-colors">Add an Experience</Link></li>
-              <li><Link href="/#how-it-works" className="hover:text-gold transition-colors">How SafarAtlas Works</Link></li>
-              <li><Link href="/journey" className="hover:text-gold transition-colors">Plan My Morocco Trip</Link></li>
+              <li><Link href="/escapes/sahara-escape-3d" className="hover:text-[#C4A258] transition-colors">3-Day Sahara Escape</Link></li>
+              <li><Link href="/taghazout" className="hover:text-[#C4A258] transition-colors">Atlantic Surf & Coast</Link></li>
+              <li><Link href="/#destinations" className="hover:text-[#C4A258] transition-colors">Modular Escapes</Link></li>
+              <li><Link href="/#compare" className="hover:text-[#C4A258] transition-colors">Why SafarAtlas</Link></li>
+              <li><Link href="/journey" className="hover:text-[#C4A258] transition-colors">Plan My Morocco Journey</Link></li>
             </ul>
           </div>
 
@@ -111,9 +111,9 @@ export const Footer: React.FC = () => {
             </p>
             <Link
               href="/journey"
-              className="inline-block w-full text-center py-2.5 rounded-xl bg-[#c95e3d] hover:bg-[#aa4a2c] text-white text-xs font-bold transition-all shadow-md cursor-pointer"
+              className="inline-block w-full text-center py-3 rounded-xl bg-[#C4A258] hover:bg-[#d8bb78] text-[#07192d] text-xs font-black uppercase tracking-wider transition-all shadow-md cursor-pointer"
             >
-              Plan My Morocco Trip →
+              Plan My Morocco Journey →
             </Link>
 
             <div className="pt-2 flex items-center justify-center gap-4 text-xs text-white/60">
