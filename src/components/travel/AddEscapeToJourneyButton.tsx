@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { addEscapeToJourney } from "../../lib/journeyStore";
 import { EscapePackage } from "../../data/mockData";
 
@@ -9,6 +9,8 @@ interface AddEscapeToJourneyButtonProps {
 }
 
 export const AddEscapeToJourneyButton: React.FC<AddEscapeToJourneyButtonProps> = ({ escapePkg }) => {
+  const [added, setAdded] = useState(false);
+
   const handleAdd = () => {
     addEscapeToJourney({
       id: escapePkg.id,
@@ -20,27 +22,34 @@ export const AddEscapeToJourneyButton: React.FC<AddEscapeToJourneyButtonProps> =
       image: escapePkg.image,
       badge: escapePkg.badge,
     });
-    window.location.href = "/journey";
+    setAdded(true);
+    setTimeout(() => {
+      window.location.href = "/journey";
+    }, 600);
   };
 
   return (
     <div className="space-y-3">
       <button
         onClick={handleAdd}
-        className="w-full py-4 rounded-xl bg-[#c95e3d] hover:bg-[#aa4a2c] text-white text-xs font-black tracking-widest shadow-lg transition-all transform hover:-translate-y-0.5 flex flex-col items-center justify-center gap-1 text-center cursor-pointer"
+        disabled={added}
+        className="w-full py-4 rounded-xl bg-[#C4A258] hover:bg-[#d8bb78] text-[#07192d] text-xs font-black tracking-widest shadow-lg transition-all transform hover:-translate-y-0.5 flex flex-col items-center justify-center gap-1 text-center cursor-pointer disabled:opacity-70"
       >
-        <span>+ Add to My Morocco Journey →</span>
-        <span className="text-[10px] font-medium text-white/70 normal-case tracking-normal">
-          Build multi-destination trip with SafarAtlas
+        <span>{added ? "✓ Added — Opening Journey Builder…" : "Add to My Journey →"}</span>
+        <span className="text-[10px] font-medium text-[#07192d]/60 normal-case tracking-normal">
+          Build your full Morocco itinerary with SafarAtlas
         </span>
       </button>
 
       <a
-        href={`/?inquire=${escapePkg.slug}`}
-        className="block text-center text-xs font-bold text-[#123b34] hover:underline pt-1"
+        href={`https://wa.me/212698017323?text=${encodeURIComponent(`Hi SafarAtlas! I'd like a standalone quote for: ${escapePkg.title}`)}`}
+        target="_blank"
+        rel="noreferrer"
+        className="block text-center text-xs font-bold text-[#C4A258] hover:underline pt-1"
       >
-        Or Book Standalone Quote
+        Or get an instant quote on WhatsApp
       </a>
     </div>
   );
 };
+

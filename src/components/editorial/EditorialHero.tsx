@@ -51,18 +51,16 @@ export const EditorialHero: React.FC = () => {
             className="animate-rise anim-delay-200 mt-3 max-w-xl font-sans text-xs sm:text-sm font-light text-[#f6f2ec]/80 tracking-wide"
             style={{ lineHeight: 1.6 }}
           >
-            Private desert camps, High Atlas lodges, coastal retreats and door-to-door 4×4 drivers under one dedicated WhatsApp concierge.
+            Tell us how you want to experience Morocco — we coordinate trusted local partners, private transfers, stays and experiences into one seamless journey.
           </p>
 
           <div className="animate-rise anim-delay-300 mt-5 flex flex-wrap items-center gap-4 sm:gap-6">
             <a
-              href={`https://wa.me/212698017323?text=${waPrefill}`}
-              target="_blank"
-              rel="noreferrer"
+              href="/journey"
               className="group inline-flex items-center gap-3 bg-[#C4A258] px-7 py-3.5 text-xs uppercase tracking-[0.3em] text-[#07192d] transition-all duration-300 hover:bg-[#d8bb78] hover:tracking-[0.35em] font-bold"
               style={{ boxShadow: "var(--shadow-gold)" }}
             >
-              <span>Check Availability</span>
+              <span>Plan My Morocco Journey</span>
               <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
             </a>
 
@@ -70,17 +68,17 @@ export const EditorialHero: React.FC = () => {
               href="#destinations"
               className="link-sweep text-xs uppercase tracking-[0.3em] text-[#f6f2ec]/80 hover:text-[#f6f2ec]"
             >
-              Explore Signature Escapes
+              Explore Escapes
             </a>
           </div>
 
           {/* Trust row */}
           <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-1 text-[10px] uppercase tracking-[0.2em] text-[#f6f2ec]/50 pt-3 border-t border-white/10">
-            <span>Private 4×4 transfers</span>
+            <span>Private journeys</span>
             <span className="hidden sm:inline">·</span>
-            <span>Vetted boutique camps</span>
+            <span>Trusted local partners</span>
             <span className="hidden sm:inline">·</span>
-            <span>24/7 WhatsApp concierge</span>
+            <span>Human support in Morocco</span>
           </div>
         </div>
 

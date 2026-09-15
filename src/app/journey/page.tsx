@@ -171,8 +171,25 @@ ${form.notes || "None provided."}`;
             Design Your Tailored Morocco Journey
           </h1>
           <p className="text-xs sm:text-sm md:text-base text-[#f6f2ec]/70 leading-relaxed max-w-2xl mx-auto">
-            Assemble your dream escapes. SafarAtlas coordinates door-to-door private transport, handpicked riads, luxury camps, and certified guides under one transparent itinerary.
+            Tell us what you want. We coordinate trusted local partners, private transfers, stays and experiences — and deliver one transparent itinerary.
           </p>
+        </div>
+
+        {/* How it works — 3-step product model */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-4xl mx-auto mb-12">
+          {[
+            { step: "01", title: "Tell us your plans", body: "Share your dates, group size and the Morocco you want to experience." },
+            { step: "02", title: "We coordinate", body: "SafarAtlas brings together trusted local partners — stays, transport, and activities — under one concierge." },
+            { step: "03", title: "You travel", body: "One itinerary, one point of contact. We handle the details so you focus on the journey." },
+          ].map(({ step, title, body }) => (
+            <div key={step} className="flex gap-4 bg-[#0d2239]/60 border border-white/10 rounded-2xl p-5">
+              <span className="text-2xl font-serif font-black text-[#C4A258]/40 leading-none mt-0.5 flex-shrink-0">{step}</span>
+              <div>
+                <h3 className="text-sm font-bold text-[#f6f2ec] mb-1">{title}</h3>
+                <p className="text-xs text-[#f6f2ec]/60 leading-relaxed">{body}</p>
+              </div>
+            </div>
+          ))}
         </div>
 
         {submitted ? (
