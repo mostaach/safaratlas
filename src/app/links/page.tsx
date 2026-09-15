@@ -34,28 +34,44 @@ export default function LinksPage() {
             />
           </div>
           <div>
-            <h1 className="text-2xl font-serif font-black tracking-tight text-white mt-4">SafarAtlas</h1>
-            <p className="text-sm font-medium text-[#c6a476] uppercase tracking-widest mt-1">Morocco Escapes</p>
+            <h1 className="text-2xl font-serif font-black tracking-tight text-[#f6f2ec] mt-4">SafarAtlas</h1>
+            <p className="text-xs font-semibold text-[#C4A258] uppercase tracking-[0.3em] mt-1">Morocco Managed Journeys</p>
           </div>
         </div>
 
         {/* Links */}
-        <div className="w-full space-y-4">
+        <div className="w-full space-y-3.5">
           
           <Link 
-            href="/offers/agafay-vip"
-            onClick={() => trackEvent("click_link_tree", { type: "agafay_offer" })}
-            className="block w-full text-center py-4 px-6 rounded-2xl bg-gradient-to-r from-[#c6a476] to-[#b38a5a] text-white font-extrabold shadow-lg hover:scale-[1.02] transition-transform"
+            href="/journey"
+            onClick={() => trackEvent("click_link_tree", { type: "journey_builder" })}
+            className="block w-full text-center py-4 px-6 rounded-2xl bg-[#C4A258] hover:bg-[#d8bb78] text-[#07192d] font-black text-xs uppercase tracking-widest shadow-xl hover:scale-[1.02] transition-all"
           >
-            🔥 Book 1-Day Agafay VIP Escape
+            🗺️ Plan My Custom Morocco Journey →
+          </Link>
+
+          <Link 
+            href="/agafay"
+            onClick={() => trackEvent("click_link_tree", { type: "agafay_offer" })}
+            className="block w-full text-center py-4 px-6 rounded-2xl bg-[#0d2239]/80 border border-white/10 text-[#f6f2ec] font-bold text-xs hover:border-[#C4A258]/50 hover:text-[#C4A258] transition-all shadow-md"
+          >
+            🐪 Agafay Desert Sunset & Dinner Escape
+          </Link>
+
+          <Link 
+            href="/taghazout"
+            onClick={() => trackEvent("click_link_tree", { type: "taghazout_offer" })}
+            className="block w-full text-center py-4 px-6 rounded-2xl bg-[#0d2239]/80 border border-white/10 text-[#f6f2ec] font-bold text-xs hover:border-[#C4A258]/50 hover:text-[#C4A258] transition-all shadow-md"
+          >
+            🏄 Taghazout Surf & Ocean Retreat
           </Link>
 
           <Link 
             href="/"
             onClick={() => trackEvent("click_link_tree", { type: "home_page" })}
-            className="block w-full text-center py-4 px-6 rounded-2xl bg-[#1b2622] border border-[#2a5b50] text-white font-bold hover:bg-[#21302b] transition-colors"
+            className="block w-full text-center py-4 px-6 rounded-2xl bg-[#0d2239]/80 border border-white/10 text-[#f6f2ec] font-bold text-xs hover:border-[#C4A258]/50 hover:text-[#C4A258] transition-all shadow-md"
           >
-            🏕️ Explore All Escapes
+            🏕️ Explore All Signature Escapes
           </Link>
 
           <a 
@@ -63,9 +79,9 @@ export default function LinksPage() {
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => trackEvent("click_link_tree", { type: "whatsapp_chat" })}
-            className="block w-full text-center py-4 px-6 rounded-2xl bg-[#1b2622] border border-[#2a5b50] text-white font-bold hover:bg-[#21302b] transition-colors flex items-center justify-center gap-2"
+            className="block w-full text-center py-4 px-6 rounded-2xl bg-[#25D366] hover:bg-[#1eb855] text-white font-black text-xs uppercase tracking-wider transition-all shadow-lg flex items-center justify-center gap-2"
           >
-            <span className="text-[#25D366]">💬</span> Chat with Concierge
+            <span>💬 Chat with Concierge on WhatsApp</span>
           </a>
 
         </div>

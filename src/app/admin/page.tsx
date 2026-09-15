@@ -46,20 +46,20 @@ const navItems: { id: Tab; icon: string; label: string }[] = [
 // Style helpers
 const navItemStyle = (active: boolean): CSSProperties => ({
   display: "flex", alignItems: "center", gap: 10, padding: "9px 20px", cursor: "pointer",
-  background: active ? "#1a2e26" : "transparent",
-  borderLeft: active ? "2px solid #c95e3d" : "2px solid transparent",
-  color: active ? "#e8f0ed" : "#6b8c7e", fontSize: 13, fontWeight: active ? 700 : 500,
+  background: active ? "#0d2239" : "transparent",
+  borderLeft: active ? "2px solid #C4A258" : "2px solid transparent",
+  color: active ? "#f6f2ec" : "rgba(246,242,236,0.6)", fontSize: 13, fontWeight: active ? 700 : 500,
   textDecoration: "none", transition: "all 0.15s",
 });
 
 const kpiCardStyle = (accent: boolean): CSSProperties => ({
-  background: accent ? "linear-gradient(135deg,#1a3a2e,#0f2a20)" : "#111e18",
-  border: `1px solid ${accent ? "#2a5040" : "#1e2e28"}`,
+  background: accent ? "linear-gradient(135deg,#0d2239,#16375A)" : "#0d2239",
+  border: `1px solid ${accent ? "rgba(196,162,88,0.3)" : "rgba(255,255,255,0.08)"}`,
   borderRadius: 14, padding: "20px",
 });
 
 const kpiValueStyle = (accent: boolean): CSSProperties => ({
-  fontSize: 28, fontWeight: 900, color: accent ? "#4ade80" : "#e8f0ed", lineHeight: 1,
+  fontSize: 28, fontWeight: 900, color: accent ? "#C4A258" : "#f6f2ec", lineHeight: 1,
 });
 
 const pillStyle = (color: string): CSSProperties => ({
@@ -68,30 +68,30 @@ const pillStyle = (color: string): CSSProperties => ({
 });
 
 // Static styles
-const page: CSSProperties = { display: "flex", minHeight: "100vh", background: "#0e1a16", fontFamily: "'Inter', -apple-system, sans-serif", color: "#e8f0ed" };
-const sidebar: CSSProperties = { width: 220, background: "#0a1410", borderRight: "1px solid #1e2e28", display: "flex", flexDirection: "column", flexShrink: 0 };
-const sidebarHeader: CSSProperties = { padding: "24px 20px 16px", borderBottom: "1px solid #1e2e28" };
+const page: CSSProperties = { display: "flex", minHeight: "100vh", background: "#07192d", fontFamily: "'Inter', -apple-system, sans-serif", color: "#f6f2ec" };
+const sidebar: CSSProperties = { width: 220, background: "#051324", borderRight: "1px solid rgba(255,255,255,0.08)", display: "flex", flexDirection: "column", flexShrink: 0 };
+const sidebarHeader: CSSProperties = { padding: "24px 20px 16px", borderBottom: "1px solid rgba(255,255,255,0.08)" };
 const logoIcon: CSSProperties = { width: 36, height: 36, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 8 };
-const logoTitle: CSSProperties = { fontSize: 14, fontWeight: 800, color: "#e8f0ed", display: "block" };
-const logoSub: CSSProperties = { fontSize: 10, color: "#5a7a6e", fontWeight: 600, letterSpacing: 2, textTransform: "uppercase" };
-const sectionLabel: CSSProperties = { fontSize: 9, fontWeight: 800, letterSpacing: 3, textTransform: "uppercase", color: "#3d5a50", padding: "16px 20px 6px" };
+const logoTitle: CSSProperties = { fontSize: 14, fontWeight: 800, color: "#f6f2ec", display: "block" };
+const logoSub: CSSProperties = { fontSize: 10, color: "#C4A258", fontWeight: 600, letterSpacing: 2, textTransform: "uppercase" };
+const sectionLabel: CSSProperties = { fontSize: 9, fontWeight: 800, letterSpacing: 3, textTransform: "uppercase", color: "rgba(246,242,236,0.4)", padding: "16px 20px 6px" };
 const mainStyle: CSSProperties = { flex: 1, display: "flex", flexDirection: "column", overflow: "auto" };
-const topbar: CSSProperties = { padding: "16px 28px", borderBottom: "1px solid #1e2e28", background: "#0e1a16", display: "flex", alignItems: "center", justifyContent: "space-between" };
+const topbar: CSSProperties = { padding: "16px 28px", borderBottom: "1px solid rgba(255,255,255,0.08)", background: "#07192d", display: "flex", alignItems: "center", justifyContent: "space-between" };
 const content: CSSProperties = { padding: "28px", flex: 1 };
 const kpiGrid: CSSProperties = { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(170px, 1fr))", gap: 16, marginBottom: 28 };
-const kpiLabel: CSSProperties = { fontSize: 10, fontWeight: 700, letterSpacing: 2, textTransform: "uppercase", color: "#5a7a6e", marginBottom: 8 };
-const card: CSSProperties = { background: "#111e18", border: "1px solid #1e2e28", borderRadius: 14, padding: "20px 22px", marginBottom: 14 };
-const cardId: CSSProperties = { fontFamily: "monospace", fontSize: 10, fontWeight: 700, color: "#c95e3d", marginBottom: 4 };
-const cardTitle: CSSProperties = { fontSize: 16, fontWeight: 800, color: "#e8f0ed", marginBottom: 3 };
-const cardSub: CSSProperties = { fontSize: 12, color: "#6b8c7e", marginBottom: 6 };
-const cardMsg: CSSProperties = { fontSize: 12, color: "#8aaba0", lineHeight: 1.6, marginBottom: 6 };
-const selectStyle: CSSProperties = { borderRadius: 8, border: "1px solid #2a3e34", background: "#0a1410", color: "#e8f0ed", padding: "8px 10px", fontSize: 12, fontWeight: 700, outline: "none", width: "100%" };
-const inputStyle: CSSProperties = { borderRadius: 8, border: "1px solid #2a3e34", background: "#0a1410", color: "#e8f0ed", padding: "8px 10px", fontSize: 12, outline: "none", width: "100%" };
-const statCard: CSSProperties = { background: "#111e18", border: "1px solid #1e2e28", borderRadius: 14, padding: "20px" };
-const statLabel: CSSProperties = { fontSize: 10, fontWeight: 700, letterSpacing: 2, textTransform: "uppercase", color: "#5a7a6e", margin: "0 0 8px" };
-const statVal: CSSProperties = { fontSize: 24, fontWeight: 900, color: "#e8f0ed", margin: 0 };
-const emptyState: CSSProperties = { textAlign: "center", padding: "60px 24px", color: "#3d5a50" };
-const badge: CSSProperties = { background: "#c95e3d", color: "#fff", borderRadius: "50%", width: 18, height: 18, fontSize: 10, fontWeight: 900, display: "flex", alignItems: "center", justifyContent: "center" };
+const kpiLabel: CSSProperties = { fontSize: 10, fontWeight: 700, letterSpacing: 2, textTransform: "uppercase", color: "#C4A258", marginBottom: 8 };
+const card: CSSProperties = { background: "#0d2239", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 14, padding: "20px 22px", marginBottom: 14 };
+const cardId: CSSProperties = { fontFamily: "monospace", fontSize: 10, fontWeight: 700, color: "#C4A258", marginBottom: 4 };
+const cardTitle: CSSProperties = { fontSize: 16, fontWeight: 800, color: "#f6f2ec", marginBottom: 3 };
+const cardSub: CSSProperties = { fontSize: 12, color: "rgba(246,242,236,0.65)", marginBottom: 6 };
+const cardMsg: CSSProperties = { fontSize: 12, color: "rgba(246,242,236,0.8)", lineHeight: 1.6, marginBottom: 6 };
+const selectStyle: CSSProperties = { borderRadius: 8, border: "1px solid rgba(255,255,255,0.15)", background: "#051324", color: "#f6f2ec", padding: "8px 10px", fontSize: 12, fontWeight: 700, outline: "none", width: "100%" };
+const inputStyle: CSSProperties = { borderRadius: 8, border: "1px solid rgba(255,255,255,0.15)", background: "#051324", color: "#f6f2ec", padding: "8px 10px", fontSize: 12, outline: "none", width: "100%" };
+const statCard: CSSProperties = { background: "#0d2239", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 14, padding: "20px" };
+const statLabel: CSSProperties = { fontSize: 10, fontWeight: 700, letterSpacing: 2, textTransform: "uppercase", color: "#C4A258", margin: "0 0 8px" };
+const statVal: CSSProperties = { fontSize: 24, fontWeight: 900, color: "#f6f2ec", margin: 0 };
+const emptyState: CSSProperties = { textAlign: "center", padding: "60px 24px", color: "rgba(246,242,236,0.4)" };
+const badge: CSSProperties = { background: "#C4A258", color: "#07192d", borderRadius: "50%", width: 18, height: 18, fontSize: 10, fontWeight: 900, display: "flex", alignItems: "center", justifyContent: "center" };
 
 export default function AdminPage() {
   const [token, setToken] = useState("");

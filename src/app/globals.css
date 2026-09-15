@@ -1,14 +1,14 @@
 @import "tailwindcss";
 
 @theme {
-  --color-navy: #123b34;
-  --color-navy-dark: #0b2621;
-  --color-navy-tint: #f0f7f5;
-  --color-gold: #f4c36b;
-  --color-gold-dark: #d99a26;
-  --color-accent: #c95e3d;
-  --color-cream: #faf6f0;
-  --color-cream-dark: #f2e9dc;
+  --color-navy: #07192d;
+  --color-navy-dark: #051324;
+  --color-navy-tint: #0d2239;
+  --color-gold: #C4A258;
+  --color-gold-dark: #b38f45;
+  --color-accent: #C4A258;
+  --color-cream: #07192d;
+  --color-cream-dark: #051324;
   
   --shadow-2xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
@@ -18,28 +18,27 @@
   /* Fonts are injected via Next.js next/font in layout.tsx as --font-sans and --font-serif */
 
   /* Brand Palette */
-  --color-atlas-cedar: #123b34;
-  --color-atlas-cedar-light: #1b5349;
-  --color-cedar-emerald: #194c43;
-  --color-sahara-terracotta: #c95e3d;
-  --color-sahara-clay: #aa4a2c;
-  --color-sunset-gold: #f4c36b;
-  --color-amber-gold: #d99a26;
-  --color-oasis-teal: #2a7b6c;
-  --color-blue-chefchaouen: #3b629b;
-  --color-desert-pearl: #faf6f0;
-  --color-warm-dune: #f2e9dc;
-  --color-midnight-slate: #121a17;
-  --color-stone-dark: #1b2622;
-  --color-stone-muted: #4e5e57;
-  --color-border-warm: #e5dacb;
+  --color-atlas-cedar: #07192d;
+  --color-atlas-cedar-light: #0d2239;
+  --color-cedar-emerald: #0d2239;
+  --color-sahara-terracotta: #C4A258;
+  --color-sahara-clay: #b38f45;
+  --color-sunset-gold: #C4A258;
+  --color-amber-gold: #d8bb78;
+  --color-oasis-teal: #25D366;
+  --color-blue-chefchaouen: #16375A;
+  --color-desert-pearl: #07192d;
+  --color-warm-dune: #0d2239;
+  --color-midnight-slate: #f6f2ec;
+  --color-stone-dark: #0d2239;
+  --color-stone-muted: rgba(246, 242, 236, 0.65);
+  --color-border-warm: rgba(255, 255, 255, 0.1);
 
-  /* New Nano Banana Generated Identity */
-  --color-deep-atlas-blue: #0a233f;
-  --color-deep-atlas-blue-dark: #07192d;
-  --color-warm-sand: #c6a476;
-  --color-warm-sand-light: #d4b891;
-
+  /* New Identity */
+  --color-deep-atlas-blue: #07192d;
+  --color-deep-atlas-blue-dark: #051324;
+  --color-warm-sand: #C4A258;
+  --color-warm-sand-light: #d8bb78;
 
   /* Radii */
   --radius-xs: 6px;
@@ -50,14 +49,14 @@
   --radius-full: 9999px;
 
   /* Multi-Layered Elevation Shadows (Impeccable style) */
-  --shadow-subtle: 0 4px 12px rgba(18, 59, 52, 0.04);
-  --shadow-card: 0 10px 30px -5px rgba(18, 59, 52, 0.08), 0 4px 10px -2px rgba(0, 0, 0, 0.03);
-  --shadow-terracotta: 0 16px 36px -8px rgba(201, 94, 61, 0.28), 0 4px 12px -2px rgba(201, 94, 61, 0.15);
-  --shadow-cedar: 0 20px 40px -10px rgba(18, 59, 52, 0.3), 0 6px 16px -4px rgba(18, 59, 52, 0.15);
-  --shadow-glow-gold: 0 0 30px rgba(244, 195, 107, 0.4);
+  --shadow-subtle: 0 4px 12px rgba(0, 0, 0, 0.2);
+  --shadow-card: 0 10px 30px -5px rgba(0, 0, 0, 0.3), 0 4px 10px -2px rgba(0, 0, 0, 0.2);
+  --shadow-terracotta: 0 16px 36px -8px rgba(196, 162, 88, 0.25);
+  --shadow-cedar: 0 20px 40px -10px rgba(7, 25, 45, 0.5);
+  --shadow-glow-gold: 0 0 30px rgba(196, 162, 88, 0.35);
 
-  --background: var(--color-desert-pearl);
-  --foreground: var(--color-midnight-slate);
+  --background: #07192d;
+  --foreground: #f6f2ec;
 
   /* Editorial tokens with SafarAtlas Emblem Gold (#C4A258) & Deep Sahara Night Blue */
   --gold: #C4A258;
