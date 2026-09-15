@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { EscapePackage } from "../../data/mockData";
+import { addEscapeToJourney } from "../../lib/journeyStore";
 
 interface EscapeDetailModalProps {
   escapePkg: EscapePackage | null;
@@ -31,13 +32,13 @@ export const EscapeDetailModal: React.FC<EscapeDetailModalProps> = ({
   const totalEstimate = calculatedPricePerPerson * travelersCount;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/75 p-3 sm:p-4 backdrop-blur-md overflow-y-auto">
-      <div className="relative w-full max-w-4xl max-h-[90vh] bg-[#faf6f0] rounded-3xl border border-[#e5dacb] shadow-2xl overflow-y-auto flex flex-col my-auto">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 p-3 sm:p-4 backdrop-blur-md overflow-y-auto">
+      <div className="relative w-full max-w-4xl max-h-[90vh] bg-[#07192d] rounded-3xl border border-white/15 shadow-2xl overflow-y-auto flex flex-col my-auto text-[#f6f2ec]">
         
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-black/60 hover:bg-black text-white flex items-center justify-center backdrop-blur-md transition-all cursor-pointer"
+          className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-black/60 hover:bg-black text-white flex items-center justify-center backdrop-blur-md transition-all cursor-pointer border border-white/15"
           aria-label="Close details"
         >
           <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -52,25 +53,25 @@ export const EscapeDetailModal: React.FC<EscapeDetailModalProps> = ({
             alt={escapePkg.title}
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#121a17] via-[#121a17]/40 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#07192d] via-[#07192d]/50 to-transparent" />
           
           <div className="absolute top-6 left-6 flex items-center gap-2">
-            <span className="px-3 py-1 rounded-full bg-[#123b34]/90 backdrop-blur-md text-[#f4c36b] text-xs font-extrabold uppercase tracking-wider border border-[#f4c36b]/30">
+            <span className="px-3 py-1 rounded-full bg-[#0d2239]/90 backdrop-blur-md text-[#C4A258] text-xs font-extrabold uppercase tracking-wider border border-[#C4A258]/30">
               {escapePkg.badge}
             </span>
-            <span className="px-3 py-1 rounded-full bg-black/70 backdrop-blur-md text-white text-xs font-bold">
+            <span className="px-3 py-1 rounded-full bg-black/70 backdrop-blur-md text-white text-xs font-bold border border-white/10">
               ⏱️ {escapePkg.duration}
             </span>
           </div>
 
           <div className="absolute bottom-6 left-6 right-6 text-white space-y-1">
-            <span className="text-xs font-extrabold uppercase tracking-widest text-[#f4c36b]">
+            <span className="text-xs font-extrabold uppercase tracking-widest text-[#C4A258]">
               📍 {escapePkg.location} · Modular Journey Package
             </span>
-            <h2 className="text-2xl sm:text-4xl font-serif font-black tracking-tight drop-shadow-md">
+            <h2 className="text-2xl sm:text-4xl font-serif font-black tracking-tight drop-shadow-md text-[#f6f2ec]">
               {escapePkg.title}
             </h2>
-            <p className="text-xs sm:text-sm text-white/80 font-medium">
+            <p className="text-xs sm:text-sm text-[#f6f2ec]/80 font-medium">
               {escapePkg.subtitle}
             </p>
           </div>
@@ -81,10 +82,10 @@ export const EscapeDetailModal: React.FC<EscapeDetailModalProps> = ({
           
           {/* Overview & Description */}
           <div className="space-y-3">
-            <h3 className="text-xs font-extrabold uppercase tracking-widest text-[#c95e3d]">
+            <h3 className="text-xs font-extrabold uppercase tracking-widest text-[#C4A258]">
               Escape Overview
             </h3>
-            <p className="text-sm sm:text-base text-[#4e5e57] leading-relaxed">
+            <p className="text-sm sm:text-base text-[#f6f2ec]/80 leading-relaxed">
               {escapePkg.fullDescription || escapePkg.summary}
             </p>
           </div>
@@ -93,24 +94,24 @@ export const EscapeDetailModal: React.FC<EscapeDetailModalProps> = ({
           {escapePkg.itineraryDays && escapePkg.itineraryDays.length > 0 && (
             <div className="space-y-4">
               <div className="flex items-center justify-between">
-                <h3 className="text-xs font-extrabold uppercase tracking-widest text-[#123b34]">
+                <h3 className="text-xs font-extrabold uppercase tracking-widest text-[#C4A258]">
                   📅 Day-by-Day Itinerary Breakdown
                 </h3>
-                <span className="text-xs text-[#4e5e57] font-semibold">
+                <span className="text-xs text-[#f6f2ec]/60 font-semibold">
                   {escapePkg.itineraryDays.length} Days
                 </span>
               </div>
 
               {/* Day Tabs */}
-              <div className="flex flex-wrap gap-2 border-b border-[#e5dacb] pb-2">
+              <div className="flex flex-wrap gap-2 border-b border-white/10 pb-2">
                 {escapePkg.itineraryDays.map((day, idx) => (
                   <button
                     key={day.dayNumber}
                     onClick={() => setActiveDayIndex(idx)}
                     className={`px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${
                       activeDayIndex === idx
-                        ? "bg-[#123b34] text-white shadow-md"
-                        : "bg-white text-[#4e5e57] hover:text-[#121a17] border border-[#e5dacb]"
+                        ? "bg-[#C4A258] text-[#07192d] shadow-md"
+                        : "bg-white/5 text-[#f6f2ec]/70 hover:text-white border border-white/10"
                     }`}
                   >
                     Day {day.dayNumber}
@@ -120,7 +121,7 @@ export const EscapeDetailModal: React.FC<EscapeDetailModalProps> = ({
 
               {/* Active Day Card */}
               {escapePkg.itineraryDays[activeDayIndex] && (
-                <div className="bg-white rounded-2xl p-5 border border-[#e5dacb] space-y-4 shadow-sm">
+                <div className="bg-[#0d2239]/80 backdrop-blur-md rounded-2xl p-5 border border-white/10 space-y-4 shadow-sm">
                   <div className="flex flex-col sm:flex-row gap-4 items-start">
                     <img
                       src={escapePkg.itineraryDays[activeDayIndex].image}
@@ -128,19 +129,19 @@ export const EscapeDetailModal: React.FC<EscapeDetailModalProps> = ({
                       className="w-full sm:w-48 h-32 rounded-xl object-cover shrink-0"
                     />
                     <div className="space-y-2 flex-1">
-                      <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#c95e3d]">
+                      <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#C4A258]">
                         Day {escapePkg.itineraryDays[activeDayIndex].dayNumber} Schedule
                       </span>
-                      <h4 className="text-lg font-serif font-bold text-[#121a17]">
+                      <h4 className="text-lg font-serif font-bold text-[#f6f2ec]">
                         {escapePkg.itineraryDays[activeDayIndex].title}
                       </h4>
-                      <p className="text-xs text-[#4e5e57] leading-relaxed">
+                      <p className="text-xs text-[#f6f2ec]/70 leading-relaxed">
                         {escapePkg.itineraryDays[activeDayIndex].description}
                       </p>
 
                       <div className="pt-2 flex flex-wrap gap-1.5">
                         {escapePkg.itineraryDays[activeDayIndex].highlights.map((hl, i) => (
-                          <span key={i} className="text-[10px] font-bold bg-[#faf6f0] text-[#123b34] px-2.5 py-1 rounded-md border border-[#e5dacb]">
+                          <span key={i} className="text-[10px] font-bold bg-white/5 text-[#C4A258] px-2.5 py-1 rounded-md border border-white/10">
                             ✨ {hl}
                           </span>
                         ))}
@@ -155,14 +156,14 @@ export const EscapeDetailModal: React.FC<EscapeDetailModalProps> = ({
           {/* INCLUDED vs NOT INCLUDED GRID */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* What's Included */}
-            <div className="bg-white p-5 rounded-2xl border border-[#e5dacb] space-y-3">
-              <h4 className="text-xs font-extrabold uppercase tracking-widest text-[#059669] flex items-center gap-1.5">
+            <div className="bg-[#0d2239]/80 backdrop-blur-md p-5 rounded-2xl border border-white/10 space-y-3">
+              <h4 className="text-xs font-extrabold uppercase tracking-widest text-[#C4A258] flex items-center gap-1.5">
                 <span>✓</span> What SafarAtlas Coordinates:
               </h4>
               <ul className="space-y-2">
                 {escapePkg.included.map((inc, i) => (
-                  <li key={i} className="text-xs font-medium text-[#121a17] flex items-start gap-2">
-                    <span className="text-[#059669] font-bold">✓</span>
+                  <li key={i} className="text-xs font-medium text-[#f6f2ec] flex items-start gap-2">
+                    <span className="text-[#25D366] font-bold">✓</span>
                     <span>{inc}</span>
                   </li>
                 ))}
@@ -170,13 +171,13 @@ export const EscapeDetailModal: React.FC<EscapeDetailModalProps> = ({
             </div>
 
             {/* What's Not Included */}
-            <div className="bg-white p-5 rounded-2xl border border-[#e5dacb] space-y-3">
-              <h4 className="text-xs font-extrabold uppercase tracking-widest text-[#4e5e57] flex items-center gap-1.5">
+            <div className="bg-[#0d2239]/80 backdrop-blur-md p-5 rounded-2xl border border-white/10 space-y-3">
+              <h4 className="text-xs font-extrabold uppercase tracking-widest text-[#f6f2ec]/60 flex items-center gap-1.5">
                 <span>ℹ️</span> Not Included:
               </h4>
               <ul className="space-y-2">
                 {(escapePkg.notIncluded || ["Personal expenses & tips", "International flights"]).map((exc, i) => (
-                  <li key={i} className="text-xs text-[#4e5e57] flex items-start gap-2">
+                  <li key={i} className="text-xs text-[#f6f2ec]/60 flex items-start gap-2">
                     <span className="text-slate-400 font-bold">•</span>
                     <span>{exc}</span>
                   </li>
@@ -186,22 +187,22 @@ export const EscapeDetailModal: React.FC<EscapeDetailModalProps> = ({
           </div>
 
           {/* CALCULATOR & CTA BAR */}
-          <div className="bg-[#123b34] text-white p-6 rounded-3xl border border-[#2a5b50] flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl">
+          <div className="bg-[#0d2239] text-[#f6f2ec] p-6 rounded-3xl border border-white/10 flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl">
             <div className="space-y-2 text-center md:text-left">
-              <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#f4c36b]">
+              <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#C4A258]">
                 Seasonal & Group-Tiered Pricing
               </span>
               <div>
-                <span className="text-2xl font-serif font-black text-white">
+                <span className="text-2xl font-serif font-black text-[#f6f2ec]">
                   Pricing via WhatsApp
                 </span>
-                <p className="text-xs text-white/70 mt-0.5">
+                <p className="text-xs text-[#f6f2ec]/70 mt-0.5">
                   Exact rates tailored to your dates & party size ({travelersCount} traveler{travelersCount > 1 ? 's' : ''})
                 </p>
               </div>
 
               {/* Group Size Selector */}
-              <div className="pt-1 flex items-center gap-2 text-xs text-white/80">
+              <div className="pt-1 flex items-center gap-2 text-xs text-[#f6f2ec]/80">
                 <span>Group Size:</span>
                 {[1, 2, 4, 6].map((num) => (
                   <button
@@ -209,7 +210,7 @@ export const EscapeDetailModal: React.FC<EscapeDetailModalProps> = ({
                     onClick={() => setTravelersCount(num)}
                     className={`px-2.5 py-0.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
                       travelersCount === num
-                        ? "bg-[#c95e3d] text-white"
+                        ? "bg-[#C4A258] text-[#07192d]"
                         : "bg-white/10 text-white/70 hover:bg-white/20"
                     }`}
                   >
@@ -231,10 +232,20 @@ export const EscapeDetailModal: React.FC<EscapeDetailModalProps> = ({
               </a>
               <button
                 onClick={() => {
+                  addEscapeToJourney({
+                    id: escapePkg.id,
+                    slug: escapePkg.slug,
+                    title: escapePkg.title,
+                    duration: escapePkg.duration,
+                    location: escapePkg.location,
+                    priceFromEur: escapePkg.priceFromEur,
+                    image: escapePkg.image,
+                    badge: escapePkg.badge,
+                  });
                   onClose();
-                  onInquire(escapePkg);
+                  window.location.href = "/journey";
                 }}
-                className="w-full md:w-auto px-6 py-3.5 rounded-2xl bg-[#c95e3d] hover:bg-[#aa4a2c] text-white text-xs font-black tracking-widest shadow-xl transition-all cursor-pointer flex items-center justify-center gap-2"
+                className="w-full md:w-auto px-6 py-3.5 rounded-2xl bg-[#C4A258] hover:bg-[#d8bb78] text-[#07192d] text-xs font-black tracking-widest shadow-xl transition-all cursor-pointer flex items-center justify-center gap-2"
               >
                 <span>Add to Journey →</span>
               </button>

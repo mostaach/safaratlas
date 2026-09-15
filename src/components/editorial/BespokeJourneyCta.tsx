@@ -43,21 +43,22 @@ export const BespokeJourneyCta: React.FC = () => {
               {/* CTAs — exact Taghazout button DNA */}
               <div className="mt-10 flex flex-col gap-4 sm:flex-row">
                 <a
-                  href={`https://wa.me/212698017323?text=${waPrefill}`}
-                  target="_blank"
-                  rel="noreferrer"
+                  href="/journey"
                   className="group inline-flex items-center justify-center gap-3 bg-[#C4A258] px-10 py-5 text-xs uppercase tracking-[0.3em] text-[#07192d] font-semibold transition-all duration-300 hover:bg-[#d8bb78] hover:tracking-[0.35em]"
                   style={{ boxShadow: "var(--shadow-gold)" }}
                 >
-                  <span>Request Custom Itinerary</span>
+                  <span>Plan Your Custom Journey</span>
                   <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
                 </a>
 
                 <a
-                  href="#destinations"
-                  className="link-sweep text-xs uppercase tracking-[0.3em] text-[#f6f2ec]/55 hover:text-[#C4A258]"
+                  href={`https://wa.me/212698017323?text=${waPrefill}`}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="link-sweep text-xs uppercase tracking-[0.3em] text-[#f6f2ec]/70 hover:text-[#C4A258] flex items-center justify-center gap-2"
                 >
-                  Browse all escapes
+                  <span>Chat on WhatsApp</span>
+                  <span>→</span>
                 </a>
               </div>
             </div>
