@@ -12,65 +12,54 @@ export const EditorialHero: React.FC = () => {
 
       {/* Background image with Ken Burns drift */}
       <div className="absolute inset-0">
-        <picture>
-          <source srcSet="/agafay_rocky_desert_hero.webp" type="image/webp" />
-          <img
-            src="/agafay_rocky_desert_hero.png"
-            alt="Atmospheric dusk across Morocco's Agafay desert and High Atlas mountains"
-            className="h-full w-full object-cover animate-kenburns"
-            loading="eager"
-            fetchPriority="high"
-            decoding="sync"
-          />
-        </picture>
-        {/* Hero gradient — Deep Sahara Night atmosphere */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_30%,rgba(7,25,45,0.65)_100%)]" />
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(180deg, rgba(7,25,45,0.2) 0%, rgba(7,25,45,0.6) 55%, #07192d 100%)",
-          }}
+        <img
+          src="/safaratlas_hero_typography.jpg"
+          alt="Atmospheric dusk across Morocco's Agafay desert with monumental Safar Atlas typography"
+          className="h-full w-full object-cover animate-kenburns"
+          loading="eager"
+          fetchPriority="high"
+          decoding="sync"
         />
+        {/* Refined gradient overlay — preserves middle horizon and AGAFAY typography */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#07192d]/80 via-transparent to-[#07192d]/95 pointer-events-none" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(7,25,45,0.4)_0%,transparent_60%)] pointer-events-none" />
       </div>
 
-      {/* Hero content */}
-      <div className="relative z-10 container-editorial flex min-h-[100svh] flex-col justify-center pt-24">
-        <div className="max-w-5xl">
-
-          {/* Eyebrow */}
-          <p className="animate-rise mb-6 flex items-center gap-3 text-[11px] uppercase tracking-[0.4em] text-[#C4A258]">
+      {/* Hero content — tailored so AGAFAY horizon typography is completely unobstructed */}
+      <div className="relative z-10 container-editorial flex min-h-[100svh] flex-col justify-between pt-24 pb-8 sm:pb-12">
+        {/* Top Eyebrow */}
+        <div className="animate-rise">
+          <p className="flex items-center gap-3 text-[11px] uppercase tracking-[0.4em] text-[#C4A258]">
             <span className="h-px w-10 bg-[#C4A258]" />
-            Morocco · Private Managed Journeys
+            Morocco · Signature Private Escapes
           </p>
+        </div>
 
-          {/* Main headline */}
+        {/* Clear center aperture for AGAFAY typography */}
+        <div className="flex-1 min-h-[180px] sm:min-h-[240px] pointer-events-none" aria-hidden="true" />
+
+        {/* Bottom Editorial Content & Actions — positioned below the AGAFAY typography */}
+        <div className="max-w-2xl backdrop-blur-md bg-[#07192d]/70 p-6 sm:p-7 rounded-2xl border border-white/15 shadow-[0_20px_50px_rgba(0,0,0,0.7)]">
           <h1
-            className="animate-rise anim-delay-100 font-serif font-medium leading-[0.95] tracking-tight text-[#f6f2ec] text-shadow-deep"
-            style={{ fontSize: "clamp(2.5rem, 7.5vw, 6rem)" }}
+            className="animate-rise anim-delay-100 font-serif font-medium leading-[1.05] tracking-tight text-[#f6f2ec] text-shadow-deep text-2xl sm:text-3xl md:text-4xl"
           >
-            Morocco, orchestrated
-            <br />
+            Morocco, orchestrated{" "}
             <span className="italic text-[#f6f2ec]/95">chapter by chapter.</span>
           </h1>
 
-          {/* Sub */}
           <p
-            className="animate-rise anim-delay-200 mt-8 max-w-xl font-sans text-base md:text-lg font-light text-[#f6f2ec]/70 tracking-wide"
+            className="animate-rise anim-delay-200 mt-3 max-w-xl font-sans text-xs sm:text-sm font-light text-[#f6f2ec]/80 tracking-wide"
             style={{ lineHeight: 1.6 }}
           >
-            Forget chaotic group tours. We orchestrate private desert camps,
-            High Atlas lodges, coastal retreats and door-to-door 4×4 drivers
-            under one dedicated WhatsApp concierge.
+            Private desert camps, High Atlas lodges, coastal retreats and door-to-door 4×4 drivers under one dedicated WhatsApp concierge.
           </p>
 
-          {/* CTAs — exact Taghazout button DNA */}
-          <div className="animate-rise anim-delay-300 mt-14 flex flex-wrap items-center gap-8">
+          <div className="animate-rise anim-delay-300 mt-5 flex flex-wrap items-center gap-4 sm:gap-6">
             <a
               href={`https://wa.me/212698017323?text=${waPrefill}`}
               target="_blank"
               rel="noreferrer"
-              className="group inline-flex items-center gap-3 bg-[#C4A258] px-10 py-5 text-xs uppercase tracking-[0.3em] text-[#07192d] transition-all duration-300 hover:bg-[#d8bb78] hover:tracking-[0.35em]"
+              className="group inline-flex items-center gap-3 bg-[#C4A258] px-7 py-3.5 text-xs uppercase tracking-[0.3em] text-[#07192d] transition-all duration-300 hover:bg-[#d8bb78] hover:tracking-[0.35em] font-bold"
               style={{ boxShadow: "var(--shadow-gold)" }}
             >
               <span>Check Availability</span>
@@ -79,19 +68,19 @@ export const EditorialHero: React.FC = () => {
 
             <a
               href="#destinations"
-              className="link-sweep text-xs uppercase tracking-[0.3em] text-[#f6f2ec]/70 hover:text-[#f6f2ec]"
+              className="link-sweep text-xs uppercase tracking-[0.3em] text-[#f6f2ec]/80 hover:text-[#f6f2ec]"
             >
               Explore Signature Escapes
             </a>
           </div>
 
           {/* Trust row */}
-          <div className="animate-rise anim-delay-300 mt-10 flex flex-wrap items-center gap-x-8 gap-y-2 text-[11px] uppercase tracking-[0.25em] text-[#f6f2ec]/40">
-            <span>Private door-to-door transfers</span>
+          <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-1 text-[10px] uppercase tracking-[0.2em] text-[#f6f2ec]/50 pt-3 border-t border-white/10">
+            <span>Private 4×4 transfers</span>
             <span className="hidden sm:inline">·</span>
-            <span>Vetted boutique riads &amp; camps</span>
+            <span>Vetted boutique camps</span>
             <span className="hidden sm:inline">·</span>
-            <span>24/7 local concierge</span>
+            <span>24/7 WhatsApp concierge</span>
           </div>
         </div>
 
