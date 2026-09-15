@@ -90,7 +90,7 @@ export default async function BlogPostPage({ params }: Props) {
   const renderBlock = (block: string, idx: number) => {
     if (block.startsWith("# ")) {
       return (
-        <h1 key={idx} className="text-3xl sm:text-4xl font-serif font-black text-[#121a17] leading-tight mt-10 mb-4">
+        <h1 key={idx} className="text-3xl sm:text-4xl font-serif font-black text-[#f6f2ec] leading-tight mt-10 mb-4">
           {block.replace("# ", "")}
         </h1>
       );
@@ -99,34 +99,34 @@ export default async function BlogPostPage({ params }: Props) {
       const text = block.replace("## ", "");
       const id = text.toLowerCase().replace(/[^a-z0-9]+/g, "-");
       return (
-        <h2 key={idx} id={id} className="text-xl sm:text-2xl font-serif font-bold text-[#121a17] mt-8 mb-3 scroll-mt-24">
+        <h2 key={idx} id={id} className="text-xl sm:text-2xl font-serif font-bold text-[#f6f2ec] mt-8 mb-3 scroll-mt-24">
           {text}
         </h2>
       );
     }
     if (block.startsWith("### ")) {
       return (
-        <h3 key={idx} className="text-base font-serif font-bold text-[#123b34] mt-6 mb-2">
+        <h3 key={idx} className="text-base font-serif font-bold text-[#C4A258] mt-6 mb-2">
           {block.replace("### ", "")}
         </h3>
       );
     }
     if (block === "---") {
-      return <hr key={idx} className="border-[#e5dacb] my-8" />;
+      return <hr key={idx} className="border-white/10 my-8" />;
     }
     // Handle markdown table (starts with |)
     if (block.startsWith("|")) {
       const rows = block.split("\n").filter((r) => r.trim() && !r.match(/^\|[-\s|]+\|$/));
       return (
         <div key={idx} className="overflow-x-auto my-6">
-          <table className="w-full text-sm border-collapse rounded-xl overflow-hidden shadow-sm">
+          <table className="w-full text-sm border-collapse rounded-xl overflow-hidden shadow-sm border border-white/10">
             {rows.map((row, ri) => {
               const cells = row.split("|").filter(Boolean).map((c) => c.trim());
               return ri === 0 ? (
                 <thead key={ri}>
-                  <tr className="bg-[#123b34] text-white">
+                  <tr className="bg-[#0d2239] text-[#f6f2ec]">
                     {cells.map((c, ci) => (
-                      <th key={ci} className="px-4 py-2.5 text-left text-[11px] font-extrabold uppercase tracking-wider">
+                      <th key={ci} className="px-4 py-2.5 text-left text-[11px] font-extrabold uppercase tracking-wider text-[#C4A258]">
                         {c}
                       </th>
                     ))}
@@ -134,13 +134,13 @@ export default async function BlogPostPage({ params }: Props) {
                 </thead>
               ) : (
                 <tbody key={ri}>
-                  <tr className={ri % 2 === 0 ? "bg-white" : "bg-[#faf6f0]"}>
+                  <tr className={ri % 2 === 0 ? "bg-white/5" : "bg-white/[0.02]"}>
                     {cells.map((c, ci) => {
                       const rendered = c.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
                       return (
                         <td
                           key={ci}
-                          className="px-4 py-2.5 text-[#4e5e57] border-b border-[#e5dacb]"
+                          className="px-4 py-2.5 text-[#f6f2ec]/80 border-b border-white/10"
                           dangerouslySetInnerHTML={{ __html: rendered }}
                         />
                       );
@@ -161,8 +161,8 @@ export default async function BlogPostPage({ params }: Props) {
           {items.map((item, ii) => {
             const rendered = item.replace("- ", "").replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
             return (
-              <li key={ii} className="text-sm text-[#4e5e57] leading-relaxed flex gap-2">
-                <span className="text-[#c95e3d] mt-0.5 shrink-0">▸</span>
+              <li key={ii} className="text-sm text-[#f6f2ec]/80 leading-relaxed flex gap-2">
+                <span className="text-[#C4A258] mt-0.5 shrink-0">▸</span>
                 <span dangerouslySetInnerHTML={{ __html: rendered }} />
               </li>
             );
@@ -175,7 +175,7 @@ export default async function BlogPostPage({ params }: Props) {
     return (
       <p
         key={idx}
-        className="text-sm sm:text-base text-[#4e5e57] leading-relaxed"
+        className="text-sm sm:text-base text-[#f6f2ec]/80 leading-relaxed"
         dangerouslySetInnerHTML={{ __html: rendered }}
       />
     );
@@ -184,7 +184,7 @@ export default async function BlogPostPage({ params }: Props) {
   const articleUrl = `https://safaratlas.com/blog/${post.slug}`;
 
   return (
-    <div className="min-h-screen bg-[#faf6f0]">
+    <div className="min-h-screen bg-[#07192d] text-[#f6f2ec]">
       {/* Structured Data */}
       <Script
         id={`schema-blog-${post.slug}`}
@@ -245,7 +245,7 @@ export default async function BlogPostPage({ params }: Props) {
           alt={post.title}
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#121a17] via-[#121a17]/50 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#07192d] via-[#07192d]/60 to-transparent" />
         <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-12 max-w-4xl mx-auto">
           <div className="space-y-3 text-white">
             {/* Breadcrumb */}
@@ -254,17 +254,17 @@ export default async function BlogPostPage({ params }: Props) {
               <span>/</span>
               <Link href="/blog" className="hover:text-white transition-colors">Journal</Link>
               <span>/</span>
-              <span className="text-white/70 truncate max-w-[200px]">{post.category}</span>
+              <span className="text-[#C4A258] truncate max-w-[200px]">{post.category}</span>
             </div>
             <div className="flex flex-wrap items-center gap-3">
-              <span className="px-3 py-1 rounded-full bg-[#c95e3d]/90 text-white text-[10px] font-extrabold uppercase tracking-wider">
+              <span className="px-3 py-1 rounded-full bg-[#C4A258]/20 border border-[#C4A258]/30 text-[#C4A258] text-[10px] font-extrabold uppercase tracking-wider">
                 {post.category}
               </span>
               <span className="text-xs text-white/60">
                 {post.publishedAt} · {post.readTime}
               </span>
             </div>
-            <h1 className="text-2xl sm:text-5xl font-serif font-black leading-tight drop-shadow-md">
+            <h1 className="text-2xl sm:text-5xl font-serif font-black leading-tight drop-shadow-md text-[#f6f2ec]">
               {post.title}
             </h1>
             <p className="text-sm text-white/80 max-w-2xl">{post.subtitle}</p>
@@ -280,16 +280,16 @@ export default async function BlogPostPage({ params }: Props) {
           <article className="flex-1 min-w-0 space-y-4">
 
             {/* Author + share row */}
-            <div className="flex items-center justify-between pb-6 border-b border-[#e5dacb]">
+            <div className="flex items-center justify-between pb-6 border-b border-white/10">
               <div className="flex items-center gap-3">
                 <img
                   src={post.author.avatar}
                   alt={post.author.name}
-                  className="w-10 h-10 rounded-full object-cover border-2 border-[#e5dacb]"
+                  className="w-10 h-10 rounded-full object-cover border-2 border-white/20"
                 />
                 <div>
-                  <p className="text-xs font-bold text-[#121a17]">{post.author.name}</p>
-                  <p className="text-[10px] text-[#4e5e57]">{post.author.role}</p>
+                  <p className="text-xs font-bold text-[#f6f2ec]">{post.author.name}</p>
+                  <p className="text-[10px] text-[#f6f2ec]/60">{post.author.role}</p>
                 </div>
               </div>
               {/* Share buttons — client component */}
@@ -303,7 +303,7 @@ export default async function BlogPostPage({ params }: Props) {
 
             {/* Recommended Escape CTA */}
             {recommendedEscape && (
-              <div className="mt-12 rounded-3xl overflow-hidden border border-[#e5dacb] bg-white shadow-xl">
+              <div className="mt-12 rounded-3xl overflow-hidden border border-white/10 bg-[#0d2239]/80 backdrop-blur-md shadow-xl">
                 <div className="relative h-44 overflow-hidden">
                   <img
                     src={recommendedEscape.image}
@@ -312,15 +312,15 @@ export default async function BlogPostPage({ params }: Props) {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
                   <div className="absolute bottom-4 left-4 right-4 text-white">
-                    <p className="text-[10px] font-extrabold uppercase tracking-widest text-[#f4c36b]">
+                    <p className="text-[10px] font-extrabold uppercase tracking-widest text-[#C4A258]">
                       📦 Recommended Escape Package
                     </p>
-                    <h3 className="text-xl font-serif font-bold">{recommendedEscape.title}</h3>
+                    <h3 className="text-xl font-serif font-bold text-[#f6f2ec]">{recommendedEscape.title}</h3>
                   </div>
                 </div>
                 <div className="p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                   <div>
-                    <p className="text-xs text-[#4e5e57] leading-relaxed max-w-md">
+                    <p className="text-xs text-[#f6f2ec]/70 leading-relaxed max-w-md">
                       {recommendedEscape.summary}
                     </p>
                     <a
@@ -335,7 +335,7 @@ export default async function BlogPostPage({ params }: Props) {
                   </div>
                   <Link
                     href="/#escapes"
-                    className="shrink-0 px-6 py-3 rounded-2xl bg-[#c95e3d] hover:bg-[#aa4a2c] text-white text-xs font-black tracking-wide shadow-lg transition-all"
+                    className="shrink-0 px-6 py-3 rounded-2xl bg-[#C4A258] hover:bg-[#d8bb78] text-[#07192d] text-xs font-black tracking-wide shadow-lg transition-all"
                   >
                     View This Escape →
                   </Link>
@@ -346,13 +346,13 @@ export default async function BlogPostPage({ params }: Props) {
             {/* Related Posts */}
             {related.length > 0 && (
               <div className="mt-14">
-                <h2 className="text-lg font-serif font-bold text-[#121a17] mb-6">
+                <h2 className="text-lg font-serif font-bold text-[#f6f2ec] mb-6">
                   More {post.category} Guides
                 </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   {related.map((rp) => (
                     <Link key={rp.id} href={`/blog/${rp.slug}`} className="block group">
-                      <div className="rounded-2xl overflow-hidden border border-[#e5dacb] bg-white shadow hover:shadow-lg transition-all">
+                      <div className="rounded-2xl overflow-hidden border border-white/10 bg-[#0d2239]/80 backdrop-blur-md shadow hover:shadow-lg transition-all">
                         <div className="relative h-36 overflow-hidden">
                           <img
                             src={rp.coverImage}
@@ -362,10 +362,10 @@ export default async function BlogPostPage({ params }: Props) {
                           <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                         </div>
                         <div className="p-4">
-                          <h3 className="text-sm font-serif font-bold text-[#121a17] leading-snug group-hover:text-[#c95e3d] transition-colors line-clamp-2">
+                          <h3 className="text-sm font-serif font-bold text-[#f6f2ec] leading-snug group-hover:text-[#C4A258] transition-colors line-clamp-2">
                             {rp.title}
                           </h3>
-                          <p className="text-[11px] text-[#4e5e57] mt-1">
+                          <p className="text-[11px] text-[#C4A258] mt-1">
                             {rp.readTime} · Read →
                           </p>
                         </div>
@@ -377,16 +377,16 @@ export default async function BlogPostPage({ params }: Props) {
             )}
 
             {/* Navigation */}
-            <div className="flex items-center justify-between pt-10 border-t border-[#e5dacb] mt-8">
+            <div className="flex items-center justify-between pt-10 border-t border-white/10 mt-8">
               <Link
                 href="/blog"
-                className="text-xs font-bold text-[#4e5e57] hover:text-[#123b34] transition-colors"
+                className="text-xs font-bold text-[#f6f2ec]/70 hover:text-[#C4A258] transition-colors"
               >
                 ← All Articles
               </Link>
               <Link
                 href="/"
-                className="px-5 py-2.5 rounded-xl bg-[#123b34] text-[#f4c36b] text-xs font-black tracking-widest hover:bg-[#0b110f] transition-all shadow-md"
+                className="px-5 py-2.5 rounded-xl bg-[#C4A258] text-[#07192d] text-xs font-black tracking-widest hover:bg-[#d8bb78] transition-all shadow-md"
               >
                 Plan My Journey →
               </Link>
@@ -396,8 +396,8 @@ export default async function BlogPostPage({ params }: Props) {
           {/* Sticky Sidebar: Table of Contents */}
           {headings.length > 2 && (
             <aside className="hidden lg:block w-60 shrink-0 sticky top-24 self-start">
-              <div className="rounded-2xl border border-[#e5dacb] bg-white p-5 shadow-sm">
-                <p className="text-[10px] font-extrabold uppercase tracking-widest text-[#4e5e57] mb-4">
+              <div className="rounded-2xl border border-white/10 bg-[#0d2239]/80 backdrop-blur-md p-5 shadow-lg">
+                <p className="text-[10px] font-extrabold uppercase tracking-widest text-[#C4A258] mb-4">
                   In This Article
                 </p>
                 <nav className="space-y-2">
@@ -405,18 +405,18 @@ export default async function BlogPostPage({ params }: Props) {
                     <a
                       key={h.id}
                       href={`#${h.id}`}
-                      className="block text-xs text-[#4e5e57] hover:text-[#c95e3d] transition-colors leading-relaxed line-clamp-2 pl-2 border-l-2 border-transparent hover:border-[#c95e3d]"
+                      className="block text-xs text-[#f6f2ec]/70 hover:text-[#C4A258] transition-colors leading-relaxed line-clamp-2 pl-2 border-l-2 border-transparent hover:border-[#C4A258]"
                     >
                       {h.text}
                     </a>
                   ))}
                 </nav>
-                <div className="mt-6 pt-4 border-t border-[#e5dacb]">
+                <div className="mt-6 pt-4 border-t border-white/10">
                   <a
                     href={`https://wa.me/212698017323?text=Hi%20SafarAtlas%2C%20I%20was%20reading%20your%20article%20about%20${encodeURIComponent(post.title)}%20and%20I%27d%20like%20to%20plan%20a%20trip.`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-xs font-bold text-white bg-[#25D366] hover:bg-[#1da851] px-3 py-2 rounded-xl transition-colors w-full justify-center"
+                    className="flex items-center gap-2 text-xs font-bold text-white bg-[#25D366] hover:bg-[#1da851] px-3 py-2 rounded-xl transition-colors w-full justify-center shadow"
                   >
                     <svg viewBox="0 0 24 24" className="w-3.5 h-3.5 fill-current shrink-0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
                     Plan My Trip

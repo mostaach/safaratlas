@@ -23,7 +23,7 @@ export default function AgafayPage() {
   const agafayPackage = ESCAPES_PACKAGES.find((p) => p.id === "escape-agafay-1d") || null;
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#080c10] text-[#f6f2ec] selection:bg-[#d6b78a] selection:text-[#0d2239]">
+    <div className="min-h-screen flex flex-col bg-[#07192d] text-[#f6f2ec] selection:bg-[#d6b78a] selection:text-[#0d2239]">
       {/* Global Brand Header with custom dark accent support */}
       <div className="relative z-50">
         <Header variant="dark" onOpenInquiryModal={() => setInquiryOpen(true)} />
@@ -35,7 +35,7 @@ export default function AgafayPage() {
           id="overview"
           className="relative rounded-3xl border border-white/20 shadow-2xl overflow-hidden min-h-[85vh] flex flex-col justify-between p-5 sm:p-8 lg:p-12 bg-cover bg-center"
           style={{
-            backgroundImage: `linear-gradient(180deg, rgba(8, 12, 16, 0.45) 0%, rgba(8, 12, 16, 0.85) 100%), url('/agafay-hero-quads.jpg')`,
+          backgroundImage: `linear-gradient(180deg, rgba(7,25,45,0.5) 0%, rgba(7,25,45,0.88) 100%), url('/safaratlas_hero_typography.jpg')`,
           }}
         >
           {/* Subheader bar inside hero */}

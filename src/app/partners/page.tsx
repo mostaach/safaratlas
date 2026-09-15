@@ -3,6 +3,8 @@
 import { FormEvent, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { Header } from "../../components/brand/Header";
+import { Footer } from "../../components/brand/Footer";
 
 type Category = "airport_transfer" | "riad" | "desert_trip" | "guided_tour" | "activity" | "restaurant" | "other";
 
@@ -69,91 +71,99 @@ export default function PartnersPage() {
   };
 
   return (
-    <main style={{ minHeight: "100vh", background: "#fcf8f1", fontFamily: "'Georgia', serif", color: "#17211d" }}>
-      {/* Top Brand Bar */}
-      <nav style={{ background: "#0a1410", padding: "14px 24px", display: "flex", alignItems: "center", justifyContent: "space-between", borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
-        <Link href="/" style={{ display: "flex", alignItems: "center", gap: 10, textDecoration: "none" }}>
-          <Image src="/safar-atlas-logo-white.svg" alt="SafarAtlas" width={28} height={28} style={{ objectFit: "contain" }} />
-          <span style={{ fontFamily: "'Georgia', serif", fontWeight: 900, fontSize: 18, color: "#fff", letterSpacing: -0.5 }}>
-            Safar<span style={{ color: "#C4A258" }}>Atlas</span>
-          </span>
-          <span style={{ fontSize: 10, fontWeight: 800, letterSpacing: 2, textTransform: "uppercase", color: "#C4A258", background: "#16375A", padding: "3px 8px", borderRadius: 99 }}>
-            Partners
-          </span>
-        </Link>
-        <Link href="/" style={{ fontSize: 12, fontWeight: 700, textTransform: "uppercase", letterSpacing: 1, color: "rgba(255,255,255,0.7)", textDecoration: "none" }}>
-          ← Back to Journeys
-        </Link>
-      </nav>
+    <main className="min-h-screen bg-[#07192d] text-[#f6f2ec]">
+      {/* Global Navigation Header */}
+      <Header variant="dark" />
 
       {/* Hero */}
-      <section style={{ background: "linear-gradient(135deg, #194c43 0%, #0f2e27 100%)", padding: "80px 24px 64px", textAlign: "center", position: "relative", overflow: "hidden" }}>
-        <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(circle at 20% 50%, rgba(201,94,61,0.15) 0%, transparent 60%), radial-gradient(circle at 80% 20%, rgba(255,255,255,0.05) 0%, transparent 50%)" }} />
-        <div style={{ position: "relative", maxWidth: 720, margin: "0 auto" }}>
-          <p style={{ margin: "0 0 16px", fontFamily: "Arial, sans-serif", fontSize: 11, letterSpacing: 4, textTransform: "uppercase", color: "#c95e3d", fontWeight: 700 }}>SafarAtlas Partner Program</p>
-          <h1 style={{ margin: "0 0 20px", fontSize: "clamp(32px, 5vw, 52px)", fontWeight: 900, color: "#fff", lineHeight: 1.1 }}>
+      <section className="relative pt-32 pb-16 px-6 text-center overflow-hidden bg-gradient-to-b from-[#07192d] to-[#0d2239]">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(196,162,88,0.1)_0%,transparent_70%)]" />
+        <div className="relative max-w-3xl mx-auto space-y-5">
+          <p className="text-[11px] uppercase tracking-[0.4em] text-[#C4A258] font-bold">
+            SafarAtlas Partner Program
+          </p>
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-black text-[#f6f2ec] leading-tight">
             Grow your Marrakech<br />travel business with us
           </h1>
-          <p style={{ margin: "0 0 32px", fontSize: 18, color: "rgba(255,255,255,0.75)", lineHeight: 1.6, maxWidth: 560, marginLeft: "auto", marginRight: "auto" }}>
+          <p className="text-base text-[#f6f2ec]/70 max-w-lg mx-auto leading-relaxed">
             Join our curated pilot of riads, guides, transfer operators, and experience providers serving international travelers.
           </p>
-          <a href="#apply" style={{ display: "inline-block", background: "#c95e3d", color: "#fff", fontFamily: "Arial, sans-serif", fontWeight: 700, fontSize: 15, padding: "16px 36px", borderRadius: 12, textDecoration: "none", letterSpacing: 0.5 }}>
+          <a
+            href="#apply"
+            className="inline-flex items-center gap-2 bg-[#C4A258] hover:bg-[#d8bb78] text-[#07192d] font-bold text-xs uppercase tracking-[0.3em] px-8 py-4 rounded-xl shadow-lg transition-all"
+          >
             Apply now — it&apos;s free →
           </a>
         </div>
       </section>
 
       {/* Benefits */}
-      <section style={{ padding: "72px 24px", maxWidth: 1100, margin: "0 auto" }}>
-        <h2 style={{ textAlign: "center", fontSize: 28, fontWeight: 900, margin: "0 0 48px" }}>Why partner with SafarAtlas?</h2>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: 24 }}>
+      <section className="py-16 px-6 max-w-5xl mx-auto">
+        <h2 className="text-center text-2xl sm:text-3xl font-serif font-bold text-[#f6f2ec] mb-12">
+          Why partner with SafarAtlas?
+        </h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {benefits.map((b) => (
-            <div key={b.title} style={{ background: "#fff", borderRadius: 16, padding: "28px 24px", border: "1px solid #e8ded0" }}>
-              <p style={{ fontSize: 32, margin: "0 0 12px" }}>{b.icon}</p>
-              <h3 style={{ fontFamily: "Arial, sans-serif", fontSize: 15, fontWeight: 700, margin: "0 0 8px", color: "#17211d" }}>{b.title}</h3>
-              <p style={{ fontFamily: "Arial, sans-serif", fontSize: 13, color: "#52615a", margin: 0, lineHeight: 1.6 }}>{b.desc}</p>
+            <div key={b.title} className="p-6 rounded-2xl bg-[#0d2239]/80 backdrop-blur-md border border-white/10 space-y-3">
+              <p className="text-3xl">{b.icon}</p>
+              <h3 className="text-sm font-serif font-bold text-[#f6f2ec] uppercase tracking-wide">{b.title}</h3>
+              <p className="text-xs text-[#f6f2ec]/70 leading-relaxed">{b.desc}</p>
             </div>
           ))}
         </div>
       </section>
 
       {/* Application form */}
-      <section id="apply" style={{ padding: "0 24px 96px", maxWidth: 760, margin: "0 auto" }}>
-        <div style={{ background: "#fff", borderRadius: 24, border: "1px solid #e8ded0", padding: "clamp(28px, 5vw, 56px)", boxShadow: "0 8px 40px rgba(25,76,67,0.07)" }}>
+      <section id="apply" className="py-12 px-6 max-w-3xl mx-auto pb-24">
+        <div className="bg-[#0d2239]/80 backdrop-blur-xl rounded-3xl border border-white/10 p-8 sm:p-14 shadow-2xl">
 
           {status === "success" ? (
-            <div style={{ textAlign: "center", padding: "32px 0" }}>
-              <p style={{ fontSize: 56, margin: "0 0 16px" }}>🎉</p>
-              <h2 style={{ fontSize: 28, fontWeight: 900, margin: "0 0 12px" }}>Application received!</h2>
-              <p style={{ fontFamily: "Arial, sans-serif", fontSize: 15, color: "#52615a", margin: "0 0 8px" }}>
+            <div className="text-center py-8 space-y-4">
+              <p className="text-5xl">🎉</p>
+              <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#f6f2ec]">Application received!</h2>
+              <p className="text-sm text-[#f6f2ec]/70">
                 Thank you for applying. We review all applications within <strong>3 business days</strong>.
               </p>
-              <p style={{ fontFamily: "Arial, sans-serif", fontSize: 13, color: "#a09a8f", margin: "0 0 32px" }}>Application ID: <strong style={{ fontFamily: "monospace", color: "#194c43" }}>{submittedId}</strong></p>
-              <button onClick={() => { setForm(initialForm); setStatus("idle"); }} style={{ background: "#194c43", color: "#fff", fontFamily: "Arial, sans-serif", fontWeight: 700, fontSize: 14, padding: "14px 28px", borderRadius: 10, border: "none", cursor: "pointer" }}>
+              <p className="text-xs text-[#f6f2ec]/50">
+                Application ID: <strong className="font-mono text-[#C4A258]">{submittedId}</strong>
+              </p>
+              <button
+                onClick={() => { setForm(initialForm); setStatus("idle"); }}
+                className="mt-4 px-6 py-3 bg-[#C4A258] text-[#07192d] font-bold text-xs uppercase tracking-wider rounded-xl hover:bg-[#d8bb78] transition-all"
+              >
                 Submit another application
               </button>
             </div>
           ) : (
             <>
-              <p style={{ margin: "0 0 6px", fontFamily: "Arial, sans-serif", fontSize: 11, letterSpacing: 3, textTransform: "uppercase", color: "#c95e3d", fontWeight: 700 }}>Pilot application</p>
-              <h2 style={{ margin: "0 0 8px", fontSize: 26, fontWeight: 900 }}>Apply to become a partner</h2>
-              <p style={{ fontFamily: "Arial, sans-serif", fontSize: 14, color: "#52615a", margin: "0 0 36px", lineHeight: 1.6 }}>
+              <p className="text-[11px] font-extrabold uppercase tracking-[0.3em] text-[#C4A258] mb-2">Pilot application</p>
+              <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#f6f2ec] mb-2">Apply to become a partner</h2>
+              <p className="text-xs sm:text-sm text-[#f6f2ec]/70 mb-8 leading-relaxed">
                 We manually review every application to ensure quality for travelers. Limited spots available for the Marrakech pilot.
               </p>
 
-              <form onSubmit={submit} style={{ display: "flex", flexDirection: "column", gap: 0 }}>
+              <form onSubmit={submit} className="flex flex-col gap-6">
                 {/* Honeypot */}
                 <input type="text" name="website_hp" value={form.website_hp} onChange={set("website_hp")} style={{ display: "none" }} tabIndex={-1} autoComplete="off" />
 
                 {/* Category picker */}
-                <fieldset style={{ border: "none", padding: 0, margin: "0 0 28px" }}>
-                  <legend style={{ fontFamily: "Arial, sans-serif", fontSize: 12, fontWeight: 700, color: "#17211d", marginBottom: 12 }}>Business category <span style={{ color: "#c95e3d" }}>*</span></legend>
-                  <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(140px, 1fr))", gap: 10 }}>
+                <fieldset className="border-none p-0 m-0">
+                  <legend className="text-xs font-bold uppercase tracking-wider text-[#C4A258] mb-3">
+                    Business category <span className="text-[#C4A258]">*</span>
+                  </legend>
+                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2.5">
                     {categories.map((cat) => (
-                      <label key={cat.value} style={{ display: "flex", alignItems: "center", gap: 8, padding: "10px 14px", borderRadius: 10, border: `2px solid ${form.category === cat.value ? "#194c43" : "#e8ded0"}`, background: form.category === cat.value ? "#f0f7f5" : "#fff", cursor: "pointer", transition: "all 0.15s" }}>
-                        <input type="radio" name="category" value={cat.value} checked={form.category === cat.value} onChange={set("category")} style={{ display: "none" }} />
-                        <span style={{ fontSize: 18 }}>{cat.icon}</span>
-                        <span style={{ fontFamily: "Arial, sans-serif", fontSize: 12, fontWeight: 600, color: form.category === cat.value ? "#194c43" : "#52615a" }}>{cat.label}</span>
+                      <label
+                        key={cat.value}
+                        className={`flex items-center gap-2 p-3 rounded-xl border cursor-pointer transition-all ${
+                          form.category === cat.value
+                            ? "border-[#C4A258] bg-[#C4A258]/15 text-[#C4A258]"
+                            : "border-white/10 bg-white/5 text-[#f6f2ec]/70 hover:border-white/25"
+                        }`}
+                      >
+                        <input type="radio" name="category" value={cat.value} checked={form.category === cat.value} onChange={set("category")} className="hidden" />
+                        <span className="text-lg">{cat.icon}</span>
+                        <span className="text-xs font-semibold">{cat.label}</span>
                       </label>
                     ))}
                   </div>
@@ -187,21 +197,21 @@ export default function PartnersPage() {
                   <Row>
                     <Field label="Years in business">
                       <select value={form.yearsInBusiness} onChange={set("yearsInBusiness")} style={inputStyle}>
-                        <option value="">Select…</option>
-                        <option value="Less than 1 year">Less than 1 year</option>
-                        <option value="1–3 years">1–3 years</option>
-                        <option value="3–5 years">3–5 years</option>
-                        <option value="5–10 years">5–10 years</option>
-                        <option value="10+ years">10+ years</option>
+                        <option value="" className="bg-[#07192d] text-[#f6f2ec]">Select…</option>
+                        <option value="Less than 1 year" className="bg-[#07192d] text-[#f6f2ec]">Less than 1 year</option>
+                        <option value="1–3 years" className="bg-[#07192d] text-[#f6f2ec]">1–3 years</option>
+                        <option value="3–5 years" className="bg-[#07192d] text-[#f6f2ec]">3–5 years</option>
+                        <option value="5–10 years" className="bg-[#07192d] text-[#f6f2ec]">5–10 years</option>
+                        <option value="10+ years" className="bg-[#07192d] text-[#f6f2ec]">10+ years</option>
                       </select>
                     </Field>
                     <Field label="Price range (per person / per service)">
                       <select value={form.priceRange} onChange={set("priceRange")} style={inputStyle}>
-                        <option value="">Select…</option>
-                        <option value="Budget (€0–50)">Budget (€0–50)</option>
-                        <option value="Mid-range (€50–150)">Mid-range (€50–150)</option>
-                        <option value="Premium (€150–400)">Premium (€150–400)</option>
-                        <option value="Luxury (€400+)">Luxury (€400+)</option>
+                        <option value="" className="bg-[#07192d] text-[#f6f2ec]">Select…</option>
+                        <option value="Budget (€0–50)" className="bg-[#07192d] text-[#f6f2ec]">Budget (€0–50)</option>
+                        <option value="Mid-range (€50–150)" className="bg-[#07192d] text-[#f6f2ec]">Mid-range (€50–150)</option>
+                        <option value="Premium (€150–400)" className="bg-[#07192d] text-[#f6f2ec]">Premium (€150–400)</option>
+                        <option value="Luxury (€400+)" className="bg-[#07192d] text-[#f6f2ec]">Luxury (€400+)</option>
                       </select>
                     </Field>
                   </Row>
@@ -211,14 +221,18 @@ export default function PartnersPage() {
                 </Section>
 
                 {errorMsg && (
-                  <p style={{ fontFamily: "Arial, sans-serif", fontSize: 13, color: "#b42318", fontWeight: 700, margin: "0 0 16px", padding: "12px 16px", background: "#fff0ee", borderRadius: 8, border: "1px solid #fecaca" }}>{errorMsg}</p>
+                  <p className="text-xs text-[#f87171] font-bold p-3 bg-red-950/40 rounded-xl border border-red-800/40">{errorMsg}</p>
                 )}
 
-                <button type="submit" disabled={status === "submitting"} style={{ background: status === "submitting" ? "#52615a" : "#c95e3d", color: "#fff", fontFamily: "Arial, sans-serif", fontWeight: 700, fontSize: 15, padding: "18px 32px", borderRadius: 12, border: "none", cursor: status === "submitting" ? "not-allowed" : "pointer", transition: "background 0.2s", letterSpacing: 0.5 }}>
+                <button
+                  type="submit"
+                  disabled={status === "submitting"}
+                  className="w-full py-4 bg-[#C4A258] hover:bg-[#d8bb78] text-[#07192d] font-black text-xs uppercase tracking-[0.3em] transition-all rounded-xl shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+                >
                   {status === "submitting" ? "Submitting…" : "Submit application →"}
                 </button>
 
-                <p style={{ fontFamily: "Arial, sans-serif", fontSize: 12, color: "#a09a8f", margin: "16px 0 0", textAlign: "center", lineHeight: 1.5 }}>
+                <p className="text-[11px] text-[#f6f2ec]/40 text-center leading-relaxed">
                   We respect your privacy. Your details are only used to evaluate your application and will never be sold or shared.
                 </p>
               </form>
@@ -226,6 +240,9 @@ export default function PartnersPage() {
           )}
         </div>
       </section>
+
+      {/* Global Brand Footer */}
+      <Footer />
     </main>
   );
 }
@@ -234,22 +251,22 @@ export default function PartnersPage() {
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <div style={{ marginBottom: 28 }}>
-      <p style={{ fontFamily: "Arial, sans-serif", fontSize: 11, fontWeight: 700, letterSpacing: 2, textTransform: "uppercase", color: "#194c43", margin: "0 0 16px", paddingBottom: 10, borderBottom: "1px solid #e8ded0" }}>{title}</p>
-      <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>{children}</div>
+    <div className="space-y-4">
+      <p className="text-[11px] font-extrabold tracking-[0.25em] uppercase text-[#C4A258] pb-2 border-b border-white/10">{title}</p>
+      <div className="space-y-4">{children}</div>
     </div>
   );
 }
 
 function Row({ children }: { children: React.ReactNode }) {
-  return <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 16 }}>{children}</div>;
+  return <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">{children}</div>;
 }
 
 function Field({ label, required, children, fullWidth }: { label: string; required?: boolean; children: React.ReactNode; fullWidth?: boolean }) {
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: 6, gridColumn: fullWidth ? "1/-1" : undefined }}>
-      <label style={{ fontFamily: "Arial, sans-serif", fontSize: 12, fontWeight: 700, color: "#17211d" }}>
-        {label} {required && <span style={{ color: "#c95e3d" }}>*</span>}
+    <div className={`space-y-1.5 ${fullWidth ? "col-span-full" : ""}`}>
+      <label className="text-xs font-semibold text-[#f6f2ec]/85 block">
+        {label} {required && <span className="text-[#C4A258]">*</span>}
       </label>
       {children}
     </div>
@@ -257,12 +274,12 @@ function Field({ label, required, children, fullWidth }: { label: string; requir
 }
 
 const inputStyle: React.CSSProperties = {
-  fontFamily: "Arial, sans-serif",
+  fontFamily: "var(--font-sans), sans-serif",
   fontSize: 14,
-  color: "#17211d",
-  background: "#fff",
-  border: "1.5px solid #e8ded0",
-  borderRadius: 10,
+  color: "#f6f2ec",
+  background: "rgba(255, 255, 255, 0.05)",
+  border: "1px solid rgba(255, 255, 255, 0.15)",
+  borderRadius: 12,
   padding: "12px 14px",
   width: "100%",
   outline: "none",

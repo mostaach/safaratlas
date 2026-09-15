@@ -11,14 +11,14 @@ export default function BlogPage() {
   });
 
   return (
-    <div className="min-h-screen bg-[#faf6f0]">
+    <div className="min-h-screen bg-[#07192d]">
       {/* Consistent brand header */}
       <Header variant="dark" />
 
       {/* Page Header */}
-      <div className="bg-[#123b34] text-white pt-28 pb-16 px-4">
+      <div className="bg-gradient-to-b from-[#07192d] to-[#0d2239] text-white pt-28 pb-16 px-4">
         <div className="max-w-5xl mx-auto text-center space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#f4c36b]/20 border border-[#f4c36b]/30 text-[#f4c36b] text-xs font-extrabold uppercase tracking-widest">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#C4A258]/15 border border-[#C4A258]/30 text-[#C4A258] text-xs font-extrabold uppercase tracking-widest">
             ✍️ SafarAtlas Journal
           </div>
           <h1 className="text-4xl sm:text-6xl font-serif font-black tracking-tight">
@@ -42,7 +42,7 @@ export default function BlogPage() {
       <div className="text-center pb-16">
         <Link
           href="/"
-          className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#123b34] text-[#f4c36b] text-xs font-black tracking-widest hover:bg-[#0b110f] transition-all shadow-lg"
+          className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#C4A258] text-[#07192d] text-xs font-black tracking-widest hover:bg-[#d8bb78] transition-all shadow-lg"
         >
           ← Back to SafarAtlas
         </Link>

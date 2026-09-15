@@ -15,18 +15,18 @@ const CATEGORIES = [
 ] as const;
 
 const categoryColors: Record<string, string> = {
-  "Desert Guides": "bg-[#c95e3d]/10 text-[#c95e3d] border-[#c95e3d]/30",
-  "Trip Architecture": "bg-[#123b34]/10 text-[#123b34] border-[#123b34]/30",
-  "Coastal Travel": "bg-[#0369a1]/10 text-[#0369a1] border-[#0369a1]/30",
-  "Insider Tips": "bg-[#f4c36b]/20 text-[#7a5a00] border-[#f4c36b]/40",
+  "Desert Guides": "bg-[#C4A258]/15 text-[#C4A258] border-[#C4A258]/30",
+  "Trip Architecture": "bg-[#C4A258]/10 text-[#d6b78a] border-[#d6b78a]/30",
+  "Coastal Travel": "bg-[#0369a1]/20 text-[#60b4f4] border-[#60b4f4]/30",
+  "Insider Tips": "bg-[#C4A258]/15 text-[#C4A258] border-[#C4A258]/30",
 };
 
 const categoryTabColors: Record<string, string> = {
-  All: "bg-[#121a17] text-white border-[#121a17]",
-  "Desert Guides": "bg-[#c95e3d] text-white border-[#c95e3d]",
-  "Trip Architecture": "bg-[#123b34] text-white border-[#123b34]",
+  All: "bg-[#C4A258] text-[#07192d] border-[#C4A258]",
+  "Desert Guides": "bg-[#C4A258] text-[#07192d] border-[#C4A258]",
+  "Trip Architecture": "bg-[#d6b78a] text-[#07192d] border-[#d6b78a]",
   "Coastal Travel": "bg-[#0369a1] text-white border-[#0369a1]",
-  "Insider Tips": "bg-[#7a5a00] text-white border-[#7a5a00]",
+  "Insider Tips": "bg-[#C4A258] text-[#07192d] border-[#C4A258]",
 };
 
 interface Props {
@@ -51,7 +51,7 @@ export default function BlogGrid({ posts }: Props) {
           const isActive = activeCategory === cat;
           const activeStyle = isActive
             ? categoryTabColors[cat]
-            : "bg-white text-[#4e5e57] border-[#e5dacb] hover:border-[#121a17]/30";
+            : "bg-white/5 text-[#f6f2ec]/70 border-white/10 hover:border-[#C4A258]/40";
           return (
             <button
               key={cat}
@@ -65,7 +65,7 @@ export default function BlogGrid({ posts }: Props) {
       </div>
 
       {filtered.length === 0 && (
-        <p className="text-center text-sm text-[#4e5e57] py-12">
+        <p className="text-center text-sm text-[#f6f2ec]/50 py-12">
           No articles in this category yet.
         </p>
       )}
@@ -73,7 +73,7 @@ export default function BlogGrid({ posts }: Props) {
       {/* Featured Post */}
       {featured && (
         <Link href={`/blog/${featured.slug}`} className="block group">
-          <div className="rounded-3xl overflow-hidden border border-[#e5dacb] bg-white shadow-xl hover:shadow-2xl transition-all duration-300">
+          <div className="rounded-3xl overflow-hidden border border-white/10 bg-[#0d2239]/80 backdrop-blur-md shadow-xl hover:shadow-2xl transition-all duration-300">
             <div className="relative h-72 sm:h-96">
               <img
                 src={featured.coverImage}
@@ -89,7 +89,7 @@ export default function BlogGrid({ posts }: Props) {
                 </span>
               </div>
               <div className="absolute bottom-6 left-6 right-6 text-white">
-                <p className="text-xs font-bold text-[#f4c36b] mb-2">
+                <p className="text-xs font-bold text-[#C4A258] mb-2">
                   ★ {activeCategory === ALL ? "Featured Guide" : `Top ${activeCategory} Read`}
                 </p>
                 <h2 className="text-2xl sm:text-3xl font-serif font-black leading-tight">
@@ -99,21 +99,21 @@ export default function BlogGrid({ posts }: Props) {
             </div>
             <div className="p-6 flex items-center justify-between gap-4">
               <div className="space-y-2">
-                <p className="text-sm text-[#4e5e57] leading-relaxed line-clamp-2">
+                <p className="text-sm text-[#f6f2ec]/70 leading-relaxed line-clamp-2">
                   {featured.summary}
                 </p>
                 <div className="flex items-center gap-3">
                   <img
                     src={featured.author.avatar}
                     alt={featured.author.name}
-                    className="w-6 h-6 rounded-full object-cover border border-[#e5dacb]"
+                    className="w-6 h-6 rounded-full object-cover border border-white/20"
                   />
-                  <span className="text-xs text-[#4e5e57] font-semibold">
+                  <span className="text-xs text-[#f6f2ec]/50 font-semibold">
                     {featured.author.name} · {featured.publishedAt} · {featured.readTime}
                   </span>
                 </div>
               </div>
-              <span className="shrink-0 text-xs font-black text-[#c95e3d] group-hover:translate-x-1 transition-transform">
+              <span className="shrink-0 text-xs font-black text-[#C4A258] group-hover:translate-x-1 transition-transform">
                 Read →
               </span>
             </div>
@@ -126,7 +126,7 @@ export default function BlogGrid({ posts }: Props) {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {rest.map((post) => (
             <Link key={post.id} href={`/blog/${post.slug}`} className="block group">
-              <div className="rounded-3xl overflow-hidden border border-[#e5dacb] bg-white shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col h-full">
+              <div className="rounded-3xl overflow-hidden border border-white/10 bg-[#0d2239]/80 backdrop-blur-md shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col h-full">
                 <div className="relative h-52 overflow-hidden shrink-0">
                   <img
                     src={post.coverImage}
@@ -143,24 +143,24 @@ export default function BlogGrid({ posts }: Props) {
                   </div>
                 </div>
                 <div className="p-5 flex flex-col flex-1 gap-3">
-                  <h2 className="text-lg font-serif font-bold text-[#121a17] leading-snug group-hover:text-[#c95e3d] transition-colors">
+                  <h2 className="text-lg font-serif font-bold text-[#f6f2ec] leading-snug group-hover:text-[#C4A258] transition-colors">
                     {post.title}
                   </h2>
-                  <p className="text-xs text-[#4e5e57] leading-relaxed line-clamp-3 flex-1">
+                  <p className="text-xs text-[#f6f2ec]/70 leading-relaxed line-clamp-3 flex-1">
                     {post.summary}
                   </p>
-                  <div className="flex items-center justify-between pt-2 border-t border-[#e5dacb]">
+                  <div className="flex items-center justify-between pt-2 border-t border-white/10">
                     <div className="flex items-center gap-2">
                       <img
                         src={post.author.avatar}
                         alt={post.author.name}
-                        className="w-5 h-5 rounded-full object-cover border border-[#e5dacb]"
+                        className="w-5 h-5 rounded-full object-cover border border-white/20"
                       />
-                      <span className="text-[11px] text-[#4e5e57] font-semibold">
+                      <span className="text-[11px] text-[#f6f2ec]/50 font-semibold">
                         {post.author.name} · {post.readTime}
                       </span>
                     </div>
-                    <span className="text-xs font-black text-[#c95e3d] group-hover:translate-x-1 transition-transform">
+                    <span className="text-xs font-black text-[#C4A258] group-hover:translate-x-1 transition-transform">
                       Read →
                     </span>
                   </div>

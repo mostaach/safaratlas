@@ -83,7 +83,7 @@ export default function TaghazoutPage() {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#070e13] text-[#f6f2ec] selection:bg-[#d6b78a] selection:text-[#070e13]">
+    <div className="min-h-screen flex flex-col bg-[#07192d] text-[#f6f2ec] selection:bg-[#d6b78a] selection:text-[#07192d]">
       {/* Global Brand Header */}
       <div className="relative z-50">
         <Header variant="dark" onOpenInquiryModal={() => setInquiryOpen(true)} />
@@ -96,7 +96,7 @@ export default function TaghazoutPage() {
           id="overview"
           className="relative rounded-3xl border border-white/15 shadow-2xl overflow-hidden min-h-[85vh] flex flex-col justify-between p-5 sm:p-8 lg:p-12 bg-cover bg-center"
           style={{
-            backgroundImage: `linear-gradient(180deg, rgba(7, 14, 19, 0.45) 0%, rgba(7, 14, 19, 0.92) 100%), url('/escapes/taghazout-surf.jpg')`,
+            backgroundImage: `linear-gradient(180deg, rgba(7, 25, 45, 0.45) 0%, rgba(7, 25, 45, 0.92) 100%), url('/escapes/taghazout-surf.jpg')`,
           }}
         >
           {/* Top Info Bar inside Hero */}
