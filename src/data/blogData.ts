@@ -27,7 +27,7 @@ export const BLOG_POSTS: BlogPost[] = [
     author: {
       name: "Mehdi El Ksir",
       role: "SafarAtlas Founder & Local Scout",
-      avatar: "https://ui-avatars.com/api/?name=Mehdi+El+Ksir&background=123b34&color=f4c36b&size=200&bold=true&font-size=0.4"
+      avatar: "https://ui-avatars.com/api/?name=Mehdi+El+Ksir&background=07192d&color=C4A258&size=200&bold=true&font-size=0.4"
     },
     publishedAt: "August 15, 2026",
     readTime: "5 min read",
@@ -164,7 +164,7 @@ With our **3-Day Taghazout Surf Escape**, you get private transfers, ISA-certifi
     author: {
       name: "Mehdi El Ksir",
       role: "SafarAtlas Founder & Local Scout",
-      avatar: "https://ui-avatars.com/api/?name=Mehdi+El+Ksir&background=123b34&color=f4c36b&size=200&bold=true&font-size=0.4"
+      avatar: "https://ui-avatars.com/api/?name=Mehdi+El+Ksir&background=07192d&color=C4A258&size=200&bold=true&font-size=0.4"
     },
     publishedAt: "August 19, 2026",
     readTime: "6 min read",
@@ -368,7 +368,7 @@ When we manage a couple's Morocco itinerary, everything is pre-arranged:
     author: {
       name: "Mehdi El Ksir",
       role: "SafarAtlas Founder & Local Scout",
-      avatar: "https://ui-avatars.com/api/?name=Mehdi+El+Ksir&background=123b34&color=f4c36b&size=200&bold=true&font-size=0.4"
+      avatar: "https://ui-avatars.com/api/?name=Mehdi+El+Ksir&background=07192d&color=C4A258&size=200&bold=true&font-size=0.4"
     },
     publishedAt: "August 30, 2026",
     readTime: "6 min read",
@@ -437,7 +437,7 @@ Want to experience Marrakech without the stress of haggling or coordinating tran
     author: {
       name: "Mehdi El Ksir",
       role: "SafarAtlas Founder & Local Scout",
-      avatar: "https://ui-avatars.com/api/?name=Mehdi+El+Ksir&background=123b34&color=f4c36b&size=200&bold=true&font-size=0.4"
+      avatar: "https://ui-avatars.com/api/?name=Mehdi+El+Ksir&background=07192d&color=C4A258&size=200&bold=true&font-size=0.4"
     },
     publishedAt: "September 1, 2026",
     readTime: "5 min read",

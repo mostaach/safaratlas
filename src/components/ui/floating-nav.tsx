@@ -67,7 +67,7 @@ const FloatingNav: React.FC<FloatingNavProps> = () => {
     <div className="md:hidden fixed bottom-6 left-1/2 -translate-x-1/2 z-50 w-full max-w-lg px-4">
       <div
         ref={containerRef}
-        className="relative flex items-center justify-between bg-white/95 backdrop-blur-xl shadow-2xl shadow-[#123b34]/15 rounded-full px-1.5 py-2 border border-[#e5dacb]"
+        className="relative flex items-center justify-between bg-[#07192d]/95 backdrop-blur-xl shadow-2xl shadow-black/60 rounded-full px-1.5 py-2 border border-white/15"
       >
         {items.map((item, index) => {
           const isActive = active === index;
@@ -81,8 +81,8 @@ const FloatingNav: React.FC<FloatingNavProps> = () => {
             </>
           );
 
-          const className = `relative flex flex-col items-center justify-center flex-1 px-3 py-2 text-sm font-medium transition-colors duration-300 z-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#c95e3d] rounded-full ${
-            isActive ? "text-[#c95e3d]" : "text-[#4e5e57] hover:text-[#121a17]"
+          const className = `relative flex flex-col items-center justify-center flex-1 px-3 py-2 text-sm font-medium transition-colors duration-300 z-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C4A258] rounded-full ${
+            isActive ? "text-[#C4A258]" : "text-white/70 hover:text-white"
           }`;
 
           return item.href ? (
@@ -116,7 +116,7 @@ const FloatingNav: React.FC<FloatingNavProps> = () => {
         <motion.div
           animate={indicatorStyle}
           transition={{ type: "spring", stiffness: 400, damping: 30 }}
-          className="absolute top-1.5 bottom-1.5 rounded-full bg-[#c95e3d]/10 border border-[#c95e3d]/20"
+          className="absolute top-1.5 bottom-1.5 rounded-full bg-[#C4A258]/15 border border-[#C4A258]/30"
         />
       </div>
     </div>

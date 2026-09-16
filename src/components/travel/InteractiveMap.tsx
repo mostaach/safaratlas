@@ -4,7 +4,7 @@ import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import type * as Leaflet from "leaflet";
 import { MAP_HOTSPOTS, MapHotspot } from "../../data/mockData";
-import { Sparkles, MapPin, Navigation, Compass, Layers, RotateCcw } from "lucide-react";
+import { Sparkles, MapPin, Navigation, Layers, RotateCcw } from "lucide-react";
 import "leaflet/dist/leaflet.css";
 
 interface InteractiveMapProps {
@@ -52,13 +52,13 @@ function createPinMarker(L: typeof Leaflet, color: string, name: string, size = 
           <div style="
             width: ${size * 0.32}px;
             height: ${size * 0.32}px;
-            background: #121a17;
+            background: #07192d;
             border-radius: 50%;
           "></div>
         </div>
         <div style="
           margin-top: 4px;
-          background: rgba(11, 17, 15, 0.9);
+          background: rgba(7, 25, 45, 0.95);
           border: 1px solid rgba(255, 255, 255, 0.25);
           color: #ffffff;
           font-size: 10px;
@@ -106,7 +106,6 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
     import("leaflet").then((L) => {
       leafletLibRef.current = L;
 
-      // Restrict map to Morocco region
       const moroccoBounds = L.latLngBounds(
         L.latLng(26.5, -13.5),
         L.latLng(36.5, -1.0)
@@ -122,21 +121,17 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
         zoomControl: false,
       });
 
-      // Fit bounds to show Morocco completely
       map.fitBounds([
         [29.5, -10.5],
         [35.8, -2.5],
       ], { padding: [20, 20] });
 
-      // Add Base Tile Layer
       const initialLayer = L.tileLayer(TILE_LAYERS[theme].url, {
         attribution: TILE_LAYERS[theme].attribution,
         maxZoom: 16,
       }).addTo(map);
 
       tileLayerRef.current = initialLayer;
-
-      // Add zoom control
       L.control.zoom({ position: "bottomright" }).addTo(map);
 
       mapRef.current = map;
@@ -182,7 +177,6 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
 
     const activeIds = new Set(filteredHotspots.map((h) => h.id));
 
-    // Remove obsolete markers
     markersRef.current.forEach((marker, id) => {
       if (!activeIds.has(id)) {
         map.removeLayer(marker);
@@ -190,17 +184,16 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
       }
     });
 
-    // Add or update markers
     filteredHotspots.forEach((spot) => {
       const isSelected = selectedHotspot.id === spot.id;
       const color =
         spot.type === "Desert"
-          ? "#f4c36b"
+          ? "#C4A258"
           : spot.type === "Coast"
           ? "#38bdf8"
           : spot.type === "Mountain"
           ? "#a855f7"
-          : "#10b981";
+          : "#25D366";
       const size = isSelected ? 38 : 28;
 
       if (markersRef.current.has(spot.id)) {
@@ -238,18 +231,18 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
   };
 
   return (
-    <div id="map-explorer" className="bg-[#121a17] text-white rounded-3xl border border-[#2a3a34] p-6 sm:p-8 shadow-[0_30px_80px_-45px_rgba(0,0,0,0.9)] relative overflow-hidden zellige-pattern-dark">
+    <div id="map-explorer" className="bg-[#07192d] text-[#f6f2ec] rounded-3xl border border-white/10 p-6 sm:p-8 shadow-2xl relative overflow-hidden">
       {/* Ambient background glow */}
-      <div className="absolute top-1/4 left-1/3 w-96 h-96 bg-[#16375A]/40 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-10 right-10 w-80 h-80 bg-[#c95e3d]/10 rounded-full blur-[100px] pointer-events-none" />
-      <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#f4c36b_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none" />
+      <div className="absolute top-1/4 left-1/3 w-96 h-96 bg-[#C4A258]/10 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-10 right-10 w-80 h-80 bg-[#C4A258]/5 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#C4A258_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none" />
 
       {/* Header & Controls */}
-      <div className="relative z-10 flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6 border-b border-[#2a3a34]">
+      <div className="relative z-10 flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6 border-b border-white/10">
         <div>
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#16375A]/80 border border-[#C4A258]/30 mb-2">
-            <span className="w-2 h-2 rounded-full bg-[#f4c36b] animate-ping" />
-            <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#f4c36b]">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0d2239] border border-[#C4A258]/30 mb-2">
+            <span className="w-2 h-2 rounded-full bg-[#C4A258] animate-ping" />
+            <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#C4A258]">
               Interactive Route Atlas · Live Morocco Map
             </span>
           </div>
@@ -262,14 +255,14 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
         </div>
 
         {/* Region Filter Tabs */}
-        <div className="flex flex-wrap gap-1.5 bg-[#0b110f] p-1.5 rounded-2xl border border-white/10 shrink-0">
+        <div className="flex flex-wrap gap-1.5 bg-[#051324] p-1.5 rounded-2xl border border-white/10 shrink-0">
           {(["All", "City", "Desert", "Coast", "Mountain"] as const).map((cat) => (
             <button
               key={cat}
               onClick={() => setFilter(cat)}
               className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
                 filter === cat
-                  ? "bg-[#c95e3d] text-white shadow-md"
+                  ? "bg-[#C4A258] text-[#07192d] shadow-md"
                   : "text-white/70 hover:text-white hover:bg-white/5"
               }`}
             >
@@ -283,14 +276,14 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
       <div className="relative z-10 mt-6 grid lg:grid-cols-[1.55fr_0.85fr] gap-6 items-stretch min-h-[520px]">
         
         {/* Real Leaflet Map Viewport */}
-        <div className="relative rounded-2xl bg-[#0b110f] border border-white/10 flex flex-col justify-between overflow-hidden min-h-[520px] shadow-2xl">
+        <div className="relative rounded-2xl bg-[#051324] border border-white/10 flex flex-col justify-between overflow-hidden min-h-[520px] shadow-2xl">
           <div ref={mapContainerRef} className="absolute inset-0 w-full h-full z-0" style={{ minHeight: "520px" }} />
 
           {/* Top Floating Controls: Basemap Mode + Reset View */}
           <div className="absolute top-4 left-4 z-10 flex items-center gap-2 pointer-events-auto">
-            <div className="bg-[#0b110f]/90 backdrop-blur-md px-1.5 py-1 rounded-xl flex items-center gap-1 border border-white/15 shadow-xl">
+            <div className="bg-[#07192d]/90 backdrop-blur-md px-1.5 py-1 rounded-xl flex items-center gap-1 border border-white/15 shadow-xl">
               <span className="flex items-center gap-1 px-2 text-[10px] font-bold text-white/60 uppercase">
-                <Layers className="w-3 h-3 text-[#f4c36b]" /> Map View
+                <Layers className="w-3 h-3 text-[#C4A258]" /> Map View
               </span>
               {(["topo", "satellite", "dark"] as const).map((t) => (
                 <button
@@ -298,7 +291,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
                   onClick={() => setTheme(t)}
                   className={`px-2.5 py-1 rounded-lg text-[10px] font-bold tracking-wider uppercase transition-all cursor-pointer ${
                     theme === t
-                      ? "bg-[#16375A] text-[#f4c36b] border border-[#C4A258]/40 shadow-sm"
+                      ? "bg-[#C4A258] text-[#07192d] border border-[#C4A258]/40 shadow-sm"
                       : "text-white/70 hover:text-white hover:bg-white/10"
                   }`}
                 >
@@ -310,7 +303,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
             <button
               onClick={handleResetView}
               title="Reset to Full Morocco View"
-              className="bg-[#0b110f]/90 backdrop-blur-md p-2 rounded-xl border border-white/15 text-white/80 hover:text-[#f4c36b] hover:bg-[#16375A]/50 transition-all shadow-xl cursor-pointer flex items-center gap-1.5 text-[10px] font-bold"
+              className="bg-[#07192d]/90 backdrop-blur-md p-2 rounded-xl border border-white/15 text-white/80 hover:text-[#C4A258] hover:bg-white/10 transition-all shadow-xl cursor-pointer flex items-center gap-1.5 text-[10px] font-bold"
             >
               <RotateCcw className="w-3.5 h-3.5" />
               <span className="hidden sm:inline">Fit Morocco</span>
@@ -318,12 +311,12 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
           </div>
 
           {/* Bottom Legend */}
-          <div className="absolute bottom-4 left-4 z-10 bg-[#0b110f]/95 backdrop-blur-md px-3.5 py-2.5 rounded-xl flex flex-wrap items-center gap-3.5 shadow-xl border border-white/15 pointer-events-auto">
+          <div className="absolute bottom-4 left-4 z-10 bg-[#07192d]/95 backdrop-blur-md px-3.5 py-2.5 rounded-xl flex flex-wrap items-center gap-3.5 shadow-xl border border-white/15 pointer-events-auto">
             <span className="flex items-center gap-1.5 text-[10px] font-bold text-white/90 uppercase">
-              <span className="w-2.5 h-2.5 rounded-full bg-[#10b981] ring-2 ring-[#10b981]/30" /> City
+              <span className="w-2.5 h-2.5 rounded-full bg-[#25D366] ring-2 ring-[#25D366]/30" /> City
             </span>
             <span className="flex items-center gap-1.5 text-[10px] font-bold text-white/90 uppercase">
-              <span className="w-2.5 h-2.5 rounded-full bg-[#f4c36b] ring-2 ring-[#f4c36b]/30" /> Desert
+              <span className="w-2.5 h-2.5 rounded-full bg-[#C4A258] ring-2 ring-[#C4A258]/30" /> Desert
             </span>
             <span className="flex items-center gap-1.5 text-[10px] font-bold text-white/90 uppercase">
               <span className="w-2.5 h-2.5 rounded-full bg-[#38bdf8] ring-2 ring-[#38bdf8]/30" /> Coast
@@ -335,7 +328,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
         </div>
 
         {/* Hotspot Drawer Inspector */}
-        <div className="rounded-2xl bg-[#0b110f] border border-white/15 p-5 flex flex-col justify-between shadow-xl relative overflow-hidden">
+        <div className="rounded-2xl bg-[#0d2239] border border-white/15 p-5 flex flex-col justify-between shadow-xl relative overflow-hidden">
           
           <div className="relative z-10 space-y-4">
             <div className="relative h-48 rounded-2xl overflow-hidden border border-white/10 shadow-md">
@@ -346,7 +339,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
                 sizes="(min-width: 1024px) 30vw, 100vw"
                 className="object-cover transform transition-transform duration-700 hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0b110f] via-[#0b110f]/35 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#07192d] via-[#07192d]/35 to-transparent" />
               
               {/* Category Badge */}
               <div className="absolute top-3 left-3 flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/20 shadow">
@@ -355,12 +348,12 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
                   style={{
                     backgroundColor:
                       selectedHotspot.type === "Desert"
-                        ? "#f4c36b"
+                        ? "#C4A258"
                         : selectedHotspot.type === "Coast"
                         ? "#38bdf8"
                         : selectedHotspot.type === "Mountain"
                         ? "#a855f7"
-                        : "#10b981",
+                        : "#25D366",
                   }}
                 />
                 <span className="text-[10px] font-extrabold uppercase tracking-widest text-white">
@@ -369,7 +362,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
               </div>
 
               <div className="absolute bottom-3 left-4 right-4">
-                <span className="text-[10px] font-black uppercase tracking-widest text-[#f4c36b] block">
+                <span className="text-[10px] font-black uppercase tracking-widest text-[#C4A258] block">
                   Featured Destination
                 </span>
                 <h4 className="text-2xl sm:text-3xl font-serif font-black text-white tracking-tight drop-shadow-lg">
@@ -379,13 +372,13 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
             </div>
 
             <div className="space-y-3 px-1">
-              <div className="flex items-center gap-2 text-xs font-bold text-[#f4c36b]">
-                <MapPin className="w-4 h-4 text-[#f4c36b] shrink-0" />
+              <div className="flex items-center gap-2 text-xs font-bold text-[#C4A258]">
+                <MapPin className="w-4 h-4 text-[#C4A258] shrink-0" />
                 <span>{selectedHotspot.shortTag}</span>
               </div>
               
               <div className="flex items-start gap-3 bg-white/5 p-3 rounded-xl border border-white/10">
-                <Sparkles className="w-4 h-4 text-[#f4c36b] shrink-0 mt-0.5" />
+                <Sparkles className="w-4 h-4 text-[#C4A258] shrink-0 mt-0.5" />
                 <div>
                   <span className="text-[9px] uppercase font-extrabold tracking-widest text-white/50 block mb-0.5">
                     Signature Highlight
@@ -396,7 +389,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
                 </div>
               </div>
 
-              <div className="p-3.5 rounded-xl bg-gradient-to-br from-[#16375A]/70 to-[#0b110f] border border-[#C4A258]/20">
+              <div className="p-3.5 rounded-xl bg-[#051324] border border-white/10">
                 <span className="text-[10px] text-white/60 font-black uppercase block tracking-widest mb-1">
                   SafarAtlas Coordination
                 </span>
@@ -412,9 +405,9 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
           <div className="relative z-10 pt-4 mt-4 border-t border-white/10">
             <button
               onClick={onOpenInquiry}
-              className="relative overflow-hidden w-full py-3.5 rounded-xl bg-gradient-to-r from-[#c95e3d] to-[#b34f31] hover:from-[#aa4a2c] hover:to-[#933d22] text-white text-xs font-black tracking-widest transition-all shadow-[0_6px_20px_rgba(201,94,61,0.4)] flex items-center justify-center gap-2 group cursor-pointer active:scale-98"
+              className="relative overflow-hidden w-full py-3.5 rounded-xl bg-[#C4A258] hover:bg-[#d8bb78] text-[#07192d] text-xs font-black tracking-widest transition-all shadow-lg flex items-center justify-center gap-2 group cursor-pointer active:scale-98"
             >
-              <Navigation className="w-4 h-4 text-white group-hover:rotate-45 transition-transform duration-300" />
+              <Navigation className="w-4 h-4 text-[#07192d] group-hover:rotate-45 transition-transform duration-300" />
               <span>Add {selectedHotspot.name} to Route</span>
             </button>
           </div>
@@ -425,7 +418,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
       <style>{`
         .leaflet-container {
           font-family: inherit;
-          background: #101815 !important;
+          background: #07192d !important;
           width: 100%;
           height: 100%;
         }
@@ -434,21 +427,21 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
           border: none !important;
         }
         .leaflet-control-zoom a {
-          background: #0b110f !important;
-          color: #f4c36b !important;
+          background: #0d2239 !important;
+          color: #C4A258 !important;
           border: 1px solid rgba(255,255,255,0.15) !important;
           box-shadow: 0 4px 12px rgba(0,0,0,0.5) !important;
         }
         .leaflet-control-zoom a:hover {
-          background: #121a17 !important;
+          background: #07192d !important;
         }
         .leaflet-control-attribution {
-          background: rgba(0,0,0,0.6) !important;
-          color: rgba(255,255,255,0.45) !important;
+          background: rgba(7,25,45,0.7) !important;
+          color: rgba(255,255,255,0.5) !important;
           font-size: 9px !important;
         }
         .leaflet-control-attribution a {
-          color: rgba(255,255,255,0.65) !important;
+          color: rgba(255,255,255,0.7) !important;
         }
       `}</style>
     </div>

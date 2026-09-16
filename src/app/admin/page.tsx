@@ -166,18 +166,18 @@ export default function AdminPage() {
   if (!authenticated) {
     return (
       <div style={{ ...page, alignItems: "center", justifyContent: "center" }}>
-        <div style={{ width: 400, padding: "40px", background: "#111e18", border: "1px solid #1e2e28", borderRadius: 20 }}>
+        <div style={{ width: 400, padding: "40px", background: "#0d2239", border: "1px solid rgba(255,255,255,0.1)", borderRadius: 20 }}>
           <div style={{ ...logoIcon, width: 44, height: 44, marginBottom: 20 }}>
             <Image src="/safar-atlas-navbar.svg" alt="SafarAtlas" width={44} height={44} style={{ objectFit: "contain" }} priority />
           </div>
-          <p style={{ fontSize: 10, fontWeight: 800, letterSpacing: 3, textTransform: "uppercase", color: "#c95e3d", marginBottom: 6 }}>SafarAtlas Internal</p>
-          <h1 style={{ fontSize: 22, fontWeight: 900, color: "#e8f0ed", marginBottom: 4 }}>Operations Dashboard</h1>
-          <p style={{ fontSize: 12, color: "#5a7a6e", marginBottom: 24 }}>Enter your admin token to access the pipeline.</p>
+          <p style={{ fontSize: 10, fontWeight: 800, letterSpacing: 3, textTransform: "uppercase", color: "#C4A258", marginBottom: 6 }}>SafarAtlas Internal</p>
+          <h1 style={{ fontSize: 22, fontWeight: 900, color: "#f6f2ec", marginBottom: 4 }}>Operations Dashboard</h1>
+          <p style={{ fontSize: 12, color: "rgba(246,242,236,0.6)", marginBottom: 24 }}>Enter your admin token to access the pipeline.</p>
           <form onSubmit={loadAll} style={{ display: "flex", flexDirection: "column", gap: 12 }}>
             <input value={token} onChange={e => setToken(e.target.value)} type="password" placeholder="ADMIN_API_TOKEN"
               style={{ ...inputStyle, padding: "13px 16px", fontSize: 14 }} />
             {authError && <p style={{ fontSize: 12, color: "#ef4444", fontWeight: 700 }}>{authError}</p>}
-            <button style={{ background: "linear-gradient(135deg,#c95e3d,#e8703d)", border: "none", borderRadius: 10, color: "#fff", fontWeight: 800, fontSize: 14, padding: "13px", cursor: "pointer" }}>
+            <button style={{ background: "linear-gradient(135deg,#C4A258,#d8bb78)", border: "none", borderRadius: 10, color: "#07192d", fontWeight: 800, fontSize: 14, padding: "13px", cursor: "pointer" }}>
               {loading ? "Loading…" : "Open Pipeline →"}
             </button>
           </form>
@@ -425,10 +425,10 @@ export default function AdminPage() {
                 <div key={pkg.id} style={card}>
                   <div style={{ display: "flex", flexWrap: "wrap", gap: 20, justifyContent: "space-between", alignItems: "center" }}>
                     <div style={{ flex: 1, minWidth: 240 }}>
-                      <span style={{ fontSize: 10, fontWeight: 800, textTransform: "uppercase", color: "#c95e3d" }}>{pkg.badge} · {pkg.location}</span>
-                      <h4 style={{ margin: "4px 0", fontSize: 18, color: "#e8f0ed" }}>{pkg.title}</h4>
-                      <p style={{ margin: "0 0 8px", fontSize: 12, color: "#6b8c7e" }}>{pkg.summary}</p>
-                      <p style={{ margin: 0, fontSize: 11, color: "#4ade80" }}>Public Price: €{pkg.priceFromEur} / person · Duration: {pkg.duration}</p>
+                      <span style={{ fontSize: 10, fontWeight: 800, textTransform: "uppercase", color: "#C4A258" }}>{pkg.badge} · {pkg.location}</span>
+                      <h4 style={{ margin: "4px 0", fontSize: 18, color: "#f6f2ec" }}>{pkg.title}</h4>
+                      <p style={{ margin: "0 0 8px", fontSize: 12, color: "rgba(246,242,236,0.6)" }}>{pkg.summary}</p>
+                      <p style={{ margin: 0, fontSize: 11, color: "#25D366" }}>Public Price: €{pkg.priceFromEur} / person · Duration: {pkg.duration}</p>
                     </div>
                     <a
                       href={`/escapes/${pkg.slug}`}
@@ -437,8 +437,9 @@ export default function AdminPage() {
                       style={{
                         padding: "8px 16px",
                         borderRadius: 8,
-                        background: "#1e362d",
-                        color: "#f4c36b",
+                        background: "#051324",
+                        color: "#C4A258",
+                        border: "1px solid rgba(196,162,88,0.3)",
                         fontSize: 12,
                         fontWeight: 700,
                         textDecoration: "none",

@@ -99,10 +99,10 @@ export default function TaghazoutPage() {
             backgroundImage: `linear-gradient(180deg, rgba(7, 25, 45, 0.45) 0%, rgba(7, 25, 45, 0.92) 100%), url('/escapes/taghazout-surf.jpg')`,
           }}
         >
-          {/* Top Info Bar inside Hero */}
+            {/* Top Info Bar inside Hero */}
           <div className="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-white/10 z-10">
             <div className="flex items-center gap-3">
-              <span className="px-3 py-1 rounded-full text-[11px] font-extrabold uppercase tracking-widest bg-[#123b34]/70 border border-[#f4c36b]/30 text-[#f4c36b] backdrop-blur-md">
+              <span className="px-3 py-1 rounded-full text-[11px] font-extrabold uppercase tracking-widest bg-[#0d2239]/80 border border-[#C4A258]/30 text-[#C4A258] backdrop-blur-md">
                 Taghazout · Atlantic Surf Coast
               </span>
               <span className="hidden sm:inline-block text-xs font-semibold text-white/70">
@@ -119,7 +119,7 @@ export default function TaghazoutPage() {
                 title="Open standalone Taghazout Escapes portal"
               >
                 <span>Standalone Site</span>
-                <ExternalLink className="w-3 h-3 text-[#f4c36b]" />
+                <ExternalLink className="w-3 h-3 text-[#C4A258]" />
               </a>
 
               <a
@@ -137,14 +137,14 @@ export default function TaghazoutPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end my-auto py-8 z-10">
             {/* Left Col: Titles */}
             <div className="lg:col-span-7 space-y-4">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-black/40 border border-white/10 text-xs font-semibold text-[#f4c36b]">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-black/40 border border-white/10 text-xs font-semibold text-[#C4A258]">
                 <Waves className="w-3.5 h-3.5" />
                 <span>Two Curated Rhythms · Zero Logistics</span>
               </div>
               
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-black text-white leading-tight drop-shadow-md">
                 Escape for 3 days. <br />
-                <span className="text-[#f4c36b]">Come back reset.</span>
+                <span className="text-[#C4A258]">Come back reset.</span>
               </h1>
               
               <p className="text-sm sm:text-base text-[#f6f2ec]/90 max-w-xl leading-relaxed drop-shadow">
@@ -158,7 +158,7 @@ export default function TaghazoutPage() {
                   onClick={() => setSelectedRhythm("slow")}
                   className={`px-4 py-2 rounded-xl text-xs font-black transition-all flex items-center gap-2 cursor-pointer ${
                     selectedRhythm === "slow"
-                      ? "bg-[#123b34] text-[#f4c36b] border border-[#f4c36b]/40 shadow-lg scale-102"
+                      ? "bg-[#0d2239] text-[#C4A258] border border-[#C4A258]/40 shadow-lg scale-102"
                       : "bg-black/40 text-white/70 border border-white/10 hover:bg-black/60"
                   }`}
                 >
@@ -171,7 +171,7 @@ export default function TaghazoutPage() {
                   onClick={() => setSelectedRhythm("active")}
                   className={`px-4 py-2 rounded-xl text-xs font-black transition-all flex items-center gap-2 cursor-pointer ${
                     selectedRhythm === "active"
-                      ? "bg-[#123b34] text-[#f4c36b] border border-[#f4c36b]/40 shadow-lg scale-102"
+                      ? "bg-[#0d2239] text-[#C4A258] border border-[#C4A258]/40 shadow-lg scale-102"
                       : "bg-black/40 text-white/70 border border-white/10 hover:bg-black/60"
                   }`}
                 >
@@ -183,9 +183,9 @@ export default function TaghazoutPage() {
 
             {/* Right Col: Interactive Price Box */}
             <div className="lg:col-span-5 w-full max-w-md mx-auto lg:ml-auto">
-              <div className="rounded-2xl p-6 bg-[#0a151d]/90 backdrop-blur-xl border border-white/20 shadow-2xl space-y-4">
+              <div className="rounded-2xl p-6 bg-[#051324]/90 backdrop-blur-xl border border-white/20 shadow-2xl space-y-4">
                 <div className="flex items-center justify-between">
-                  <span className="text-xs font-extrabold uppercase tracking-wider text-[#f4c36b]">
+                  <span className="text-xs font-extrabold uppercase tracking-wider text-[#C4A258]">
                     {currentTitle} · 3D / 2N
                   </span>
                   <span className="px-2.5 py-0.5 rounded-full text-[10px] font-black bg-[#25D366]/20 text-[#25D366] border border-[#25D366]/30">
@@ -196,7 +196,7 @@ export default function TaghazoutPage() {
                 <div>
                   <div className="flex items-center gap-3">
                     <span className="text-2xl sm:text-3xl font-black text-[#25D366]">Pricing on WhatsApp</span>
-                    <span className="px-2 py-0.5 rounded-full text-[10px] font-black bg-[#f4c36b]/15 text-[#f4c36b] border border-[#f4c36b]/30">3D / 2N</span>
+                    <span className="px-2 py-0.5 rounded-full text-[10px] font-black bg-[#C4A258]/15 text-[#C4A258] border border-[#C4A258]/30">3D / 2N</span>
                   </div>
                   <p className="text-xs text-white/60 mt-1">
                     Message us to get a personalised quote · Oceanfront private room included
@@ -206,19 +206,19 @@ export default function TaghazoutPage() {
                 {/* Inclusions summary */}
                 <div className="space-y-2 pt-2 border-t border-white/10 text-xs">
                   <div className="flex items-center gap-2 text-white/90">
-                    <Check className="w-4 h-4 text-[#f4c36b] shrink-0" />
+                    <Check className="w-4 h-4 text-[#C4A258] shrink-0" />
                     <span>3 Days / 2 Nights in ocean-view private room</span>
                   </div>
                   <div className="flex items-center gap-2 text-white/90">
-                    <Check className="w-4 h-4 text-[#f4c36b] shrink-0" />
+                    <Check className="w-4 h-4 text-[#C4A258] shrink-0" />
                     <span>One-way VIP Agadir airport arrival transfer</span>
                   </div>
                   <div className="flex items-center gap-2 text-white/90">
-                    <Check className="w-4 h-4 text-[#f4c36b] shrink-0" />
+                    <Check className="w-4 h-4 text-[#C4A258] shrink-0" />
                     <span>2 Wholesome ocean-terrace breakfasts</span>
                   </div>
                   <div className="flex items-center gap-2 text-white/90">
-                    <Check className="w-4 h-4 text-[#f4c36b] shrink-0" />
+                    <Check className="w-4 h-4 text-[#C4A258] shrink-0" />
                     <span>
                       {selectedRhythm === "slow"
                         ? "Restorative hammam session & sunset yoga shala"
@@ -257,33 +257,33 @@ export default function TaghazoutPage() {
           {/* Bottom badge row */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-4 border-t border-white/10 z-10 text-[11px] text-white/75">
             <div className="flex items-center gap-2">
-              <Clock className="w-4 h-4 text-[#f4c36b]" />
+              <Clock className="w-4 h-4 text-[#C4A258]" />
               <span>72-Hour Weekend Rhythm</span>
             </div>
             <div className="flex items-center gap-2">
-              <ShieldCheck className="w-4 h-4 text-[#f4c36b]" />
+              <ShieldCheck className="w-4 h-4 text-[#C4A258]" />
               <span>Private Guidance & Certified Care</span>
             </div>
             <div className="flex items-center gap-2">
-              <Coffee className="w-4 h-4 text-[#f4c36b]" />
+              <Coffee className="w-4 h-4 text-[#C4A258]" />
               <span>Oceanfront Breakfasts</span>
             </div>
             <div className="flex items-center gap-2">
-              <HeartHandshake className="w-4 h-4 text-[#f4c36b]" />
+              <HeartHandshake className="w-4 h-4 text-[#C4A258]" />
               <span>Direct WhatsApp Concierge</span>
             </div>
           </div>
         </section>
 
         {/* ── 2. THE REALITY / MANIFESTO ── */}
-        <section className="rounded-3xl bg-[#0d1c25] border border-white/10 p-6 sm:p-10 lg:p-14 relative overflow-hidden">
+        <section className="rounded-3xl bg-[#0d2239] border border-white/10 p-6 sm:p-10 lg:p-14 relative overflow-hidden">
           <div className="max-w-3xl space-y-6">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#c95e3d]/20 border border-[#c95e3d]/30 text-[#c95e3d] text-xs font-bold uppercase tracking-wider">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#C4A258]/15 border border-[#C4A258]/30 text-[#C4A258] text-xs font-bold uppercase tracking-wider">
               <span>The Reality</span>
             </div>
 
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-black text-white leading-tight">
-              Not everyone wants a <span className="text-[#f4c36b]">surf camp.</span> <br />
+              Not everyone wants a <span className="text-[#C4A258]">surf camp.</span> <br />
               Some people just need three days to breathe.
             </h2>
 
@@ -296,7 +296,7 @@ export default function TaghazoutPage() {
             </p>
 
             <div className="pt-2">
-              <span className="text-sm font-black text-[#f4c36b] tracking-wider uppercase">
+              <span className="text-sm font-black text-[#C4A258] tracking-wider uppercase">
                 ✦ Two rhythms. One clean escape. Zero logistical friction.
               </span>
             </div>
@@ -306,7 +306,7 @@ export default function TaghazoutPage() {
         {/* ── 3. CHOOSE YOUR RHYTHM (TWO TIERS) ── */}
         <section className="space-y-8">
           <div className="text-center max-w-2xl mx-auto space-y-2">
-            <span className="text-xs font-extrabold uppercase tracking-widest text-[#f4c36b]">
+            <span className="text-xs font-extrabold uppercase tracking-widest text-[#C4A258]">
               Curated Offerings
             </span>
             <h2 className="text-3xl sm:text-4xl font-serif font-black text-white">
@@ -322,15 +322,15 @@ export default function TaghazoutPage() {
             {/* TIER 1: SLOW ESCAPE */}
             <div
               onClick={() => setSelectedRhythm("slow")}
-              className={`rounded-3xl p-6 sm:p-8 bg-[#0d1c25] border transition-all cursor-pointer flex flex-col justify-between relative ${
+              className={`rounded-3xl p-6 sm:p-8 bg-[#0d2239] border transition-all cursor-pointer flex flex-col justify-between relative ${
                 selectedRhythm === "slow"
-                  ? "border-[#f4c36b] shadow-[0_12px_40px_rgba(244,195,107,0.15)] ring-1 ring-[#f4c36b]"
+                  ? "border-[#C4A258] shadow-[0_12px_40px_rgba(196,162,88,0.2)] ring-1 ring-[#C4A258]"
                   : "border-white/10 hover:border-white/20"
               }`}
             >
               <div className="space-y-5">
                 <div className="flex items-center justify-between">
-                  <span className="px-3 py-1 rounded-full bg-[#123b34] text-[#f4c36b] text-[11px] font-extrabold uppercase tracking-wider border border-[#f4c36b]/30">
+                  <span className="px-3 py-1 rounded-full bg-[#051324] text-[#C4A258] text-[11px] font-extrabold uppercase tracking-wider border border-[#C4A258]/30">
                     Recommended Reset
                   </span>
                   <span className="text-xs font-semibold text-white/60">3 Days / 2 Nights</span>
@@ -338,7 +338,7 @@ export default function TaghazoutPage() {
 
                 <div>
                   <h3 className="text-2xl sm:text-3xl font-serif font-black text-white">Slow Escape</h3>
-                  <p className="text-xs sm:text-sm text-[#f4c36b] font-medium mt-1">Relax, disconnect, reset.</p>
+                  <p className="text-xs sm:text-sm text-[#C4A258] font-medium mt-1">Relax, disconnect, reset.</p>
                 </div>
 
                 <div className="flex items-center gap-2 pt-1">
@@ -348,27 +348,27 @@ export default function TaghazoutPage() {
 
                 <ul className="space-y-3 pt-4 border-t border-white/10 text-xs sm:text-sm text-white/85">
                   <li className="flex items-start gap-3">
-                    <Check className="w-4 h-4 text-[#f4c36b] shrink-0 mt-0.5" />
+                    <Check className="w-4 h-4 text-[#C4A258] shrink-0 mt-0.5" />
                     <span>Ocean-view boutique private room</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <Check className="w-4 h-4 text-[#f4c36b] shrink-0 mt-0.5" />
+                    <Check className="w-4 h-4 text-[#C4A258] shrink-0 mt-0.5" />
                     <span>2 Wholesome ocean-terrace breakfasts</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <Check className="w-4 h-4 text-[#f4c36b] shrink-0 mt-0.5" />
+                    <Check className="w-4 h-4 text-[#C4A258] shrink-0 mt-0.5" />
                     <span>One-way private Agadir airport transfer</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <Check className="w-4 h-4 text-[#f4c36b] shrink-0 mt-0.5" />
+                    <Check className="w-4 h-4 text-[#C4A258] shrink-0 mt-0.5" />
                     <span>Traditional cleansing hammam ritual</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <Check className="w-4 h-4 text-[#f4c36b] shrink-0 mt-0.5" />
+                    <Check className="w-4 h-4 text-[#C4A258] shrink-0 mt-0.5" />
                     <span>Sunset yoga shala overlooking Anchor Point</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <Check className="w-4 h-4 text-[#f4c36b] shrink-0 mt-0.5" />
+                    <Check className="w-4 h-4 text-[#C4A258] shrink-0 mt-0.5" />
                     <span>Direct WhatsApp concierge support throughout</span>
                   </li>
                 </ul>
@@ -381,7 +381,7 @@ export default function TaghazoutPage() {
                   )}`}
                   target="_blank"
                   rel="noreferrer"
-                  className="w-full py-3 rounded-xl bg-[#c95e3d] hover:bg-[#aa4a2c] text-white text-xs font-black tracking-wider flex items-center justify-center gap-2 transition-all shadow-md"
+                  className="w-full py-3 rounded-xl bg-[#C4A258] hover:bg-[#d8bb78] text-[#07192d] text-xs font-black tracking-wider flex items-center justify-center gap-2 transition-all shadow-md"
                 >
                   <span>Book Slow Escape via WhatsApp</span>
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -392,15 +392,15 @@ export default function TaghazoutPage() {
             {/* TIER 2: ACTIVE ESCAPE */}
             <div
               onClick={() => setSelectedRhythm("active")}
-              className={`rounded-3xl p-6 sm:p-8 bg-[#0d1c25] border transition-all cursor-pointer flex flex-col justify-between relative ${
+              className={`rounded-3xl p-6 sm:p-8 bg-[#0d2239] border transition-all cursor-pointer flex flex-col justify-between relative ${
                 selectedRhythm === "active"
-                  ? "border-[#f4c36b] shadow-[0_12px_40px_rgba(244,195,107,0.15)] ring-1 ring-[#f4c36b]"
+                  ? "border-[#C4A258] shadow-[0_12px_40px_rgba(196,162,88,0.2)] ring-1 ring-[#C4A258]"
                   : "border-white/10 hover:border-white/20"
               }`}
             >
               <div className="space-y-5">
                 <div className="flex items-center justify-between">
-                  <span className="px-3 py-1 rounded-full bg-[#123b34] text-[#f4c36b] text-[11px] font-extrabold uppercase tracking-wider border border-[#f4c36b]/30">
+                  <span className="px-3 py-1 rounded-full bg-[#051324] text-[#C4A258] text-[11px] font-extrabold uppercase tracking-wider border border-[#C4A258]/30">
                     Ocean & Movement
                   </span>
                   <span className="text-xs font-semibold text-white/60">3 Days / 2 Nights</span>
@@ -408,7 +408,7 @@ export default function TaghazoutPage() {
 
                 <div>
                   <h3 className="text-2xl sm:text-3xl font-serif font-black text-white">Active Escape</h3>
-                  <p className="text-xs sm:text-sm text-[#f4c36b] font-medium mt-1">Surf, explore, move.</p>
+                  <p className="text-xs sm:text-sm text-[#C4A258] font-medium mt-1">Surf, explore, move.</p>
                 </div>
 
                 <div className="flex items-center gap-2 pt-1">
@@ -418,27 +418,27 @@ export default function TaghazoutPage() {
 
                 <ul className="space-y-3 pt-4 border-t border-white/10 text-xs sm:text-sm text-white/85">
                   <li className="flex items-start gap-3">
-                    <Check className="w-4 h-4 text-[#f4c36b] shrink-0 mt-0.5" />
+                    <Check className="w-4 h-4 text-[#C4A258] shrink-0 mt-0.5" />
                     <span>Ocean-view boutique private room</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <Check className="w-4 h-4 text-[#f4c36b] shrink-0 mt-0.5" />
+                    <Check className="w-4 h-4 text-[#C4A258] shrink-0 mt-0.5" />
                     <span>2 Wholesome ocean-terrace breakfasts</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <Check className="w-4 h-4 text-[#f4c36b] shrink-0 mt-0.5" />
+                    <Check className="w-4 h-4 text-[#C4A258] shrink-0 mt-0.5" />
                     <span>One-way private Agadir airport transfer</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <Check className="w-4 h-4 text-[#f4c36b] shrink-0 mt-0.5" />
+                    <Check className="w-4 h-4 text-[#C4A258] shrink-0 mt-0.5" />
                     <span>Private surf coaching session with ISA coach</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <Check className="w-4 h-4 text-[#f4c36b] shrink-0 mt-0.5" />
+                    <Check className="w-4 h-4 text-[#C4A258] shrink-0 mt-0.5" />
                     <span>Full premium surfboard & wetsuit quiver access</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <Check className="w-4 h-4 text-[#f4c36b] shrink-0 mt-0.5" />
+                    <Check className="w-4 h-4 text-[#C4A258] shrink-0 mt-0.5" />
                     <span>Direct WhatsApp concierge support throughout</span>
                   </li>
                 </ul>
@@ -451,7 +451,7 @@ export default function TaghazoutPage() {
                   )}`}
                   target="_blank"
                   rel="noreferrer"
-                  className="w-full py-3 rounded-xl bg-[#c95e3d] hover:bg-[#aa4a2c] text-white text-xs font-black tracking-wider flex items-center justify-center gap-2 transition-all shadow-md"
+                  className="w-full py-3 rounded-xl bg-[#C4A258] hover:bg-[#d8bb78] text-[#07192d] text-xs font-black tracking-wider flex items-center justify-center gap-2 transition-all shadow-md"
                 >
                   <span>Book Active Escape via WhatsApp</span>
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -463,9 +463,9 @@ export default function TaghazoutPage() {
         </section>
 
         {/* ── 4. THE ALTERNATIVE (COMPARISON TABLE) ── */}
-        <section className="rounded-3xl bg-[#0a151d] border border-white/10 p-6 sm:p-10 lg:p-12 space-y-8">
+        <section className="rounded-3xl bg-[#051324] border border-white/10 p-6 sm:p-10 lg:p-12 space-y-8">
           <div className="space-y-2">
-            <span className="text-xs font-extrabold uppercase tracking-wider text-[#f4c36b]">
+            <span className="text-xs font-extrabold uppercase tracking-wider text-[#C4A258]">
               The Alternative
             </span>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-black text-white">
@@ -481,34 +481,34 @@ export default function TaghazoutPage() {
               <thead>
                 <tr className="border-b border-white/15 text-xs uppercase tracking-wider">
                   <th className="py-3 px-4 text-white/60">Dimension</th>
-                  <th className="py-3 px-4 text-[#f4c36b] font-bold">Taghazout Escapes (Us)</th>
+                  <th className="py-3 px-4 text-[#C4A258] font-bold">Taghazout Escapes (Us)</th>
                   <th className="py-3 px-4 text-white/50">Typical Surf Camp</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-white/10 text-xs sm:text-sm">
                 <tr>
                   <td className="py-3.5 px-4 font-bold text-white/80">Trip Focus</td>
-                  <td className="py-3.5 px-4 text-[#f4c36b] font-semibold">The Escape & Reset (3 Days)</td>
+                  <td className="py-3.5 px-4 text-[#C4A258] font-semibold">The Escape & Reset (3 Days)</td>
                   <td className="py-3.5 px-4 text-white/60">Rigid 7-day sport schedule</td>
                 </tr>
                 <tr>
                   <td className="py-3.5 px-4 font-bold text-white/80">Daily Rhythm</td>
-                  <td className="py-3.5 px-4 text-[#f4c36b] font-semibold">Slow or Active. You decide.</td>
+                  <td className="py-3.5 px-4 text-[#C4A258] font-semibold">Slow or Active. You decide.</td>
                   <td className="py-3.5 px-4 text-white/60">Group timetable first</td>
                 </tr>
                 <tr>
                   <td className="py-3.5 px-4 font-bold text-white/80">Accommodation</td>
-                  <td className="py-3.5 px-4 text-[#f4c36b] font-semibold">Boutique ocean-view privacy</td>
+                  <td className="py-3.5 px-4 text-[#C4A258] font-semibold">Boutique ocean-view privacy</td>
                   <td className="py-3.5 px-4 text-white/60">Crowded dorms or shared bathrooms</td>
                 </tr>
                 <tr>
                   <td className="py-3.5 px-4 font-bold text-white/80">Booking Experience</td>
-                  <td className="py-3.5 px-4 text-[#f4c36b] font-semibold">Human, direct on WhatsApp</td>
+                  <td className="py-3.5 px-4 text-[#C4A258] font-semibold">Human, direct on WhatsApp</td>
                   <td className="py-3.5 px-4 text-white/60">Complicated forms, delays, fixed dates</td>
                 </tr>
                 <tr>
                   <td className="py-3.5 px-4 font-bold text-white/80">Logistics & Transfers</td>
-                  <td className="py-3.5 px-4 text-[#f4c36b] font-semibold">Private driver waiting at Agadir arrivals</td>
+                  <td className="py-3.5 px-4 text-[#C4A258] font-semibold">Private driver waiting at Agadir arrivals</td>
                   <td className="py-3.5 px-4 text-white/60">Self-funded shuttle or shared bus</td>
                 </tr>
               </tbody>
@@ -519,7 +519,7 @@ export default function TaghazoutPage() {
         {/* ── 5. THE 72-HOUR DAY-BY-DAY JOURNEY ── */}
         <section className="space-y-8">
           <div className="space-y-2">
-            <span className="text-xs font-extrabold uppercase tracking-widest text-[#f4c36b]">
+            <span className="text-xs font-extrabold uppercase tracking-widest text-[#C4A258]">
               Itinerary Breakdown
             </span>
             <h2 className="text-3xl sm:text-4xl font-serif font-black text-white">
@@ -532,8 +532,8 @@ export default function TaghazoutPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* DAY 1 */}
-            <div className="rounded-2xl p-6 bg-[#0d1c25] border border-white/10 space-y-4">
-              <span className="px-2.5 py-1 rounded-md bg-[#123b34] text-[#f4c36b] text-[11px] font-black uppercase">
+            <div className="rounded-2xl p-6 bg-[#0d2239] border border-white/10 space-y-4">
+              <span className="px-2.5 py-1 rounded-md bg-[#051324] text-[#C4A258] text-[11px] font-black uppercase">
                 Day 1 · Arrival & Horizon
               </span>
               <h3 className="text-lg font-serif font-bold text-white">
@@ -545,11 +545,11 @@ export default function TaghazoutPage() {
             </div>
 
             {/* DAY 2 */}
-            <div className="rounded-2xl p-6 bg-[#0d1c25] border border-[#f4c36b]/30 space-y-4 relative">
+            <div className="rounded-2xl p-6 bg-[#0d2239] border border-[#C4A258]/30 space-y-4 relative">
               <div className="absolute top-4 right-4">
-                <Sparkles className="w-4 h-4 text-[#f4c36b]" />
+                <Sparkles className="w-4 h-4 text-[#C4A258]" />
               </div>
-              <span className="px-2.5 py-1 rounded-md bg-[#c95e3d]/30 text-[#c95e3d] text-[11px] font-black uppercase border border-[#c95e3d]/40">
+              <span className="px-2.5 py-1 rounded-md bg-[#C4A258]/20 text-[#C4A258] text-[11px] font-black uppercase border border-[#C4A258]/40">
                 Day 2 · Core Rhythm
               </span>
               <h3 className="text-lg font-serif font-bold text-white">
@@ -561,8 +561,8 @@ export default function TaghazoutPage() {
             </div>
 
             {/* DAY 3 */}
-            <div className="rounded-2xl p-6 bg-[#0d1c25] border border-white/10 space-y-4">
-              <span className="px-2.5 py-1 rounded-md bg-[#123b34] text-[#f4c36b] text-[11px] font-black uppercase">
+            <div className="rounded-2xl p-6 bg-[#0d2239] border border-white/10 space-y-4">
+              <span className="px-2.5 py-1 rounded-md bg-[#051324] text-[#C4A258] text-[11px] font-black uppercase">
                 Day 3 · Calm & Departure
               </span>
               <h3 className="text-lg font-serif font-bold text-white">
@@ -576,9 +576,9 @@ export default function TaghazoutPage() {
         </section>
 
         {/* ── 6. PRAISE FROM GUESTS (TESTIMONIALS) ── */}
-        <section className="rounded-3xl bg-[#0a151d] border border-white/10 p-6 sm:p-10 space-y-8">
+        <section className="rounded-3xl bg-[#051324] border border-white/10 p-6 sm:p-10 space-y-8">
           <div className="text-center max-w-xl mx-auto space-y-2">
-            <span className="text-xs font-extrabold uppercase tracking-widest text-[#f4c36b]">
+            <span className="text-xs font-extrabold uppercase tracking-widest text-[#C4A258]">
               Guestbook
             </span>
             <h2 className="text-2xl sm:text-3xl font-serif font-black text-white">
@@ -587,33 +587,33 @@ export default function TaghazoutPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="rounded-2xl p-5 bg-[#0d1c25] border border-white/10 space-y-3">
+            <div className="rounded-2xl p-5 bg-[#0d2239] border border-white/10 space-y-3">
               <p className="text-xs sm:text-sm text-white/85 italic leading-relaxed">
                 &ldquo;Flew in Friday night, surfed two perfect dawns, was back at my desk Monday. The first trip in years that did not feel like a logistics project.&rdquo;
               </p>
               <div className="pt-2 border-t border-white/10">
                 <span className="text-xs font-bold text-white block">Lea M.</span>
-                <span className="text-[11px] text-[#f4c36b]">Paris · Weekend Warrior</span>
+                <span className="text-[11px] text-[#C4A258]">Paris · Weekend Warrior</span>
               </div>
             </div>
 
-            <div className="rounded-2xl p-5 bg-[#0d1c25] border border-white/10 space-y-3">
+            <div className="rounded-2xl p-5 bg-[#0d2239] border border-white/10 space-y-3">
               <p className="text-xs sm:text-sm text-white/85 italic leading-relaxed">
                 &ldquo;The private guide read the swell better than any forecast. We scored an empty point break while the camp groups were still queueing for breakfast.&rdquo;
               </p>
               <div className="pt-2 border-t border-white/10">
                 <span className="text-xs font-bold text-white block">Tomas R.</span>
-                <span className="text-[11px] text-[#f4c36b]">Lisbon · Active Escape</span>
+                <span className="text-[11px] text-[#C4A258]">Lisbon · Active Escape</span>
               </div>
             </div>
 
-            <div className="rounded-2xl p-5 bg-[#0d1c25] border border-white/10 space-y-3">
+            <div className="rounded-2xl p-5 bg-[#0d2239] border border-white/10 space-y-3">
               <p className="text-xs sm:text-sm text-white/85 italic leading-relaxed">
                 &ldquo;I wanted quiet, good food, and the ocean without a forced group schedule. Slow Escape was exactly the reset I needed.&rdquo;
               </p>
               <div className="pt-2 border-t border-white/10">
                 <span className="text-xs font-bold text-white block">Anais D.</span>
-                <span className="text-[11px] text-[#f4c36b]">Geneva · Slow Escape</span>
+                <span className="text-[11px] text-[#C4A258]">Geneva · Slow Escape</span>
               </div>
             </div>
           </div>
@@ -622,7 +622,7 @@ export default function TaghazoutPage() {
         {/* ── 7. FAQ ACCORDION ── */}
         <section className="space-y-6 max-w-3xl mx-auto">
           <div className="text-center space-y-2">
-            <span className="text-xs font-extrabold uppercase tracking-widest text-[#f4c36b]">
+            <span className="text-xs font-extrabold uppercase tracking-widest text-[#C4A258]">
               FAQ
             </span>
             <h2 className="text-2xl sm:text-3xl font-serif font-black text-white">
@@ -636,7 +636,7 @@ export default function TaghazoutPage() {
               return (
                 <div
                   key={idx}
-                  className="rounded-2xl bg-[#0d1c25] border border-white/10 overflow-hidden transition-all"
+                  className="rounded-2xl bg-[#0d2239] border border-white/10 overflow-hidden transition-all"
                 >
                   <button
                     type="button"
@@ -645,7 +645,7 @@ export default function TaghazoutPage() {
                   >
                     <span className="text-sm font-bold text-white">{item.q}</span>
                     <ChevronDown
-                      className={`w-4 h-4 text-[#f4c36b] transition-transform duration-300 ${
+                      className={`w-4 h-4 text-[#C4A258] transition-transform duration-300 ${
                         isOpen ? "rotate-180" : ""
                       }`}
                     />
@@ -662,9 +662,9 @@ export default function TaghazoutPage() {
         </section>
 
         {/* ── 8. BOTTOM CTA STRIP ── */}
-        <section className="rounded-3xl bg-gradient-to-r from-[#123b34] to-[#0a1f1b] border border-[#f4c36b]/30 p-8 sm:p-12 text-center space-y-6 shadow-2xl relative overflow-hidden">
+        <section className="rounded-3xl bg-gradient-to-r from-[#0d2239] to-[#051324] border border-[#C4A258]/30 p-8 sm:p-12 text-center space-y-6 shadow-2xl relative overflow-hidden">
           <div className="max-w-2xl mx-auto space-y-3 relative z-10">
-            <span className="text-xs font-black uppercase tracking-widest text-[#f4c36b]">
+            <span className="text-xs font-black uppercase tracking-widest text-[#C4A258]">
               Direct Human Booking
             </span>
             <h2 className="text-3xl sm:text-4xl font-serif font-black text-white">
@@ -693,7 +693,7 @@ export default function TaghazoutPage() {
               className="px-6 py-4 rounded-xl bg-white/10 hover:bg-white/20 border border-white/25 text-white text-xs font-bold tracking-wider flex items-center gap-2 transition-all"
             >
               <span>Visit TaghazoutEscapes.com</span>
-              <ExternalLink className="w-3.5 h-3.5 text-[#f4c36b]" />
+              <ExternalLink className="w-3.5 h-3.5 text-[#C4A258]" />
             </a>
           </div>
         </section>

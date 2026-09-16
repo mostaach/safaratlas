@@ -99,7 +99,7 @@ export const ListingsCarousel: React.FC<ListingsCarouselProps> = ({
         onClick={prev}
         disabled={active === 0}
         aria-label="Previous listing"
-        className="absolute -left-5 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-white shadow-xl border border-[#e5dacb] flex items-center justify-center text-[#121a17] hover:bg-[#faf6f0] hover:scale-110 transition-all disabled:opacity-30 disabled:cursor-not-allowed disabled:scale-100"
+        className="absolute -left-5 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-[#0d2239] shadow-xl border border-white/15 flex items-center justify-center text-white hover:bg-[#16375A] hover:scale-110 transition-all disabled:opacity-30 disabled:cursor-not-allowed disabled:scale-100 cursor-pointer"
       >
         <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
           <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
@@ -109,7 +109,7 @@ export const ListingsCarousel: React.FC<ListingsCarouselProps> = ({
         onClick={next}
         disabled={active === listings.length - 1}
         aria-label="Next listing"
-        className="absolute -right-5 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-white shadow-xl border border-[#e5dacb] flex items-center justify-center text-[#121a17] hover:bg-[#faf6f0] hover:scale-110 transition-all disabled:opacity-30 disabled:cursor-not-allowed disabled:scale-100"
+        className="absolute -right-5 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-[#0d2239] shadow-xl border border-white/15 flex items-center justify-center text-white hover:bg-[#16375A] hover:scale-110 transition-all disabled:opacity-30 disabled:cursor-not-allowed disabled:scale-100 cursor-pointer"
       >
         <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
           <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
@@ -123,11 +123,11 @@ export const ListingsCarousel: React.FC<ListingsCarouselProps> = ({
             key={i}
             onClick={() => setActive(i)}
             aria-label={`Go to listing ${i + 1}`}
-            className="transition-all duration-300 rounded-full"
+            className="transition-all duration-300 rounded-full cursor-pointer"
             style={{
               width: i === active ? "24px" : "8px",
               height: "8px",
-              background: i === active ? "#c95e3d" : "#c9b99a",
+              background: i === active ? "#C4A258" : "rgba(255,255,255,0.2)",
             }}
           />
         ))}

@@ -308,7 +308,6 @@ export const CuratedJourneySection: React.FC<CuratedJourneySectionProps> = ({ on
 
   const currentPreset = ROUTE_PRESETS[activePresetIndex];
   
-  // Find current active milestone or default to first
   const activeMilestone = 
     currentPreset.milestones.find((m) => m.id === activeMilestoneId) || 
     currentPreset.milestones[0];
@@ -323,15 +322,15 @@ export const CuratedJourneySection: React.FC<CuratedJourneySectionProps> = ({ on
   return (
     <section 
       id="itineraries" 
-      className="relative py-20 lg:py-28 bg-[#0c221c] text-white overflow-hidden border-t border-[#1d463c] zellige-pattern-dark"
+      className="relative py-20 lg:py-28 bg-[#07192d] text-[#f6f2ec] overflow-hidden border-t border-white/10"
     >
       {/* Ambient Vignette & Golden Glow Lighting */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0c221c] via-[#0c221c]/92 to-[#0c221c] pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#07192d] via-[#07192d]/92 to-[#07192d] pointer-events-none" />
       <div 
-        className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[360px] bg-[#f4c36b]/10 rounded-full blur-[120px] pointer-events-none" 
+        className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[360px] bg-[#C4A258]/10 rounded-full blur-[120px] pointer-events-none" 
       />
       <div 
-        className="absolute bottom-10 left-1/4 w-[500px] h-[300px] bg-[#c95e3d]/10 rounded-full blur-[100px] pointer-events-none" 
+        className="absolute bottom-10 left-1/4 w-[500px] h-[300px] bg-[#C4A258]/5 rounded-full blur-[100px] pointer-events-none" 
       />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
@@ -340,9 +339,9 @@ export const CuratedJourneySection: React.FC<CuratedJourneySectionProps> = ({ on
         <div className="text-center max-w-3xl mx-auto space-y-4">
           
           {/* Eyebrow badge with pulse */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#16375A]/80 border border-[#C4A258]/30 shadow-sm backdrop-blur-md">
-            <span className="w-2 h-2 rounded-full bg-[#f4c36b] animate-ping" />
-            <span className="text-[11px] font-extrabold uppercase tracking-widest text-[#f4c36b]">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#0d2239] border border-[#C4A258]/30 shadow-sm backdrop-blur-md">
+            <span className="w-2 h-2 rounded-full bg-[#C4A258] animate-ping" />
+            <span className="text-[11px] font-extrabold uppercase tracking-widest text-[#C4A258]">
               One Coordinated Route · Zero Friction
             </span>
           </div>
@@ -365,12 +364,12 @@ export const CuratedJourneySection: React.FC<CuratedJourneySectionProps> = ({ on
                   onClick={() => handleSelectPreset(idx)}
                   className={`px-4 py-2 rounded-full text-xs font-bold transition-all duration-300 cursor-pointer ${
                     isSelected
-                      ? "bg-[#C4A258] text-[#121a17] shadow-[0_4px_20px_rgba(196,162,88,0.35)] scale-105"
+                      ? "bg-[#C4A258] text-[#07192d] shadow-[0_4px_20px_rgba(196,162,88,0.35)] scale-105"
                       : "bg-white/5 hover:bg-white/10 text-white/70 hover:text-white border border-white/10"
                   }`}
                 >
                   <span>{preset.label}</span>
-                  <span className={`ml-2 text-[10px] ${isSelected ? "text-[#121a17]/80 font-bold" : "text-[#f4c36b]"}`}>
+                  <span className={`ml-2 text-[10px] ${isSelected ? "text-[#07192d]/80 font-bold" : "text-[#C4A258]"}`}>
                     {preset.durationDays} Days
                   </span>
                 </button>
@@ -387,7 +386,7 @@ export const CuratedJourneySection: React.FC<CuratedJourneySectionProps> = ({ on
           <div 
             className="absolute top-[64px] left-[8%] right-[8%] h-[2px] hidden md:block pointer-events-none z-0"
             style={{
-              background: "linear-gradient(to right, rgba(196,162,88,0.2) 0%, rgba(201,94,61,0.6) 30%, rgba(5,150,105,0.6) 70%, rgba(196,162,88,0.2) 100%)",
+              background: "linear-gradient(to right, rgba(196,162,88,0.2) 0%, rgba(196,162,88,0.6) 50%, rgba(196,162,88,0.2) 100%)",
             }}
           />
 
@@ -396,11 +395,6 @@ export const CuratedJourneySection: React.FC<CuratedJourneySectionProps> = ({ on
             {currentPreset.milestones.map((m, idx) => {
               const isActive = m.id === activeMilestone.id;
               const IconComponent = m.icon;
-
-              // Card theme styling
-              const isTerracotta = m.themeColor === "terracotta";
-              const isEmerald = m.themeColor === "emerald";
-              const isSlate = m.themeColor === "slate";
 
               return (
                 <div
@@ -412,21 +406,13 @@ export const CuratedJourneySection: React.FC<CuratedJourneySectionProps> = ({ on
                   <div
                     className={`relative w-full aspect-square max-w-[136px] rounded-2xl flex flex-col items-center justify-center gap-1.5 p-3 transition-all duration-300 ${
                       isActive
-                        ? "ring-2 ring-[#f4c36b] ring-offset-4 ring-offset-[#0c221c] -translate-y-2 shadow-[0_16px_36px_rgba(244,195,107,0.25)]"
-                        : "hover:-translate-y-1 hover:shadow-lg"
-                    } ${
-                      isTerracotta
-                        ? "bg-gradient-to-br from-[#c95e3d] via-[#ba5232] to-[#993b1f] border-2 border-[#c95e3d]/80 text-white shadow-[0_10px_30px_rgba(201,94,61,0.35)]"
-                        : isEmerald
-                        ? "bg-gradient-to-br from-[#0d6e4a] via-[#0b5c3e] to-[#064e3b] border-2 border-[#059669]/80 text-white shadow-[0_10px_30px_rgba(5,150,105,0.3)]"
-                        : isSlate
-                        ? "bg-[#142c24]/90 border-2 border-dashed border-white/20 text-white/80 opacity-85 hover:opacity-100"
-                        : "bg-[#132c25] border-2 border-[#245246] hover:border-[#f4c36b]/60 text-white shadow-md"
+                        ? "ring-2 ring-[#C4A258] ring-offset-4 ring-offset-[#07192d] -translate-y-2 shadow-[0_16px_36px_rgba(196,162,88,0.25)] bg-[#0d2239] border-2 border-[#C4A258]"
+                        : "bg-[#0d2239]/80 border-2 border-white/10 hover:border-[#C4A258]/60 hover:-translate-y-1 hover:shadow-lg text-white"
                     }`}
                   >
                     {/* Featured Top Badge */}
                     {m.isFeatured && (
-                      <span className="absolute -top-3 left-1/2 -translate-x-1/2 text-[9px] font-black uppercase tracking-widest bg-[#f4c36b] text-[#121a17] px-2.5 py-0.5 rounded-full shadow-md whitespace-nowrap z-20">
+                      <span className="absolute -top-3 left-1/2 -translate-x-1/2 text-[9px] font-black uppercase tracking-widest bg-[#C4A258] text-[#07192d] px-2.5 py-0.5 rounded-full shadow-md whitespace-nowrap z-20">
                         {m.featuredBadge || "Featured"}
                       </span>
                     )}
@@ -440,7 +426,7 @@ export const CuratedJourneySection: React.FC<CuratedJourneySectionProps> = ({ on
                     <div className="relative">
                       <IconComponent 
                         className={`h-7 w-7 transition-transform duration-300 group-hover:scale-110 ${
-                          isTerracotta || isEmerald ? "text-white" : "text-[#f4c36b]"
+                          isActive ? "text-[#C4A258]" : "text-white/80"
                         }`} 
                         strokeWidth={1.9} 
                       />
@@ -448,7 +434,7 @@ export const CuratedJourneySection: React.FC<CuratedJourneySectionProps> = ({ on
 
                     {/* Category Label */}
                     <span className={`text-[10px] font-extrabold uppercase tracking-widest ${
-                      isTerracotta || isEmerald ? "text-white/95" : "text-[#f4c36b]"
+                      isActive ? "text-[#C4A258]" : "text-white/80"
                     }`}>
                       {m.category}
                     </span>
@@ -457,7 +443,7 @@ export const CuratedJourneySection: React.FC<CuratedJourneySectionProps> = ({ on
                   {/* Text Details Below Card */}
                   <div className="text-center space-y-0.5">
                     <p className={`text-sm font-bold tracking-tight transition-colors ${
-                      isActive ? "text-[#f4c36b]" : "text-white group-hover:text-white"
+                      isActive ? "text-[#C4A258]" : "text-white group-hover:text-white"
                     }`}>
                       {m.name}
                     </p>
@@ -468,7 +454,7 @@ export const CuratedJourneySection: React.FC<CuratedJourneySectionProps> = ({ on
 
                   {/* Transfer pill indicator between steps */}
                   {m.transferToNext && idx < currentPreset.milestones.length - 1 && (
-                    <div className="hidden lg:flex items-center gap-1 text-[9px] font-bold text-[#f4c36b]/70 bg-black/20 px-2 py-0.5 rounded-full border border-white/5 mt-1">
+                    <div className="hidden lg:flex items-center gap-1 text-[9px] font-bold text-[#C4A258]/80 bg-black/30 px-2 py-0.5 rounded-full border border-white/5 mt-1">
                       <Car className="w-2.5 h-2.5" />
                       <span>{m.transferToNext.duration}</span>
                     </div>
@@ -481,7 +467,7 @@ export const CuratedJourneySection: React.FC<CuratedJourneySectionProps> = ({ on
         </div>
 
         {/* INTERACTIVE STAGE SPOTLIGHT CARD */}
-        <div className="max-w-4xl mx-auto rounded-3xl bg-[#0f2921]/90 border border-[#245246] p-6 sm:p-8 shadow-2xl backdrop-blur-xl transition-all duration-500">
+        <div className="max-w-4xl mx-auto rounded-3xl bg-[#0d2239] border border-white/10 p-6 sm:p-8 shadow-2xl backdrop-blur-xl transition-all duration-500">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
             
             {/* Visual Thumbnail Frame (5 cols) */}
@@ -491,17 +477,17 @@ export const CuratedJourneySection: React.FC<CuratedJourneySectionProps> = ({ on
                 alt={activeMilestone.name}
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0c221c] via-transparent to-black/30" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#07192d] via-transparent to-black/30" />
               
               {/* Top Location Pill */}
               <div className="absolute top-3 left-3 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-wider text-white border border-white/10 flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#f4c36b]" />
+                <span className="w-1.5 h-1.5 rounded-full bg-[#C4A258]" />
                 <span>{activeMilestone.location}</span>
               </div>
 
               {/* Bottom Step Indicator */}
               <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-xs text-white">
-                <span className="font-mono font-bold text-[#f4c36b]">
+                <span className="font-mono font-bold text-[#C4A258]">
                   Milestone {activeMilestone.stepNumber} of 0{currentPreset.milestones.length}
                 </span>
                 <span className="font-bold text-white/90">
@@ -515,7 +501,7 @@ export const CuratedJourneySection: React.FC<CuratedJourneySectionProps> = ({ on
               
               <div className="space-y-1">
                 <div className="flex items-center gap-2">
-                  <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#f4c36b] bg-[#f4c36b]/15 px-2.5 py-0.5 rounded-full border border-[#f4c36b]/30">
+                  <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#C4A258] bg-[#C4A258]/15 px-2.5 py-0.5 rounded-full border border-[#C4A258]/30">
                     {activeMilestone.category} Milestone
                   </span>
                   <span className="text-xs font-bold text-white/60">
@@ -540,7 +526,7 @@ export const CuratedJourneySection: React.FC<CuratedJourneySectionProps> = ({ on
                 <div className="space-y-1.5">
                   {activeMilestone.highlights.map((h, i) => (
                     <div key={i} className="flex items-start gap-2 text-xs text-white/90">
-                      <Check className="w-3.5 h-3.5 text-[#f4c36b] shrink-0 mt-0.5" />
+                      <Check className="w-3.5 h-3.5 text-[#C4A258] shrink-0 mt-0.5" />
                       <span>{h}</span>
                     </div>
                   ))}
@@ -549,7 +535,7 @@ export const CuratedJourneySection: React.FC<CuratedJourneySectionProps> = ({ on
 
               {/* Transfer link note if present */}
               {activeMilestone.transferToNext && (
-                <div className="pt-2 flex items-center gap-2 text-[11px] font-semibold text-[#f4c36b] bg-[#16375A]/60 p-2.5 rounded-xl border border-[#C4A258]/20">
+                <div className="pt-2 flex items-center gap-2 text-[11px] font-semibold text-[#C4A258] bg-[#051324] p-2.5 rounded-xl border border-white/10">
                   <Car className="w-4 h-4 shrink-0 text-[#C4A258]" />
                   <span>
                     <strong>Next Leg:</strong> {activeMilestone.transferToNext.vehicle} ({activeMilestone.transferToNext.duration}) · Seamless Luggage Transfer
@@ -563,13 +549,13 @@ export const CuratedJourneySection: React.FC<CuratedJourneySectionProps> = ({ on
         </div>
 
         {/* BOTTOM MILESTONE SUMMARY CONSOLE BAR */}
-        <div className="mx-auto max-w-4xl bg-[#091e18]/95 border border-[#245246] rounded-2xl p-4 sm:p-5 shadow-[0_12px_40px_rgba(0,0,0,0.5)] backdrop-blur-xl flex flex-col sm:flex-row items-center justify-between gap-5">
+        <div className="mx-auto max-w-4xl bg-[#051324]/95 border border-white/10 rounded-2xl p-4 sm:p-5 shadow-2xl backdrop-blur-xl flex flex-col sm:flex-row items-center justify-between gap-5">
           
           <div className="flex flex-wrap items-center justify-center sm:justify-start gap-6 text-center sm:text-left">
             
             {/* Metric 1: Duration */}
             <div>
-              <p className="text-[10px] font-black uppercase tracking-widest text-[#f4c36b] mb-0.5">
+              <p className="text-[10px] font-black uppercase tracking-widest text-[#C4A258] mb-0.5">
                 Duration
               </p>
               <p className="text-base sm:text-lg font-black text-white tracking-tight">
@@ -581,7 +567,7 @@ export const CuratedJourneySection: React.FC<CuratedJourneySectionProps> = ({ on
 
             {/* Metric 2: Estimated Price */}
             <div>
-              <p className="text-[10px] font-black uppercase tracking-widest text-[#f4c36b] mb-0.5">
+              <p className="text-[10px] font-black uppercase tracking-widest text-[#C4A258] mb-0.5">
                 Pricing
               </p>
               <p className="text-base sm:text-lg font-black text-white tracking-tight">
@@ -593,11 +579,11 @@ export const CuratedJourneySection: React.FC<CuratedJourneySectionProps> = ({ on
 
             {/* Metric 3: Operations Guarantee */}
             <div>
-              <p className="text-[10px] font-black uppercase tracking-widest text-[#f4c36b] mb-0.5">
+              <p className="text-[10px] font-black uppercase tracking-widest text-[#C4A258] mb-0.5">
                 Managed By
               </p>
               <p className="text-base sm:text-lg font-bold text-white flex items-center gap-1.5">
-                <ShieldCheck className="w-4 h-4 text-[#059669] shrink-0" />
+                <ShieldCheck className="w-4 h-4 text-[#25D366] shrink-0" />
                 <span>SafarAtlas Concierge</span>
               </p>
             </div>
@@ -610,26 +596,24 @@ export const CuratedJourneySection: React.FC<CuratedJourneySectionProps> = ({ on
               <button
                 type="button"
                 onClick={onOpenInquiry}
-                className="w-full sm:w-auto relative overflow-hidden inline-flex items-center justify-center gap-2.5 px-8 py-3.5 rounded-xl bg-gradient-to-r from-[#c95e3d] to-[#b34f31] text-white text-xs font-black tracking-widest shadow-[0_6px_30px_rgba(201,94,61,0.5)] hover:shadow-[0_8px_40px_rgba(201,94,61,0.7)] transition-all duration-300 hover:-translate-y-0.5 group/btn cursor-pointer"
+                className="w-full sm:w-auto relative overflow-hidden inline-flex items-center justify-center gap-2.5 px-8 py-3.5 rounded-xl bg-[#C4A258] hover:bg-[#d8bb78] text-[#07192d] text-xs font-black tracking-widest shadow-lg transition-all duration-300 hover:-translate-y-0.5 cursor-pointer"
               >
-                <span className="absolute inset-0 bg-white/15 translate-y-full group-hover/btn:translate-y-0 transition-transform duration-300 ease-out" />
-                <svg className="w-4 h-4 relative z-10" viewBox="0 0 20 20" fill="currentColor">
+                <svg className="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
                   <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
                   <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
                 </svg>
-                <span className="relative z-10">Plan My Morocco Trip</span>
+                <span>Plan My Morocco Trip</span>
               </button>
             ) : (
               <Link
                 href="/journey"
-                className="w-full sm:w-auto relative overflow-hidden inline-flex items-center justify-center gap-2.5 px-8 py-3.5 rounded-xl bg-gradient-to-r from-[#c95e3d] to-[#b34f31] text-white text-xs font-black tracking-widest shadow-[0_6px_30px_rgba(201,94,61,0.5)] hover:shadow-[0_8px_40px_rgba(201,94,61,0.7)] transition-all duration-300 hover:-translate-y-0.5 group/btn cursor-pointer"
+                className="w-full sm:w-auto relative overflow-hidden inline-flex items-center justify-center gap-2.5 px-8 py-3.5 rounded-xl bg-[#C4A258] hover:bg-[#d8bb78] text-[#07192d] text-xs font-black tracking-widest shadow-lg transition-all duration-300 hover:-translate-y-0.5 cursor-pointer"
               >
-                <span className="absolute inset-0 bg-white/15 translate-y-full group-hover/btn:translate-y-0 transition-transform duration-300 ease-out" />
-                <svg className="w-4 h-4 relative z-10" viewBox="0 0 20 20" fill="currentColor">
+                <svg className="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
                   <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
                   <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
                 </svg>
-                <span className="relative z-10">Plan My Morocco Trip</span>
+                <span>Plan My Morocco Trip</span>
               </Link>
             )}
           </div>

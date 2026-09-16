@@ -62,7 +62,7 @@
   --gold: #C4A258;
   --gold-soft: #d8bb78;
   --ink: #07192d;
-  --bone: #faf6f0;
+  --bone: #f6f2ec;
   --shadow-gold: 0 20px 60px -20px rgba(196,162,88,0.35);
 }
 
@@ -182,45 +182,45 @@ h1, h2, h3, .font-serif {
 
 .impeccable-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 24px 48px -12px rgba(18, 59, 52, 0.16), 0 8px 18px -4px rgba(201, 94, 61, 0.1);
-  border-color: rgba(201, 94, 61, 0.35);
+  box-shadow: 0 24px 48px -12px rgba(7, 25, 45, 0.4), 0 8px 18px -4px rgba(196, 162, 88, 0.15);
+  border-color: rgba(196, 162, 88, 0.35);
 }
 
 /* Zellige Pattern Background Utility */
 .zellige-pattern {
-  background-color: #faf6f0;
+  background-color: #07192d;
   background-image: 
-    radial-gradient(var(--color-sahara-terracotta) 0.85px, transparent 0.85px), 
-    radial-gradient(var(--color-atlas-cedar) 0.85px, #faf6f0 0.85px);
+    radial-gradient(rgba(196, 162, 88, 0.15) 0.85px, transparent 0.85px), 
+    radial-gradient(rgba(246, 242, 236, 0.05) 0.85px, #07192d 0.85px);
   background-size: 32px 32px;
   background-position: 0 0, 16px 16px;
 }
 
 .zellige-pattern-dark {
-  background-color: #121a17;
+  background-color: #051324;
   background-image: 
-    radial-gradient(var(--color-sunset-gold) 0.85px, transparent 0.85px), 
-    radial-gradient(var(--color-sahara-terracotta) 0.85px, #121a17 0.85px);
+    radial-gradient(rgba(196, 162, 88, 0.15) 0.85px, transparent 0.85px), 
+    radial-gradient(rgba(246, 242, 236, 0.04) 0.85px, #051324 0.85px);
   background-size: 32px 32px;
   background-position: 0 0, 16px 16px;
 }
 
 /* Custom Gold Glow Gradient Text */
 .gradient-gold-text {
-  background: linear-gradient(135deg, #f4c36b 0%, #e8a635 50%, #c95e3d 100%);
+  background: linear-gradient(135deg, #f6f2ec 0%, #C4A258 50%, #b38f45 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .gradient-terracotta-text {
-  background: linear-gradient(135deg, #e57a58 0%, #c95e3d 60%, #993b1f 100%);
+  background: linear-gradient(135deg, #C4A258 0%, #d8bb78 60%, #99782f 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 /* Gold Metallic Border Accent */
 .border-gold-accent {
-  border-image: linear-gradient(to right, #f4c36b, #c95e3d, #194c43) 1;
+  border-image: linear-gradient(to right, #C4A258, #d8bb78, #16375A) 1;
 }
 
 /* Custom Scrollbar */
@@ -229,15 +229,15 @@ h1, h2, h3, .font-serif {
   height: 9px;
 }
 ::-webkit-scrollbar-track {
-  background: #faf6f0;
+  background: #07192d;
 }
 ::-webkit-scrollbar-thumb {
-  background: #d8cbb8;
+  background: #16375A;
   border-radius: 9999px;
-  border: 2px solid #faf6f0;
+  border: 2px solid #07192d;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #c95e3d;
+  background: #C4A258;
 }
 
 /* Shimmer Animation */

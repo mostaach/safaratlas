@@ -14,7 +14,7 @@ export const DestinationCard: React.FC<DestinationCardProps> = ({ destination, o
   return (
     <div 
       onClick={() => onSelect && onSelect(destination)}
-      className="group relative rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 flex flex-col justify-between h-[400px] border border-[#e5dacb]/40 bg-[#121a17] cursor-pointer"
+      className="group relative rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 flex flex-col justify-between h-[400px] border border-white/10 bg-[#07192d] cursor-pointer"
     >
       {/* Background Image with Zoom & Dark Gradient Backdrop */}
       <div className="absolute inset-0 z-0 overflow-hidden">
@@ -24,7 +24,7 @@ export const DestinationCard: React.FC<DestinationCardProps> = ({ destination, o
           className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700 ease-out opacity-85"
         />
         {/* Layered Vignette Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#121a17] via-[#121a17]/50 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#07192d] via-[#07192d]/50 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-transparent" />
       </div>
 
@@ -38,7 +38,7 @@ export const DestinationCard: React.FC<DestinationCardProps> = ({ destination, o
 
         <div className="flex items-center gap-2">
           {/* Arabic Typography Accent */}
-          <span className="text-xl font-serif text-[#f4c36b] drop-shadow-md font-bold px-2.5 py-0.5 rounded-xl bg-black/40 backdrop-blur-md border border-white/10">
+          <span className="text-xl font-serif text-[#C4A258] drop-shadow-md font-bold px-2.5 py-0.5 rounded-xl bg-black/40 backdrop-blur-md border border-white/10">
             {destination.arabicName}
           </span>
           {/* Favorite Bookmark Button */}
@@ -50,7 +50,7 @@ export const DestinationCard: React.FC<DestinationCardProps> = ({ destination, o
             aria-label="Save destination"
             className={`p-2.5 rounded-full backdrop-blur-md border transition-all ${
               isSaved 
-                ? 'bg-[#c95e3d] text-white border-[#c95e3d] shadow-md scale-110' 
+                ? 'bg-[#C4A258] text-[#07192d] border-[#C4A258] shadow-md scale-110' 
                 : 'bg-black/40 text-white border-white/30 hover:bg-white/30'
             }`}
           >
@@ -65,10 +65,10 @@ export const DestinationCard: React.FC<DestinationCardProps> = ({ destination, o
       <div className="relative z-10 p-6 flex flex-col justify-end gap-3 text-white">
         <div>
           <div className="flex items-center justify-between mb-1.5">
-            <h3 className="text-3xl font-serif font-black tracking-tight drop-shadow-md group-hover:text-[#f4c36b] transition-colors">
+            <h3 className="text-3xl font-serif font-black tracking-tight drop-shadow-md group-hover:text-[#C4A258] transition-colors">
               {destination.name}
             </h3>
-            <span className="text-xs font-bold text-[#f4c36b] bg-[#123b34]/90 px-3 py-1 rounded-full border border-[#f4c36b]/30">
+            <span className="text-xs font-bold text-[#C4A258] bg-[#0d2239]/90 px-3 py-1 rounded-full border border-[#C4A258]/30">
               Best: {destination.bestTime}
             </span>
           </div>
@@ -91,7 +91,7 @@ export const DestinationCard: React.FC<DestinationCardProps> = ({ destination, o
           <span className="text-[11px] text-white/70 font-medium">
             Best Season: <strong className="text-white font-bold">{destination.bestTime}</strong>
           </span>
-          <span className="relative overflow-hidden inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-white/10 hover:bg-[#c95e3d] text-xs font-bold text-white transition-all transform group-hover:bg-[#c95e3d] group-hover:scale-105">
+          <span className="relative overflow-hidden inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-white/10 hover:bg-[#C4A258] text-xs font-bold text-white hover:text-[#07192d] transition-all transform group-hover:bg-[#C4A258] group-hover:text-[#07192d] group-hover:scale-105">
             <div className="absolute inset-0 opacity-0 group-hover:opacity-100 animate-shimmer pointer-events-none transition-opacity" />
             <span className="relative z-10">Explore Guide</span>
             <svg className="w-3.5 h-3.5 relative z-10" viewBox="0 0 20 20" fill="currentColor">
