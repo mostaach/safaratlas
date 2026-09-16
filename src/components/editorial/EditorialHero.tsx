@@ -39,7 +39,7 @@ export const EditorialHero: React.FC = () => {
         <div className="flex-1 min-h-[180px] sm:min-h-[240px] pointer-events-none" aria-hidden="true" />
 
         {/* Bottom Editorial Content & Actions — positioned below the AGAFAY typography */}
-        <div className="max-w-2xl backdrop-blur-md bg-[#07192d]/70 p-6 sm:p-7 rounded-2xl border border-white/15 shadow-[0_20px_50px_rgba(0,0,0,0.7)]">
+        <div className="max-w-2xl backdrop-blur-md bg-[#07192d]/70 p-6 sm:p-7 rounded-none border border-white/15 shadow-[0_20px_50px_rgba(0,0,0,0.7)]">
           <h1
             className="animate-rise anim-delay-100 font-serif font-medium leading-[1.05] tracking-tight text-[#f6f2ec] text-shadow-deep text-2xl sm:text-3xl md:text-4xl"
           >
