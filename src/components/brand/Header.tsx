@@ -52,19 +52,16 @@ export const Header: React.FC<HeaderProps> = ({ onOpenInquiryModal }) => {
           </div>
         </Link>
 
-        {/* Desktop nav links — bare, Taghazout style */}
-        <div className="hidden md:flex items-center gap-10 text-[11px] uppercase tracking-[0.28em] text-[#f6f2ec]/65">
-          <a href="#manifesto" className="link-sweep hover:text-[#f6f2ec]">
-            Our Approach
+        {/* Desktop nav links */}
+        <div className="hidden md:flex items-center gap-10 text-[11px] uppercase tracking-[0.28em] text-[#f6f2ec]/75 font-normal">
+          <a href="/#manifesto" className="link-sweep hover:text-[#f6f2ec] transition-colors">
+            The Why
           </a>
-          <a href="#destinations" className="link-sweep hover:text-[#f6f2ec]">
+          <a href="/#destinations" className="link-sweep hover:text-[#f6f2ec] transition-colors">
             Escapes
           </a>
-          <a href="#compare" className="link-sweep hover:text-[#f6f2ec]">
-            Why Us
-          </a>
-          <a href="#faq" className="link-sweep hover:text-[#f6f2ec]">
-            FAQ
+          <a href="/#availability" className="link-sweep hover:text-[#f6f2ec] transition-colors">
+            Availability
           </a>
         </div>
 
@@ -113,11 +110,10 @@ export const Header: React.FC<HeaderProps> = ({ onOpenInquiryModal }) => {
       {/* Mobile drawer */}
       {mobileMenuOpen && (
         <div className="md:hidden bg-[#07192d]/98 backdrop-blur-xl border-t border-white/10 px-6 py-8 space-y-6">
-          <div className="flex flex-col gap-5 text-[11px] uppercase tracking-[0.3em] text-[#f6f2ec]/70">
-            <a href="#manifesto" onClick={() => setMobileMenuOpen(false)} className="hover:text-[#C4A258] transition-colors">Our Approach</a>
-            <a href="#destinations" onClick={() => setMobileMenuOpen(false)} className="hover:text-[#C4A258] transition-colors">Escapes</a>
-            <a href="#compare" onClick={() => setMobileMenuOpen(false)} className="hover:text-[#C4A258] transition-colors">Why SafarAtlas</a>
-            <a href="#faq" onClick={() => setMobileMenuOpen(false)} className="hover:text-[#C4A258] transition-colors">FAQ</a>
+          <div className="flex flex-col gap-5 text-[11px] uppercase tracking-[0.3em] text-[#f6f2ec]/70 font-normal">
+            <a href="/#manifesto" onClick={() => setMobileMenuOpen(false)} className="hover:text-[#C4A258] transition-colors">The Why</a>
+            <a href="/#destinations" onClick={() => setMobileMenuOpen(false)} className="hover:text-[#C4A258] transition-colors">Escapes</a>
+            <a href="/#availability" onClick={() => setMobileMenuOpen(false)} className="hover:text-[#C4A258] transition-colors">Availability</a>
           </div>
           <div className="pt-4 border-t border-white/10">
             <a

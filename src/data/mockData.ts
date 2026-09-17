@@ -716,7 +716,7 @@ export const ESCAPES_PACKAGES: EscapePackage[] = [
     category: "Mountain",
     location: "Imlil & High Atlas",
     priceFromEur: 65,
-    image: "/destinations/atlas.jpg",
+    image: "/escapes/imlil-valley.jpg",
     badge: "Mountain Immersion",
     highlights: [
       "Private hotel/riad pickup & scenic High Atlas mountain drive",
@@ -733,7 +733,7 @@ export const ESCAPES_PACKAGES: EscapePackage[] = [
         dayNumber: 1,
         title: "Marrakech → Asni Gorge → Imlil Valley → Berber Lunch",
         description: "08:30 private pickup in Marrakech. Scenic climb into the High Atlas with photo stops at Tahanaout and Asni. Arrive in Imlil, meet your certified guide, walk through traditional villages, enjoy tea in a local home, and savor a freshly cooked tagine lunch with valley views before afternoon return.",
-        image: "/destinations/atlas.jpg",
+        image: "/escapes/imlil-valley.jpg",
         highlights: ["High Atlas mountain pass drive", "Imlil valley village walk", "Traditional Berber lunch"]
       }
     ]
