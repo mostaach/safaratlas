@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Outfit } from "next/font/google";
+import { Playfair_Display, Outfit } from "next/font/google";
 import "./globals.css";
 import Script from "next/script";
 import { CookieConsent } from "../components/ui/CookieConsent";
 import { JourneyDrawer } from "../components/travel/JourneyDrawer";
 
-const serifFont = Cormorant_Garamond({
+const serifFont = Playfair_Display({
   variable: "--font-serif",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700", "800", "900"],
   display: "swap",
 });
 

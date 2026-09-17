@@ -1,6 +1,8 @@
 @import "tailwindcss";
 
 @theme {
+  --font-serif: var(--font-serif), "Playfair Display", Georgia, serif;
+  --font-sans: var(--font-sans), Outfit, sans-serif;
   --color-navy: #07192d;
   --color-navy-dark: #051324;
   --color-navy-tint: #0d2239;
