@@ -74,11 +74,11 @@ export const Header: React.FC<HeaderProps> = ({ onOpenInquiryModal }) => {
             href={waUrl}
             target="_blank"
             rel="noreferrer"
-            className="group inline-flex items-center gap-3 bg-[#C4A258] px-8 py-3.5 text-[10px] uppercase tracking-[0.3em] text-[#07192d] font-semibold transition-all duration-300 hover:bg-[#d8bb78] hover:tracking-[0.35em]"
+            className="group inline-flex items-center gap-3 bg-[#C4A258] px-8 py-3.5 text-[10px] uppercase tracking-[0.3em] text-[#07192d] font-normal transition-all duration-300 hover:bg-[#d8bb78] hover:tracking-[0.35em]"
             style={{ boxShadow: "var(--shadow-gold)" }}
           >
-            <span>Check Availability</span>
-            <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+            <span className="font-normal">Check Availability</span>
+            <span className="transition-transform duration-300 group-hover:translate-x-1 font-light">→</span>
           </a>
         </div>
 
@@ -112,11 +112,11 @@ export const Header: React.FC<HeaderProps> = ({ onOpenInquiryModal }) => {
               href={waUrl}
               target="_blank"
               rel="noreferrer"
-              className="w-full inline-flex items-center justify-center gap-3 bg-[#C4A258] px-8 py-4 text-[10px] uppercase tracking-[0.3em] text-[#07192d] font-semibold"
+              className="w-full inline-flex items-center justify-center gap-3 bg-[#C4A258] px-8 py-4 text-[10px] uppercase tracking-[0.3em] text-[#07192d] font-normal"
               style={{ boxShadow: "var(--shadow-gold)" }}
             >
-              <span>Check Availability</span>
-              <span>→</span>
+              <span className="font-normal">Check Availability</span>
+              <span className="font-light">→</span>
             </a>
           </div>
         </div>

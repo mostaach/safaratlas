@@ -55,10 +55,10 @@ export default function EditorialGrandCta() {
               <div className="mt-8 flex flex-col sm:flex-row sm:items-center gap-3.5">
                 <Link
                   href="/journey"
-                  className="group inline-flex items-center justify-center gap-2.5 bg-[#C4A258] px-7 py-3.5 text-xs uppercase tracking-[0.18em] text-[#07192d] font-medium transition-all duration-300 hover:bg-[#d8bb78] hover:tracking-[0.22em] whitespace-nowrap shrink-0"
+                  className="group inline-flex items-center justify-center gap-2.5 bg-[#C4A258] px-7 py-3.5 text-xs uppercase tracking-[0.18em] text-[#07192d] font-normal transition-all duration-300 hover:bg-[#d8bb78] hover:tracking-[0.22em] whitespace-nowrap shrink-0"
                   style={{ boxShadow: "var(--shadow-gold)" }}
                 >
-                  <span>Plan Your Morocco Journey</span>
+                  <span className="font-normal">Plan Your Morocco Journey</span>
                   <span className="transition-transform duration-300 group-hover:translate-x-1 font-light">→</span>
                 </Link>
 
