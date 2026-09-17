@@ -1,17 +1,49 @@
-import { JourneyEscapeItem, JourneyState } from "./journeyTypes";
+﻿import { JourneyEscapeItem, JourneyState, JourneyAccommodationSelection, JourneyExtraExperience } from "./journeyTypes";
 
 const STORAGE_KEY = "safaratlas_current_journey_v2";
 
 export const getStoredJourney = (): JourneyState => {
   if (typeof window === "undefined") {
-    return { items: [], destinations: ["Marrakech"], travelDates: "", groupSize: "2 travelers", notes: "" };
+    return {
+      items: [],
+      destinations: ["Marrakech"],
+      travelDates: "",
+      groupSize: "2 travelers",
+      notes: "",
+      accommodations: [],
+      extras: [],
+      hasAirportTransfer: false,
+      destinationStays: [{ destination: "Marrakech", daysCount: 3 }],
+    };
   }
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
-    if (!raw) return { items: [], destinations: ["Marrakech"], travelDates: "", groupSize: "2 travelers", notes: "" };
+    if (!raw) {
+      return {
+        items: [],
+        destinations: ["Marrakech"],
+        travelDates: "",
+        groupSize: "2 travelers",
+        notes: "",
+        accommodations: [],
+        extras: [],
+        hasAirportTransfer: false,
+        destinationStays: [{ destination: "Marrakech", daysCount: 3 }],
+      };
+    }
     return JSON.parse(raw);
   } catch (e) {
-    return { items: [], destinations: ["Marrakech"], travelDates: "", groupSize: "2 travelers", notes: "" };
+    return {
+      items: [],
+      destinations: ["Marrakech"],
+      travelDates: "",
+      groupSize: "2 travelers",
+      notes: "",
+      accommodations: [],
+      extras: [],
+      hasAirportTransfer: false,
+      destinationStays: [{ destination: "Marrakech", daysCount: 3 }],
+    };
   }
 };
 
@@ -34,14 +66,26 @@ export const addEscapeToJourney = (escape: {
   priceFromEur: number;
   image: string;
   badge?: string;
+  assignedDay?: number;
+  destinationContext?: string;
 }): JourneyState => {
   const current = getStoredJourney();
   
   // Prevent duplicate additions
   const exists = current.items.some((item) => item.slug === escape.slug);
-  if (exists) return current;
+  if (exists) {
+    // If it exists but we want to update the assigned day
+    if (escape.assignedDay !== undefined) {
+      const updatedItems = current.items.map((item) => 
+        item.slug === escape.slug ? { ...item, assignedDay: escape.assignedDay } : item
+      );
+      const updated = { ...current, items: updatedItems };
+      saveJourney(updated);
+      return updated;
+    }
+    return current;
+  }
 
-  // Extract days & nights from duration string like "3 Days / 2 Nights" or "1 Day"
   let days = 1;
   let nights = 0;
   const matchDays = escape.duration.match(/(\d+)\s*Day/i);
@@ -59,6 +103,8 @@ export const addEscapeToJourney = (escape: {
     priceFromEur: escape.priceFromEur,
     image: escape.image,
     badge: escape.badge,
+    assignedDay: escape.assignedDay || null,
+    destinationContext: escape.destinationContext || "Marrakech",
     addedAt: Date.now(),
   };
 
@@ -67,6 +113,66 @@ export const addEscapeToJourney = (escape: {
     items: [...current.items, newItem],
   };
 
+  saveJourney(updated);
+  return updated;
+};
+
+export const assignEscapeToDay = (slug: string, dayNumber: number): JourneyState => {
+  const current = getStoredJourney();
+  const updatedItems = current.items.map((item) => {
+    if (item.slug === slug) {
+      return { ...item, assignedDay: dayNumber };
+    }
+    return item;
+  });
+  const updated = { ...current, items: updatedItems };
+  saveJourney(updated);
+  return updated;
+};
+
+export const setStayDurationDays = (destination: string, daysCount: number): JourneyState => {
+  const current = getStoredJourney();
+  const stays = current.destinationStays || [];
+  const existingIndex = stays.findIndex((s) => s.destination.toLowerCase() === destination.toLowerCase());
+  
+  let updatedStays = [...stays];
+  if (existingIndex >= 0) {
+    updatedStays[existingIndex] = { destination, daysCount };
+  } else {
+    updatedStays.push({ destination, daysCount });
+  }
+
+  const updated = { ...current, destinationStays: updatedStays };
+  saveJourney(updated);
+  return updated;
+};
+
+export const toggleAirportTransfer = (enabled: boolean): JourneyState => {
+  const current = getStoredJourney();
+  const updated = { ...current, hasAirportTransfer: enabled };
+  saveJourney(updated);
+  return updated;
+};
+
+export const addExtraExperience = (extra: JourneyExtraExperience): JourneyState => {
+  const current = getStoredJourney();
+  const existing = current.extras || [];
+  if (existing.some((e) => e.id === extra.id)) return current;
+  
+  const updated = {
+    ...current,
+    extras: [...existing, extra],
+  };
+  saveJourney(updated);
+  return updated;
+};
+
+export const removeExtraExperience = (id: string): JourneyState => {
+  const current = getStoredJourney();
+  const updated = {
+    ...current,
+    extras: (current.extras || []).filter((e) => e.id !== id),
+  };
   saveJourney(updated);
   return updated;
 };
@@ -82,7 +188,17 @@ export const removeEscapeFromJourney = (slug: string): JourneyState => {
 };
 
 export const clearJourney = (): JourneyState => {
-  const empty: JourneyState = { items: [], destinations: ["Marrakech"], travelDates: "", groupSize: "2 travelers", notes: "" };
+  const empty: JourneyState = {
+    items: [],
+    destinations: ["Marrakech"],
+    travelDates: "",
+    groupSize: "2 travelers",
+    notes: "",
+    accommodations: [],
+    extras: [],
+    hasAirportTransfer: false,
+    destinationStays: [{ destination: "Marrakech", daysCount: 3 }],
+  };
   saveJourney(empty);
   return empty;
 };

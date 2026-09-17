@@ -3,6 +3,7 @@ import { Cormorant_Garamond, Outfit } from "next/font/google";
 import "./globals.css";
 import Script from "next/script";
 import { CookieConsent } from "../components/ui/CookieConsent";
+import { JourneyDrawer } from "../components/travel/JourneyDrawer";
 
 const serifFont = Cormorant_Garamond({
   variable: "--font-serif",
@@ -161,6 +162,7 @@ export default function RootLayout({
           }}
         />
         {children}
+        <JourneyDrawer />
       </body>
     </html>
   );
