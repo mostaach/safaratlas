@@ -596,7 +596,7 @@ export const CuratedJourneySection: React.FC<CuratedJourneySectionProps> = ({ on
               <button
                 type="button"
                 onClick={onOpenInquiry}
-                className="w-full sm:w-auto relative overflow-hidden inline-flex items-center justify-center gap-2.5 px-8 py-3.5 rounded-xl bg-[#C4A258] hover:bg-[#d8bb78] text-[#07192d] text-xs font-black tracking-widest shadow-lg transition-all duration-300 hover:-translate-y-0.5 cursor-pointer"
+                className="w-full sm:w-auto relative overflow-hidden inline-flex items-center justify-center gap-2.5 px-8 py-3.5 rounded-xl bg-[#C4A258] hover:bg-[#d8bb78] text-[#07192d] text-xs font-normal tracking-[0.18em] shadow-lg transition-all duration-300 hover:-translate-y-0.5 cursor-pointer"
               >
                 <svg className="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
                   <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
@@ -607,7 +607,7 @@ export const CuratedJourneySection: React.FC<CuratedJourneySectionProps> = ({ on
             ) : (
               <Link
                 href="/journey"
-                className="w-full sm:w-auto relative overflow-hidden inline-flex items-center justify-center gap-2.5 px-8 py-3.5 rounded-xl bg-[#C4A258] hover:bg-[#d8bb78] text-[#07192d] text-xs font-black tracking-widest shadow-lg transition-all duration-300 hover:-translate-y-0.5 cursor-pointer"
+                className="w-full sm:w-auto relative overflow-hidden inline-flex items-center justify-center gap-2.5 px-8 py-3.5 rounded-xl bg-[#C4A258] hover:bg-[#d8bb78] text-[#07192d] text-xs font-normal tracking-[0.18em] shadow-lg transition-all duration-300 hover:-translate-y-0.5 cursor-pointer"
               >
                 <svg className="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
                   <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>

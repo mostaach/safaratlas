@@ -69,7 +69,7 @@ export const HeroSearch: React.FC<HeroSearchProps> = ({ onSearch, onSelectCatego
         {/* Explore Button */}
         <button
           type="submit"
-          className="w-full sm:w-auto px-8 py-3.5 rounded-2xl bg-[#C4A258] hover:bg-[#d8bb78] text-[#07192d] text-xs font-black tracking-wide shadow-lg transition-all shrink-0 flex items-center justify-center gap-2 transform hover:-translate-y-0.5 cursor-pointer"
+          className="w-full sm:w-auto px-8 py-3.5 rounded-2xl bg-[#C4A258] hover:bg-[#d8bb78] text-[#07192d] text-xs font-normal tracking-[0.18em] shadow-lg transition-all shrink-0 flex items-center justify-center gap-2 transform hover:-translate-y-0.5 cursor-pointer"
         >
           <span>Explore Atlas</span>
           <svg className="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">

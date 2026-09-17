@@ -109,7 +109,7 @@ export default function AgafayPage() {
                     href={`https://wa.me/${WHATSAPP_NUMBER}?text=${waMessage}`}
                     target="_blank"
                     rel="noreferrer"
-                    className="w-full py-3.5 px-4 rounded-xl text-center font-extrabold text-xs uppercase tracking-widest bg-gradient-to-r from-[#d6b78a] to-[#c89a4e] text-[#0d2239] shadow-lg hover:brightness-105 active:scale-98 transition-all flex items-center justify-center gap-2"
+                    className="w-full py-3.5 px-4 rounded-xl text-center font-normal text-xs uppercase tracking-[0.18em] bg-gradient-to-r from-[#d6b78a] to-[#c89a4e] text-[#0d2239] shadow-lg hover:brightness-105 active:scale-98 transition-all flex items-center justify-center gap-2"
                   >
                     <span>Instant WhatsApp Booking →</span>
                   </a>
@@ -360,14 +360,14 @@ export default function AgafayPage() {
                 href={`https://wa.me/${WHATSAPP_NUMBER}?text=${waMessage}`}
                 target="_blank"
                 rel="noreferrer"
-                className="w-full sm:w-auto px-8 py-4 rounded-full font-black text-xs uppercase tracking-widest bg-gradient-to-r from-[#d6b78a] to-[#c89a4e] text-[#0d2239] shadow-2xl hover:scale-105 active:scale-95 transition-all"
+                className="w-full sm:w-auto px-8 py-4 rounded-full font-normal text-xs uppercase tracking-[0.18em] bg-gradient-to-r from-[#d6b78a] to-[#c89a4e] text-[#0d2239] shadow-2xl hover:scale-105 active:scale-95 transition-all"
               >
                 Get Quote via WhatsApp →
               </a>
               <button
                 type="button"
                 onClick={() => setInquiryOpen(true)}
-                className="w-full sm:w-auto px-6 py-4 rounded-full font-bold text-xs bg-white/10 hover:bg-white/15 text-white border border-white/20 transition-all"
+                className="w-full sm:w-auto px-6 py-4 rounded-full font-normal text-xs bg-white/10 hover:bg-white/15 text-white border border-white/20 transition-all"
               >
                 Inquire With Travel Dates
               </button>
@@ -400,7 +400,7 @@ export default function AgafayPage() {
           href={`https://wa.me/${WHATSAPP_NUMBER}?text=${waMessage}`}
           target="_blank"
           rel="noreferrer"
-          className="px-5 py-2.5 rounded-full text-xs font-black uppercase tracking-wider bg-gradient-to-r from-[#25D366] to-[#1eb757] text-white shadow-lg active:scale-95 transition-all flex items-center gap-1.5"
+          className="px-5 py-2.5 rounded-full text-xs font-normal uppercase tracking-[0.18em] bg-gradient-to-r from-[#25D366] to-[#1eb757] text-white shadow-lg active:scale-95 transition-all flex items-center gap-1.5"
         >
           <span>Get Quote</span>
           <span>→</span>

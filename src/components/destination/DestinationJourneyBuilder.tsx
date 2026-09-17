@@ -85,7 +85,7 @@ export const DestinationJourneyBuilder: React.FC<Props> = ({ escapes }) => {
               onClick={() => handleDurationChange(days)}
               className={`px-5 py-3 text-xs font-mono tracking-wider uppercase transition-all cursor-pointer rounded-none border ${
                 selectedDuration === days
-                  ? "bg-[#C4A258] text-[#07192d] font-bold border-[#C4A258] shadow-[0_0_20px_rgba(196,162,88,0.3)]"
+                  ? "bg-[#C4A258] text-[#07192d] font-normal border-[#C4A258] shadow-[0_0_20px_rgba(196,162,88,0.3)]"
                   : "bg-transparent text-[#f6f2ec]/80 border-white/20 hover:border-[#C4A258]/60 hover:text-[#f6f2ec]"
               }`}
             >
@@ -208,7 +208,7 @@ export const DestinationJourneyBuilder: React.FC<Props> = ({ escapes }) => {
                       className={`w-full py-3 px-4 text-xs font-mono uppercase tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer rounded-none border ${
                         isAdded
                           ? "bg-emerald-600 text-white border-emerald-500"
-                          : "bg-[#C4A258] hover:bg-[#d8bb78] text-[#07192d] font-bold border-[#C4A258]"
+                          : "bg-[#C4A258] hover:bg-[#d8bb78] text-[#07192d] font-normal border-[#C4A258]"
                       }`}
                     >
                       {isAdded ? (

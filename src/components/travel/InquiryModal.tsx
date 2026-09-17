@@ -189,7 +189,7 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({
                 <span>I agree that SafarAtlas may process my inquiry to provide a managed travel quote with verified local partners.</span>
               </label>
 
-              <button type="submit" className="w-full cursor-pointer rounded-xl bg-[#C4A258] hover:bg-[#d8bb78] py-3.5 text-xs font-black text-[#07192d] shadow-lg transition-all">
+              <button type="submit" className="w-full cursor-pointer rounded-xl bg-[#C4A258] hover:bg-[#d8bb78] py-3.5 text-xs font-normal text-[#07192d] shadow-lg transition-all">
                 Submit Journey Request →
               </button>
 
@@ -217,11 +217,11 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({
                 href={`https://wa.me/212698017323?text=${encodeURIComponent(`Hi SafarAtlas! I just submitted request ${leadReference} for ${itemName} (${formData.travelDates}). I'd like to chat on WhatsApp.`)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 w-full rounded-xl bg-[#25D366] hover:bg-[#1eb855] py-3 text-xs font-bold text-white shadow-md cursor-pointer"
+                className="flex items-center justify-center gap-2 w-full rounded-xl bg-[#25D366] hover:bg-[#1eb855] py-3 text-xs font-normal text-white shadow-md cursor-pointer"
               >
                 💬 Chat with Concierge on WhatsApp Now
               </a>
-              <button onClick={handleClose} className="w-full rounded-xl bg-white/10 py-3 text-xs font-bold text-white hover:bg-white/20 transition-colors cursor-pointer">
+              <button onClick={handleClose} className="w-full rounded-xl bg-white/10 py-3 text-xs font-normal text-white hover:bg-white/20 transition-colors cursor-pointer">
                 Back to SafarAtlas
               </button>
             </div>

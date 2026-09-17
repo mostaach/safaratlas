@@ -162,7 +162,7 @@ export const JourneyDrawer: React.FC = () => {
 
               <Link
                 href="/journey"
-                className="w-full inline-flex items-center justify-center gap-2 bg-[#C4A258] hover:bg-[#d8bb78] text-[#07192d] font-bold text-xs uppercase tracking-widest py-3 px-4 rounded-none transition-all"
+                className="w-full inline-flex items-center justify-center gap-2 bg-[#C4A258] hover:bg-[#d8bb78] text-[#07192d] font-normal text-xs uppercase tracking-widest py-3 px-4 rounded-none transition-all"
               >
                 <span>Review & Request Journey</span>
                 <ArrowRight className="w-4 h-4" />
@@ -229,7 +229,7 @@ export const JourneyDrawer: React.FC = () => {
 
             <Link
               href="/journey"
-              className="w-full inline-flex items-center justify-center gap-2 bg-[#C4A258] text-[#07192d] font-bold text-xs uppercase tracking-widest py-3 mt-3 rounded-none"
+              className="w-full inline-flex items-center justify-center gap-2 bg-[#C4A258] text-[#07192d] font-normal text-xs uppercase tracking-widest py-3 mt-3 rounded-none"
             >
               <span>Complete Journey Request</span>
               <ArrowRight className="w-4 h-4" />

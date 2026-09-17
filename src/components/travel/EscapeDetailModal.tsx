@@ -226,7 +226,7 @@ export const EscapeDetailModal: React.FC<EscapeDetailModalProps> = ({
                 href={`https://wa.me/212698017323?text=${encodeURIComponent(`Hi SafarAtlas! I'm interested in the ${escapePkg.title} for ${travelersCount} traveler${travelersCount > 1 ? 's' : ''}. Could you share current seasonal rates?`)}`}
                 target="_blank"
                 rel="noreferrer"
-                className="w-full md:w-auto px-6 py-3.5 rounded-2xl bg-[#25D366] hover:bg-[#1da851] text-white text-xs font-black tracking-wider shadow-lg transition-all flex items-center justify-center gap-2"
+                className="w-full md:w-auto px-6 py-3.5 rounded-2xl bg-[#25D366] hover:bg-[#1da851] text-white text-xs font-normal tracking-[0.18em] shadow-lg transition-all flex items-center justify-center gap-2"
               >
                 <span>WhatsApp Quote</span>
               </a>
@@ -245,7 +245,7 @@ export const EscapeDetailModal: React.FC<EscapeDetailModalProps> = ({
                   onClose();
                   window.location.href = "/journey";
                 }}
-                className="w-full md:w-auto px-6 py-3.5 rounded-2xl bg-[#C4A258] hover:bg-[#d8bb78] text-[#07192d] text-xs font-black tracking-widest shadow-xl transition-all cursor-pointer flex items-center justify-center gap-2"
+                className="w-full md:w-auto px-6 py-3.5 rounded-2xl bg-[#C4A258] hover:bg-[#d8bb78] text-[#07192d] text-xs font-normal tracking-[0.18em] shadow-xl transition-all cursor-pointer flex items-center justify-center gap-2"
               >
                 <span>Add to Journey →</span>
               </button>

@@ -57,7 +57,7 @@ export const EditorialHero: React.FC = () => {
           <div className="animate-rise anim-delay-300 mt-5 flex flex-wrap items-center gap-4 sm:gap-6">
             <a
               href="/journey"
-              className="group inline-flex items-center gap-3 bg-[#C4A258] px-7 py-3.5 text-xs uppercase tracking-[0.3em] text-[#07192d] transition-all duration-300 hover:bg-[#d8bb78] hover:tracking-[0.35em] font-bold"
+              className="group inline-flex items-center gap-3 bg-[#C4A258] px-7 py-3.5 text-xs uppercase tracking-[0.3em] text-[#07192d] transition-all duration-300 hover:bg-[#d8bb78] hover:tracking-[0.35em] font-normal"
               style={{ boxShadow: "var(--shadow-gold)" }}
             >
               <span>Plan My Morocco Journey</span>

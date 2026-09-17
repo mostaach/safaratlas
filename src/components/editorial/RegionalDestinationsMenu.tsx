@@ -80,8 +80,7 @@ export const RegionalDestinationsMenu: React.FC<Props> = ({
                   key={region.id}
                   onClick={() => setActiveRegionId(region.id)}
                   className={`text-[10px] uppercase tracking-[0.3em] px-5 py-3 transition-all duration-300 cursor-pointer ${
-                    activeRegionId === region.id
-                      ? "bg-[#C4A258] text-[#07192d] font-semibold"
+                    activeRegionId === region.id ? "bg-[#C4A258] text-[#07192d] font-normal"
                       : "border border-[#f6f2ec]/15 text-[#f6f2ec]/50 hover:border-[#C4A258]/50 hover:text-[#C4A258]"
                   }`}
                   style={
@@ -213,7 +212,7 @@ export const RegionalDestinationsMenu: React.FC<Props> = ({
                       href={`https://wa.me/212698017323?text=${waPrefill}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group/btn inline-flex items-center gap-3 bg-[#C4A258] px-5 py-3 text-[10px] uppercase tracking-[0.3em] text-[#07192d] font-semibold transition-all duration-300 hover:bg-[#d8bb78] hover:tracking-[0.35em]"
+                      className="group/btn inline-flex items-center gap-3 bg-[#C4A258] px-5 py-3 text-[10px] uppercase tracking-[0.3em] text-[#07192d] font-normal transition-all duration-300 hover:bg-[#d8bb78] hover:tracking-[0.35em]"
                       style={{ boxShadow: "var(--shadow-gold)" }}
                     >
                       <span>Check Availability</span>

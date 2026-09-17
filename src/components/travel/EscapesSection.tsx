@@ -218,7 +218,7 @@ export const EscapesSection: React.FC<EscapesSectionProps> = ({
                   {item.id === "escape-agafay-1d" ? (
                     <Link
                       href="/agafay"
-                      className="w-full cursor-pointer py-2.5 rounded-xl bg-[#C4A258] hover:bg-[#d8bb78] text-[#07192d] text-xs font-black tracking-wider shadow-lg transition-all flex items-center justify-center gap-1.5 active:scale-98"
+                      className="w-full cursor-pointer py-2.5 rounded-xl bg-[#C4A258] hover:bg-[#d8bb78] text-[#07192d] text-xs font-normal tracking-[0.18em] shadow-lg transition-all flex items-center justify-center gap-1.5 active:scale-98"
                     >
                       <span>Explore Agafay Escape</span>
                       <svg className="w-3.5 h-3.5" viewBox="0 0 20 20" fill="currentColor">
@@ -232,7 +232,7 @@ export const EscapesSection: React.FC<EscapesSectionProps> = ({
                   ) : item.id === "escape-taghazout-3d" ? (
                     <Link
                       href="/taghazout"
-                      className="w-full cursor-pointer py-2.5 rounded-xl bg-[#C4A258] hover:bg-[#d8bb78] text-[#07192d] text-xs font-black tracking-wider shadow-lg transition-all flex items-center justify-center gap-1.5 active:scale-98"
+                      className="w-full cursor-pointer py-2.5 rounded-xl bg-[#C4A258] hover:bg-[#d8bb78] text-[#07192d] text-xs font-normal tracking-[0.18em] shadow-lg transition-all flex items-center justify-center gap-1.5 active:scale-98"
                     >
                       <span>Explore Taghazout Escape</span>
                       <svg className="w-3.5 h-3.5" viewBox="0 0 20 20" fill="currentColor">
@@ -261,7 +261,7 @@ export const EscapesSection: React.FC<EscapesSectionProps> = ({
                         }
                         if (onInquireEscape) onInquireEscape(item);
                       }}
-                      className="w-full cursor-pointer py-2.5 rounded-xl bg-[#C4A258] hover:bg-[#d8bb78] text-[#07192d] text-xs font-black tracking-wider shadow-lg transition-all flex items-center justify-center gap-1.5 active:scale-98"
+                      className="w-full cursor-pointer py-2.5 rounded-xl bg-[#C4A258] hover:bg-[#d8bb78] text-[#07192d] text-xs font-normal tracking-[0.18em] shadow-lg transition-all flex items-center justify-center gap-1.5 active:scale-98"
                     >
                       <span>Plan with this escape</span>
                       <svg className="w-3.5 h-3.5" viewBox="0 0 20 20" fill="currentColor">

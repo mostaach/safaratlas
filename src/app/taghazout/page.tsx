@@ -381,7 +381,7 @@ export default function TaghazoutPage() {
                   )}`}
                   target="_blank"
                   rel="noreferrer"
-                  className="w-full py-3 rounded-xl bg-[#C4A258] hover:bg-[#d8bb78] text-[#07192d] text-xs font-black tracking-wider flex items-center justify-center gap-2 transition-all shadow-md"
+                  className="w-full py-3 rounded-xl bg-[#C4A258] hover:bg-[#d8bb78] text-[#07192d] text-xs font-normal tracking-[0.18em] flex items-center justify-center gap-2 transition-all shadow-md"
                 >
                   <span>Book Slow Escape via WhatsApp</span>
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -451,7 +451,7 @@ export default function TaghazoutPage() {
                   )}`}
                   target="_blank"
                   rel="noreferrer"
-                  className="w-full py-3 rounded-xl bg-[#C4A258] hover:bg-[#d8bb78] text-[#07192d] text-xs font-black tracking-wider flex items-center justify-center gap-2 transition-all shadow-md"
+                  className="w-full py-3 rounded-xl bg-[#C4A258] hover:bg-[#d8bb78] text-[#07192d] text-xs font-normal tracking-[0.18em] flex items-center justify-center gap-2 transition-all shadow-md"
                 >
                   <span>Book Active Escape via WhatsApp</span>
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -680,7 +680,7 @@ export default function TaghazoutPage() {
               href={`https://wa.me/${WHATSAPP_NUMBER}?text=${waMessage}`}
               target="_blank"
               rel="noreferrer"
-              className="px-8 py-4 rounded-xl bg-[#25D366] hover:bg-[#20bd5a] text-white text-xs font-black tracking-widest shadow-xl flex items-center gap-2 transition-all cursor-pointer hover:scale-102"
+              className="px-8 py-4 rounded-xl bg-[#25D366] hover:bg-[#20bd5a] text-white text-xs font-normal tracking-[0.18em] shadow-xl flex items-center gap-2 transition-all cursor-pointer hover:scale-102"
             >
               <span>WhatsApp Direct ({DISPLAY_PHONE})</span>
               <ArrowRight className="w-4 h-4" />
@@ -690,7 +690,7 @@ export default function TaghazoutPage() {
               href={STANDALONE_URL}
               target="_blank"
               rel="noreferrer"
-              className="px-6 py-4 rounded-xl bg-white/10 hover:bg-white/20 border border-white/25 text-white text-xs font-bold tracking-wider flex items-center gap-2 transition-all"
+              className="px-6 py-4 rounded-xl bg-white/10 hover:bg-white/20 border border-white/25 text-white text-xs font-normal tracking-[0.18em] flex items-center gap-2 transition-all"
             >
               <span>Visit TaghazoutEscapes.com</span>
               <ExternalLink className="w-3.5 h-3.5 text-[#C4A258]" />
