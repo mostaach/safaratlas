@@ -40,22 +40,22 @@ export const BespokeJourneyCta: React.FC = () => {
                 and boutique riads.
               </p>
 
-              {/* CTAs — exact Taghazout button DNA */}
-              <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+              {/* CTAs — refined editorial button styling matching Taghazout */}
+              <div className="mt-8 flex flex-col sm:flex-row sm:items-center gap-3.5">
                 <a
                   href="/journey"
-                  className="group inline-flex items-center justify-center gap-3 bg-[#C4A258] px-10 py-5 text-xs uppercase tracking-[0.3em] text-[#07192d] font-semibold transition-all duration-300 hover:bg-[#d8bb78] hover:tracking-[0.35em]"
+                  className="group inline-flex items-center justify-center gap-2.5 bg-[#C4A258] px-7 py-3.5 text-xs uppercase tracking-[0.18em] text-[#07192d] font-medium transition-all duration-300 hover:bg-[#d8bb78] hover:tracking-[0.22em] whitespace-nowrap shrink-0"
                   style={{ boxShadow: "var(--shadow-gold)" }}
                 >
                   <span>Plan Your Custom Journey</span>
-                  <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+                  <span className="transition-transform duration-300 group-hover:translate-x-1 font-light">→</span>
                 </a>
 
                 <a
                   href={`https://wa.me/212698017323?text=${waPrefill}`}
                   target="_blank"
                   rel="noreferrer"
-                  className="link-sweep text-xs uppercase tracking-[0.3em] text-[#f6f2ec]/70 hover:text-[#C4A258] flex items-center justify-center gap-2"
+                  className="group inline-flex items-center justify-center gap-2.5 border border-[#f6f2ec]/20 px-7 py-3.5 text-xs uppercase tracking-[0.18em] text-[#f6f2ec] font-normal transition-all duration-300 hover:border-[#C4A258] hover:text-[#C4A258] whitespace-nowrap shrink-0"
                 >
                   <span>Chat on WhatsApp</span>
                   <span>→</span>
