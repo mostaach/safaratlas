@@ -38,9 +38,9 @@ export const Footer: React.FC = () => {
                   rel="noopener noreferrer"
                   aria-label="Follow SafarAtlas on Instagram"
                   title="Follow us on Instagram @safaratlas"
-                  className="w-9 h-9 rounded-xl bg-white/5 hover:bg-[#E4405F]/20 border border-white/10 hover:border-[#E4405F]/50 flex items-center justify-center text-white/75 hover:text-white transition-all group shadow-sm"
+                  className="w-9 h-9 bg-white/5 hover:bg-[#E4405F]/20 border border-white/10 hover:border-[#E4405F]/50 flex items-center justify-center text-white/75 hover:text-white transition-all group shadow-sm"
                 >
-                  <SiInstagram className="w-4 h-4 transition-transform group-hover:scale-115 text-[#f6f2ec] group-hover:text-[#E4405F]" />
+                  <SiInstagram className="w-4 h-4 transition-transform group-hover:scale-110 text-[#f6f2ec] group-hover:text-[#E4405F]" />
                 </a>
 
                 {/* TripAdvisor */}
@@ -50,9 +50,9 @@ export const Footer: React.FC = () => {
                   rel="noopener noreferrer"
                   aria-label="Review SafarAtlas on TripAdvisor"
                   title="Read reviews on TripAdvisor"
-                  className="w-9 h-9 rounded-xl bg-white/5 hover:bg-[#34E0A1]/20 border border-white/10 hover:border-[#34E0A1]/50 flex items-center justify-center text-white/75 hover:text-white transition-all group shadow-sm"
+                  className="w-9 h-9 bg-white/5 hover:bg-[#34E0A1]/20 border border-white/10 hover:border-[#34E0A1]/50 flex items-center justify-center text-white/75 hover:text-white transition-all group shadow-sm"
                 >
-                  <SiTripadvisor className="w-5 h-5 transition-transform group-hover:scale-115 text-[#f6f2ec] group-hover:text-[#34E0A1]" />
+                  <SiTripadvisor className="w-5 h-5 transition-transform group-hover:scale-110 text-[#f6f2ec] group-hover:text-[#34E0A1]" />
                 </a>
 
                 {/* WhatsApp */}
@@ -62,24 +62,24 @@ export const Footer: React.FC = () => {
                   rel="noopener noreferrer"
                   aria-label="Chat with SafarAtlas on WhatsApp"
                   title="Message us on WhatsApp"
-                  className="w-9 h-9 rounded-xl bg-white/5 hover:bg-[#25D366]/20 border border-white/10 hover:border-[#25D366]/50 flex items-center justify-center text-white/75 hover:text-white transition-all group shadow-sm"
+                  className="w-9 h-9 bg-white/5 hover:bg-[#25D366]/20 border border-white/10 hover:border-[#25D366]/50 flex items-center justify-center text-white/75 hover:text-white transition-all group shadow-sm"
                 >
-                  <SiWhatsapp className="w-4 h-4 transition-transform group-hover:scale-115 text-[#f6f2ec] group-hover:text-[#25D366]" />
+                  <SiWhatsapp className="w-4 h-4 transition-transform group-hover:scale-110 text-[#f6f2ec] group-hover:text-[#25D366]" />
                 </a>
               </div>
             </div>
 
-            <div className="flex items-center gap-2 text-xs text-[#C4A258] font-semibold pt-1">
+            <div className="flex items-center gap-2 text-xs text-[#C4A258] font-light pt-1">
               <span>✦ Crafted for authentic Moroccan travel</span>
             </div>
           </div>
 
           {/* Col 2: Top Destinations */}
           <div>
-            <h4 className="text-xs font-extrabold uppercase tracking-widest text-[#C4A258] mb-3">
+            <h4 className="text-[10px] font-mono uppercase tracking-widest text-[#C4A258] mb-3">
               Explore
             </h4>
-            <ul className="space-y-2.5 text-sm text-white/80 font-medium">
+            <ul className="space-y-2.5 text-xs sm:text-sm text-[#f6f2ec]/70 font-light">
               <li><Link href="/#destinations" className="hover:text-[#C4A258] transition-colors">Marrakech</Link></li>
               <li><Link href="/agafay" className="hover:text-[#C4A258] transition-colors">Agafay Desert</Link></li>
               <li><Link href="/taghazout" className="hover:text-[#C4A258] transition-colors">Taghazout Coastal</Link></li>
@@ -91,10 +91,10 @@ export const Footer: React.FC = () => {
 
           {/* Col 3: Experiences */}
           <div>
-            <h4 className="text-xs font-extrabold uppercase tracking-widest text-[#C4A258] mb-3">
+            <h4 className="text-[10px] font-mono uppercase tracking-widest text-[#C4A258] mb-3">
               Plan
             </h4>
-            <ul className="space-y-2.5 text-sm text-white/80 font-medium">
+            <ul className="space-y-2.5 text-xs sm:text-sm text-[#f6f2ec]/70 font-light">
               <li><Link href="/escapes/sahara-escape-3d" className="hover:text-[#C4A258] transition-colors">3-Day Sahara Escape</Link></li>
               <li><Link href="/taghazout" className="hover:text-[#C4A258] transition-colors">Atlantic Surf & Coast</Link></li>
               <li><Link href="/#destinations" className="hover:text-[#C4A258] transition-colors">Modular Escapes</Link></li>
@@ -103,25 +103,27 @@ export const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Col 4: Journey CTA */}
-          <div className="p-5 rounded-2xl bg-white/5 border border-white/10 space-y-3">
-            <h5 className="text-lg font-bold text-white">Ready to explore Morocco?</h5>
-            <p className="text-sm text-white/70 leading-relaxed">
+          {/* Col 4: Journey CTA — Impeccable Design Tokens */}
+          <div className="p-6 bg-[#051324] border border-white/12 space-y-4">
+            <h5 className="text-lg font-serif font-medium text-[#f6f2ec] leading-tight">Ready to explore Morocco?</h5>
+            <p className="text-xs sm:text-sm text-[#f6f2ec]/70 font-light leading-relaxed">
               Tell us your vision and our local team will craft a fully managed, personalised itinerary just for you.
             </p>
             <Link
               href="/journey"
-              className="inline-block w-full text-center py-3 rounded-xl bg-[#C4A258] hover:bg-[#d8bb78] text-[#07192d] text-xs font-black uppercase tracking-wider transition-all shadow-md cursor-pointer"
+              className="inline-flex items-center justify-center gap-2 w-full text-center py-3.5 bg-[#C4A258] hover:bg-[#d8bb78] text-[#07192d] text-xs font-normal uppercase tracking-[0.18em] transition-all shadow-md cursor-pointer whitespace-nowrap"
+              style={{ boxShadow: "var(--shadow-gold)" }}
             >
-              Plan My Morocco Journey →
+              <span className="font-normal">Plan My Morocco Journey</span>
+              <span className="transition-transform duration-300 font-light">→</span>
             </Link>
 
-            <div className="pt-2 flex items-center justify-center gap-4 text-xs text-white/60">
+            <div className="pt-2 flex items-center justify-center gap-4 text-xs text-[#f6f2ec]/50 font-light">
               <a
                 href="https://www.tripadvisor.com/Attraction_Review-g293734-d34660267-Reviews-Safaratlas-Marrakech_Marrakech_Safi.html"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 hover:text-[#34E0A1] transition-colors font-medium"
+                className="inline-flex items-center gap-1.5 hover:text-[#34E0A1] transition-colors font-light"
               >
                 <SiTripadvisor className="w-4 h-4 text-[#34E0A1]" />
                 <span>TripAdvisor</span>
@@ -131,7 +133,7 @@ export const Footer: React.FC = () => {
                 href="https://www.instagram.com/safaratlas/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 hover:text-[#E4405F] transition-colors font-medium"
+                className="inline-flex items-center gap-1.5 hover:text-[#E4405F] transition-colors font-light"
               >
                 <SiInstagram className="w-3.5 h-3.5 text-[#E4405F]" />
                 <span>@safaratlas</span>
