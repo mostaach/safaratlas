@@ -25,10 +25,10 @@ export const Header: React.FC<HeaderProps> = ({ onOpenInquiryModal }) => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-[#07192d]/95 backdrop-blur-xl border-b border-white/8 py-4"
-          : "bg-transparent py-6"
+          ? "bg-[#07192d]/95 backdrop-blur-xl border-b border-white/10 py-3 sm:py-3.5 shadow-[0_10px_30px_rgba(0,0,0,0.5)]"
+          : "bg-[#07192d]/85 backdrop-blur-md border-b border-white/8 py-4 sm:py-4.5"
       }`}
     >
       <nav className="container-editorial flex items-center justify-between">
@@ -68,13 +68,13 @@ export const Header: React.FC<HeaderProps> = ({ onOpenInquiryModal }) => {
           </a>
         </div>
 
-        {/* Primary CTA — exact Taghazout gold flat button with SafarAtlas Sunset Gold */}
+        {/* Primary CTA — desktop */}
         <div className="hidden md:block">
           <a
             href={waUrl}
             target="_blank"
             rel="noreferrer"
-            className="group inline-flex items-center gap-3 bg-[#C4A258] px-8 py-3.5 text-[10px] uppercase tracking-[0.3em] text-[#07192d] font-normal transition-all duration-300 hover:bg-[#d8bb78] hover:tracking-[0.35em]"
+            className="group inline-flex items-center gap-3 bg-[#C4A258] px-7 py-3 text-[10px] uppercase tracking-[0.22em] text-[#07192d] font-normal transition-all duration-300 hover:bg-[#d8bb78] hover:tracking-[0.26em] whitespace-nowrap"
             style={{ boxShadow: "var(--shadow-gold)" }}
           >
             <span className="font-normal">Check Availability</span>
@@ -82,20 +82,32 @@ export const Header: React.FC<HeaderProps> = ({ onOpenInquiryModal }) => {
           </a>
         </div>
 
-        {/* Mobile hamburger */}
-        <button
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="md:hidden p-2 text-[#f6f2ec]/70 hover:text-[#C4A258] transition-colors"
-          aria-label="Toggle menu"
-        >
-          <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-            {mobileMenuOpen ? (
-              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-            ) : (
-              <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-            )}
-          </svg>
-        </button>
+        {/* Mobile controls: Sticky CTA + Hamburger */}
+        <div className="flex items-center gap-2.5 md:hidden">
+          <a
+            href={waUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-1.5 bg-[#C4A258] px-3.5 py-2 text-[9px] uppercase tracking-[0.18em] text-[#07192d] font-normal"
+          >
+            <span>Book</span>
+            <span className="font-light">→</span>
+          </a>
+
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="p-2 text-[#f6f2ec]/70 hover:text-[#C4A258] transition-colors"
+            aria-label="Toggle menu"
+          >
+            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+              {mobileMenuOpen ? (
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              ) : (
+                <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+              )}
+            </svg>
+          </button>
+        </div>
       </nav>
 
       {/* Mobile drawer */}
