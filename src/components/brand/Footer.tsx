@@ -69,7 +69,7 @@ export const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
-                <Link href="/escapes/imlil-toubkal-1d" className="hover:text-[#C4A258] transition-colors">
+                <Link href="/escapes/imlil-valley-high-atlas" className="hover:text-[#C4A258] transition-colors">
                   Atlas Mountains &amp; Imlil
                 </Link>
               </li>
@@ -79,7 +79,7 @@ export const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
-                <Link href="/escapes/essaouira-coastal-2d" className="hover:text-[#C4A258] transition-colors">
+                <Link href="/escapes/essaouira-coastal-escape" className="hover:text-[#C4A258] transition-colors">
                   Essaouira Atlantic Port
                 </Link>
               </li>
