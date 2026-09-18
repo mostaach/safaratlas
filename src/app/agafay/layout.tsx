@@ -1,4 +1,4 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import Script from "next/script";
 
 export const metadata: Metadata = {
@@ -16,10 +16,10 @@ export const metadata: Metadata = {
     siteName: "SafarAtlas",
     images: [
       {
-        url: "https://safaratlas.com/agafay-hero-quads.jpg",
+        url: "https://safaratlas.com/escapes/agafay-sunset-dinner.webp",
         width: 1200,
         height: 630,
-        alt: "Agafay Desert Quad Biking and Sunset Camel Trek SafarAtlas",
+        alt: "Agafay Desert Sunset & Candlelit Dining SafarAtlas",
       },
     ],
     locale: "en_US",
@@ -27,10 +27,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Agafay Desert Sunset & Campfire Dinner | SafarAtlas",
+    title: "Agafay Desert Sunset & Candlelit Dining | SafarAtlas",
     description:
       "Full desert evening 40m from Marrakech: Roundtrip transfer, 1h quad biking, sunset camel ride, 3-course feast & fire show. Pay on arrival.",
-    images: ["https://safaratlas.com/agafay-hero-quads.jpg"],
+    images: ["https://safaratlas.com/escapes/agafay-sunset-dinner.webp"],
   },
 };
 

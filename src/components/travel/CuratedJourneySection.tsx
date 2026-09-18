@@ -205,7 +205,7 @@ const ROUTE_PRESETS: RoutePreset[] = [
         featuredBadge: "Top Pick",
         icon: Sparkles,
         themeColor: "terracotta",
-        image: "/escapes/agafay-1d.jpg",
+        image: "/escapes/agafay-sunset-dinner.webp",
         location: "Agafay Rocky Desert",
         transferToNext: {
           label: "Atlas Express",

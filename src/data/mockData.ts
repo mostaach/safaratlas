@@ -553,14 +553,14 @@ export const ESCAPES_PACKAGES: EscapePackage[] = [
   },
   {
     id: "escape-agafay-1d",
-    title: "Agafay Desert Sunset & Quad Escape",
+    title: "Agafay Desert Sunset & Candlelit Dining",
     slug: "agafay-escape-1d",
     subtitle: "30-min from Marrakech → Rocky Desert Oasis",
     duration: "8h Journey",
     category: "Desert",
     location: "Agafay Desert (Marrakech)",
     priceFromEur: 34,
-    image: "/agafay-hero-quads.jpg",
+    image: "/escapes/agafay-sunset-dinner.webp",
     badge: "Marrakech Express",
     highlights: [
       "Sunset camel walk over rocky desert hills",
@@ -577,7 +577,7 @@ export const ESCAPES_PACKAGES: EscapePackage[] = [
         dayNumber: 1,
         title: "Afternoon Transfer → Quad Adventure → Sunset Dinner",
         description: "Pickup from your Marrakech riad at 16:30. Arrive in Agafay desert camp. Gear up for a 1-hour quad biking ride over rocky hills. Followed by a quiet camel walk as the sun sets over the High Atlas horizon. Finish with a gourmet tagine dinner and live fire show around the bonfire.",
-        image: "/agafay-hero-quads.jpg",
+        image: "/escapes/agafay-sunset-dinner.webp",
         highlights: ["1-hour quad biking", "Atlas sunset views", "Bonfire Berber music"]
       }
     ]
