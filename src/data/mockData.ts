@@ -778,25 +778,25 @@ export const ESCAPES_PACKAGES: EscapePackage[] = [
     category: "Mountain",
     location: "Ourika Valley & Atlas",
     priceFromEur: 55,
-    image: "/escapes/atlas-mountains.jpg",
+    image: "/escapes/ourika-3-valleys.webp",
     badge: "Riverside & Canyons",
     highlights: [
-      "Panoramic 3 Valleys scenic mountain drive through the Atlas",
+      "Panoramic 3 Valleys scenic mountain drive through the High Atlas",
       "Guided hike to the famous 7 waterfalls of Setti Fatma",
-      "Visit traditional Amazigh stone villages along river canyons",
-      "Traditional Moroccan tagine lunch served right by the flowing river",
-      "Authentic mint tea hospitality with mountain families"
+      "Traditional Moroccan tagine lunch served at carpeted tables directly by the stream",
+      "Visit traditional Amazigh stone villages and walnut orchards along river canyons",
+      "Authentic mint tea hospitality with local mountain Berber families"
     ],
     included: ["Private AC Transport", "Certified Mountain Guide for Falls", "Berber Family Tea", "Riverside Moroccan Lunch", "Hotel Pickup & Return"],
-    summary: "A refreshing full-day mountain drive through three distinct Atlas valleys, ending with riverside dining and a waterfall hike in Setti Fatma.",
-    fullDescription: "Escape the city heat into the cool green canyon of Ourika. Dip your feet in rushing mountain streams, hike to rocky cascades, and experience Amazigh heritage just 45 minutes from Marrakech.",
+    summary: "Discover the lush green canyon of Ourika Valley, hike to Setti Fatma waterfalls, and relax at traditional carpeted tables right beside running mountain streams just 45 minutes from Marrakech.",
+    fullDescription: "Escape Marrakech to discover the refreshing High Atlas mountains: the 3 Valleys of Ourika, Asni, and Oukaimeden foothills. Hike to the Setti Fatma waterfalls with your certified guide, sip fresh mint tea in an Amazigh family home, and savor a fresh slow-cooked tagine lunch seated at traditional carpeted tables right inside the cool river stream.",
     itineraryDays: [
       {
         dayNumber: 1,
         title: "Marrakech → 3 Valleys Route → Setti Fatma Hike → Riverside Lunch",
-        description: "09:00 departure towards the High Atlas. Traverse the Ourika, Oukaimeden, and Asni foothills with stops at panoramic ridges. Hike to the Setti Fatma cascades with your guide, relax by the river with mint tea, and enjoy lunch at a riverside table before returning by 17:00.",
-        image: "/escapes/atlas-mountains.jpg",
-        highlights: ["3 Valleys mountain route", "Setti Fatma waterfall hike", "Riverside tagine dining"]
+        description: "09:00 private pickup from your Marrakech riad or hotel. Scenic climb into the High Atlas traversing the Ourika, Oukaimeden, and Asni foothills with stops at panoramic viewpoints. Meet your certified guide in Setti Fatma for a guided hike to the mountain waterfalls, then relax by the stream for a slow-cooked tagine lunch at river-level tables before returning by 17:00.",
+        image: "/escapes/ourika-3-valleys.webp",
+        highlights: ["3 Valleys mountain route", "Setti Fatma waterfall hike", "Riverside tagine dining by the stream"]
       }
     ]
   }

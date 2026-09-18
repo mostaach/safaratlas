@@ -25,26 +25,37 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!escapePkg) return {};
 
   const url = `https://safaratlas.com/escapes/${escapePkg.slug}`;
+  const imageUrl = escapePkg.image.startsWith("http")
+    ? escapePkg.image
+    : `https://safaratlas.com${escapePkg.image}`;
 
   return {
-    title: `${escapePkg.title} | SafarAtlas Managed Journeys`,
+    title: `${escapePkg.title} | SafarAtlas Managed Morocco Journeys`,
     description: escapePkg.fullDescription || escapePkg.summary,
     alternates: {
       canonical: url,
     },
     openGraph: {
-      title: `${escapePkg.title} - SafarAtlas`,
+      title: `${escapePkg.title} — SafarAtlas Morocco`,
       description: escapePkg.fullDescription || escapePkg.summary,
       url,
+      siteName: "SafarAtlas",
       images: [
         {
-          url: escapePkg.image,
-          width: 1200,
-          height: 630,
-          alt: escapePkg.title,
+          url: imageUrl,
+          width: 1600,
+          height: 1066,
+          alt: `${escapePkg.title} - ${escapePkg.location}`,
         },
       ],
-      type: "article",
+      type: "website",
+      locale: "en_US",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${escapePkg.title} | SafarAtlas`,
+      description: escapePkg.summary || escapePkg.fullDescription,
+      images: [imageUrl],
     },
   };
 }
@@ -62,24 +73,36 @@ export default async function EscapePage({ params }: Props) {
     notFound();
   }
 
-  // Schema.org structured data for Tour
+  const url = `https://safaratlas.com/escapes/${escapePkg.slug}`;
+  const imageUrl = escapePkg.image.startsWith("http")
+    ? escapePkg.image
+    : `https://safaratlas.com${escapePkg.image}`;
+
+  // Schema.org structured data for TouristTrip / Tour
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "TouristTrip",
     "name": escapePkg.title,
     "description": escapePkg.fullDescription || escapePkg.summary,
+    "image": imageUrl,
     "touristType": [
       "Sightseeing",
-      "Adventure"
+      "Adventure",
+      "Cultural & Nature Enthusiasts"
     ],
     "offers": {
       "@type": "Offer",
       "price": escapePkg.priceFromEur,
       "priceCurrency": "EUR",
-      "availability": "https://schema.org/InStock"
+      "availability": "https://schema.org/InStock",
+      "url": url,
+      "validFrom": "2026-01-01"
     },
     "provider": {
-      "@id": "https://safaratlas.com/#organization"
+      "@type": "TravelAgency",
+      "name": "SafarAtlas",
+      "url": "https://safaratlas.com",
+      "telephone": "+212698017323"
     }
   };
 
