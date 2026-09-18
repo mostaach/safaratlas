@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 
 export const EditorialManifesto: React.FC = () => {
   return (
@@ -44,13 +45,14 @@ export const EditorialManifesto: React.FC = () => {
                 <p className="text-sm sm:text-base font-light leading-relaxed text-[#07192d]/75">
                   SafarAtlas coordinates every transfer, desert lodge, and private guide into one seamless route — under one concierge contact, one transparent itinerary.
                 </p>
-                <a
+                <Link
                   href="/journey"
-                  className="inline-block text-xs font-normal uppercase tracking-[0.18em] text-[#F3F1EC] bg-[#07192d] hover:bg-[#0d2239] px-6 py-3.5 transition-all shadow-md"
+                  className="group inline-flex items-center justify-center gap-2.5 bg-[#C4A258] px-7 py-3.5 text-xs uppercase tracking-[0.18em] text-[#07192d] font-normal transition-all duration-300 hover:bg-[#d8bb78] hover:tracking-[0.22em] whitespace-nowrap shrink-0"
+                  style={{ boxShadow: "var(--shadow-gold)" }}
                 >
-                  <span>Build My Journey</span>
-                  <span className="ml-2 font-light">→</span>
-                </a>
+                  <span className="font-normal">Build My Journey</span>
+                  <span className="transition-transform duration-300 group-hover:translate-x-1 font-light">→</span>
+                </Link>
               </div>
             </div>
           </div>
