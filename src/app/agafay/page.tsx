@@ -1,12 +1,25 @@
 "use client";
 
 import React, { useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { Header } from "../../components/brand/Header";
 import { Footer } from "../../components/brand/Footer";
 import { InquiryModal } from "../../components/travel/InquiryModal";
 import { ESCAPES_PACKAGES } from "../../data/mockData";
+import { 
+  Compass, 
+  Sun, 
+  Flame, 
+  UtensilsCrossed, 
+  Clock, 
+  ShieldCheck, 
+  Check, 
+  Sparkles, 
+  MapPin, 
+  Users, 
+  ArrowRight,
+  Phone
+} from "lucide-react";
 
 const WHATSAPP_NUMBER = "212698017323";
 const DISPLAY_PHONE = "+212 698 017 323";
@@ -15,108 +28,131 @@ export default function AgafayPage() {
   const [inquiryOpen, setInquiryOpen] = useState(false);
 
   const waMessage = encodeURIComponent(
-    `Hi SafarAtlas! I'd like to check rates for the Agafay Desert Full Experience.\n` +
-      `Includes: Marrakech Transfer + Quad Biking + Camel Ride + Mint Tea + Sunset View + Tagine Dinner & Gnaoua Show.\n` +
-      `Dates: [insert dates] | Group size: [number of people]. Could you send a quote?`
+    "Hi SafarAtlas! I'd like to check rates for the Agafay Desert Full Experience.\n" +
+      "Includes: Marrakech Transfer + Quad Biking + Camel Ride + Mint Tea + Sunset View + Tagine Dinner & Gnaoua Show.\n" +
+      "Dates: [insert dates] | Group size: [number of people]. Could you send a quote?"
   );
 
   const agafayPackage = ESCAPES_PACKAGES.find((p) => p.id === "escape-agafay-1d") || null;
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#07192d] text-[#f6f2ec] selection:bg-[#d6b78a] selection:text-[#0d2239]">
-      {/* Global Brand Header with custom dark accent support */}
-      <div className="relative z-50">
-        <Header variant="dark" onOpenInquiryModal={() => setInquiryOpen(true)} />
-      </div>
+    <div className="min-h-screen flex flex-col bg-[#07192d] text-[#f6f2ec] selection:bg-[#C4A258] selection:text-[#07192d]">
+      {/* Global Brand Header */}
+      <Header variant="dark" onOpenInquiryModal={() => setInquiryOpen(true)} />
 
-      <main className="flex-1 w-full max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 pt-24 sm:pt-28 pb-20">
-        {/* ── HERO GLASS POSTER CONTAINER ── */}
+      <main className="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 sm:pt-28 pb-20 space-y-20 sm:space-y-28">
+        
+        {/* ── 1. HERO ARCHITECTURAL SHOWCASE ── */}
         <section
           id="overview"
-          className="relative rounded-3xl border border-white/20 shadow-2xl overflow-hidden min-h-[85vh] flex flex-col justify-between p-5 sm:p-8 lg:p-12 bg-cover bg-center"
+          className="relative rounded-none border border-white/15 shadow-2xl overflow-hidden min-h-[88vh] flex flex-col justify-between p-6 sm:p-10 lg:p-14 bg-cover bg-center"
           style={{
-          backgroundImage: `linear-gradient(180deg, rgba(7,25,45,0.5) 0%, rgba(7,25,45,0.88) 100%), url('/safaratlas_hero_typography.jpg')`,
+            backgroundImage: `linear-gradient(180deg, rgba(7, 25, 45, 0.35) 0%, rgba(7, 25, 45, 0.78) 55%, rgba(7, 25, 45, 0.98) 100%), url('/destinations/agafay-hero.jpg')`,
           }}
         >
-          {/* Subheader bar inside hero */}
-          <div className="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-white/10 z-10">
+          {/* Top Info Bar inside Hero */}
+          <div className="flex flex-wrap items-center justify-between gap-4 pb-5 border-b border-white/10 z-10">
             <div className="flex items-center gap-3">
-              <span className="px-3 py-1 rounded-full text-[11px] font-extrabold uppercase tracking-widest bg-[#d6b78a]/20 border border-[#d6b78a]/40 text-[#d6b78a]">
-                Agafay Desert · 45m from Marrakech
+              <span className="px-3.5 py-1.5 rounded-none text-[10px] font-normal uppercase tracking-[0.25em] bg-[#07192d]/80 border border-[#C4A258]/40 text-[#C4A258] backdrop-blur-md">
+                Agafay Desert · 45 Min from Marrakech
+              </span>
+              <span className="hidden sm:inline-block text-[11px] font-normal uppercase tracking-[0.2em] text-[#f6f2ec]/60">
+                100% Private Door-to-Door
               </span>
             </div>
 
             <div className="flex items-center gap-3">
               <a
                 href={`tel:+${WHATSAPP_NUMBER}`}
-                className="hidden sm:inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold border border-[#d6b78a]/40 bg-[#d6b78a]/10 text-[#d6b78a] hover:bg-[#d6b78a]/20 transition-all"
+                className="hidden sm:inline-flex items-center gap-2 px-3.5 py-1.5 rounded-none text-[10px] font-normal uppercase tracking-[0.2em] border border-white/20 bg-white/5 text-white/80 hover:bg-white/15 hover:text-white transition-all"
               >
-                <span>📞 {DISPLAY_PHONE}</span>
+                <Phone className="w-3 h-3 text-[#C4A258]" />
+                <span>{DISPLAY_PHONE}</span>
               </a>
+
               <a
                 href={`https://wa.me/${WHATSAPP_NUMBER}?text=${waMessage}`}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold bg-[#25D366] text-white shadow-md hover:bg-[#20bd5a] transition-all"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-none text-[10px] font-normal uppercase tracking-[0.2em] bg-[#25D366] text-white shadow-md hover:bg-[#1eb855] transition-all"
               >
-                <span>💬 WhatsApp Concierge</span>
+                <span>WhatsApp Availability</span>
+                <ArrowRight className="w-3 h-3" />
               </a>
             </div>
           </div>
 
-          {/* Hero Content: 2-column on desktop, stacked on mobile */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end my-auto py-8 z-10">
+          {/* Hero Content & Pricing Box */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-end my-auto py-10 z-10">
             {/* Left Col: Titles */}
-            <div className="lg:col-span-7 space-y-4">
-              <span className="text-xs font-black uppercase tracking-widest text-[#d6b78a] drop-shadow">
-                Exclusive Signature Experience
-              </span>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-black text-white leading-tight drop-shadow-md">
+            <div className="lg:col-span-7 space-y-6">
+              <div className="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.28em] text-[#C4A258] font-normal">
+                <Sparkles className="w-3.5 h-3.5" />
+                <span>Exclusive Private Escape · Sunset & Starlight</span>
+              </div>
+              
+              <h1 className="text-4xl sm:text-6xl lg:text-7xl font-serif font-normal text-white leading-[1.08] tracking-tight">
                 Escape to the <br />
-                <span className="text-[#d6b78a]">Agafay Desert</span>
+                <span className="text-[#C4A258] italic font-serif">Agafay Desert</span>
               </h1>
-              <p className="text-sm sm:text-base text-[#f6f2ec]/90 max-w-xl leading-relaxed drop-shadow">
-                Desert adrenaline, authentic Berber hospitality, golden-hour camel trek, and candlelit campfire dining — all orchestrated in one seamless evening.
+              
+              <p className="text-sm sm:text-base text-[#f6f2ec]/85 max-w-xl leading-relaxed font-light">
+                Desert adrenaline, authentic Berber hospitality, golden-hour camel trek across limestone ridges, and a candlelit campfire banquet — orchestrated seamlessly from your Marrakech riad doorstep.
               </p>
+
+              <div className="pt-2 flex flex-wrap gap-4 text-[10px] uppercase tracking-[0.22em] text-[#f6f2ec]/70 font-normal">
+                <span className="flex items-center gap-1.5">
+                  <Check className="w-3.5 h-3.5 text-[#C4A258]" />
+                  Private AC Chauffeur
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <Check className="w-3.5 h-3.5 text-[#C4A258]" />
+                  Pay on Arrival
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <Check className="w-3.5 h-3.5 text-[#C4A258]" />
+                  24h Free Cancellation
+                </span>
+              </div>
             </div>
 
-            {/* Right Col: Price Card (Responsive Width) */}
+            {/* Right Col: Price Card */}
             <div className="lg:col-span-5 w-full max-w-md mx-auto lg:ml-auto">
-              <div className="rounded-2xl p-6 bg-[#0d2239]/80 backdrop-blur-xl border border-white/20 shadow-2xl space-y-4">
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-bold uppercase tracking-wider text-[#d6b78a]">
-                    Fully Private Experience
+              <div className="rounded-none p-6 sm:p-8 bg-[#07192d]/90 backdrop-blur-xl border border-white/15 shadow-2xl space-y-5">
+                <div className="flex items-center justify-between pb-3 border-b border-white/10">
+                  <span className="text-[10px] font-normal uppercase tracking-[0.24em] text-[#C4A258]">
+                    Private Signature Escape
                   </span>
-                  <span className="px-2.5 py-0.5 rounded-full text-[10px] font-black bg-[#25D366]/20 text-[#25D366] border border-[#25D366]/30">
+                  <span className="px-2.5 py-0.5 rounded-none text-[9px] font-normal uppercase tracking-[0.18em] bg-[#25D366]/20 text-[#25D366] border border-[#25D366]/40">
                     Pay on Arrival
                   </span>
                 </div>
 
-                <div>
-                  <div className="text-2xl sm:text-3xl font-serif font-black text-white">
-                    Pricing via WhatsApp
+                <div className="space-y-1.5">
+                  <div className="text-2xl sm:text-3xl font-serif font-normal text-white">
+                    Custom Quote via WhatsApp
                   </div>
-                  <p className="text-xs text-[#d6b78a] font-medium mt-1">
-                    Custom rates based on season & your group size
+                  <p className="text-xs text-[#C4A258] font-normal tracking-wide">
+                    Direct transparent rates based on season & party size
                   </p>
-                  <p className="text-[11px] text-[#f6f2ec]/70 mt-1">
-                    Includes private roundtrip 4x4, quad biking, camel trek, sunset tea & 3-course dinner with live show.
+                  <p className="text-[11px] text-[#f6f2ec]/70 leading-relaxed pt-1">
+                    Includes private roundtrip 4x4, quad biking safari, sunset camel trek, panoramic tea, and full 3-course Moroccan tagine dinner with Gnawa show.
                   </p>
                 </div>
 
-                <div className="pt-2 flex flex-col gap-2.5">
+                <div className="pt-2 flex flex-col gap-3">
                   <a
                     href={`https://wa.me/${WHATSAPP_NUMBER}?text=${waMessage}`}
                     target="_blank"
                     rel="noreferrer"
-                    className="w-full py-3.5 px-4 rounded-xl text-center font-normal text-xs uppercase tracking-[0.18em] bg-gradient-to-r from-[#d6b78a] to-[#c89a4e] text-[#0d2239] shadow-lg hover:brightness-105 active:scale-98 transition-all flex items-center justify-center gap-2"
+                    className="w-full py-3.5 px-5 rounded-none text-center font-normal text-xs uppercase tracking-[0.2em] bg-[#C4A258] hover:bg-[#d8bb78] text-[#07192d] shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer"
                   >
-                    <span>Instant WhatsApp Booking →</span>
+                    <span>Check WhatsApp Availability →</span>
                   </a>
                   <button
                     type="button"
                     onClick={() => setInquiryOpen(true)}
-                    className="w-full py-2.5 px-4 rounded-xl text-center font-bold text-xs text-[#f6f2ec]/90 hover:text-white bg-white/5 hover:bg-white/10 border border-white/10 transition-all"
+                    className="w-full py-3 px-5 rounded-none text-center font-normal text-xs uppercase tracking-[0.18em] text-[#f6f2ec]/80 hover:text-white bg-white/5 hover:bg-white/10 border border-white/15 transition-all cursor-pointer"
                   >
                     Send Booking Inquiry Form
                   </button>
@@ -126,259 +162,320 @@ export default function AgafayPage() {
           </div>
 
           {/* Bottom Highlights Strip inside Hero */}
-          <div className="pt-4 border-t border-white/10 z-10">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 text-center sm:text-left">
-              <div className="p-2.5 rounded-xl bg-black/40 backdrop-blur-md border border-white/10">
-                <div className="text-lg">🏎️</div>
-                <div className="text-xs font-bold text-white uppercase mt-0.5">1h Guided Quad</div>
-                <div className="text-[10px] text-[#d6b78a]">Helmets & guide included</div>
+          <div className="pt-6 border-t border-white/10 z-10">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3.5 text-left">
+              <div className="p-4 rounded-none bg-[#07192d]/85 backdrop-blur-md border border-white/10">
+                <div className="text-[10px] font-normal uppercase tracking-[0.24em] text-[#C4A258]">01 · Quad Safari</div>
+                <div className="text-xs font-serif font-normal text-white mt-1">1h Guided Expedition</div>
+                <div className="text-[10px] text-[#f6f2ec]/60 mt-0.5">Helmets, goggles & guide included</div>
               </div>
-              <div className="p-2.5 rounded-xl bg-black/40 backdrop-blur-md border border-white/10">
-                <div className="text-lg">🐪</div>
-                <div className="text-xs font-bold text-white uppercase mt-0.5">Sunset Camel Trek</div>
-                <div className="text-[10px] text-[#d6b78a]">Nomad dress & tea stop</div>
+
+              <div className="p-4 rounded-none bg-[#07192d]/85 backdrop-blur-md border border-white/10">
+                <div className="text-[10px] font-normal uppercase tracking-[0.24em] text-[#C4A258]">02 · Sunset Camel</div>
+                <div className="text-xs font-serif font-normal text-white mt-1">20 Min Nomad Trek</div>
+                <div className="text-[10px] text-[#f6f2ec]/60 mt-0.5">Traditional cheche & tea stop</div>
               </div>
-              <div className="p-2.5 rounded-xl bg-black/40 backdrop-blur-md border border-white/10">
-                <div className="text-lg">🕯️</div>
-                <div className="text-xs font-bold text-white uppercase mt-0.5">Tagine Dinner</div>
-                <div className="text-[10px] text-[#d6b78a]">Fresh 3-course Moroccan feast</div>
+
+              <div className="p-4 rounded-none bg-[#07192d]/85 backdrop-blur-md border border-white/10">
+                <div className="text-[10px] font-normal uppercase tracking-[0.24em] text-[#C4A258]">03 · Camp Banquet</div>
+                <div className="text-xs font-serif font-normal text-white mt-1">3-Course Tagine Feast</div>
+                <div className="text-[10px] text-[#f6f2ec]/60 mt-0.5">Candlelit Berber pavilion</div>
               </div>
-              <div className="p-2.5 rounded-xl bg-black/40 backdrop-blur-md border border-white/10">
-                <div className="text-lg">🔥</div>
-                <div className="text-xs font-bold text-white uppercase mt-0.5">Live Fire & Gnawa</div>
-                <div className="text-[10px] text-[#d6b78a]">Acoustic show by bonfire</div>
+
+              <div className="p-4 rounded-none bg-[#07192d]/85 backdrop-blur-md border border-white/10">
+                <div className="text-[10px] font-normal uppercase tracking-[0.24em] text-[#C4A258]">04 · Fire Spectacle</div>
+                <div className="text-xs font-serif font-normal text-white mt-1">Live Gnawa & Bonfire</div>
+                <div className="text-[10px] text-[#f6f2ec]/60 mt-0.5">Acoustic desert performance</div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* ── WHAT'S INCLUDED SECTION ── */}
-        <section id="activities" className="mt-16 sm:mt-24 space-y-8">
-          <div className="space-y-2">
-            <span className="px-3 py-1 rounded-full text-xs font-extrabold uppercase tracking-widest bg-[#d6b78a]/10 border border-[#d6b78a]/30 text-[#d6b78a]">
-              The Full Package
+        {/* ── 2. WHAT MAKES AGAFAY UNFORGETTABLE ── */}
+        <section id="activities" className="space-y-10">
+          <div className="space-y-3">
+            <span className="text-[10px] font-normal uppercase tracking-[0.28em] text-[#C4A258] block">
+              The Curated Journey
             </span>
-            <h2 className="text-3xl sm:text-4xl font-serif font-black text-white">
+            <h2 className="text-3xl sm:text-5xl font-serif font-normal text-white tracking-tight">
               What Makes Agafay Unforgettable
             </h2>
-            <p className="text-sm text-[#f6f2ec]/75 max-w-xl">
-              From hotel door to desert sunset, every detail is handled with zero stress for you.
+            <p className="text-xs sm:text-sm text-[#f6f2ec]/70 max-w-xl leading-relaxed font-light">
+              From Marrakech hotel pickup to midnight bonfire return, every moment is managed with discreet private care.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            <div className="p-6 rounded-2xl bg-gradient-to-b from-white/10 to-[#0d2239]/60 backdrop-blur-xl border border-white/15 hover:border-[#d6b78a]/50 transition-all space-y-2.5">
-              <div className="text-3xl">🏎️</div>
-              <h3 className="text-base font-black text-white uppercase tracking-wide">Quad Biking Safari</h3>
-              <span className="text-[11px] font-bold text-[#d6b78a] block">1 Hour · Guided Expedition</span>
-              <p className="text-xs text-[#f6f2ec]/80 leading-relaxed">
-                Pilot premium quad bikes through the rolling stone dunes, canyon trails, and panoramic view spots.
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            <div className="p-7 rounded-none bg-[#0c223c]/40 backdrop-blur-xl border border-white/10 hover:border-[#C4A258]/50 transition-all space-y-4 group">
+              <div className="w-10 h-10 rounded-none border border-[#C4A258]/30 flex items-center justify-center text-[#C4A258]">
+                <Compass className="w-5 h-5" />
+              </div>
+              <div className="space-y-1">
+                <span className="text-[10px] font-normal uppercase tracking-[0.22em] text-[#C4A258] block">Expedition</span>
+                <h3 className="text-lg font-serif font-normal text-white">Quad Biking Safari</h3>
+              </div>
+              <p className="text-xs text-[#f6f2ec]/75 leading-relaxed font-light">
+                Pilot premium quad bikes through rolling stone dunes, hidden canyons, and dramatic panoramic crests with your dedicated guide.
               </p>
+              <div className="text-[10px] font-normal uppercase tracking-[0.2em] text-[#f6f2ec]/50 pt-2 border-t border-white/10">
+                1 Hour · Helmets & Briefing
+              </div>
             </div>
 
-            <div className="p-6 rounded-2xl bg-gradient-to-b from-white/10 to-[#0d2239]/60 backdrop-blur-xl border border-white/15 hover:border-[#d6b78a]/50 transition-all space-y-2.5">
-              <div className="text-3xl">🐪</div>
-              <h3 className="text-base font-black text-white uppercase tracking-wide">Sunset Camel Trek</h3>
-              <span className="text-[11px] font-bold text-[#d6b78a] block">20 Min · Traditional Attire</span>
-              <p className="text-xs text-[#f6f2ec]/80 leading-relaxed">
-                Climb aboard gentle camels wearing traditional cheche robes just as the sun sinks behind the High Atlas.
+            <div className="p-7 rounded-none bg-[#0c223c]/40 backdrop-blur-xl border border-white/10 hover:border-[#C4A258]/50 transition-all space-y-4 group">
+              <div className="w-10 h-10 rounded-none border border-[#C4A258]/30 flex items-center justify-center text-[#C4A258]">
+                <Sun className="w-5 h-5" />
+              </div>
+              <div className="space-y-1">
+                <span className="text-[10px] font-normal uppercase tracking-[0.22em] text-[#C4A258] block">Golden Hour</span>
+                <h3 className="text-lg font-serif font-normal text-white">Sunset Camel Trek</h3>
+              </div>
+              <p className="text-xs text-[#f6f2ec]/75 leading-relaxed font-light">
+                Climb aboard gentle camels wearing traditional cheche indigo robes just as the sun sinks behind the distant Atlas peaks.
               </p>
+              <div className="text-[10px] font-normal uppercase tracking-[0.2em] text-[#f6f2ec]/50 pt-2 border-t border-white/10">
+                20 Min · Traditional Attire
+              </div>
             </div>
 
-            <div className="p-6 rounded-2xl bg-gradient-to-b from-white/10 to-[#0d2239]/60 backdrop-blur-xl border border-white/15 hover:border-[#d6b78a]/50 transition-all space-y-2.5">
-              <div className="text-3xl">🍲</div>
-              <h3 className="text-base font-black text-white uppercase tracking-wide">Candlelit Tagine Feast</h3>
-              <span className="text-[11px] font-bold text-[#d6b78a] block">3 Courses · Camp Pavilion</span>
-              <p className="text-xs text-[#f6f2ec]/80 leading-relaxed">
-                Savor piping-hot Moroccan salads, slow-cooked tagines, and seasonal fruits in our Berber camp tent.
+            <div className="p-7 rounded-none bg-[#0c223c]/40 backdrop-blur-xl border border-white/10 hover:border-[#C4A258]/50 transition-all space-y-4 group">
+              <div className="w-10 h-10 rounded-none border border-[#C4A258]/30 flex items-center justify-center text-[#C4A258]">
+                <UtensilsCrossed className="w-5 h-5" />
+              </div>
+              <div className="space-y-1">
+                <span className="text-[10px] font-normal uppercase tracking-[0.22em] text-[#C4A258] block">Gastronomy</span>
+                <h3 className="text-lg font-serif font-normal text-white">Candlelit Tagine Feast</h3>
+              </div>
+              <p className="text-xs text-[#f6f2ec]/75 leading-relaxed font-light">
+                Savor artisanal Moroccan salads, slow-cooked savory tagines, and seasonal fruits within an authentic open-air nomad camp.
               </p>
+              <div className="text-[10px] font-normal uppercase tracking-[0.2em] text-[#f6f2ec]/50 pt-2 border-t border-white/10">
+                3 Courses · Camp Pavilion
+              </div>
             </div>
 
-            <div className="p-6 rounded-2xl bg-gradient-to-b from-white/10 to-[#0d2239]/60 backdrop-blur-xl border border-white/15 hover:border-[#d6b78a]/50 transition-all space-y-2.5">
-              <div className="text-3xl">🔥</div>
-              <h3 className="text-base font-black text-white uppercase tracking-wide">Gnawa & Fire Show</h3>
-              <span className="text-[11px] font-bold text-[#d6b78a] block">Live Rhythm · Campfire</span>
-              <p className="text-xs text-[#f6f2ec]/80 leading-relaxed">
-                Gather around the central bonfire for hypnotic Gnawa drum rhythms, folk dance, and a live fire performance.
+            <div className="p-7 rounded-none bg-[#0c223c]/40 backdrop-blur-xl border border-white/10 hover:border-[#C4A258]/50 transition-all space-y-4 group">
+              <div className="w-10 h-10 rounded-none border border-[#C4A258]/30 flex items-center justify-center text-[#C4A258]">
+                <Flame className="w-5 h-5" />
+              </div>
+              <div className="space-y-1">
+                <span className="text-[10px] font-normal uppercase tracking-[0.22em] text-[#C4A258] block">Atmosphere</span>
+                <h3 className="text-lg font-serif font-normal text-white">Gnawa & Fire Show</h3>
+              </div>
+              <p className="text-xs text-[#f6f2ec]/75 leading-relaxed font-light">
+                Gather around the central bonfire for hypnotic Gnawa drum rhythms, authentic folk performance, and an acrobatic live fire spectacle.
               </p>
+              <div className="text-[10px] font-normal uppercase tracking-[0.2em] text-[#f6f2ec]/50 pt-2 border-t border-white/10">
+                Live Acoustic · Starlit Campfire
+              </div>
             </div>
           </div>
         </section>
 
-        {/* ── STEP-BY-STEP TIMELINE ── */}
-        <section id="timeline" className="mt-16 sm:mt-24 space-y-8">
-          <div className="space-y-2">
-            <span className="px-3 py-1 rounded-full text-xs font-extrabold uppercase tracking-widest bg-[#d6b78a]/10 border border-[#d6b78a]/30 text-[#d6b78a]">
-              The Itinerary
+        {/* ── 3. STEP-BY-STEP DESERT EVENING TIMELINE ── */}
+        <section id="timeline" className="space-y-10">
+          <div className="space-y-3">
+            <span className="text-[10px] font-normal uppercase tracking-[0.28em] text-[#C4A258] block">
+              The Evening Rhythm
             </span>
-            <h2 className="text-3xl sm:text-4xl font-serif font-black text-white">
-              Step-by-Step Desert Evening
+            <h2 className="text-3xl sm:text-5xl font-serif font-normal text-white tracking-tight">
+              Step-by-Step Desert Itinerary
             </h2>
-            <p className="text-sm text-[#f6f2ec]/75 max-w-xl">
-              ~5 hours total experience designed around optimal golden-hour light and dinner timing.
+            <p className="text-xs sm:text-sm text-[#f6f2ec]/70 max-w-xl leading-relaxed font-light">
+              Approximately 5 hours designed around optimal desert golden-hour lighting and dinner timing.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            <div className="p-5 rounded-2xl bg-white/5 border border-white/10 space-y-2">
-              <div className="flex items-center justify-between text-xs font-black text-[#d6b78a]">
-                <span>16:30</span>
-                <span>🚐</span>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            <div className="p-6 rounded-none bg-[#07192d]/80 border border-white/10 space-y-3">
+              <div className="flex items-center justify-between">
+                <span className="font-mono text-xs text-[#C4A258] tracking-widest font-normal">16:30</span>
+                <MapPin className="w-4 h-4 text-[#f6f2ec]/40" />
               </div>
-              <h3 className="text-sm font-bold text-white">Marrakech Pickup</h3>
-              <p className="text-xs text-[#f6f2ec]/75 leading-relaxed">
-                Air-conditioned door-to-door transfer from your Riad or Hotel to Agafay (~45 min scenic drive).
+              <h3 className="text-base font-serif font-normal text-white">Marrakech Doorstep Pickup</h3>
+              <p className="text-xs text-[#f6f2ec]/75 leading-relaxed font-light">
+                Private air-conditioned chauffeur pickup directly from your riad or hotel. Enjoy the ~45 minute scenic climb into the stone desert.
               </p>
             </div>
 
-            <div className="p-5 rounded-2xl bg-white/5 border border-white/10 space-y-2">
-              <div className="flex items-center justify-between text-xs font-black text-[#d6b78a]">
-                <span>17:30</span>
-                <span>🏎️</span>
+            <div className="p-6 rounded-none bg-[#07192d]/80 border border-white/10 space-y-3">
+              <div className="flex items-center justify-between">
+                <span className="font-mono text-xs text-[#C4A258] tracking-widest font-normal">17:30</span>
+                <Compass className="w-4 h-4 text-[#f6f2ec]/40" />
               </div>
-              <h3 className="text-sm font-bold text-white">Quad Safari</h3>
-              <p className="text-xs text-[#f6f2ec]/75 leading-relaxed">
-                Safety briefing, helmet fitting, and 1-hour guided quad run over ridges and dry riverbeds.
+              <h3 className="text-base font-serif font-normal text-white">1-Hour Guided Quad Safari</h3>
+              <p className="text-xs text-[#f6f2ec]/75 leading-relaxed font-light">
+                Safety briefing, gear fitting, and 60 minutes traversing moonlike ridges, dry riverbeds, and hidden viewpoint summits.
               </p>
             </div>
 
-            <div className="p-5 rounded-2xl bg-white/5 border border-white/10 space-y-2">
-              <div className="flex items-center justify-between text-xs font-black text-[#d6b78a]">
-                <span>18:45</span>
-                <span>🐪</span>
+            <div className="p-6 rounded-none bg-[#07192d]/80 border border-white/10 space-y-3">
+              <div className="flex items-center justify-between">
+                <span className="font-mono text-xs text-[#C4A258] tracking-widest font-normal">18:45</span>
+                <Sun className="w-4 h-4 text-[#f6f2ec]/40" />
               </div>
-              <h3 className="text-sm font-bold text-white">Sunset Camel & Mint Tea</h3>
-              <p className="text-xs text-[#f6f2ec]/75 leading-relaxed">
-                Sunset ride in nomad garments, followed by fresh Moroccan mint tea overlooking Atlas mountain peaks.
+              <h3 className="text-base font-serif font-normal text-white">Sunset Camel Caravan & Mint Tea</h3>
+              <p className="text-xs text-[#f6f2ec]/75 leading-relaxed font-light">
+                Sunset caravan in nomad attire followed by fresh Moroccan mint tea served overlooking the snow-dusted High Atlas peaks.
               </p>
             </div>
 
-            <div className="p-5 rounded-2xl bg-white/5 border border-white/10 space-y-2">
-              <div className="flex items-center justify-between text-xs font-black text-[#d6b78a]">
-                <span>19:45</span>
-                <span>🍲</span>
+            <div className="p-6 rounded-none bg-[#07192d]/80 border border-white/10 space-y-3">
+              <div className="flex items-center justify-between">
+                <span className="font-mono text-xs text-[#C4A258] tracking-widest font-normal">19:45</span>
+                <UtensilsCrossed className="w-4 h-4 text-[#f6f2ec]/40" />
               </div>
-              <h3 className="text-sm font-bold text-white">Camp Tagine Dinner</h3>
-              <p className="text-xs text-[#f6f2ec]/75 leading-relaxed">
-                Sit down to a generous dinner with bread, traditional dips, chicken or vegetable tagine, and dessert.
+              <h3 className="text-base font-serif font-normal text-white">Candlelit Camp Tagine Dinner</h3>
+              <p className="text-xs text-[#f6f2ec]/75 leading-relaxed font-light">
+                Sit down to a generous 3-course Moroccan banquet: traditional salads, slow-simmered chicken or vegetable tagine, and fresh dessert.
               </p>
             </div>
 
-            <div className="p-5 rounded-2xl bg-white/5 border border-white/10 space-y-2">
-              <div className="flex items-center justify-between text-xs font-black text-[#d6b78a]">
-                <span>20:45</span>
-                <span>🔥</span>
+            <div className="p-6 rounded-none bg-[#07192d]/80 border border-white/10 space-y-3">
+              <div className="flex items-center justify-between">
+                <span className="font-mono text-xs text-[#C4A258] tracking-widest font-normal">20:45</span>
+                <Flame className="w-4 h-4 text-[#f6f2ec]/40" />
               </div>
-              <h3 className="text-sm font-bold text-white">Bonfire & Show</h3>
-              <p className="text-xs text-[#f6f2ec]/75 leading-relaxed">
-                Live Gnawa spiritual music, clapping rhythms, and an acrobatic fire show under the desert sky.
+              <h3 className="text-base font-serif font-normal text-white">Bonfire Gnawa & Fire Spectacle</h3>
+              <p className="text-xs text-[#f6f2ec]/75 leading-relaxed font-light">
+                Live Gnawa polyrhythms, drum circles, and an acrobatic fire performance under the luminous, unpolluted desert night sky.
               </p>
             </div>
 
-            <div className="p-5 rounded-2xl bg-white/5 border border-white/10 space-y-2">
-              <div className="flex items-center justify-between text-xs font-black text-[#d6b78a]">
-                <span>21:30</span>
-                <span>✨</span>
+            <div className="p-6 rounded-none bg-[#07192d]/80 border border-white/10 space-y-3">
+              <div className="flex items-center justify-between">
+                <span className="font-mono text-xs text-[#C4A258] tracking-widest font-normal">21:30</span>
+                <Clock className="w-4 h-4 text-[#f6f2ec]/40" />
               </div>
-              <h3 className="text-sm font-bold text-white">Return Transfer</h3>
-              <p className="text-xs text-[#f6f2ec]/75 leading-relaxed">
-                Comfortable ride back to Marrakech, arriving at your hotel doorstep by ~22:15.
+              <h3 className="text-base font-serif font-normal text-white">Chauffeured Return Transfer</h3>
+              <p className="text-xs text-[#f6f2ec]/75 leading-relaxed font-light">
+                Relax in your private vehicle for the peaceful drive back to Marrakech, arriving at your riad door by approximately 22:15.
               </p>
             </div>
           </div>
         </section>
 
-        {/* ── TRUST & GOOD TO KNOW ── */}
-        <section id="reassurance" className="mt-16 sm:mt-24">
-          <div className="rounded-3xl p-6 sm:p-10 bg-[#0d2239]/70 backdrop-blur-xl border border-white/15 grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="space-y-4">
-              <h3 className="text-xl font-bold text-white flex items-center gap-2">
-                <span className="text-[#d6b78a]">✓</span> What&apos;s Included
-              </h3>
-              <ul className="space-y-2.5 text-xs sm:text-sm text-[#f6f2ec]/85">
-                <li className="flex items-center gap-2">
-                  <span className="text-[#25D366] font-bold">✓</span> Hotel pickup and drop-off in Marrakech
+        {/* ── 4. INCLUSIONS & GOOD TO KNOW ── */}
+        <section id="reassurance">
+          <div className="rounded-none p-8 sm:p-12 bg-[#07192d]/90 backdrop-blur-xl border border-white/15 grid grid-cols-1 md:grid-cols-2 gap-10">
+            <div className="space-y-5">
+              <div className="space-y-1">
+                <span className="text-[10px] font-normal uppercase tracking-[0.24em] text-[#C4A258] block">
+                  Transparency
+                </span>
+                <h3 className="text-2xl font-serif font-normal text-white">
+                  What&apos;s Included in Your Private Quote
+                </h3>
+              </div>
+              <ul className="space-y-3 text-xs sm:text-sm text-[#f6f2ec]/85 font-light">
+                <li className="flex items-start gap-3">
+                  <Check className="w-4 h-4 text-[#C4A258] shrink-0 mt-0.5" />
+                  <span>Private roundtrip hotel/riad pickup & drop-off in Marrakech (Mercedes van or 4x4)</span>
                 </li>
-                <li className="flex items-center gap-2">
-                  <span className="text-[#25D366] font-bold">✓</span> 1-hour quad biking safari + equipment
+                <li className="flex items-start gap-3">
+                  <Check className="w-4 h-4 text-[#C4A258] shrink-0 mt-0.5" />
+                  <span>1-Hour guided quad biking safari + certified instructor & protective gear</span>
                 </li>
-                <li className="flex items-center gap-2">
-                  <span className="text-[#25D366] font-bold">✓</span> 20-minute sunset camel trek with scarf
+                <li className="flex items-start gap-3">
+                  <Check className="w-4 h-4 text-[#C4A258] shrink-0 mt-0.5" />
+                  <span>20-Minute sunset camel trek with authentic nomad scarf (cheche)</span>
                 </li>
-                <li className="flex items-center gap-2">
-                  <span className="text-[#25D366] font-bold">✓</span> Moroccan mint tea & hospitality
+                <li className="flex items-start gap-3">
+                  <Check className="w-4 h-4 text-[#C4A258] shrink-0 mt-0.5" />
+                  <span>Traditional Moroccan mint tea & hospitality at panoramic sunset terrace</span>
                 </li>
-                <li className="flex items-center gap-2">
-                  <span className="text-[#25D366] font-bold">✓</span> Full 3-course dinner in desert camp
+                <li className="flex items-start gap-3">
+                  <Check className="w-4 h-4 text-[#C4A258] shrink-0 mt-0.5" />
+                  <span>Full 3-course dinner in desert camp (Moroccan salads, savory tagine, seasonal fruit)</span>
                 </li>
-                <li className="flex items-center gap-2">
-                  <span className="text-[#25D366] font-bold">✓</span> Live Gnawa musicians & fire-eater show
+                <li className="flex items-start gap-3">
+                  <Check className="w-4 h-4 text-[#C4A258] shrink-0 mt-0.5" />
+                  <span>Live Gnawa acoustic musicians & live fire-eater performance by the bonfire</span>
                 </li>
               </ul>
             </div>
 
-            <div className="space-y-4">
-              <h3 className="text-xl font-bold text-white flex items-center gap-2">
-                <span className="text-[#d6b78a]">ℹ️</span> Good To Know
-              </h3>
-              <ul className="space-y-2.5 text-xs sm:text-sm text-[#f6f2ec]/85">
-                <li>
-                  <strong className="text-white">Duration:</strong> ~5 hours (16:30 – 21:30)
+            <div className="space-y-5">
+              <div className="space-y-1">
+                <span className="text-[10px] font-normal uppercase tracking-[0.24em] text-[#C4A258] block">
+                  Practical Logistics
+                </span>
+                <h3 className="text-2xl font-serif font-normal text-white">
+                  Good To Know Before You Go
+                </h3>
+              </div>
+              <ul className="space-y-3 text-xs sm:text-sm text-[#f6f2ec]/85 font-light">
+                <li className="flex items-start gap-3">
+                  <span className="text-[#C4A258] font-mono text-xs">·</span>
+                  <span><strong className="text-white font-normal">Duration:</strong> Approximately 5 hours total (16:30 departure – 21:30 return).</span>
                 </li>
-                <li>
-                  <strong className="text-white">Clothing:</strong> Comfortable clothes, sunglasses, closed shoes
+                <li className="flex items-start gap-3">
+                  <span className="text-[#C4A258] font-mono text-xs">·</span>
+                  <span><strong className="text-white font-normal">Clothing:</strong> Comfortable trousers, closed shoes, and a light jacket for after sunset.</span>
                 </li>
-                <li>
-                  <strong className="text-white">Cancellation:</strong> Free cancellation up to 24h before
+                <li className="flex items-start gap-3">
+                  <span className="text-[#C4A258] font-mono text-xs">·</span>
+                  <span><strong className="text-white font-normal">Cancellation:</strong> 100% Free cancellation up to 24 hours before pickup.</span>
                 </li>
-                <li>
-                  <strong className="text-white">Payment:</strong> Pay securely on arrival (Cash or Card)
+                <li className="flex items-start gap-3">
+                  <span className="text-[#C4A258] font-mono text-xs">·</span>
+                  <span><strong className="text-white font-normal">Payment:</strong> Pay securely on arrival in Morocco (Cash EUR/MAD or Card).</span>
                 </li>
-                <li>
-                  <strong className="text-white">Group size:</strong> Intimate small-group departures
+                <li className="flex items-start gap-3">
+                  <span className="text-[#C4A258] font-mono text-xs">·</span>
+                  <span><strong className="text-white font-normal">Privacy:</strong> 100% Private vehicle and personalized pacing for your party.</span>
                 </li>
               </ul>
             </div>
           </div>
         </section>
 
-        {/* ── FINAL BOOKING CTA ── */}
-        <section className="mt-16 sm:mt-24 text-center">
-          <div className="rounded-3xl p-8 sm:p-14 bg-gradient-to-b from-[#d6b78a]/20 via-[#0d2239]/90 to-[#080c10] border border-[#d6b78a]/40 max-w-3xl mx-auto space-y-6">
-            <span className="px-3 py-1 rounded-full text-xs font-black uppercase tracking-widest bg-[#d6b78a]/20 text-[#d6b78a]">
-              Limited Availability Daily
+        {/* ── 5. FINAL EDITORIAL CTA ── */}
+        <section className="text-center">
+          <div className="rounded-none p-10 sm:p-16 bg-gradient-to-b from-[#0c223c] to-[#07192d] border border-[#C4A258]/30 max-w-3xl mx-auto space-y-7 shadow-2xl">
+            <span className="text-[10px] font-normal uppercase tracking-[0.28em] text-[#C4A258] block">
+              Direct Local Coordination
             </span>
-            <h2 className="text-3xl sm:text-5xl font-serif font-black text-white">
+            
+            <h2 className="text-3xl sm:text-5xl font-serif font-normal text-white tracking-tight leading-tight">
               Ready to Experience Agafay?
             </h2>
-            <p className="text-sm sm:text-base text-[#f6f2ec]/85 max-w-md mx-auto">
-              Private door-to-door experience. Message our WhatsApp Concierge with your dates and group size for an instant quote.
+            
+            <p className="text-xs sm:text-sm text-[#f6f2ec]/80 max-w-md mx-auto leading-relaxed font-light">
+              Send your preferred travel dates and party size directly to our WhatsApp Concierge for an immediate quote and private reservation.
             </p>
 
-            <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <div className="pt-3 flex flex-col sm:flex-row items-center justify-center gap-4">
               <a
                 href={`https://wa.me/${WHATSAPP_NUMBER}?text=${waMessage}`}
                 target="_blank"
                 rel="noreferrer"
-                className="w-full sm:w-auto px-8 py-4 rounded-full font-normal text-xs uppercase tracking-[0.18em] bg-gradient-to-r from-[#d6b78a] to-[#c89a4e] text-[#0d2239] shadow-2xl hover:scale-105 active:scale-95 transition-all"
+                className="w-full sm:w-auto px-8 py-4 rounded-none font-normal text-xs uppercase tracking-[0.22em] bg-[#C4A258] hover:bg-[#d8bb78] text-[#07192d] shadow-2xl transition-all cursor-pointer"
               >
-                Get Quote via WhatsApp →
+                Instant WhatsApp Quote →
               </a>
+              
               <button
                 type="button"
                 onClick={() => setInquiryOpen(true)}
-                className="w-full sm:w-auto px-6 py-4 rounded-full font-normal text-xs bg-white/10 hover:bg-white/15 text-white border border-white/20 transition-all"
+                className="w-full sm:w-auto px-8 py-4 rounded-none font-normal text-xs uppercase tracking-[0.2em] bg-white/5 hover:bg-white/10 text-white border border-white/20 transition-all cursor-pointer"
               >
-                Inquire With Travel Dates
+                Inquire via Web Form
               </button>
             </div>
 
-            <div className="pt-3 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-[#d6b78a]">
-              <span>⚡ Instant response</span>
+            <div className="pt-4 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-[10px] uppercase tracking-[0.2em] text-[#f6f2ec]/60">
+              <span className="flex items-center gap-1.5">
+                <Check className="w-3.5 h-3.5 text-[#C4A258]" /> Instant Response
+              </span>
               <span>•</span>
-              <span>🛡️ Free cancel up to 24h</span>
+              <span className="flex items-center gap-1.5">
+                <Check className="w-3.5 h-3.5 text-[#C4A258]" /> Free Cancel 24h
+              </span>
               <span>•</span>
-              <span>💳 Pay on arrival</span>
+              <span className="flex items-center gap-1.5">
+                <Check className="w-3.5 h-3.5 text-[#C4A258]" /> Pay on Arrival
+              </span>
             </div>
           </div>
         </section>
@@ -387,23 +484,23 @@ export default function AgafayPage() {
       {/* Global Footer */}
       <Footer />
 
-      {/* ── STICKY MOBILE BOOKING BAR (Fixed to bottom on mobile only) ── */}
-      <div className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-[#0d2239]/95 backdrop-blur-xl border-t border-[#d6b78a]/30 px-4 py-3 flex items-center justify-between shadow-2xl">
+      {/* ── STICKY MOBILE BOOKING BAR ── */}
+      <div className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-[#07192d]/95 backdrop-blur-xl border-t border-white/10 px-4 py-3 flex items-center justify-between shadow-2xl">
         <div>
-          <div className="text-sm font-black text-[#d6b78a]">
-            Pricing via WhatsApp
+          <div className="text-xs font-serif font-normal text-white">
+            Agafay Private Escape
           </div>
-          <div className="text-[10px] text-[#f6f2ec]/70">Seasonal rates · Pay on arrival</div>
+          <div className="text-[10px] text-[#C4A258] uppercase tracking-wider">Pay on arrival · Private 4x4</div>
         </div>
 
         <a
           href={`https://wa.me/${WHATSAPP_NUMBER}?text=${waMessage}`}
           target="_blank"
           rel="noreferrer"
-          className="px-5 py-2.5 rounded-full text-xs font-normal uppercase tracking-[0.18em] bg-gradient-to-r from-[#25D366] to-[#1eb757] text-white shadow-lg active:scale-95 transition-all flex items-center gap-1.5"
+          className="px-4 py-2.5 rounded-none text-[10px] font-normal uppercase tracking-[0.2em] bg-[#25D366] text-white shadow-lg active:scale-95 transition-all flex items-center gap-1.5"
         >
           <span>Get Quote</span>
-          <span>→</span>
+          <ArrowRight className="w-3 h-3" />
         </a>
       </div>
 
