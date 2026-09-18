@@ -745,27 +745,27 @@ export const ESCAPES_PACKAGES: EscapePackage[] = [
     subtitle: "Marrakech → Middle Atlas Foothills → 110m Cascades",
     duration: "Full Day (10–11h)",
     category: "Mountain",
-    location: "Ouzoud Cascades",
+    location: "Ouzoud Cascades & Middle Atlas",
     priceFromEur: 60,
-    image: "/destinations/marrakech.jpg",
+    image: "/escapes/ouzoud-waterfalls.webp",
     badge: "Natural Wonder",
     highlights: [
-      "Private pickup & scenic drive through the Moroccan countryside",
-      "Guided walk through ancient olive groves around the 110m waterfalls",
-      "Meet the wild native Barbary macaque monkeys along the canyon",
-      "Traditional wooden boat ride right up to the waterfall spray",
-      "Traditional Moroccan lunch overlooking the cascading falls"
+      "Private roundtrip AC transport from Marrakech across Tadla plains",
+      "Guided canyon hike through shaded thousand-year-old olive groves",
+      "Observe wild native Barbary macaque monkeys along the cliffs",
+      "Traditional hand-carved wooden boat cruise right beneath the 110m cascades",
+      "Scenic panoramic lunch on a shaded terrace overlooking the falls"
     ],
-    included: ["Private AC Vehicle", "Guided Canyon & Falls Walk", "Traditional Boat Ride", "Moroccan Lunch with Waterfall View", "Hotel Pickup & Return"],
-    summary: "Discover Morocco's most magnificent waterfalls cascading 110 meters into a red-rock gorge, surrounded by friendly Barbary monkeys and olive groves.",
-    fullDescription: "Located 2.5 hours northeast of Marrakech, Ouzoud is one of North Africa's natural crowns. Enjoy clean country air, cooling canyon mist, and scenic boat crossings on a completely private day journey.",
+    included: ["Private AC Vehicle", "Dedicated Local Guide for Falls", "Traditional Wooden Boat Ride", "Moroccan Lunch with Waterfall View", "Hotel Pickup & Return"],
+    summary: "Experience Morocco's most magnificent natural wonder: 110-meter cascading waterfalls in a dramatic red-rock canyon, surrounded by Barbary macaques, olive groves, and traditional wooden boat rides.",
+    fullDescription: "Journey 2.5 hours northeast of Marrakech to the crown jewel of Morocco's waterfalls. Experience the dramatic 110-meter cascades tumbling into a red-rock gorge, encounter friendly native Barbary monkeys in ancient olive groves, and take a traditional wooden boat ride right up to the refreshing waterfall mist.",
     itineraryDays: [
       {
         dayNumber: 1,
-        title: "Marrakech → Tadla Plains → Ouzoud Waterfalls & Monkeys",
-        description: "08:00 pickup from your accommodation. Travel through scenic agricultural plains to the Middle Atlas foothills. Walk down canyon paths among olive trees, watch Barbary monkeys, board a wooden boat to the waterfall mist, and dine on a shaded terrace overlooking the falls.",
-        image: "/destinations/marrakech.jpg",
-        highlights: ["110m waterfall view", "Barbary monkeys in wild", "Traditional boat crossing"]
+        title: "Marrakech → Tadla Plains → 110m Ouzoud Falls & Boat Ride",
+        description: "08:00 private pickup from your Marrakech accommodation. Travel through scenic olive country to the Middle Atlas foothills. Walk down shaded canyon trails, observe Barbary macaque monkeys in their natural habitat, board a hand-crafted wooden boat up to the falls spray, and enjoy a traditional Moroccan lunch overlooking the cascades before returning by 18:00.",
+        image: "/escapes/ouzoud-waterfalls.webp",
+        highlights: ["110m cascading waterfalls", "Barbary macaque monkeys", "Wooden boat ride to the falls", "Panoramic riverside lunch"]
       }
     ]
   },
