@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import { Destination } from "../../data/mockData";
 
 interface DestinationCardProps {
@@ -18,10 +19,12 @@ export const DestinationCard: React.FC<DestinationCardProps> = ({ destination, o
     >
       {/* Background Image with Zoom & Dark Gradient Backdrop */}
       <div className="absolute inset-0 z-0 overflow-hidden">
-        <img 
+        <Image
           src={destination.image} 
           alt={destination.name}
-          className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700 ease-out opacity-85"
+          fill
+          sizes="(min-width: 768px) 33vw, 100vw"
+          className="object-cover object-center group-hover:scale-110 transition-transform duration-700 ease-out opacity-85"
         />
         {/* Layered Vignette Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-[#07192d] via-[#07192d]/50 to-transparent" />
@@ -73,7 +76,7 @@ export const DestinationCard: React.FC<DestinationCardProps> = ({ destination, o
             </span>
           </div>
           <p className="text-xs font-medium text-white/90 line-clamp-1 italic">
-            "{destination.tagline}"
+            &quot;{destination.tagline}&quot;
           </p>
         </div>
 

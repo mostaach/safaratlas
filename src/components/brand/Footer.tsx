@@ -74,6 +74,16 @@ export const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
+                <Link href="/escapes/atlas-mountains-escape" className="hover:text-[#C4A258] transition-colors">
+                  High Atlas Berber Escape
+                </Link>
+              </li>
+              <li>
+                <Link href="/escapes/ourika-3-valleys-experience" className="hover:text-[#C4A258] transition-colors">
+                  Ourika 3 Valleys Escape
+                </Link>
+              </li>
+              <li>
                 <Link href="/escapes/ouzoud-waterfalls-experience" className="hover:text-[#C4A258] transition-colors">
                   Ouzoud Cascades Day Escape
                 </Link>

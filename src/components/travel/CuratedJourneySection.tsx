@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { 
   Building2, 
   Tent, 
@@ -472,10 +473,12 @@ export const CuratedJourneySection: React.FC<CuratedJourneySectionProps> = ({ on
             
             {/* Visual Thumbnail Frame (5 cols) */}
             <div className="md:col-span-5 relative h-52 sm:h-60 rounded-2xl overflow-hidden border border-white/10 group shadow-lg">
-              <img
+              <Image
                 src={activeMilestone.image}
                 alt={activeMilestone.name}
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                fill
+                sizes="(min-width: 768px) 40vw, 100vw"
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#07192d] via-transparent to-black/30" />
               

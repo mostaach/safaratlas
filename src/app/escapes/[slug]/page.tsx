@@ -19,6 +19,66 @@ interface Props {
   params: Promise<{ slug: string }>;
 }
 
+const ESCAPE_SEO_OVERRIDES: Record<string, { title: string; description: string }> = {
+  "atlas-mountains-escape": {
+    title: "High Atlas Mountains Tour from Marrakech | SafarAtlas",
+    description:
+      "Book a managed 2-day High Atlas Mountains tour from Marrakech with Imlil village trekking, Amazigh hospitality, mountain lodge stay, and private transfers.",
+  },
+  "ourika-3-valleys-experience": {
+    title: "Ourika Valley Day Trip from Marrakech | SafarAtlas",
+    description:
+      "Plan a private Ourika Valley day trip from Marrakech with 3 Valleys viewpoints, Setti Fatma waterfall hike, Amazigh tea, riverside lunch, and return transfer.",
+  },
+};
+
+const ESCAPE_FAQS: Record<string, { question: string; answer: string }[]> = {
+  "atlas-mountains-escape": [
+    {
+      question: "How far are the High Atlas Mountains from Marrakech?",
+      answer:
+        "The Imlil and Toubkal foothills area is about 90 minutes from Marrakech by private transfer, depending on traffic, weather, and photo stops in the Asni valley.",
+    },
+    {
+      question: "Is the 2-day High Atlas escape difficult?",
+      answer:
+        "The village walks are guided and can be adapted to your fitness level. Expect uneven mountain paths, short climbs, and relaxed pacing rather than a technical summit trek.",
+    },
+    {
+      question: "What is included in the High Atlas Mountains tour?",
+      answer:
+        "The managed escape includes private transport, a boutique mountain lodge night, a certified mountain guide, and meals listed in the itinerary.",
+    },
+    {
+      question: "When is the best time to visit the High Atlas Mountains?",
+      answer:
+        "March to June and September to November are the most comfortable months. Summer is cooler than Marrakech, while winter can bring snow and crisp mountain conditions.",
+    },
+  ],
+  "ourika-3-valleys-experience": [
+    {
+      question: "How far is Ourika Valley from Marrakech?",
+      answer:
+        "Ourika Valley is roughly 45 to 60 minutes from Marrakech by private transfer, making it one of the easiest High Atlas day trips from the city.",
+    },
+    {
+      question: "Can you visit Setti Fatma waterfalls on a day trip?",
+      answer:
+        "Yes. This route includes time for a guided Setti Fatma waterfall hike, viewpoints through the 3 Valleys area, Amazigh tea, and a riverside lunch before returning to Marrakech.",
+    },
+    {
+      question: "Is the Ourika Valley hike suitable for beginners?",
+      answer:
+        "Most travelers can do the lower waterfall route with a local guide, but the path includes rocks, steps, and stream crossings. Good walking shoes are recommended.",
+    },
+    {
+      question: "What is included in the Ourika Valley day trip?",
+      answer:
+        "The managed day trip includes private air-conditioned transport, a certified mountain guide for the falls, Berber family tea, riverside Moroccan lunch, and hotel pickup and return.",
+    },
+  ],
+};
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const escapePkg = ESCAPES_PACKAGES.find((pkg) => pkg.slug === slug);
@@ -28,16 +88,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const imageUrl = escapePkg.image.startsWith("http")
     ? escapePkg.image
     : `https://safaratlas.com${escapePkg.image}`;
+  const seo = ESCAPE_SEO_OVERRIDES[escapePkg.slug];
+  const title = seo?.title || `${escapePkg.title} | SafarAtlas Managed Morocco Journeys`;
+  const description = seo?.description || escapePkg.fullDescription || escapePkg.summary;
 
   return {
-    title: `${escapePkg.title} | SafarAtlas Managed Morocco Journeys`,
-    description: escapePkg.fullDescription || escapePkg.summary,
+    title,
+    description,
     alternates: {
       canonical: url,
     },
     openGraph: {
-      title: `${escapePkg.title} — SafarAtlas Morocco`,
-      description: escapePkg.fullDescription || escapePkg.summary,
+      title,
+      description,
       url,
       siteName: "SafarAtlas",
       images: [
@@ -53,8 +116,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
     twitter: {
       card: "summary_large_image",
-      title: `${escapePkg.title} | SafarAtlas`,
-      description: escapePkg.summary || escapePkg.fullDescription,
+      title,
+      description,
       images: [imageUrl],
     },
   };
@@ -77,6 +140,10 @@ export default async function EscapePage({ params }: Props) {
   const imageUrl = escapePkg.image.startsWith("http")
     ? escapePkg.image
     : `https://safaratlas.com${escapePkg.image}`;
+  const relatedEscapes = ESCAPES_PACKAGES.filter(
+    (pkg) => pkg.category === escapePkg.category && pkg.slug !== escapePkg.slug
+  ).slice(0, 3);
+  const escapeFaqs = ESCAPE_FAQS[escapePkg.slug] || [];
 
   // Schema.org structured data for TouristTrip / Tour
   const jsonLd = {
@@ -105,6 +172,20 @@ export default async function EscapePage({ params }: Props) {
       "telephone": "+212698017323"
     }
   };
+  const faqJsonLd = escapeFaqs.length > 0
+    ? {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": escapeFaqs.map((faq) => ({
+          "@type": "Question",
+          "name": faq.question,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": faq.answer,
+          },
+        })),
+      }
+    : null;
 
   return (
     <main className="min-h-screen bg-[#07192d] text-[#f6f2ec]">
@@ -113,16 +194,26 @@ export default async function EscapePage({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+      {faqJsonLd && (
+        <Script
+          id={`faq-json-ld-${escapePkg.id}`}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+        />
+      )}
       
       {/* Global Navigation Header */}
       <Header variant="dark" />
 
       {/* HERO SECTION */}
       <section className="relative h-[50vh] min-h-[400px] w-full bg-[#07192d]">
-        <img
+        <Image
           src={escapePkg.image}
           alt={escapePkg.title}
-          className="w-full h-full object-cover opacity-60"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover opacity-60"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#07192d] via-[#07192d]/50 to-transparent" />
         
@@ -201,11 +292,15 @@ export default async function EscapePage({ params }: Props) {
                       </p>
                       
                       {day.image && (
-                        <img 
-                          src={day.image} 
-                          alt={`Day ${day.dayNumber}`}
-                          className="w-full h-48 sm:h-64 object-cover rounded-xl mt-4" 
-                        />
+                        <div className="relative mt-4 h-48 w-full overflow-hidden rounded-xl sm:h-64">
+                          <Image
+                            src={day.image}
+                            alt={`Day ${day.dayNumber}`}
+                            fill
+                            sizes="(min-width: 1024px) 60vw, 100vw"
+                            className="object-cover"
+                          />
+                        </div>
                       )}
                       
                       {day.highlights && day.highlights.length > 0 && (
@@ -228,7 +323,7 @@ export default async function EscapePage({ params }: Props) {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-6">
             <div className="bg-[#0d2239]/80 backdrop-blur-md p-6 rounded-2xl border border-white/10 space-y-4 shadow-sm">
               <h3 className="text-xs font-extrabold uppercase tracking-widest text-[#C4A258] flex items-center gap-2">
-                <span>✓</span> What's Included
+                <span>✓</span> What&apos;s Included
               </h3>
               <ul className="space-y-3">
                 {escapePkg.included.map((inc, i) => (
@@ -254,6 +349,76 @@ export default async function EscapePage({ params }: Props) {
               </ul>
             </div>
           </div>
+
+          {escapeFaqs.length > 0 && (
+            <section className="space-y-5 pt-6">
+              <div className="space-y-2">
+                <h2 className="text-xs font-extrabold uppercase tracking-widest text-[#C4A258]">
+                  Frequently Asked Questions
+                </h2>
+                <p className="text-sm text-[#f6f2ec]/70 leading-relaxed">
+                  Practical details for planning this escape from Marrakech.
+                </p>
+              </div>
+
+              <div className="divide-y divide-white/10 rounded-2xl border border-white/10 bg-[#0d2239]/80">
+                {escapeFaqs.map((faq) => (
+                  <div key={faq.question} className="space-y-2 p-5">
+                    <h3 className="text-sm font-bold text-[#f6f2ec]">
+                      {faq.question}
+                    </h3>
+                    <p className="text-sm leading-relaxed text-[#f6f2ec]/70">
+                      {faq.answer}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
+
+          {relatedEscapes.length > 0 && (
+            <section className="space-y-5 pt-6">
+              <div className="space-y-2">
+                <h2 className="text-xs font-extrabold uppercase tracking-widest text-[#C4A258]">
+                  Related {escapePkg.category} Escapes
+                </h2>
+                <p className="text-sm text-[#f6f2ec]/70 leading-relaxed">
+                  Compare nearby SafarAtlas modules that pair naturally with this route.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                {relatedEscapes.map((related) => (
+                  <Link
+                    key={related.id}
+                    href={`/escapes/${related.slug}`}
+                    className="group overflow-hidden rounded-2xl border border-white/10 bg-[#0d2239]/80 shadow-sm transition-colors hover:border-[#C4A258]/60"
+                  >
+                    <div className="relative aspect-[4/3] overflow-hidden bg-black/20">
+                      <Image
+                        src={related.image}
+                        alt={related.title}
+                        fill
+                        sizes="(min-width: 640px) 33vw, 100vw"
+                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                    </div>
+                    <div className="space-y-2 p-4">
+                      <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#C4A258]">
+                        {related.duration}
+                      </span>
+                      <h3 className="text-sm font-bold leading-snug text-[#f6f2ec]">
+                        {related.title}
+                      </h3>
+                      <p className="text-xs leading-relaxed text-[#f6f2ec]/65">
+                        {related.location}
+                      </p>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </section>
+          )}
           
         </div>
 

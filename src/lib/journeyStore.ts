@@ -1,4 +1,4 @@
-﻿import { JourneyEscapeItem, JourneyState, JourneyAccommodationSelection, JourneyExtraExperience } from "./journeyTypes";
+﻿import { JourneyEscapeItem, JourneyState, JourneyExtraExperience } from "./journeyTypes";
 
 const STORAGE_KEY = "safaratlas_current_journey_v2";
 
@@ -32,7 +32,7 @@ export const getStoredJourney = (): JourneyState => {
       };
     }
     return JSON.parse(raw);
-  } catch (e) {
+  } catch {
     return {
       items: [],
       destinations: ["Marrakech"],
@@ -135,7 +135,7 @@ export const setStayDurationDays = (destination: string, daysCount: number): Jou
   const stays = current.destinationStays || [];
   const existingIndex = stays.findIndex((s) => s.destination.toLowerCase() === destination.toLowerCase());
   
-  let updatedStays = [...stays];
+  const updatedStays = [...stays];
   if (existingIndex >= 0) {
     updatedStays[existingIndex] = { destination, daysCount };
   } else {

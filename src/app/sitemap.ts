@@ -10,6 +10,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: baseUrl, lastModified, changeFrequency: "weekly", priority: 1 },
     { url: `${baseUrl}/agafay`, lastModified, changeFrequency: "weekly", priority: 0.95 },
     { url: `${baseUrl}/taghazout`, lastModified, changeFrequency: "weekly", priority: 0.95 },
+    { url: `${baseUrl}/marrakech`, lastModified, changeFrequency: "weekly", priority: 0.9 },
     { url: `${baseUrl}/offers/agafay-vip`, lastModified, changeFrequency: "weekly", priority: 0.9 },
     { url: `${baseUrl}/journey`, lastModified, changeFrequency: "monthly", priority: 0.9 },
     { url: `${baseUrl}/partners`, lastModified, changeFrequency: "monthly", priority: 0.6 },

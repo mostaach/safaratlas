@@ -62,11 +62,16 @@ export default function AgafayLayout({
                 },
                 "offers": {
                   "@type": "Offer",
-                  "price": "34",
                   "priceCurrency": "EUR",
+                  "priceSpecification": {
+                    "@type": "PriceSpecification",
+                    "minPrice": "120",
+                    "priceCurrency": "EUR"
+                  },
                   "availability": "https://schema.org/InStock",
                   "url": "https://safaratlas.com/agafay",
-                  "validFrom": "2026-01-01"
+                  "validFrom": "2026-01-01",
+                  "description": "Custom quote based on group size and season. Contact via WhatsApp for transparent pricing."
                 }
               },
               {

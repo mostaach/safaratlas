@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { SiWhatsapp, SiInstagram, SiTripadvisor } from "react-icons/si";
 
 export default function EditorialGrandCta() {
@@ -88,9 +89,11 @@ export default function EditorialGrandCta() {
             {/* Col 1: Brand & Identity */}
             <div className="md:col-span-4 space-y-5">
               <div className="flex items-center gap-3">
-                <img
+                <Image
                   src="/logo/safar-atlas-logo.svg"
                   alt="SafarAtlas Logo"
+                  width={32}
+                  height={32}
                   className="w-8 h-8 object-contain"
                 />
                 <span className="font-serif tracking-tight text-xl font-bold text-[#f6f2ec]">

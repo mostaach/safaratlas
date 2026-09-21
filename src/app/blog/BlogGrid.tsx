@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { BlogPost } from "../../data/blogData";
 
 const ALL = "All";
@@ -75,10 +76,12 @@ export default function BlogGrid({ posts }: Props) {
         <Link href={`/blog/${featured.slug}`} className="block group">
           <div className="rounded-3xl overflow-hidden border border-white/10 bg-[#0d2239]/80 backdrop-blur-md shadow-xl hover:shadow-2xl transition-all duration-300">
             <div className="relative h-72 sm:h-96">
-              <img
+              <Image
                 src={featured.coverImage}
                 alt={featured.title}
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                fill
+                sizes="(min-width: 768px) 80vw, 100vw"
+                className="object-cover group-hover:scale-105 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
               <div className="absolute top-5 left-5">
@@ -103,9 +106,11 @@ export default function BlogGrid({ posts }: Props) {
                   {featured.summary}
                 </p>
                 <div className="flex items-center gap-3">
-                  <img
+                  <Image
                     src={featured.author.avatar}
                     alt={featured.author.name}
+                    width={24}
+                    height={24}
                     className="w-6 h-6 rounded-full object-cover border border-white/20"
                   />
                   <span className="text-xs text-[#f6f2ec]/50 font-semibold">
@@ -128,10 +133,12 @@ export default function BlogGrid({ posts }: Props) {
             <Link key={post.id} href={`/blog/${post.slug}`} className="block group">
               <div className="rounded-3xl overflow-hidden border border-white/10 bg-[#0d2239]/80 backdrop-blur-md shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col h-full">
                 <div className="relative h-52 overflow-hidden shrink-0">
-                  <img
+                  <Image
                     src={post.coverImage}
                     alt={post.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    fill
+                    sizes="(min-width: 768px) 50vw, 100vw"
+                    className="object-cover group-hover:scale-105 transition-transform duration-700"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                   <div className="absolute top-4 left-4">
@@ -151,9 +158,11 @@ export default function BlogGrid({ posts }: Props) {
                   </p>
                   <div className="flex items-center justify-between pt-2 border-t border-white/10">
                     <div className="flex items-center gap-2">
-                      <img
+                      <Image
                         src={post.author.avatar}
                         alt={post.author.name}
+                        width={20}
+                        height={20}
                         className="w-5 h-5 rounded-full object-cover border border-white/20"
                       />
                       <span className="text-[11px] text-[#f6f2ec]/50 font-semibold">

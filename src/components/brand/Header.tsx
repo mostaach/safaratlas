@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 interface HeaderProps {
   onOpenInquiryModal?: () => void;
@@ -9,7 +10,7 @@ interface HeaderProps {
   variant?: "light" | "dark";
 }
 
-export const Header: React.FC<HeaderProps> = ({ onOpenInquiryModal }) => {
+export const Header: React.FC<HeaderProps> = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -32,9 +33,11 @@ export const Header: React.FC<HeaderProps> = ({ onOpenInquiryModal }) => {
 
           {/* Left: Brand mark */}
           <Link href="/" className="flex items-center gap-3 group">
-            <img
+            <Image
               src="/logo/safar-atlas-logo.svg"
               alt="SafarAtlas"
+              width={32}
+              height={32}
               className="w-8 h-8 object-contain shrink-0 transition-transform duration-300 group-hover:scale-105"
             />
             <div className="flex flex-col">
@@ -51,15 +54,15 @@ export const Header: React.FC<HeaderProps> = ({ onOpenInquiryModal }) => {
 
           {/* Right: Desktop nav links — open, breathable, Taghazout style with no lines */}
           <div className="hidden md:flex items-center gap-8 lg:gap-10 text-[11px] uppercase tracking-[0.28em] text-[#f6f2ec]/80 font-normal">
-            <a href="/#manifesto" className="link-sweep hover:text-[#f6f2ec] transition-colors">
+            <Link href="/#manifesto" className="link-sweep hover:text-[#f6f2ec] transition-colors">
               The Why
-            </a>
-            <a href="/#destinations" className="link-sweep hover:text-[#f6f2ec] transition-colors">
+            </Link>
+            <Link href="/#destinations" className="link-sweep hover:text-[#f6f2ec] transition-colors">
               Escapes
-            </a>
-            <a href="/#availability" className="link-sweep hover:text-[#f6f2ec] transition-colors">
+            </Link>
+            <Link href="/#availability" className="link-sweep hover:text-[#f6f2ec] transition-colors">
               Availability
-            </a>
+            </Link>
           </div>
 
           {/* Mobile hamburger */}
@@ -84,9 +87,9 @@ export const Header: React.FC<HeaderProps> = ({ onOpenInquiryModal }) => {
         {mobileMenuOpen && (
           <div className="md:hidden bg-[#07192d]/98 backdrop-blur-xl border-t border-white/10 px-6 py-8 space-y-6">
             <div className="flex flex-col gap-5 text-[11px] uppercase tracking-[0.3em] text-[#f6f2ec]/70 font-normal">
-              <a href="/#manifesto" onClick={() => setMobileMenuOpen(false)} className="hover:text-[#C4A258] transition-colors">The Why</a>
-              <a href="/#destinations" onClick={() => setMobileMenuOpen(false)} className="hover:text-[#C4A258] transition-colors">Escapes</a>
-              <a href="/#availability" onClick={() => setMobileMenuOpen(false)} className="hover:text-[#C4A258] transition-colors">Availability</a>
+              <Link href="/#manifesto" onClick={() => setMobileMenuOpen(false)} className="hover:text-[#C4A258] transition-colors">The Why</Link>
+              <Link href="/#destinations" onClick={() => setMobileMenuOpen(false)} className="hover:text-[#C4A258] transition-colors">Escapes</Link>
+              <Link href="/#availability" onClick={() => setMobileMenuOpen(false)} className="hover:text-[#C4A258] transition-colors">Availability</Link>
             </div>
             <div className="pt-4 border-t border-white/10">
               <a

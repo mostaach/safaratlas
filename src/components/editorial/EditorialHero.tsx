@@ -1,24 +1,21 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 
 export const EditorialHero: React.FC = () => {
-  const waPrefill = encodeURIComponent(
-    "Hello SafarAtlas! I'm planning a trip to Morocco and would love your team to design a private managed itinerary for us."
-  );
-
   return (
     <header className="relative min-h-[100svh] w-full overflow-hidden bg-[#07192d]">
 
       {/* Background image with Ken Burns drift */}
       <div className="absolute inset-0">
-        <img
+        <Image
           src="/safaratlas_hero_typography.jpg"
           alt="Atmospheric dusk across Morocco's Agafay desert with monumental Safar Atlas typography"
-          className="h-full w-full object-cover animate-kenburns"
-          loading="eager"
-          fetchPriority="high"
-          decoding="sync"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover animate-kenburns"
         />
         {/* Refined gradient overlay — preserves middle horizon and AGAFAY typography */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#07192d]/80 via-transparent to-[#07192d]/95 pointer-events-none" />

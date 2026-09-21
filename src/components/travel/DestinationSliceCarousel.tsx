@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useRef, useEffect, useCallback } from "react";
+import Image from "next/image";
 import { Destination } from "../../data/mockData";
 
 interface DestinationSliceCarouselProps {
@@ -93,6 +94,9 @@ export const DestinationSliceCarousel: React.FC<DestinationSliceCarouselProps> =
       else           setActiveIdx(i => Math.max(i - 1, 0));
     }
   }, [destinations.length]);
+  const onMouseLeave = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
+    onMouseUp(e);
+  }, [onMouseUp]);
 
   return (
     <div className="w-full space-y-6">
@@ -102,7 +106,7 @@ export const DestinationSliceCarousel: React.FC<DestinationSliceCarouselProps> =
         className="hidden md:flex items-stretch gap-3 h-[480px] select-none cursor-grab active:cursor-grabbing"
         onMouseDown={onMouseDown}
         onMouseUp={onMouseUp}
-        onMouseLeave={onMouseUp as any}
+        onMouseLeave={onMouseLeave}
         onTouchStart={onTouchStart}
         onTouchEnd={onTouchEnd}
       >
@@ -121,11 +125,12 @@ export const DestinationSliceCarousel: React.FC<DestinationSliceCarouselProps> =
               className="relative rounded-3xl overflow-hidden bg-[#07192d] border border-white/10 cursor-pointer group"
             >
               {/* Background image */}
-              <img
+              <Image
                 src={dest.image}
                 alt={dest.name}
                 draggable={false}
-                loading="lazy"
+                fill
+                sizes="(min-width: 768px) 60vw, 100vw"
                 className={`absolute inset-0 w-full h-full object-cover transition-transform duration-700 ${
                   isActive ? "scale-105" : "scale-110"
                 } group-hover:scale-105`}
@@ -187,7 +192,7 @@ export const DestinationSliceCarousel: React.FC<DestinationSliceCarouselProps> =
                       {dest.name}
                     </h3>
                     <p className="text-sm text-white/80 mt-1 italic line-clamp-1">
-                      "{dest.tagline}"
+                      &quot;{dest.tagline}&quot;
                     </p>
                   </div>
 
@@ -270,10 +275,11 @@ export const DestinationSliceCarousel: React.FC<DestinationSliceCarouselProps> =
               className="relative rounded-2xl overflow-hidden bg-[#07192d] border border-white/10 cursor-pointer"
             >
               {/* Background image */}
-              <img
+              <Image
                 src={dest.image}
                 alt={dest.name}
-                loading="lazy"
+                fill
+                sizes="100vw"
                 className={`absolute inset-0 w-full h-full object-cover transition-transform duration-700 ${
                   isActive ? "scale-105" : "scale-110"
                 }`}

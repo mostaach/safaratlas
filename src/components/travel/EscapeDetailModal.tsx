@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import { EscapePackage } from "../../data/mockData";
 import { addEscapeToJourney } from "../../lib/journeyStore";
 
@@ -15,21 +16,11 @@ export const EscapeDetailModal: React.FC<EscapeDetailModalProps> = ({
   escapePkg,
   isOpen,
   onClose,
-  onInquire,
 }) => {
   const [activeDayIndex, setActiveDayIndex] = useState(0);
   const [travelersCount, setTravelersCount] = useState<number>(2);
 
   if (!isOpen || !escapePkg) return null;
-
-  // Price estimate multiplier for group size
-  const calculatedPricePerPerson = travelersCount === 1 
-    ? Math.round(escapePkg.priceFromEur * 1.3)
-    : travelersCount >= 4 
-    ? Math.round(escapePkg.priceFromEur * 0.85)
-    : escapePkg.priceFromEur;
-
-  const totalEstimate = calculatedPricePerPerson * travelersCount;
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 p-3 sm:p-4 backdrop-blur-md overflow-y-auto">
@@ -48,10 +39,12 @@ export const EscapeDetailModal: React.FC<EscapeDetailModalProps> = ({
 
         {/* HERO IMAGE HEADER */}
         <div className="relative h-72 sm:h-80 w-full overflow-hidden shrink-0">
-          <img
+          <Image
             src={escapePkg.image}
             alt={escapePkg.title}
-            className="w-full h-full object-cover"
+            fill
+            sizes="(min-width: 768px) 896px, 100vw"
+            className="object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#07192d] via-[#07192d]/50 to-transparent" />
           
@@ -123,11 +116,15 @@ export const EscapeDetailModal: React.FC<EscapeDetailModalProps> = ({
               {escapePkg.itineraryDays[activeDayIndex] && (
                 <div className="bg-[#0d2239]/80 backdrop-blur-md rounded-2xl p-5 border border-white/10 space-y-4 shadow-sm">
                   <div className="flex flex-col sm:flex-row gap-4 items-start">
-                    <img
-                      src={escapePkg.itineraryDays[activeDayIndex].image}
-                      alt=""
-                      className="w-full sm:w-48 h-32 rounded-xl object-cover shrink-0"
-                    />
+                    <div className="relative h-32 w-full shrink-0 overflow-hidden rounded-xl sm:w-48">
+                      <Image
+                        src={escapePkg.itineraryDays[activeDayIndex].image}
+                        alt=""
+                        fill
+                        sizes="(min-width: 640px) 192px, 100vw"
+                        className="object-cover"
+                      />
+                    </div>
                     <div className="space-y-2 flex-1">
                       <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#C4A258]">
                         Day {escapePkg.itineraryDays[activeDayIndex].dayNumber} Schedule

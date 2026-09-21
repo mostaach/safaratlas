@@ -1,8 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import Image from "next/image";
-import Link from "next/link";
 import { Header } from "../../components/brand/Header";
 import { Footer } from "../../components/brand/Footer";
 import { InquiryModal } from "../../components/travel/InquiryModal";
@@ -15,7 +13,6 @@ import {
   Check, 
   ShieldCheck, 
   Clock, 
-  Compass, 
   Calendar, 
   ExternalLink,
   ChevronDown,
@@ -61,6 +58,14 @@ export default function TaghazoutPage() {
 
   const faqs = [
     {
+      q: "Is this a Taghazout surf camp?",
+      a: "It includes surf coaching if you choose Active Escape, but it is not a classic surf camp. You stay in a private ocean-view room, keep a flexible rhythm, and book directly with a human concierge instead of joining a fixed week-long group schedule."
+    },
+    {
+      q: "Which airport should I use for Taghazout?",
+      a: "Agadir Al Massira Airport is the simplest arrival point. The package includes a one-way private Agadir airport transfer, and the drive to Taghazout usually takes about 45 minutes depending on traffic."
+    },
+    {
       q: "Do I need to surf?",
       a: "Not at all. Choose Slow Escape if you want the ocean breeze, fresh seafood, restorative hammam, and yoga without any pressure to paddle out."
     },
@@ -79,6 +84,51 @@ export default function TaghazoutPage() {
     {
       q: "Can I extend my stay or combine it with Agafay / Marrakech?",
       a: "Yes! Because Taghazout Escapes is part of the SafarAtlas ecosystem, we can seamlessly connect your 3-day Taghazout reset with a private transfer to our Agafay Desert camp or Marrakech riad."
+    }
+  ];
+
+  const surfLevels = [
+    {
+      level: "First-time surfer",
+      bestBreak: "Taghazout Bay or Panorama on small days",
+      rhythm: "Active Escape with soft-board coaching and calm beach selection",
+      note: "Choose this if you want a real lesson without committing to a full surf camp week."
+    },
+    {
+      level: "Beginner / improving",
+      bestBreak: "Devil's Rock, Banana Point, and protected bay options",
+      rhythm: "Active Escape with spot choice based on swell and confidence",
+      note: "Best for travelers who can stand up but still need guidance reading conditions."
+    },
+    {
+      level: "Intermediate",
+      bestBreak: "Anchor Point when conditions are friendly, or nearby right-hand points",
+      rhythm: "Active Escape with local surf guidance and flexible dawn starts",
+      note: "You get local knowledge without a rigid group bus or shared dorm format."
+    },
+    {
+      level: "Non-surfer",
+      bestBreak: "Ocean-view terraces, hammam, yoga, and coastal walks",
+      rhythm: "Slow Escape with restorative pacing",
+      note: "Built for couples or professionals who want Taghazout's coast without surf pressure."
+    }
+  ];
+
+  const seasonNotes = [
+    {
+      season: "October to March",
+      conditions: "Most consistent swell and the best window for stronger surf days.",
+      bestFor: "Active Escape, intermediate surfers, and travelers who want the classic Taghazout wave season."
+    },
+    {
+      season: "April to June",
+      conditions: "Warmer light, softer crowds, and mixed surf conditions.",
+      bestFor: "Couples, beginner coaching, yoga, and balanced surf plus relaxation trips."
+    },
+    {
+      season: "July to September",
+      conditions: "Smaller waves, warm evenings, and a stronger beach-reset mood.",
+      bestFor: "Slow Escape, first surf lessons, coastal food, and short wellness breaks."
     }
   ];
 
@@ -303,7 +353,98 @@ export default function TaghazoutPage() {
           </div>
         </section>
 
-        {/* ── 3. CHOOSE YOUR RHYTHM (TWO TIERS) ── */}
+        {/* ── 3. SEARCH-INTENT HUB ── */}
+        <section className="space-y-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            <div className="lg:col-span-5 space-y-4">
+              <span className="text-xs font-extrabold uppercase tracking-widest text-[#C4A258]">
+                Taghazout Surf Camp Alternative
+              </span>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-black text-white leading-tight">
+                Surf-camp energy, boutique-trip privacy.
+              </h2>
+              <p className="text-sm sm:text-base text-white/75 leading-relaxed">
+                Taghazout is Morocco&apos;s best-known surf village, but many visitors do not need a shared dorm, seven-night timetable, or mandatory group meals. SafarAtlas keeps the useful parts: local surf knowledge, ocean access, yoga, transfers, and on-the-ground coordination.
+              </p>
+            </div>
+
+            <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <div className="rounded-2xl p-5 bg-[#051324] border border-white/10 space-y-3">
+                <Waves className="w-5 h-5 text-[#C4A258]" />
+                <h3 className="text-base font-serif font-bold text-white">Surf when it fits</h3>
+                <p className="text-xs text-white/70 leading-relaxed">
+                  Choose beginner coaching, spot guidance, or skip surfing completely without wasting a package.
+                </p>
+              </div>
+
+              <div className="rounded-2xl p-5 bg-[#051324] border border-white/10 space-y-3">
+                <Coffee className="w-5 h-5 text-[#C4A258]" />
+                <h3 className="text-base font-serif font-bold text-white">Stay privately</h3>
+                <p className="text-xs text-white/70 leading-relaxed">
+                  Ocean-view private room, coastal breakfasts, and a quieter base than a classic group camp.
+                </p>
+              </div>
+
+              <div className="rounded-2xl p-5 bg-[#051324] border border-white/10 space-y-3">
+                <ShieldCheck className="w-5 h-5 text-[#C4A258]" />
+                <h3 className="text-base font-serif font-bold text-white">Arrive handled</h3>
+                <p className="text-xs text-white/70 leading-relaxed">
+                  Agadir airport transfer and WhatsApp concierge remove the usual arrival friction.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="rounded-3xl bg-[#051324] border border-white/10 p-6 sm:p-10 lg:p-12 space-y-8">
+            <div className="space-y-2 max-w-2xl">
+              <span className="text-xs font-extrabold uppercase tracking-widest text-[#C4A258]">
+                Which rhythm fits you?
+              </span>
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-black text-white">
+                Taghazout surf and wellness planning guide
+              </h2>
+              <p className="text-sm text-white/70 leading-relaxed">
+                Use this as a quick decision map before messaging us your dates.
+              </p>
+            </div>
+
+            <div className="overflow-x-auto">
+              <table className="w-full text-left border-collapse min-w-[720px]">
+                <thead>
+                  <tr className="border-b border-white/15 text-xs uppercase tracking-wider">
+                    <th className="py-3 px-4 text-white/60">Traveler</th>
+                    <th className="py-3 px-4 text-white/60">Best surf setup</th>
+                    <th className="py-3 px-4 text-white/60">SafarAtlas rhythm</th>
+                    <th className="py-3 px-4 text-white/60">Why it works</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-white/10 text-xs sm:text-sm">
+                  {surfLevels.map((item) => (
+                    <tr key={item.level}>
+                      <td className="py-4 px-4 font-bold text-white">{item.level}</td>
+                      <td className="py-4 px-4 text-white/70">{item.bestBreak}</td>
+                      <td className="py-4 px-4 text-[#C4A258] font-semibold">{item.rhythm}</td>
+                      <td className="py-4 px-4 text-white/70">{item.note}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            {seasonNotes.map((item) => (
+              <div key={item.season} className="rounded-2xl p-6 bg-[#0d2239] border border-white/10 space-y-3">
+                <Calendar className="w-5 h-5 text-[#C4A258]" />
+                <h3 className="text-lg font-serif font-bold text-white">{item.season}</h3>
+                <p className="text-xs sm:text-sm text-white/75 leading-relaxed">{item.conditions}</p>
+                <p className="text-xs text-[#C4A258] leading-relaxed">{item.bestFor}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ── 4. CHOOSE YOUR RHYTHM (TWO TIERS) ── */}
         <section className="space-y-8">
           <div className="text-center max-w-2xl mx-auto space-y-2">
             <span className="text-xs font-extrabold uppercase tracking-widest text-[#C4A258]">
@@ -462,7 +603,7 @@ export default function TaghazoutPage() {
           </div>
         </section>
 
-        {/* ── 4. THE ALTERNATIVE (COMPARISON TABLE) ── */}
+        {/* ── 5. THE ALTERNATIVE (COMPARISON TABLE) ── */}
         <section className="rounded-3xl bg-[#051324] border border-white/10 p-6 sm:p-10 lg:p-12 space-y-8">
           <div className="space-y-2">
             <span className="text-xs font-extrabold uppercase tracking-wider text-[#C4A258]">
@@ -516,7 +657,7 @@ export default function TaghazoutPage() {
           </div>
         </section>
 
-        {/* ── 5. THE 72-HOUR DAY-BY-DAY JOURNEY ── */}
+        {/* ── 6. THE 72-HOUR DAY-BY-DAY JOURNEY ── */}
         <section className="space-y-8">
           <div className="space-y-2">
             <span className="text-xs font-extrabold uppercase tracking-widest text-[#C4A258]">
@@ -575,7 +716,7 @@ export default function TaghazoutPage() {
           </div>
         </section>
 
-        {/* ── 6. PRAISE FROM GUESTS (TESTIMONIALS) ── */}
+        {/* ── 7. PRAISE FROM GUESTS (TESTIMONIALS) ── */}
         <section className="rounded-3xl bg-[#051324] border border-white/10 p-6 sm:p-10 space-y-8">
           <div className="text-center max-w-xl mx-auto space-y-2">
             <span className="text-xs font-extrabold uppercase tracking-widest text-[#C4A258]">
@@ -619,7 +760,7 @@ export default function TaghazoutPage() {
           </div>
         </section>
 
-        {/* ── 7. FAQ ACCORDION ── */}
+        {/* ── 8. FAQ ACCORDION ── */}
         <section className="space-y-6 max-w-3xl mx-auto">
           <div className="text-center space-y-2">
             <span className="text-xs font-extrabold uppercase tracking-widest text-[#C4A258]">
@@ -661,7 +802,7 @@ export default function TaghazoutPage() {
           </div>
         </section>
 
-        {/* ── 8. BOTTOM CTA STRIP ── */}
+        {/* ── 9. BOTTOM CTA STRIP ── */}
         <section className="rounded-3xl bg-gradient-to-r from-[#0d2239] to-[#051324] border border-[#C4A258]/30 p-8 sm:p-12 text-center space-y-6 shadow-2xl relative overflow-hidden">
           <div className="max-w-2xl mx-auto space-y-3 relative z-10">
             <span className="text-xs font-black uppercase tracking-widest text-[#C4A258]">

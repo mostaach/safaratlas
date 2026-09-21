@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 
 interface MosaicItem {
   id: string;
@@ -72,12 +73,12 @@ export const EditorialMosaic: React.FC = () => {
               key={item.id}
               className={`group relative overflow-hidden bg-[#0a1e34] border border-[#C4A258]/15 hover:border-[#C4A258]/50 transition-colors duration-500 ${item.className}`}
             >
-              <img
+              <Image
                 src={item.image}
                 alt={item.title}
-                className="h-full w-full object-cover brightness-90 transition-transform duration-1000 ease-out group-hover:scale-105"
-                loading="lazy"
-                decoding="async"
+                fill
+                sizes="(min-width: 768px) 50vw, 100vw"
+                className="object-cover brightness-90 transition-transform duration-1000 ease-out group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#07192d]/95 via-[#07192d]/30 to-transparent pointer-events-none" />
               

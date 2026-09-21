@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import Link from "next/link";
 import { Header } from "../../components/brand/Header";
 import { Footer } from "../../components/brand/Footer";
 import { InquiryModal } from "../../components/travel/InquiryModal";
@@ -12,11 +11,9 @@ import {
   Flame, 
   UtensilsCrossed, 
   Clock, 
-  ShieldCheck, 
   Check, 
   Sparkles, 
   MapPin, 
-  Users, 
   ArrowRight,
   Phone
 } from "lucide-react";

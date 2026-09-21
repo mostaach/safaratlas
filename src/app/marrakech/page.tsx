@@ -1,14 +1,15 @@
-﻿"use client";
+"use client";
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Header } from "../../components/brand/Header";
 import { Footer } from "../../components/brand/Footer";
 import { ESCAPES_PACKAGES } from "../../data/mockData";
 import { MARRAKECH_DESTINATION_DATA } from "../../data/marrakechDestinationData";
 import { addEscapeToJourney, setStayDurationDays, getStoredJourney, removeEscapeFromJourney, addExtraExperience } from "../../lib/journeyStore";
 import { JourneyState } from "../../lib/journeyTypes";
-import { Check, Plus, X, ArrowRight, MapPin, Clock, Users, ChevronRight } from "lucide-react";
+import { Check, Plus, X, ChevronRight } from "lucide-react";
 
 const MARRAKECH_ESCAPES_IDS = [
   "escape-agafay-1d",
@@ -289,8 +290,8 @@ export default function MarrakechPage() {
                       onClick={() => handleOpenPlacement(pkg)}
                     >
                       {/* Thumbnail */}
-                      <div className="flex-shrink-0 w-16 h-16 overflow-hidden bg-[#07192d]">
-                        <img src={pkg.image} alt={pkg.title} className="w-full h-full object-cover" />
+                      <div className="flex-shrink-0 w-16 h-16 overflow-hidden bg-[#07192d] relative">
+                        <Image src={pkg.image} alt={pkg.title} fill className="object-cover" sizes="64px" />
                       </div>
 
                       {/* Info */}
@@ -494,7 +495,7 @@ export default function MarrakechPage() {
             <div className="border border-[#C4A258]/25 bg-[#C4A258]/5 p-5 space-y-3">
               <p className="text-[10px] font-mono tracking-widest text-[#C4A258] uppercase">The SafarAtlas Promise</p>
               <p className="text-sm font-serif font-bold text-[#f6f2ec] leading-snug">
-                "If you are coming to Morocco, you are our guest."
+                &quot;If you are coming to Morocco, you are our guest.&quot;
               </p>
               <div className="space-y-2">
                 {[

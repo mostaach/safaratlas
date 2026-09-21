@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import { BusinessListing } from "../../data/mockData";
 import { VerifiedBadge } from "../brand/VerifiedBadge";
 
@@ -20,13 +21,12 @@ export const BusinessListingCard: React.FC<BusinessListingCardProps> = ({ busine
       
       {/* Left Column: Image Cover + Thumbnail Carousel Dots */}
       <div className="relative w-full md:w-72 h-56 md:h-56 rounded-2xl overflow-hidden shrink-0 bg-[#051324]">
-        <img 
+        <Image
           src={images[activeImageIndex]} 
           alt={business.name}
-          loading="lazy"
-          width={288}
-          height={224}
-          className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
+          fill
+          sizes="(min-width: 768px) 288px, 100vw"
+          className="object-cover transition-all duration-500 group-hover:scale-105"
         />
         
         {/* Category Pill */}

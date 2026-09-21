@@ -240,10 +240,13 @@ export default async function BlogPostPage({ params }: Props) {
 
       {/* Cover Hero */}
       <div className="relative h-72 sm:h-[480px] w-full overflow-hidden">
-        <img
+        <Image
           src={post.coverImage}
           alt={post.title}
-          className="w-full h-full object-cover"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#07192d] via-[#07192d]/60 to-transparent" />
         <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-12 max-w-4xl mx-auto">
@@ -282,9 +285,11 @@ export default async function BlogPostPage({ params }: Props) {
             {/* Author + share row */}
             <div className="flex items-center justify-between pb-6 border-b border-white/10">
               <div className="flex items-center gap-3">
-                <img
+                <Image
                   src={post.author.avatar}
                   alt={post.author.name}
+                  width={40}
+                  height={40}
                   className="w-10 h-10 rounded-full object-cover border-2 border-white/20"
                 />
                 <div>
@@ -305,10 +310,12 @@ export default async function BlogPostPage({ params }: Props) {
             {recommendedEscape && (
               <div className="mt-12 rounded-3xl overflow-hidden border border-white/10 bg-[#0d2239]/80 backdrop-blur-md shadow-xl">
                 <div className="relative h-44 overflow-hidden">
-                  <img
+                  <Image
                     src={recommendedEscape.image}
                     alt={recommendedEscape.title}
-                    className="w-full h-full object-cover"
+                    fill
+                    sizes="(min-width: 1024px) 60vw, 100vw"
+                    className="object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
                   <div className="absolute bottom-4 left-4 right-4 text-white">
@@ -354,10 +361,12 @@ export default async function BlogPostPage({ params }: Props) {
                     <Link key={rp.id} href={`/blog/${rp.slug}`} className="block group">
                       <div className="rounded-2xl overflow-hidden border border-white/10 bg-[#0d2239]/80 backdrop-blur-md shadow hover:shadow-lg transition-all">
                         <div className="relative h-36 overflow-hidden">
-                          <img
+                          <Image
                             src={rp.coverImage}
                             alt={rp.title}
-                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            fill
+                            sizes="(min-width: 640px) 50vw, 100vw"
+                            className="object-cover group-hover:scale-105 transition-transform duration-500"
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                         </div>

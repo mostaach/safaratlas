@@ -8,7 +8,6 @@ import { ListingDetailModal } from "../components/travel/ListingDetailModal";
 import { EscapeDetailModal } from "../components/travel/EscapeDetailModal";
 import { Toaster } from "sonner";
 import {
-  BUSINESS_LISTINGS,
   BusinessListing,
   EscapePackage,
   ESCAPES_PACKAGES,

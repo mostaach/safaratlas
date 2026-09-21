@@ -2,16 +2,16 @@ import type { Metadata } from "next";
 import Script from "next/script";
 
 export const metadata: Metadata = {
-  title: "Taghazout Escapes | 3-Day Surf & Wellness Reset | SafarAtlas",
+  title: "Taghazout Surf Camp Alternative | 3-Day Surf & Wellness Escape",
   description:
-    "A boutique 3-day Taghazout escape with oceanfront stay included. Choose Slow Escape for restorative reset or Active Escape for surf and movement. Human WhatsApp booking.",
+    "Private 3-day Taghazout surf and wellness escape with ocean-view stay, Agadir transfer, surf coaching or yoga, and direct WhatsApp booking.",
   alternates: {
     canonical: "https://safaratlas.com/taghazout",
   },
   openGraph: {
-    title: "Taghazout Escapes — The 72-Hour Reset | SafarAtlas",
+    title: "Taghazout Surf & Wellness Escape — SafarAtlas",
     description:
-      "Not everyone wants a surf camp. Two rhythms: Slow & restorative or Active & ocean-led. Ocean-view boutique stay, Agadir transfers, and zero logistics.",
+      "A boutique alternative to a Taghazout surf camp: private ocean-view stay, Agadir transfer, surf coaching or restorative yoga, and zero logistics.",
     url: "https://safaratlas.com/taghazout",
     siteName: "SafarAtlas",
     images: [
@@ -27,9 +27,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Taghazout Escapes — The 72-Hour Reset | SafarAtlas",
+    title: "Taghazout Surf & Wellness Escape | SafarAtlas",
     description:
-      "Two premium 3-day rhythms in Taghazout: Slow Escape for reset or Active Escape for surf and movement. Book directly via WhatsApp.",
+      "Private 3-day Taghazout escape with ocean-view stay, surf or yoga rhythm, Agadir transfer, and WhatsApp booking.",
     images: ["https://safaratlas.com/escapes/taghazout-surf.jpg"],
   },
 };
@@ -47,27 +47,42 @@ export default function TaghazoutLayout({
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "LodgingBusiness",
+            "@type": "TouristTrip",
             "name": "Taghazout Escapes by SafarAtlas",
             "url": "https://safaratlas.com/taghazout",
             "image": "https://safaratlas.com/escapes/taghazout-surf.jpg",
-            "telephone": "+212695959074",
             "description":
-              "Premium 3-day surf and wellness escapes in Taghazout, Morocco. Boutique oceanfront accommodation, Agadir airport transfers, and curated coastal experiences.",
-            "address": {
-              "@type": "PostalAddress",
-              "addressLocality": "Taghazout",
-              "addressRegion": "Souss-Massa",
-              "addressCountry": "MA"
+              "Premium 3-day surf and wellness escape in Taghazout, Morocco with boutique ocean-view accommodation, Agadir airport transfer, surf coaching or yoga, and direct WhatsApp concierge.",
+            "touristType": [
+              "Surf Travelers",
+              "Wellness Travelers",
+              "Couples",
+              "Short Break Travelers"
+            ],
+            "itinerary": {
+              "@type": "ItemList",
+              "itemListElement": [
+                { "@type": "ListItem", "position": 1, "name": "Agadir arrival, private transfer, ocean-view check-in" },
+                { "@type": "ListItem", "position": 2, "name": "Slow yoga and hammam rhythm or active surf coaching rhythm" },
+                { "@type": "ListItem", "position": 3, "name": "Sunrise swim, local harbor time, and onward transfer" }
+              ]
+            },
+            "provider": {
+              "@type": "TravelAgency",
+              "name": "SafarAtlas",
+              "url": "https://safaratlas.com",
+              "telephone": "+212695959074"
+            },
+            "offers": {
+              "@type": "Offer",
+              "url": "https://safaratlas.com/taghazout",
+              "priceCurrency": "EUR",
+              "availability": "https://schema.org/InStock"
             },
             "sameAs": [
               "https://taghazout-escapes.vercel.app",
               "https://instagram.com/taghazout.escapes"
-            ],
-            "starRating": {
-              "@type": "Rating",
-              "ratingValue": "5"
-            }
+            ]
           }),
         }}
       />
