@@ -109,7 +109,7 @@ export const Header: React.FC<HeaderProps> = () => {
 
       {/* Floating Sticky CTA — Taghazout luxury style */}
       <aside
-        className={`hidden sm:block fixed bottom-8 right-8 z-40 transition-all duration-500 ease-out ${
+        className={`hidden sm:block fixed bottom-8 left-8 z-40 transition-all duration-500 ease-out ${
           scrolled ? "opacity-100 translate-y-0" : "opacity-95 hover:opacity-100 translate-y-0"
         }`}
         aria-label="Floating Booking Action"
