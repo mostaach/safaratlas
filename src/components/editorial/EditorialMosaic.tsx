@@ -16,7 +16,7 @@ const ITEMS: MosaicItem[] = [
     id: "agafay",
     title: "The Stone Silence",
     subtitle: "Agafay Desert Sunset & Candlelit Dining",
-    image: "/escapes/agafay-sunset-dinner.webp",
+    image: "/escapes/agafay-hero.jpg",
     className: "col-span-12 md:col-span-7 aspect-[16/10]",
   },
   {

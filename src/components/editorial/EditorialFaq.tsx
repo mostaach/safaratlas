@@ -5,7 +5,7 @@ import React, { useState } from "react";
 const faqs = [
   {
     q: "How does booking through SafarAtlas work?",
-    a: "No complex forms or rigid dates. You reach out to us directly on WhatsApp with your target dates and what kind of escape you're looking for. We coordinate verified local drivers, riads, and guides, and provide you with a single bespoke quote and confirmation.",
+    a: "You can design your itinerary using our visual journey builder in 60 seconds, or bypass the builder entirely by messaging our concierge directly on WhatsApp. We coordinate verified local drivers, riads, and guides, and provide you with a single verified quote and door-to-door itinerary.",
   },
   {
     q: "Are the escapes private or group tours?",
@@ -21,7 +21,7 @@ const faqs = [
   },
   {
     q: "How do payments and cancellations work?",
-    a: "We agree on itinerary terms directly on WhatsApp. Once confirmed, payment details are provided with transparent conditions and clear cancellation policies tailored to the seasons and partner bookings.",
+    a: "Once you review your itinerary quote online or on WhatsApp, payment is secured with transparent terms and flexible cancellation policies tailored to seasonal partner bookings.",
   },
 ];
 
@@ -65,6 +65,7 @@ export default function EditorialFaq() {
                     <button
                       onClick={() => toggle(i)}
                       className="w-full flex items-center justify-between text-left group transition-colors"
+                      aria-expanded={isOpen}
                     >
                       <span className="flex items-baseline gap-5 pr-4">
                         <span className="text-[11px] font-sans uppercase tracking-[0.3em] text-[#C4A258]/70">
@@ -88,11 +89,13 @@ export default function EditorialFaq() {
                         +
                       </span>
                     </button>
-                    {isOpen && (
-                      <div className="mt-4 pl-[3.25rem] pr-4 font-sans text-base font-light leading-relaxed text-[#f6f2ec]/70 transition-all">
-                        {item.a}
-                      </div>
-                    )}
+                    <div
+                      className={`font-sans text-base font-light leading-relaxed text-[#f6f2ec]/70 transition-all duration-300 pl-[3.25rem] pr-4 ${
+                        isOpen ? "mt-4 block opacity-100 max-h-96" : "hidden opacity-0 max-h-0"
+                      }`}
+                    >
+                      {item.a}
+                    </div>
                   </div>
                 );
               })}

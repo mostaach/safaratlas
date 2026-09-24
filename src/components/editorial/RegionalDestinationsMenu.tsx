@@ -162,7 +162,7 @@ export const RegionalDestinationsMenu: React.FC<Props> = ({
                     <span className="text-[#f6f2ec]/30">·</span>
                     <span>Dedicated Chauffeur</span>
                     <span className="text-[#f6f2ec]/30">·</span>
-                    <span>Tailored Quote</span>
+                    <span className="font-semibold text-[#f6f2ec]">From €{item.priceFromEur}/pp</span>
                   </div>
                   <div className="mt-3 h-px w-8 bg-[#C4A258] transition-all duration-500 group-hover:w-16" />
                 </div>
@@ -176,8 +176,8 @@ export const RegionalDestinationsMenu: React.FC<Props> = ({
                       <span className="text-[10px] uppercase tracking-[0.35em] text-[#C4A258] font-semibold">
                         {item.category} · {item.duration}
                       </span>
-                      <span className="text-[9px] uppercase tracking-[0.25em] text-[#f6f2ec]/40 font-mono">
-                        Private Escape
+                      <span className="text-[10px] uppercase tracking-[0.2em] text-[#f6f2ec] font-semibold bg-[#C4A258]/20 px-2 py-0.5 border border-[#C4A258]/40">
+                        From €{item.priceFromEur}/pp
                       </span>
                     </div>
 
@@ -209,16 +209,14 @@ export const RegionalDestinationsMenu: React.FC<Props> = ({
 
                   {/* Bottom: Clear action buttons with exact Taghazout styling */}
                   <div className="pt-4 border-t border-white/10 flex flex-wrap items-center justify-between gap-3">
-                    <a
-                      href={`https://wa.me/212698017323?text=${waPrefill}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="group/btn inline-flex items-center gap-3 bg-[#C4A258] px-5 py-3 text-[10px] uppercase tracking-[0.3em] text-[#07192d] font-normal transition-all duration-300 hover:bg-[#d8bb78] hover:tracking-[0.35em]"
+                    <Link
+                      href="/journey"
+                      className="group/btn inline-flex items-center gap-2 bg-[#C4A258] px-5 py-3 text-[10px] uppercase tracking-[0.25em] text-[#07192d] font-normal transition-all duration-300 hover:bg-[#d8bb78] hover:tracking-[0.3em]"
                       style={{ boxShadow: "var(--shadow-gold)" }}
                     >
-                      <span>Check Availability</span>
+                      <span>Book / Plan</span>
                       <span className="transition-transform duration-300 group-hover/btn:translate-x-1">→</span>
-                    </a>
+                    </Link>
 
                     {isDedicatedPage ? (
                       <Link

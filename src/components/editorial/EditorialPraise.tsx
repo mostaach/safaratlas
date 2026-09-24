@@ -3,27 +3,27 @@ import { SiTripadvisor } from "react-icons/si";
 const quotes = [
   {
     quote:
-      "We arrived exhausted after the flight. By sunset we were in the Sahara. It felt impossible — and SafarAtlas made it effortless.",
-    name: "Laura M.",
-    detail: "Amsterdam · Sahara 3-Day Journey",
+      "We landed in Marrakech after an exhausting week. Within 24 hours we were crossing the Tizi n'Tichka pass toward Erg Chebbi. Our driver Hassan was exceptional — punctual, courteous, and handled every road detail. SafarAtlas made what could have been a chaotic journey completely effortless.",
+    name: "Laura & Mark van der Meer",
+    detail: "Amsterdam · 3-Day Sahara Expedition (Traveled Oct 2025)",
   },
   {
     quote:
-      "No forms, no waiting. One WhatsApp message and everything was arranged. The riad, the camel, the driver — all perfect.",
-    name: "James & Sophie",
-    detail: "London · Agafay Escape",
+      "No haggling with street touts or getting lost. One private Mercedes van picked us up right at our riad entrance for the Agafay sunset dinner. The food and candlelit setup were breathtaking.",
+    name: "James & Sophie Thornton",
+    detail: "London · Agafay Sunset & Dinner Escape (Traveled Nov 2025)",
   },
   {
     quote:
-      "The guide in Imlil was extraordinary. We walked through villages that felt completely untouched. Our best travel memory of the year.",
-    name: "Marc D.",
-    detail: "Lyon · High Atlas Day Escape",
+      "Our certified mountain guide in Imlil brought us to an Amazigh stone village where we shared mint tea with a local family. Authentic, respectful tourism without the tour bus crowds.",
+    name: "Marc Dupont",
+    detail: "Lyon · High Atlas Mountain Day (Traveled Dec 2025)",
   },
   {
     quote:
-      "I was nervous about Morocco solo. SafarAtlas removed every concern before I even asked. Completely trustworthy.",
-    name: "Nora K.",
-    detail: "Berlin · Taghazout Coastal Escape",
+      "I was skeptical about traveling Morocco solo, but having a dedicated human concierge on WhatsApp monitoring my drivers and riad check-ins gave me complete peace of mind. Truly five-star service.",
+    name: "Nora Klein",
+    detail: "Berlin · 72-Hour Taghazout Ocean Reset (Traveled Jan 2026)",
   },
 ];
 

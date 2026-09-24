@@ -559,7 +559,7 @@ export const ESCAPES_PACKAGES: EscapePackage[] = [
     duration: "8h Journey",
     category: "Desert",
     location: "Agafay Desert (Marrakech)",
-    priceFromEur: 34,
+    priceFromEur: 120,
     image: "/escapes/agafay-sunset-dinner.webp",
     badge: "Marrakech Express",
     highlights: [
