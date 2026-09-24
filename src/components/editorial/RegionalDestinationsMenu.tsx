@@ -19,8 +19,9 @@ interface RegionTab {
 const REGIONS: RegionTab[] = [
   {
     id: "marrakech-atlas",
-    name: "Marrakech & High Atlas",
+    name: "Desert & Atlas",
     escapeIds: [
+      "escape-sahara-3d",
       "escape-agafay-1d",
       "escape-imlil-1d",
       "escape-ourika-1d",
@@ -33,8 +34,8 @@ const REGIONS: RegionTab[] = [
     escapeIds: ["escape-taghazout-3d", "escape-essaouira-2d"],
   },
   {
-    id: "sahara",
-    name: "Sahara & South",
+    id: "south",
+    name: "South Morocco",
     escapeIds: ["escape-sahara-3d", "escape-atlas-2d"],
   },
 ];
