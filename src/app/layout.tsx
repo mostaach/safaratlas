@@ -22,6 +22,14 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://safaratlas.com"),
   title: "SafarAtlas | Managed Morocco Journeys & Escapes",
   description: "Private managed escapes across Morocco — from Agafay desert dinners and Sahara 3-day expeditions to High Atlas treks and Taghazout surf resets. One message. Everything handled.",
+  alternates: {
+    canonical: "https://safaratlas.com",
+    languages: {
+      "en-US": "https://safaratlas.com",
+      "en-GB": "https://safaratlas.com",
+      "x-default": "https://safaratlas.com",
+    },
+  },
   icons: {
     icon: [
       { url: "/favicon.ico?v=2", sizes: "any" },
@@ -114,27 +122,57 @@ export default function RootLayout({
             `,
           }}
         />
-      </head>
-      <body className="min-h-full flex flex-col font-sans bg-[#07192d] text-[#f6f2ec]" suppressHydrationWarning>
-        <CookieConsent />
-
-        <Script
-          id="schema-org"
+        {/* Schema.org Organization, TravelAgency, and WebSite JSON-LD */}
+        <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@graph": [
                 {
-                  "@type": "TravelAgency",
+                  "@type": ["TravelAgency", "LocalBusiness"],
                   "@id": "https://safaratlas.com/#organization",
                   "name": "SafarAtlas",
+                  "alternateName": "SafarAtlas Morocco Travel",
                   "url": "https://safaratlas.com",
-                  "logo": "https://safaratlas.com/safar-atlas-logo.svg",
-                  "description": "Curated private tours, desert escapes, and coordinated journeys across Morocco.",
+                  "logo": "https://safaratlas.com/logo/safar-atlas-logo.svg",
+                  "image": "https://safaratlas.com/safaratlas_hero_typography.jpg",
+                  "description": "Curated private journeys, desert escapes, High Atlas treks, and boutique riad stays across Morocco.",
                   "telephone": "+212698017323",
-                  "priceRange": "€€",
-                  "areaServed": "Morocco",
+                  "priceRange": "$$ - $$$",
+                  "currenciesAccepted": "USD, EUR, GBP, MAD",
+                  "paymentAccepted": "Credit Card, Debit Card, Bank Transfer, Cash",
+                  "areaServed": [
+                    {
+                      "@type": "Country",
+                      "name": "Morocco"
+                    },
+                    {
+                      "@type": "Country",
+                      "name": "United States"
+                    },
+                    {
+                      "@type": "Country",
+                      "name": "United Kingdom"
+                    }
+                  ],
+                  "availableLanguage": [
+                    {
+                      "@type": "Language",
+                      "name": "English",
+                      "alternateName": "en"
+                    },
+                    {
+                      "@type": "Language",
+                      "name": "French",
+                      "alternateName": "fr"
+                    },
+                    {
+                      "@type": "Language",
+                      "name": "Arabic",
+                      "alternateName": "ar"
+                    }
+                  ],
                   "address": {
                     "@type": "PostalAddress",
                     "addressLocality": "Marrakech",
@@ -143,9 +181,10 @@ export default function RootLayout({
                   },
                   "contactPoint": {
                     "@type": "ContactPoint",
-                    "contactType": "customer support",
+                    "contactType": "reservations & concierge support",
                     "email": "contactsafaratlas@gmail.com",
-                    "telephone": "+212698017323"
+                    "telephone": "+212698017323",
+                    "availableLanguage": ["English", "French", "Arabic"]
                   }
                 },
                 {
@@ -153,6 +192,7 @@ export default function RootLayout({
                   "@id": "https://safaratlas.com/#website",
                   "url": "https://safaratlas.com",
                   "name": "SafarAtlas",
+                  "inLanguage": "en-US",
                   "publisher": {
                     "@id": "https://safaratlas.com/#organization"
                   }
@@ -161,6 +201,9 @@ export default function RootLayout({
             })
           }}
         />
+      </head>
+      <body className="min-h-full flex flex-col font-sans bg-[#07192d] text-[#f6f2ec]" suppressHydrationWarning>
+        <CookieConsent />
         {children}
         <JourneyDrawer />
       </body>
