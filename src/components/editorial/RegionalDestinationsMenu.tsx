@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { EscapePackage } from "../../data/mockData";
+import { useCurrency } from "../../context/CurrencyContext";
 
 interface Props {
   escapes: EscapePackage[];
@@ -46,6 +47,7 @@ export const RegionalDestinationsMenu: React.FC<Props> = ({
 }) => {
   const [activeRegionId, setActiveRegionId] = useState(REGIONS[0].id);
   const activeRegion = REGIONS.find((r) => r.id === activeRegionId) || REGIONS[0];
+  const { format } = useCurrency();
 
   const currentEscapes = activeRegion.escapeIds
     .map((id) => escapes.find((e) => e.id === id))
@@ -163,7 +165,7 @@ export const RegionalDestinationsMenu: React.FC<Props> = ({
                     <span className="text-[#f6f2ec]/30">·</span>
                     <span>Dedicated Chauffeur</span>
                     <span className="text-[#f6f2ec]/30">·</span>
-                    <span className="font-semibold text-[#f6f2ec]">From €{item.priceFromEur}/pp</span>
+                    <span className="font-semibold text-[#f6f2ec]">From {format(item.priceFromEur)}/pp</span>
                   </div>
                   <div className="mt-3 h-px w-8 bg-[#C4A258] transition-all duration-500 group-hover:w-16" />
                 </div>
@@ -178,7 +180,7 @@ export const RegionalDestinationsMenu: React.FC<Props> = ({
                         {item.category} · {item.duration}
                       </span>
                       <span className="text-[10px] uppercase tracking-[0.2em] text-[#f6f2ec] font-semibold bg-[#C4A258]/20 px-2 py-0.5 border border-[#C4A258]/40">
-                        From €{item.priceFromEur}/pp
+                        From {format(item.priceFromEur)}/pp
                       </span>
                     </div>
 

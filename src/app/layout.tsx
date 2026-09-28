@@ -4,6 +4,7 @@ import "./globals.css";
 import Script from "next/script";
 import { CookieConsent } from "../components/ui/CookieConsent";
 import { JourneyDrawer } from "../components/travel/JourneyDrawer";
+import { CurrencyProvider } from "../context/CurrencyContext";
 
 const serifFont = Playfair_Display({
   variable: "--font-serif",
@@ -204,8 +205,10 @@ export default function RootLayout({
       </head>
       <body className="min-h-full flex flex-col font-sans bg-[#07192d] text-[#f6f2ec]" suppressHydrationWarning>
         <CookieConsent />
-        {children}
-        <JourneyDrawer />
+        <CurrencyProvider>
+          {children}
+          <JourneyDrawer />
+        </CurrencyProvider>
       </body>
     </html>
   );

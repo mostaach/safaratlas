@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { CurrencySwitcher } from "./CurrencySwitcher";
 
 interface HeaderProps {
   onOpenInquiryModal?: () => void;
@@ -53,7 +54,7 @@ export const Header: React.FC<HeaderProps> = () => {
           </Link>
 
           {/* Right: Desktop nav links — open, breathable, Taghazout style with no lines */}
-          <div className="hidden md:flex items-center gap-8 lg:gap-10 text-[11px] uppercase tracking-[0.28em] text-[#f6f2ec]/80 font-normal">
+          <div className="hidden md:flex items-center gap-6 lg:gap-8 text-[11px] uppercase tracking-[0.28em] text-[#f6f2ec]/80 font-normal">
             <Link href="/#manifesto" className="link-sweep hover:text-[#f6f2ec] transition-colors">
               The Why
             </Link>
@@ -63,10 +64,12 @@ export const Header: React.FC<HeaderProps> = () => {
             <Link href="/#availability" className="link-sweep hover:text-[#f6f2ec] transition-colors">
               Availability
             </Link>
+            <CurrencySwitcher />
           </div>
 
-          {/* Mobile hamburger */}
-          <div className="flex items-center md:hidden">
+          {/* Mobile hamburger & currency */}
+          <div className="flex items-center gap-2.5 md:hidden">
+            <CurrencySwitcher />
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-2 text-[#f6f2ec]/80 hover:text-[#C4A258] transition-colors"
