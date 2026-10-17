@@ -506,7 +506,7 @@ export const ESCAPES_PACKAGES: EscapePackage[] = [
     duration: "3 Days / 2 Nights",
     category: "Desert",
     location: "High Atlas & Merzouga",
-    priceFromEur: 420,
+    priceFromEur: 490,
     image: "/escapes/sahara-3d.jpg",
     badge: "Most Popular Escape",
     highlights: [
@@ -524,7 +524,7 @@ export const ESCAPES_PACKAGES: EscapePackage[] = [
     activities: ["Aït Benhaddou Tour", "Camel Trekking", "Campfire Music"],
     partnerRequirements: ["English-speaking driver", "Luxury camp with ensuite bathroom", "Kasbah with heating/AC"],
     internalPartnerCostEur: 280,
-    safarAtlasMarginEur: 140,
+    safarAtlasMarginEur: 210,
     summary: "The iconic Moroccan desert journey packaged into a seamless 3-day module. Perfect to insert into any longer Morocco trip or book standalone.",
     fullDescription: "Experience the ultimate Moroccan desert road trip across the High Atlas mountains, historic red clay kasbahs, dramatic gorges, and the towering golden dunes of Merzouga. SafarAtlas coordinates your private vehicle, driver, boutique kasbah night in Dades, and luxury Bedouin desert camp.",
     itineraryDays: [
@@ -555,23 +555,23 @@ export const ESCAPES_PACKAGES: EscapePackage[] = [
     id: "escape-agafay-1d",
     title: "Agafay Desert Sunset & Candlelit Dining",
     slug: "agafay-escape-1d",
-    subtitle: "30-min from Marrakech → Rocky Desert Oasis",
+    subtitle: "45-min from Marrakech → Rocky Desert Oasis",
     duration: "5h Journey",
     category: "Desert",
     location: "Agafay Desert (Marrakech)",
-    priceFromEur: 120,
+    priceFromEur: 119,
     image: "/escapes/agafay-sunset-dinner.webp",
     badge: "Marrakech Express",
     highlights: [
-      "Sunset camel walk over rocky desert hills",
-      "1-Hour guided quad biking adventure",
+      "Private door-to-door hotel pickup & return",
+      "Berber mint tea ceremony in a desert village",
       "Candlelit 3-course Moroccan tagine dinner",
-      "Berber acoustic music around the bonfire"
+      "Live Gnawa music & fire show under the stars"
     ],
-    included: ["Roundtrip Private Hotel Transfer", "Quad Bike & Safety Helmet", "Sunset Camel Walk", "Full 3-Course Tagine Dinner"],
-    notIncluded: ["Alcoholic beverages"],
-    summary: "Short on time? Experience desert magic without the long drive. An 8-hour afternoon and evening escape directly from your Marrakech riad.",
-    fullDescription: "Escape the bustling medina of Marrakech for the serene moonscape of Agafay. Just 40 minutes away, ride quads across stony hills, enjoy a peaceful camel walk at sunset, and dine under candlelit Berber tents with acoustic music.",
+    included: ["Roundtrip Private Hotel Transfer", "Berber Tea Ceremony", "Full 3-Course Tagine Dinner", "Live Music & Fire Show", "WhatsApp Concierge"],
+    notIncluded: ["Alcoholic beverages", "Quad biking on the Core tier (+€40/pp) — included in the Signature tier", "Camel trek on the Core tier (+€20/pp) — included in the Signature tier"],
+    summary: "Short on time? Experience desert magic without the long drive. A private evening escape directly from your Marrakech riad — add quad biking or camel trek for the full adventure.",
+    fullDescription: "Escape the bustling medina of Marrakech for the serene moonscape of Agafay. Just 40 minutes away, enjoy a traditional Berber tea ceremony, dine under candlelit skies with a 3-course Moroccan feast, and soak in live Gnawa music around the bonfire. Add a quad biking adventure or sunset camel walk to elevate your evening.",
     itineraryDays: [
       {
         dayNumber: 1,
@@ -715,7 +715,7 @@ export const ESCAPES_PACKAGES: EscapePackage[] = [
     duration: "Full Day (8–9h)",
     category: "Mountain",
     location: "Imlil & High Atlas",
-    priceFromEur: 65,
+    priceFromEur: 89,
     image: "/escapes/imlil-valley.jpg",
     badge: "Mountain Immersion",
     highlights: [
@@ -746,7 +746,7 @@ export const ESCAPES_PACKAGES: EscapePackage[] = [
     duration: "Full Day (10–11h)",
     category: "Mountain",
     location: "Ouzoud Cascades & Middle Atlas",
-    priceFromEur: 60,
+    priceFromEur: 99,
     image: "/escapes/ouzoud-waterfalls.webp",
     badge: "Natural Wonder",
     highlights: [
@@ -777,7 +777,7 @@ export const ESCAPES_PACKAGES: EscapePackage[] = [
     duration: "Full Day (8–9h)",
     category: "Mountain",
     location: "Ourika Valley & Atlas",
-    priceFromEur: 55,
+    priceFromEur: 79,
     image: "/escapes/ourika-3-valleys.webp",
     badge: "Riverside & Canyons",
     highlights: [
