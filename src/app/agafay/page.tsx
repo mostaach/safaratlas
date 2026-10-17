@@ -15,7 +15,8 @@ import {
   Sparkles, 
   MapPin, 
   ArrowRight,
-  Phone
+  Phone,
+  ShieldCheck
 } from "lucide-react";
 
 const WHATSAPP_NUMBER = "212698017323";
@@ -100,6 +101,39 @@ const faqs = [
   {
     q: "What time do we get back to Marrakech?",
     a: "The escape runs from approximately 16:30 to 21:30, arriving back at your Marrakech riad or hotel around 22:00 to 22:15.",
+  },
+];
+
+const proofPoints = [
+  {
+    icon: MapPin,
+    label: "Your camp, by name",
+    body: "Before pickup we tell you exactly which camp hosts your evening — no mystery substitution once you have paid.",
+  },
+  {
+    icon: Phone,
+    label: "One named coordinator",
+    body: "The same local host answers you on WhatsApp from your first question to your drop-off. Never a rotating call centre.",
+  },
+  {
+    icon: Clock,
+    label: "Timings, in writing",
+    body: "Every element of the evening is timed and confirmed before you commit. What we list is what you get, minute for minute.",
+  },
+  {
+    icon: Sparkles,
+    label: "One all-in figure",
+    body: "Your written quote is the final price. Nothing added at the camp, no card fees, no surprise extras on arrival.",
+  },
+  {
+    icon: UtensilsCrossed,
+    label: "Your own table",
+    body: "A private vehicle for your party only, and a dinner table kept for you through the evening — never a shared buffet line.",
+  },
+  {
+    icon: ShieldCheck,
+    label: "Free cancel · pay on arrival",
+    body: "Cancel free up to 24 hours before pickup and pay in EUR, MAD, or by card only once you arrive.",
   },
 ];
 
@@ -570,7 +604,61 @@ export default function AgafayPage() {
           </div>
         </section>
 
-        {/* ── 6. FREQUENTLY ASKED QUESTIONS ── */}
+        {/* ── 6. SAFAR VERIFIED — PROOF BLOCK ── */}
+        <section id="verified" className="space-y-10">
+          <div className="space-y-3">
+            <span className="text-[10px] font-normal uppercase tracking-[0.28em] text-[#C4A258] block">
+              The Safar Verified Difference
+            </span>
+            <h2 className="text-3xl sm:text-5xl font-serif font-normal text-white tracking-tight">
+              What &ldquo;Private&rdquo; Really Means
+            </h2>
+            <p className="text-xs sm:text-sm text-[#f6f2ec]/70 max-w-2xl leading-relaxed font-light">
+              Many operators call a trip &ldquo;private&rdquo; when they only mean the vehicle. We put the rest in writing
+              before you pay — the camp that hosts you, the exact timings, and one final figure.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {proofPoints.map((point) => {
+              const Icon = point.icon;
+              return (
+                <div
+                  key={point.label}
+                  className="p-6 rounded-none bg-[#07192d]/80 border border-white/10 hover:border-[#C4A258]/50 transition-all space-y-3"
+                >
+                  <div className="w-10 h-10 rounded-none border border-[#C4A258]/30 flex items-center justify-center text-[#C4A258]">
+                    <Icon className="w-5 h-5" />
+                  </div>
+                  <h3 className="text-base font-serif font-normal text-white">{point.label}</h3>
+                  <p className="text-xs text-[#f6f2ec]/75 leading-relaxed font-light">{point.body}</p>
+                </div>
+              );
+            })}
+          </div>
+
+          <div className="rounded-none p-6 sm:p-8 bg-[#07192d]/90 border border-[#C4A258]/30 flex flex-col sm:flex-row sm:items-center justify-between gap-5">
+            <div className="space-y-1.5">
+              <div className="flex items-center gap-2 text-[10px] uppercase tracking-[0.24em] text-[#C4A258]">
+                <ShieldCheck className="w-4 h-4" />
+                <span>Safar Verified</span>
+              </div>
+              <p className="text-xs sm:text-sm text-[#f6f2ec]/80 font-light max-w-lg leading-relaxed">
+                Ask us anything before you book — we answer with specifics, not slogans.
+              </p>
+            </div>
+            <a
+              href={`https://wa.me/${WHATSAPP_NUMBER}?text=${waMessage}`}
+              target="_blank"
+              rel="noreferrer"
+              className="shrink-0 px-6 py-3.5 rounded-none text-center text-xs font-normal uppercase tracking-[0.2em] bg-[#C4A258] hover:bg-[#d8bb78] text-[#07192d] shadow-lg transition-all"
+            >
+              Ask a Question →
+            </a>
+          </div>
+        </section>
+
+        {/* ── 7. FREQUENTLY ASKED QUESTIONS ── */}
         <section id="faq" className="space-y-10">
           <div className="space-y-3">
             <span className="text-[10px] font-normal uppercase tracking-[0.28em] text-[#C4A258] block">
@@ -621,7 +709,7 @@ export default function AgafayPage() {
           </div>
         </section>
 
-        {/* ── 7. FINAL EDITORIAL CTA ── */}
+        {/* ── 8. FINAL EDITORIAL CTA ── */}
         <section className="text-center">
           <div className="rounded-none p-10 sm:p-16 bg-gradient-to-b from-[#0c223c] to-[#07192d] border border-[#C4A258]/30 max-w-3xl mx-auto space-y-7 shadow-2xl">
             <span className="text-[10px] font-normal uppercase tracking-[0.28em] text-[#C4A258] block">
