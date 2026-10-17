@@ -4,14 +4,14 @@ import Script from "next/script";
 export const metadata: Metadata = {
   title: "Agafay Desert Sunset, Quad & Dinner Tour from Marrakech | SafarAtlas",
   description:
-    "Curated evening in Agafay Desert: 1h guided quad biking safari, golden-hour camel trek, 3-course Berber campfire dinner, and live Gnawa fire show. WhatsApp booking.",
+    "Curated Agafay Desert evening from €119: private transfer, mint tea, a 3-course Berber campfire dinner and live Gnawa fire show. Signature all-inclusive from €179 adds the quad safari and camel trek. WhatsApp booking.",
   alternates: {
     canonical: "https://safaratlas.com/agafay",
   },
   openGraph: {
     title: "Agafay Desert Experience — Sunset Quad, Camel & Campfire Dinner | SafarAtlas",
     description:
-      "All-inclusive evening 40 minutes from Marrakech: Hotel pickup, quad biking, camel ride at sunset, candlelit tagine feast, and live Gnawa music.",
+      "Private evening 40 minutes from Marrakech from €119: hotel pickup, candlelit tagine feast, and live Gnawa music. Signature from €179 adds 1h quad biking and a sunset camel ride.",
     url: "https://safaratlas.com/agafay",
     siteName: "SafarAtlas",
     images: [
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Agafay Desert Sunset & Candlelit Dining | SafarAtlas",
     description:
-      "Full desert evening 40m from Marrakech: Roundtrip transfer, 1h quad biking, sunset camel ride, 3-course feast & fire show. Pay on arrival.",
+      "Private desert evening 40m from Marrakech from €119: roundtrip transfer, 3-course feast & fire show. Signature from €179 adds quad biking & camel ride. Pay on arrival.",
     images: ["https://safaratlas.com/escapes/agafay-sunset-dinner.webp"],
   },
 };
@@ -52,7 +52,7 @@ export default function AgafayLayout({
                 "@type": "TouristTrip",
                 "@id": "https://safaratlas.com/agafay#trip",
                 "name": "Agafay Desert Sunset, Quad & Campfire Dinner",
-                "description": "5-hour luxury desert escape from Marrakech with quad biking, camel trek, 3-course dinner, and Gnawa fire show.",
+                "description": "5-hour private desert escape from Marrakech. Core evening from €119 (transfer, mint tea, 3-course dinner, Gnawa fire show); Signature all-inclusive from €179 adds a guided quad safari and sunset camel trek.",
                 "touristType": ["Couples", "Solo Travelers", "Families", "Adventure Seekers"],
                 "provider": {
                   "@type": "TravelAgency",
@@ -91,7 +91,7 @@ export default function AgafayLayout({
                     "name": "What is included in the Agafay Desert experience?",
                     "acceptedAnswer": {
                       "@type": "Answer",
-                      "text": "Roundtrip private hotel transfer, a 1-hour guided quad biking safari with helmet and goggles, a 20-minute sunset camel trek in traditional Berber attire, Moroccan mint tea on a panoramic terrace, a full 3-course candlelit tagine dinner, and a live Gnawa music and fire show."
+                      "text": "Every tier includes private roundtrip transfer, Moroccan mint tea on a panoramic terrace, a full 3-course candlelit tagine dinner, and a live Gnawa music and fire show. The Signature all-inclusive tier (from €179) also adds the 1-hour guided quad biking safari and the 20-minute sunset camel trek; on the €119 core evening both are available as add-ons (quad +€40, camel +€20)."
                     }
                   },
                   {
@@ -99,7 +99,7 @@ export default function AgafayLayout({
                     "name": "How much does the Agafay Desert escape cost?",
                     "acceptedAnswer": {
                       "@type": "Answer",
-                      "text": "The private signature escape starts from €119 per person. The final quote depends on party size and travel season, and you receive one clear written figure on WhatsApp before you commit — no hidden extras and no on-site surcharges."
+                      "text": "There are two tiers. The core evening is from €119 per person — private transfer, mint tea, a 3-course tagine dinner and the Gnawa fire show. The Signature all-inclusive evening, which adds the guided quad safari and the sunset camel trek, is from €179 per person. The final quote depends on party size and season, and you receive one clear written figure on WhatsApp before you commit — no hidden extras and no on-site surcharges."
                     }
                   },
                   {

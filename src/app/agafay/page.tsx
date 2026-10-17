@@ -43,7 +43,7 @@ const comparisonRows = [
   },
   {
     label: "Quad & camel",
-    safaratlas: "1h guided quad safari + sunset camel trek included",
+    safaratlas: "Included on the Signature tier (€179) — or added individually",
     group: "Frequently sold on site as paid extras",
     ota: "Vague inclusions, fees confirmed on the day",
   },
@@ -80,11 +80,11 @@ const faqs = [
   },
   {
     q: "What is included in the Agafay Desert experience?",
-    a: "Roundtrip private hotel transfer, a 1-hour guided quad biking safari with helmet and goggles, a 20-minute sunset camel trek in traditional Berber attire, Moroccan mint tea on a panoramic terrace, a full 3-course candlelit tagine dinner, and a live Gnawa music and fire show.",
+    a: "Every tier includes private roundtrip transfer, Moroccan mint tea on a panoramic terrace, a full 3-course candlelit tagine dinner, and a live Gnawa music and fire show. The Signature all-inclusive tier (from €179) also adds the 1-hour guided quad biking safari and the 20-minute sunset camel trek; on the €119 core evening both are available as add-ons (quad +€40, camel +€20).",
   },
   {
     q: "How much does the Agafay Desert escape cost?",
-    a: "The private signature escape starts from €119 per person. Your final quote depends on your party size and travel season, and you receive one clear written figure on WhatsApp before you commit — no hidden extras and no on-site surcharges.",
+    a: "There are two tiers. The core evening is from €119 per person — private transfer, mint tea, a 3-course tagine dinner and the Gnawa fire show. The Signature all-inclusive evening, which adds the guided quad safari and the sunset camel trek, is from €179 per person. Your final quote depends on party size and season, and you receive one clear written figure on WhatsApp before you commit — no hidden extras and no on-site surcharges.",
   },
   {
     q: "Is this a private experience or a shared group tour?",
@@ -142,9 +142,9 @@ export default function AgafayPage() {
   const [faqOpen, setFaqOpen] = useState<number | null>(0);
 
   const waMessage = encodeURIComponent(
-    "Hi SafarAtlas! I'd like to check rates for the Agafay Desert Full Experience.\n" +
-      "Includes: Marrakech Transfer + Quad Biking + Camel Ride + Mint Tea + Sunset View + Tagine Dinner & Gnaoua Show.\n" +
-      "Dates: [insert dates] | Group size: [number of people]. Could you send a quote?"
+    "Hi SafarAtlas! I'd like to check rates for the Agafay Desert Evening.\n" +
+      "Tier: [Core €119 / Signature €179] | Dates: [insert dates] | Group size: [number of people].\n" +
+      "Could you send a written quote?"
   );
 
   const agafayPackage = ESCAPES_PACKAGES.find((p) => p.id === "escape-agafay-1d") || null;
@@ -235,22 +235,46 @@ export default function AgafayPage() {
               <div className="rounded-none p-6 sm:p-8 bg-[#07192d]/90 backdrop-blur-xl border border-white/15 shadow-2xl space-y-5">
                 <div className="flex items-center justify-between pb-3 border-b border-white/10">
                   <span className="text-[10px] font-normal uppercase tracking-[0.24em] text-[#C4A258]">
-                    Private Signature Escape
+                    Private Desert Evening
                   </span>
                   <span className="px-2.5 py-0.5 rounded-none text-[9px] font-normal uppercase tracking-[0.18em] bg-[#25D366]/20 text-[#25D366] border border-[#25D366]/40">
                     Pay on Arrival
                   </span>
                 </div>
 
-                <div className="space-y-1.5">
-                  <div className="text-2xl sm:text-3xl font-serif font-normal text-white">
-                    Custom Quote via WhatsApp
-                  </div>
-                  <p className="text-xs text-[#C4A258] font-normal tracking-wide">
-                    From €119 / person · final quote by party size &amp; season
+                <div className="space-y-3">
+                  <p className="text-[10px] font-normal uppercase tracking-[0.22em] text-[#f6f2ec]/50">
+                    Two ways to go
                   </p>
-                  <p className="text-[11px] text-[#f6f2ec]/70 leading-relaxed pt-1">
-                    Includes private roundtrip 4x4, quad biking safari, sunset camel trek, panoramic tea, and full 3-course Moroccan tagine dinner with Gnawa show.
+
+                  <div className="flex items-baseline justify-between gap-3 pb-2 border-b border-white/10">
+                    <div>
+                      <div className="text-sm font-serif font-normal text-white">Core Evening</div>
+                      <div className="text-[10px] uppercase tracking-[0.16em] text-[#f6f2ec]/55">
+                        Transfer · Tea · 3-Course Dinner · Fire Show
+                      </div>
+                    </div>
+                    <div className="text-right shrink-0">
+                      <span className="font-serif text-2xl text-white">€119</span>
+                      <span className="text-[10px] text-[#f6f2ec]/60"> / person</span>
+                    </div>
+                  </div>
+
+                  <div className="flex items-baseline justify-between gap-3">
+                    <div>
+                      <div className="text-sm font-serif font-normal text-[#C4A258]">Signature All-In</div>
+                      <div className="text-[10px] uppercase tracking-[0.16em] text-[#f6f2ec]/55">
+                        Core + 1h Quad + Sunset Camel Trek
+                      </div>
+                    </div>
+                    <div className="text-right shrink-0">
+                      <span className="font-serif text-2xl text-[#C4A258]">€179</span>
+                      <span className="text-[10px] text-[#f6f2ec]/60"> / person</span>
+                    </div>
+                  </div>
+
+                  <p className="text-[11px] text-[#f6f2ec]/70 leading-relaxed">
+                    Final quote by party size &amp; season. One all-in figure on WhatsApp — pay on arrival.
                   </p>
                 </div>
 
@@ -481,32 +505,59 @@ export default function AgafayPage() {
                   What&apos;s Included in Your Private Quote
                 </h3>
               </div>
-              <ul className="space-y-3 text-xs sm:text-sm text-[#f6f2ec]/85 font-light">
-                <li className="flex items-start gap-3">
-                  <Check className="w-4 h-4 text-[#C4A258] shrink-0 mt-0.5" />
-                  <span>Private roundtrip hotel/riad pickup & drop-off in Marrakech (Mercedes van or 4x4)</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Check className="w-4 h-4 text-[#C4A258] shrink-0 mt-0.5" />
-                  <span>1-Hour guided quad biking safari + certified instructor & protective gear</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Check className="w-4 h-4 text-[#C4A258] shrink-0 mt-0.5" />
-                  <span>20-Minute sunset camel trek with authentic nomad scarf (cheche)</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Check className="w-4 h-4 text-[#C4A258] shrink-0 mt-0.5" />
-                  <span>Traditional Moroccan mint tea & hospitality at panoramic sunset terrace</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Check className="w-4 h-4 text-[#C4A258] shrink-0 mt-0.5" />
-                  <span>Full 3-course dinner in desert camp (Moroccan salads, savory tagine, seasonal fruit)</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Check className="w-4 h-4 text-[#C4A258] shrink-0 mt-0.5" />
-                  <span>Live Gnawa acoustic musicians & live fire-eater performance by the bonfire</span>
-                </li>
-              </ul>
+
+              <div className="space-y-3">
+                <div className="flex items-center justify-between gap-3 pb-2 border-b border-white/10">
+                  <span className="text-[10px] font-normal uppercase tracking-[0.22em] text-[#f6f2ec]/70">
+                    Core Evening
+                  </span>
+                  <span className="font-mono text-xs text-[#C4A258]">from €119 / person</span>
+                </div>
+                <ul className="space-y-3 text-xs sm:text-sm text-[#f6f2ec]/85 font-light">
+                  <li className="flex items-start gap-3">
+                    <Check className="w-4 h-4 text-[#C4A258] shrink-0 mt-0.5" />
+                    <span>Private roundtrip hotel/riad pickup &amp; drop-off in Marrakech (Mercedes van or 4x4)</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <Check className="w-4 h-4 text-[#C4A258] shrink-0 mt-0.5" />
+                    <span>Traditional Moroccan mint tea &amp; hospitality at the panoramic sunset terrace</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <Check className="w-4 h-4 text-[#C4A258] shrink-0 mt-0.5" />
+                    <span>Full 3-course dinner in desert camp (Moroccan salads, savory tagine, seasonal fruit)</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <Check className="w-4 h-4 text-[#C4A258] shrink-0 mt-0.5" />
+                    <span>Live Gnawa acoustic musicians &amp; fire-eater performance by the bonfire</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="space-y-3 pt-1">
+                <div className="flex items-center justify-between gap-3 pb-2 border-b border-white/10">
+                  <span className="text-[10px] font-normal uppercase tracking-[0.22em] text-[#C4A258]">
+                    Signature All-In
+                  </span>
+                  <span className="font-mono text-xs text-[#C4A258]">from €179 / person</span>
+                </div>
+                <ul className="space-y-3 text-xs sm:text-sm text-[#f6f2ec]/85 font-light">
+                  <li className="flex items-start gap-3">
+                    <Sparkles className="w-4 h-4 text-[#C4A258] shrink-0 mt-0.5" />
+                    <span>Everything in the Core Evening</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <Sparkles className="w-4 h-4 text-[#C4A258] shrink-0 mt-0.5" />
+                    <span>1-Hour guided quad biking safari + certified instructor &amp; protective gear</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <Sparkles className="w-4 h-4 text-[#C4A258] shrink-0 mt-0.5" />
+                    <span>20-Minute sunset camel trek with authentic nomad scarf (cheche)</span>
+                  </li>
+                </ul>
+                <p className="text-[11px] text-[#f6f2ec]/60 font-light">
+                  Prefer to pick and choose? On the Core Evening, add the quad safari (+€40) or the camel trek (+€20) individually.
+                </p>
+              </div>
             </div>
 
             <div className="space-y-5">
