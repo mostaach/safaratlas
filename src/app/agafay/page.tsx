@@ -21,8 +21,91 @@ import {
 const WHATSAPP_NUMBER = "212698017323";
 const DISPLAY_PHONE = "+212 698 017 323";
 
+const comparisonRows = [
+  {
+    label: "Pickup",
+    safaratlas: "Your riad or hotel door, on your own schedule",
+    group: "Fixed coach stops at central meeting points",
+    ota: "You make your own way to a rendezvous point",
+  },
+  {
+    label: "Vehicle",
+    safaratlas: "Private air-conditioned 4x4 or van — your party only",
+    group: "Shared coach with dozens of strangers",
+    ota: "Whichever operator the platform assigns you",
+  },
+  {
+    label: "Pacing",
+    safaratlas: "Your rhythm, with photo stops on request",
+    group: "Fixed schedule, short rushed stops, queues",
+    ota: "Fixed schedule set by a third-party operator",
+  },
+  {
+    label: "Quad & camel",
+    safaratlas: "1h guided quad safari + sunset camel trek included",
+    group: "Frequently sold on site as paid extras",
+    ota: "Vague inclusions, fees confirmed on the day",
+  },
+  {
+    label: "Dinner",
+    safaratlas: "3-course candlelit banquet at your own table",
+    group: "Shared buffet line with the whole coach",
+    ota: "Often a basic set menu, hard to verify in advance",
+  },
+  {
+    label: "Who you talk to",
+    safaratlas: "A named local coordinator on WhatsApp, before and during",
+    group: "An anonymous dispatcher you never reach again",
+    ota: "A call centre and a ticket number",
+  },
+  {
+    label: "Price",
+    safaratlas: "One transparent quote — no surprise extras",
+    group: "Low headline price, extras added at the camp",
+    ota: "Marked up with platform and service fees",
+  },
+  {
+    label: "Cancellation",
+    safaratlas: "Free up to 24h before pickup, pay on arrival",
+    group: "Deposit required, strict terms",
+    ota: "Usually non-refundable once booked",
+  },
+];
+
+const faqs = [
+  {
+    q: "How far is the Agafay Desert from Marrakech?",
+    a: "The Agafay Desert sits roughly 35 km south of Marrakech — a scenic 40 to 45-minute drive by private, air-conditioned vehicle from your riad or hotel doorstep.",
+  },
+  {
+    q: "What is included in the Agafay Desert experience?",
+    a: "Roundtrip private hotel transfer, a 1-hour guided quad biking safari with helmet and goggles, a 20-minute sunset camel trek in traditional Berber attire, Moroccan mint tea on a panoramic terrace, a full 3-course candlelit tagine dinner, and a live Gnawa music and fire show.",
+  },
+  {
+    q: "How much does the Agafay Desert escape cost?",
+    a: "The private signature escape starts from €119 per person. Your final quote depends on your party size and travel season, and you receive one clear written figure on WhatsApp before you commit — no hidden extras and no on-site surcharges.",
+  },
+  {
+    q: "Is this a private experience or a shared group tour?",
+    a: "It is 100% private. You travel in your own vehicle with your own driver and keep your own pace. We never mix separate bookings, and you are never added to a coach with strangers.",
+  },
+  {
+    q: "Do I have to pay in advance?",
+    a: "No advance payment is required. You can pay on arrival at the camp in cash (Euros or Moroccan Dirhams) or by card, with free cancellation up to 24 hours before pickup.",
+  },
+  {
+    q: "What should I wear?",
+    a: "Comfortable trousers and closed shoes for the quad biking, sunglasses for dust, and a light jacket — desert temperatures drop noticeably after sunset, even in summer.",
+  },
+  {
+    q: "What time do we get back to Marrakech?",
+    a: "The escape runs from approximately 16:30 to 21:30, arriving back at your Marrakech riad or hotel around 22:00 to 22:15.",
+  },
+];
+
 export default function AgafayPage() {
   const [inquiryOpen, setInquiryOpen] = useState(false);
+  const [faqOpen, setFaqOpen] = useState<number | null>(0);
 
   const waMessage = encodeURIComponent(
     "Hi SafarAtlas! I'd like to check rates for the Agafay Desert Full Experience.\n" +
@@ -130,7 +213,7 @@ export default function AgafayPage() {
                     Custom Quote via WhatsApp
                   </div>
                   <p className="text-xs text-[#C4A258] font-normal tracking-wide">
-                    Direct transparent rates based on season & party size
+                    From €119 / person · final quote by party size &amp; season
                   </p>
                   <p className="text-[11px] text-[#f6f2ec]/70 leading-relaxed pt-1">
                     Includes private roundtrip 4x4, quad biking safari, sunset camel trek, panoramic tea, and full 3-course Moroccan tagine dinner with Gnawa show.
@@ -427,7 +510,118 @@ export default function AgafayPage() {
           </div>
         </section>
 
-        {/* ── 5. FINAL EDITORIAL CTA ── */}
+        {/* ── 5. PRIVATE ESCAPE VS SHARED GROUP TOUR ── */}
+        <section id="why-private" className="space-y-10">
+          <div className="space-y-3">
+            <span className="text-[10px] font-normal uppercase tracking-[0.28em] text-[#C4A258] block">
+              The SafarAtlas Difference
+            </span>
+            <h2 className="text-3xl sm:text-5xl font-serif font-normal text-white tracking-tight">
+              Private Escape or Shared Group Tour?
+            </h2>
+            <p className="text-xs sm:text-sm text-[#f6f2ec]/70 max-w-2xl leading-relaxed font-light">
+              The same Agafay sunset can be a rushed coach stop or a calm private evening. Here is exactly what changes when you travel in your own vehicle, at your own pace, with one coordinator who answers before and during your trip.
+            </p>
+          </div>
+
+          <div className="overflow-x-auto border border-white/10 bg-[#07192d]/80">
+            <table className="w-full min-w-[720px] border-collapse text-left">
+              <thead>
+                <tr className="border-b border-white/10">
+                  <th className="p-5 w-1/4 text-[10px] font-normal uppercase tracking-[0.24em] text-[#f6f2ec]/50">
+                    &nbsp;
+                  </th>
+                  <th className="p-5 w-1/4 align-bottom">
+                    <span className="block font-serif text-lg italic text-[#C4A258]">SafarAtlas</span>
+                    <span className="mt-1 block text-[9px] uppercase tracking-[0.24em] text-[#C4A258]/70">Private escape</span>
+                  </th>
+                  <th className="p-5 w-1/4 align-bottom">
+                    <span className="block font-serif text-lg text-[#f6f2ec]/60">Shared group tour</span>
+                    <span className="mt-1 block text-[9px] uppercase tracking-[0.24em] text-[#f6f2ec]/40">Coach &amp; strangers</span>
+                  </th>
+                  <th className="p-5 w-1/4 align-bottom">
+                    <span className="block font-serif text-lg text-[#f6f2ec]/60">Online marketplace</span>
+                    <span className="mt-1 block text-[9px] uppercase tracking-[0.24em] text-[#f6f2ec]/40">Assigned operator</span>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {comparisonRows.map((row) => (
+                  <tr
+                    key={row.label}
+                    className="border-b border-white/5 transition-colors duration-300 hover:bg-white/[0.02]"
+                  >
+                    <td className="p-5 align-top text-[10px] uppercase tracking-[0.22em] text-[#f6f2ec]/60">
+                      {row.label}
+                    </td>
+                    <td className="p-5 align-top text-xs sm:text-sm font-light leading-snug text-white">
+                      {row.safaratlas}
+                    </td>
+                    <td className="p-5 align-top text-xs sm:text-sm font-light leading-snug text-[#f6f2ec]/50">
+                      {row.group}
+                    </td>
+                    <td className="p-5 align-top text-xs sm:text-sm font-light leading-snug text-[#f6f2ec]/50">
+                      {row.ota}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        {/* ── 6. FREQUENTLY ASKED QUESTIONS ── */}
+        <section id="faq" className="space-y-10">
+          <div className="space-y-3">
+            <span className="text-[10px] font-normal uppercase tracking-[0.28em] text-[#C4A258] block">
+              Questions &amp; Clarity
+            </span>
+            <h2 className="text-3xl sm:text-5xl font-serif font-normal text-white tracking-tight">
+              Agafay Desert FAQ
+            </h2>
+            <p className="text-xs sm:text-sm text-[#f6f2ec]/70 max-w-xl leading-relaxed font-light">
+              Clear answers before you commit — pricing, timing, what is included, and how the private escape works.
+            </p>
+          </div>
+
+          <div className="divide-y divide-white/10 border border-white/10 bg-[#0c223c]/40">
+            {faqs.map((item, i) => {
+              const isOpen = faqOpen === i;
+              return (
+                <div key={item.q} className="p-6">
+                  <button
+                    type="button"
+                    onClick={() => setFaqOpen(isOpen ? null : i)}
+                    aria-expanded={isOpen}
+                    className="w-full flex items-start justify-between gap-4 text-left group cursor-pointer"
+                  >
+                    <span
+                      className={`font-serif text-base sm:text-lg transition-colors duration-300 ${
+                        isOpen ? "text-[#C4A258]" : "text-white group-hover:text-[#C4A258]"
+                      }`}
+                    >
+                      {item.q}
+                    </span>
+                    <span
+                      className={`text-xl font-light leading-none shrink-0 transition-transform duration-300 ${
+                        isOpen ? "rotate-45 text-[#C4A258]" : "text-[#f6f2ec]/40"
+                      }`}
+                    >
+                      +
+                    </span>
+                  </button>
+                  {isOpen && (
+                    <p className="mt-3 pr-8 text-xs sm:text-sm text-[#f6f2ec]/75 leading-relaxed font-light">
+                      {item.a}
+                    </p>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        </section>
+
+        {/* ── 7. FINAL EDITORIAL CTA ── */}
         <section className="text-center">
           <div className="rounded-none p-10 sm:p-16 bg-gradient-to-b from-[#0c223c] to-[#07192d] border border-[#C4A258]/30 max-w-3xl mx-auto space-y-7 shadow-2xl">
             <span className="text-[10px] font-normal uppercase tracking-[0.28em] text-[#C4A258] block">

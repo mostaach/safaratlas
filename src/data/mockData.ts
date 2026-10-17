@@ -556,7 +556,7 @@ export const ESCAPES_PACKAGES: EscapePackage[] = [
     title: "Agafay Desert Sunset & Candlelit Dining",
     slug: "agafay-escape-1d",
     subtitle: "30-min from Marrakech → Rocky Desert Oasis",
-    duration: "8h Journey",
+    duration: "5h Journey",
     category: "Desert",
     location: "Agafay Desert (Marrakech)",
     priceFromEur: 120,
