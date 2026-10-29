@@ -17,7 +17,7 @@ export const Header: React.FC<HeaderProps> = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 80);
+      setScrolled(window.scrollY > 300);
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
@@ -110,10 +110,12 @@ export const Header: React.FC<HeaderProps> = () => {
         )}
       </header>
 
-      {/* Floating Sticky CTA — Taghazout luxury style */}
+      {/* Floating Sticky CTA — Appears smoothly on the right after scrolling past Hero */}
       <aside
-        className={`hidden sm:block fixed bottom-8 left-8 z-40 transition-all duration-500 ease-out ${
-          scrolled ? "opacity-100 translate-y-0" : "opacity-95 hover:opacity-100 translate-y-0"
+        className={`fixed bottom-6 right-6 sm:bottom-8 sm:right-8 z-40 transition-all duration-500 ease-out ${
+          scrolled
+            ? "opacity-100 translate-y-0 pointer-events-auto"
+            : "opacity-0 translate-y-6 pointer-events-none"
         }`}
         aria-label="Floating Booking Action"
       >
@@ -121,12 +123,12 @@ export const Header: React.FC<HeaderProps> = () => {
           href={waUrl}
           target="_blank"
           rel="noreferrer"
-          className="group inline-flex items-center gap-3 bg-[#C4A258] px-7 py-3.5 text-[11px] uppercase tracking-[0.22em] text-[#07192d] font-normal transition-all duration-300 hover:bg-[#d8bb78] hover:tracking-[0.26em] whitespace-nowrap rounded-none shadow-2xl"
+          className="group inline-flex items-center gap-2.5 sm:gap-3 bg-[#C4A258] px-5 sm:px-7 py-3 sm:py-3.5 text-[10px] sm:text-[11px] uppercase tracking-[0.22em] text-[#07192d] font-semibold transition-all duration-300 hover:bg-[#d8bb78] hover:tracking-[0.26em] whitespace-nowrap rounded-none shadow-2xl"
           style={{
             boxShadow: "0 10px 30px -5px rgba(196, 162, 88, 0.45), 0 4px 16px rgba(0, 0, 0, 0.6)",
           }}
         >
-          <span className="font-normal">Check Availability</span>
+          <span>Check Availability</span>
           <span className="transition-transform duration-300 group-hover:translate-x-1 font-light">→</span>
         </a>
       </aside>
