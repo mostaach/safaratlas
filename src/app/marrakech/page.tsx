@@ -111,13 +111,19 @@ export default function MarrakechPage() {
       {/* ── HERO BANNER ── */}
       <section
         className="relative pt-28 pb-14 px-4 sm:px-8 border-b border-white/10 overflow-hidden"
-        style={{
-          backgroundImage:
-            "linear-gradient(180deg, rgba(7,25,45,0.55) 0%, rgba(7,25,45,0.96) 100%), url('/destinations/marrakech.jpg')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
       >
+        <Image
+          src="/destinations/marrakech.jpg"
+          alt="Marrakech City & Experiences"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center -z-10"
+        />
+        <div
+          className="absolute inset-0 bg-gradient-to-b from-[#07192d]/55 via-[#07192d]/85 to-[#07192d]/96 -z-10 pointer-events-none"
+          aria-hidden="true"
+        />
         <div className="max-w-6xl mx-auto">
           {/* Breadcrumb */}
           <div className="flex items-center gap-2 text-[10px] font-mono tracking-widest text-[#C4A258] uppercase mb-5">

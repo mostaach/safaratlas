@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import { Header } from "../../components/brand/Header";
 import { Footer } from "../../components/brand/Footer";
 import { InquiryModal } from "../../components/travel/InquiryModal";
@@ -144,11 +145,20 @@ export default function TaghazoutPage() {
         {/* ── 1. HERO SHOWCASE ── */}
         <section
           id="overview"
-          className="relative rounded-3xl border border-white/15 shadow-2xl overflow-hidden min-h-[85vh] flex flex-col justify-between p-5 sm:p-8 lg:p-12 bg-cover bg-center"
-          style={{
-            backgroundImage: `linear-gradient(180deg, rgba(7, 25, 45, 0.45) 0%, rgba(7, 25, 45, 0.92) 100%), url('/escapes/taghazout-surf.jpg')`,
-          }}
+          className="relative rounded-3xl border border-white/15 shadow-2xl overflow-hidden min-h-[85vh] flex flex-col justify-between p-5 sm:p-8 lg:p-12"
         >
+          <Image
+            src="/escapes/taghazout-surf.jpg"
+            alt="Taghazout Surf & Wellness Escape"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-center -z-10"
+          />
+          <div
+            className="absolute inset-0 bg-gradient-to-b from-[#07192d]/45 via-[#07192d]/75 to-[#07192d]/92 -z-10 pointer-events-none"
+            aria-hidden="true"
+          />
             {/* Top Info Bar inside Hero */}
           <div className="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-white/10 z-10">
             <div className="flex items-center gap-3">
@@ -193,8 +203,10 @@ export default function TaghazoutPage() {
               </div>
               
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-black text-white leading-tight drop-shadow-md">
-                Escape for 3 days. <br />
-                <span className="text-[#C4A258]">Come back reset.</span>
+                Taghazout Surf &amp; Wellness Escape <br />
+                <span className="text-[#C4A258] text-2xl sm:text-3xl lg:text-4xl font-normal block mt-2">
+                  Escape for 3 days. Come back reset.
+                </span>
               </h1>
               
               <p className="text-sm sm:text-base text-[#f6f2ec]/90 max-w-xl leading-relaxed drop-shadow">

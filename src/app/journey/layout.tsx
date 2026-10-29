@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "https://images.unsplash.com/photo-1489749798305-4fea3ae63d43?auto=format&fit=crop&w=1200&q=80",
+        url: "https://safaratlas.com/destinations/atlas.jpg",
         width: 1200,
         height: 630,
         alt: "Morocco journey planning with SafarAtlas",
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     title: "Plan a Custom Morocco Journey | SafarAtlas",
     description:
       "Design your own Morocco itinerary and get a transparent, all-inclusive quote from a local team.",
-    images: ["https://images.unsplash.com/photo-1489749798305-4fea3ae63d43?auto=format&fit=crop&w=1200&q=80"],
+    images: ["https://safaratlas.com/destinations/atlas.jpg"],
   },
 };
 

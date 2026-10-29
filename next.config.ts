@@ -61,6 +61,12 @@ const nextConfig: NextConfig = {
         destination: "https://safaratlas.com/:path*",
         permanent: true,
       },
+      {
+        // Prevent duplicate homepage URL
+        source: "/index",
+        destination: "/",
+        permanent: true,
+      },
     ];
   },
   async headers() {

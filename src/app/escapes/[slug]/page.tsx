@@ -4,7 +4,6 @@ import type { Metadata } from "next";
 import { clampDescription } from "../../../lib/seo";
 import Link from "next/link";
 import Image from "next/image";
-import Script from "next/script";
 import { ESCAPES_PACKAGES } from "../../../data/mockData";
 import { AddEscapeToJourneyButton } from "../../../components/travel/AddEscapeToJourneyButton";
 import { Header } from "../../../components/brand/Header";
@@ -192,11 +191,25 @@ export default async function EscapePage({ params }: Props) {
       }
     : null;
 
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://safaratlas.com" },
+      { "@type": "ListItem", "position": 2, "name": "Escapes", "item": "https://safaratlas.com/#escapes" },
+      { "@type": "ListItem", "position": 3, "name": escapePkg.title, "item": url },
+    ],
+  };
+
   return (
     <main className="min-h-screen bg-[#07192d] text-[#f6f2ec]">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      ></script>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       ></script>
       {faqJsonLd && (
         <script

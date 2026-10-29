@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?auto=format&fit=crop&w=1200&q=80",
+        url: "https://safaratlas.com/destinations/merzouga.jpg",
         width: 1200,
         height: 630,
         alt: "SafarAtlas Morocco Travel Journal",
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     title: "SafarAtlas Journal | Morocco Travel Guides",
     description: "Insider Morocco travel knowledge from local scouts.",
     images: [
-      "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?auto=format&fit=crop&w=1200&q=80",
+      "https://safaratlas.com/destinations/merzouga.jpg",
     ],
   },
 };

@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import { Header } from "../../components/brand/Header";
 import { Footer } from "../../components/brand/Footer";
 import { InquiryModal } from "../../components/travel/InquiryModal";
@@ -159,11 +160,20 @@ export default function AgafayPage() {
         {/* ── 1. HERO ARCHITECTURAL SHOWCASE ── */}
         <section
           id="overview"
-          className="relative rounded-none border border-white/15 shadow-2xl overflow-hidden min-h-[88vh] flex flex-col justify-between p-6 sm:p-10 lg:p-14 bg-cover bg-center"
-          style={{
-            backgroundImage: `linear-gradient(180deg, rgba(7, 25, 45, 0.35) 0%, rgba(7, 25, 45, 0.78) 55%, rgba(7, 25, 45, 0.98) 100%), url('/destinations/agafay-hero.jpg')`,
-          }}
+          className="relative rounded-none border border-white/15 shadow-2xl overflow-hidden min-h-[88vh] flex flex-col justify-between p-6 sm:p-10 lg:p-14"
         >
+          <Image
+            src="/destinations/agafay-hero.jpg"
+            alt="Agafay Desert Private Escape"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-center -z-10"
+          />
+          <div
+            className="absolute inset-0 bg-gradient-to-b from-[#07192d]/35 via-[#07192d]/78 to-[#07192d]/98 -z-10 pointer-events-none"
+            aria-hidden="true"
+          />
           {/* Top Info Bar inside Hero */}
           <div className="flex flex-wrap items-center justify-between gap-4 pb-5 border-b border-white/10 z-10">
             <div className="flex items-center gap-3">

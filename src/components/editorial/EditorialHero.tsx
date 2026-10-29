@@ -40,8 +40,8 @@ export const EditorialHero: React.FC = () => {
           <h1
             className="animate-rise anim-delay-100 font-serif font-medium leading-[1.05] tracking-tight text-[#f6f2ec] text-shadow-deep text-2xl sm:text-3xl md:text-4xl"
           >
-            Morocco, orchestrated{" "}
-            <span className="italic text-[#f6f2ec]/95">chapter by chapter.</span>
+            Private Morocco Journeys &amp; Escapes,{" "}
+            <span className="italic text-[#f6f2ec]/95 block sm:inline">orchestrated chapter by chapter.</span>
           </h1>
 
           <p

@@ -26,11 +26,6 @@ export const metadata: Metadata = {
   description: "Private managed escapes across Morocco: Agafay desert dinners, Sahara expeditions, High Atlas treks and Taghazout surf escapes. One message, all handled.",
   alternates: {
     canonical: "https://safaratlas.com",
-    languages: {
-      "en-US": "https://safaratlas.com",
-      "en-GB": "https://safaratlas.com",
-      "x-default": "https://safaratlas.com",
-    },
   },
   icons: {
     icon: [
@@ -51,7 +46,7 @@ export const metadata: Metadata = {
     siteName: "SafarAtlas",
     images: [
       {
-        url: "https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1200&q=80",
+        url: "https://safaratlas.com/safaratlas_hero_typography.jpg",
         width: 1200,
         height: 630,
         alt: "SafarAtlas Morocco Journeys",
@@ -64,7 +59,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "SafarAtlas | Managed Morocco Journeys & Escapes",
     description: "Private managed escapes across Morocco: Agafay desert dinners, Sahara expeditions, High Atlas treks and Taghazout surf escapes. One message, all handled.",
-    images: ["https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1200&q=80"],
+    images: ["https://safaratlas.com/safaratlas_hero_typography.jpg"],
   },
 };
 
