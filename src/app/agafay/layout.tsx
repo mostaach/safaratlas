@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Script from "next/script";
 
 export const metadata: Metadata = {
   title: "Agafay Desert Sunset, Quad & Dinner Tour from Marrakech | SafarAtlas",
@@ -41,9 +40,10 @@ export default function AgafayLayout({
 }) {
   return (
     <>
-      <Script
-        id="schema-agafay-tourist-trip"
+      <script
         type="application/ld+json"
+        // A plain <script> is required: next/script defers to the client and the
+        // JSON-LD never reaches the server-rendered HTML.
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
@@ -139,7 +139,7 @@ export default function AgafayLayout({
             ]
           }),
         }}
-      />
+      ></script>
       {children}
     </>
   );

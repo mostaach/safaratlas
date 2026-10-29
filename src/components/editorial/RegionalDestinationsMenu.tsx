@@ -221,22 +221,23 @@ export const RegionalDestinationsMenu: React.FC<Props> = ({
                       <span className="transition-transform duration-300 group-hover/btn:translate-x-1">→</span>
                     </Link>
 
-                    {isDedicatedPage ? (
-                      <Link
-                        href={dedicatedUrl}
-                        className="link-sweep text-[10px] uppercase tracking-[0.3em] text-[#f6f2ec]/65 hover:text-[#C4A258]"
-                      >
-                        Full Guide
-                      </Link>
-                    ) : (
-                      <button
-                        type="button"
-                        onClick={() => onOpenEscapeModal(item)}
-                        className="link-sweep text-[10px] uppercase tracking-[0.3em] text-[#f6f2ec]/65 hover:text-[#C4A258] cursor-pointer"
-                      >
-                        View Details
-                      </button>
-                    )}
+                    {/* Every escape gets a real, crawlable link to its detail page.
+                        The modal is a convenience layer, never the only route in. */}
+                    <Link
+                      href={dedicatedUrl}
+                      className="link-sweep text-[10px] uppercase tracking-[0.3em] text-[#f6f2ec]/65 hover:text-[#C4A258]"
+                    >
+                      {isDedicatedPage ? "Full Guide" : "View Guide"}
+                    </Link>
+
+                    <button
+                      type="button"
+                      onClick={() => onOpenEscapeModal(item)}
+                      className="link-sweep text-[10px] uppercase tracking-[0.3em] text-[#f6f2ec]/45 hover:text-[#C4A258] cursor-pointer"
+                      aria-label={`Quick view: ${item.title}`}
+                    >
+                      Quick View
+                    </button>
                   </div>
 
                 </div>

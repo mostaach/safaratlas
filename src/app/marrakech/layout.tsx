@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Script from "next/script";
 
 export const metadata: Metadata = {
   title: "Things to Do in Marrakech | Plan Your Morocco Journey | SafarAtlas",
@@ -41,8 +40,7 @@ export default function MarrakechLayout({
 }) {
   return (
     <>
-      <Script
-        id="schema-marrakech-destination"
+      <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
@@ -110,7 +108,7 @@ export default function MarrakechLayout({
             ],
           }),
         }}
-      />
+      ></script>
       {children}
     </>
   );

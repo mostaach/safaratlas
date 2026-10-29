@@ -7,17 +7,14 @@ import {
   PartnerCategory,
   updateApplication,
 } from "../../../lib/partnerStore";
-import { isJsonRequest, isRateLimited } from "../../../lib/requestGuards";
+import { isAdminRequest, isJsonRequest, isRateLimited } from "../../../lib/requestGuards";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 const validCategories: PartnerCategory[] = ["airport_transfer", "riad", "desert_trip", "guided_tour", "activity", "restaurant", "other"];
 
-const isAdmin = (request: NextRequest) => {
-  const expectedToken = process.env.ADMIN_API_TOKEN?.trim();
-  return Boolean(expectedToken) && request.headers.get("authorization") === `Bearer ${expectedToken}`;
-};
+const isAdmin = (request: NextRequest) => isAdminRequest(request);
 
 const text = (value: unknown, maxLength: number) =>
   typeof value === "string" ? value.trim().slice(0, maxLength) : "";

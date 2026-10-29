@@ -3,8 +3,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import Script from "next/script";
 import { BLOG_POSTS } from "../../../data/blogData";
+import { formatDate } from "../../../lib/formatDate";
 import { ESCAPES_PACKAGES } from "../../../data/mockData";
 import { Header } from "../../../components/brand/Header";
 import ArticleActions from "./ArticleActions";
@@ -79,6 +79,16 @@ export default async function BlogPostPage({ params }: Props) {
     .map((block) => block.trim())
     .filter(Boolean);
 
+  // The hero below already renders the article title as the page <h1>.
+  // Drop the duplicated markdown title so the document has exactly one H1.
+  const bodyBlocks =
+    contentBlocks.length > 0 &&
+    contentBlocks[0].startsWith("# ") &&
+    contentBlocks[0].replace(/^#\s+/, "").trim().toLowerCase() ===
+      post.title.trim().toLowerCase()
+      ? contentBlocks.slice(1)
+      : contentBlocks;
+
   // Extract headings for table of contents
   const headings = contentBlocks
     .filter((b) => b.startsWith("## "))
@@ -89,10 +99,14 @@ export default async function BlogPostPage({ params }: Props) {
 
   const renderBlock = (block: string, idx: number) => {
     if (block.startsWith("# ")) {
+      // Defensive: any remaining markdown H1 is demoted so it can never
+      // introduce a second top-level heading in the document.
+      const text = block.replace(/^#\s+/, "");
+      const id = text.toLowerCase().replace(/[^a-z0-9]+/g, "-");
       return (
-        <h1 key={idx} className="text-3xl sm:text-4xl font-serif font-black text-[#f6f2ec] leading-tight mt-10 mb-4">
-          {block.replace("# ", "")}
-        </h1>
+        <h2 key={idx} id={id} className="text-xl sm:text-2xl font-serif font-bold text-[#f6f2ec] mt-8 mb-3 scroll-mt-24">
+          {text}
+        </h2>
       );
     }
     if (block.startsWith("## ")) {
@@ -186,8 +200,7 @@ export default async function BlogPostPage({ params }: Props) {
   return (
     <div className="min-h-screen bg-[#07192d] text-[#f6f2ec]">
       {/* Structured Data */}
-      <Script
-        id={`schema-blog-${post.slug}`}
+      <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
@@ -233,7 +246,7 @@ export default async function BlogPostPage({ params }: Props) {
             ],
           }),
         }}
-      />
+      ></script>
 
       {/* Header */}
       <Header variant="dark" />
@@ -264,7 +277,7 @@ export default async function BlogPostPage({ params }: Props) {
                 {post.category}
               </span>
               <span className="text-xs text-white/60">
-                {post.publishedAt} · {post.readTime}
+                {formatDate(post.publishedAt)} · {post.readTime}
               </span>
             </div>
             <h1 className="text-2xl sm:text-5xl font-serif font-black leading-tight drop-shadow-md text-[#f6f2ec]">
@@ -303,7 +316,7 @@ export default async function BlogPostPage({ params }: Props) {
 
             {/* Content blocks */}
             <div className="space-y-5">
-              {contentBlocks.map((block, idx) => renderBlock(block, idx))}
+              {bodyBlocks.map((block, idx) => renderBlock(block, idx))}
             </div>
 
             {/* Recommended Escape CTA */}

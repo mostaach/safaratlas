@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { BLOG_POSTS } from "../../data/blogData";
+import { formatDate } from "../../lib/formatDate";
 import { Header } from "../../components/brand/Header";
 import BlogGrid from "./BlogGrid";
 
@@ -28,7 +29,7 @@ export default function BlogPage() {
             Insider knowledge from local scouts. Plan smarter, travel deeper.
           </p>
           <p className="text-xs text-white/40">
-            {BLOG_POSTS.length} articles · Updated {sorted[0].publishedAt}
+            {BLOG_POSTS.length} articles · Updated {formatDate(sorted[0].publishedAt)}
           </p>
         </div>
       </div>

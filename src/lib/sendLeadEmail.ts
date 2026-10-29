@@ -5,19 +5,24 @@ import { Lead } from "./leadTypes";
 const escapeHtml = (value: string) => value.replace(/[&<>"]/g, character => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[character]!);
 const singleLine = (value: string) => value.replace(/[\r\n]/g, " ");
 
+export type LeadEmailResult = { ok: boolean; reason?: string };
+
 /**
  * Sends a new-lead notification to the admin inbox.
  * No-ops gracefully if RESEND_API_KEY is not set — so the app works
  * in development without an API key.
+ *
+ * Returns an explicit result so the API can refuse a submission when every
+ * delivery channel has failed instead of reporting a fake success.
  */
-export async function sendLeadNotification(lead: Lead): Promise<void> {
+export async function sendLeadNotification(lead: Lead): Promise<LeadEmailResult> {
   const apiKey = process.env.RESEND_API_KEY;
   const adminEmail = process.env.ADMIN_EMAIL;
   const fromEmail = process.env.EMAIL_FROM ?? "onboarding@resend.dev";
 
   if (!apiKey || apiKey === "re_replace_me" || !adminEmail || adminEmail.includes("replace_with")) {
     console.log("[SafarAtlas] Email not configured — skipping notification for lead", lead.id);
-    return;
+    return { ok: false, reason: "not_configured" };
   }
 
   const resend = new Resend(apiKey);
@@ -110,16 +115,19 @@ export async function sendLeadNotification(lead: Lead): Promise<void> {
     const { error } = await resend.emails.send({
       from: fromEmail,
       to: [adminEmail],
+      replyTo: lead.email,
       subject,
       html,
       text,
     });
     if (error) {
       console.error("[SafarAtlas] Resend error:", error);
-    } else {
-      console.log("[SafarAtlas] Lead notification sent for", lead.id);
+      return { ok: false, reason: error.message ?? "resend_error" };
     }
+    console.log("[SafarAtlas] Lead notification sent for", lead.id);
+    return { ok: true };
   } catch (err) {
     console.error("[SafarAtlas] Failed to send email notification:", err);
+    return { ok: false, reason: err instanceof Error ? err.message : "unknown_error" };
   }
 }

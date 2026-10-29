@@ -4,25 +4,31 @@ import { BLOG_POSTS } from "../data/blogData";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://safaratlas.com";
-  const lastModified = new Date();
+  // Content revision date, not the build date: a changing lastmod on every
+  // deploy teaches Google to ignore the signal.
+  const contentUpdated = new Date("2026-10-29");
 
   return [
-    { url: baseUrl, lastModified, changeFrequency: "weekly", priority: 1 },
-    { url: `${baseUrl}/agafay`, lastModified, changeFrequency: "weekly", priority: 0.95 },
-    { url: `${baseUrl}/taghazout`, lastModified, changeFrequency: "weekly", priority: 0.95 },
-    { url: `${baseUrl}/marrakech`, lastModified, changeFrequency: "weekly", priority: 0.9 },
-    { url: `${baseUrl}/offers/agafay-vip`, lastModified, changeFrequency: "weekly", priority: 0.9 },
-    { url: `${baseUrl}/journey`, lastModified, changeFrequency: "monthly", priority: 0.9 },
-    { url: `${baseUrl}/partners`, lastModified, changeFrequency: "monthly", priority: 0.6 },
-    { url: `${baseUrl}/blog`, lastModified, changeFrequency: "weekly", priority: 0.85 },
-    { url: `${baseUrl}/legal/privacy`, lastModified, changeFrequency: "yearly", priority: 0.2 },
-    { url: `${baseUrl}/legal/terms`, lastModified, changeFrequency: "yearly", priority: 0.2 },
+    { url: baseUrl, lastModified: contentUpdated, changeFrequency: "weekly", priority: 1 },
+    { url: `${baseUrl}/agafay`, lastModified: contentUpdated, changeFrequency: "weekly", priority: 0.95 },
+    { url: `${baseUrl}/taghazout`, lastModified: contentUpdated, changeFrequency: "weekly", priority: 0.95 },
+    { url: `${baseUrl}/marrakech`, lastModified: contentUpdated, changeFrequency: "weekly", priority: 0.9 },
+    { url: `${baseUrl}/journey`, lastModified: contentUpdated, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${baseUrl}/partners`, lastModified: contentUpdated, changeFrequency: "monthly", priority: 0.6 },
+    { url: `${baseUrl}/blog`, lastModified: contentUpdated, changeFrequency: "weekly", priority: 0.85 },
+    { url: `${baseUrl}/legal/privacy`, lastModified: contentUpdated, changeFrequency: "yearly", priority: 0.2 },
+    { url: `${baseUrl}/legal/terms`, lastModified: contentUpdated, changeFrequency: "yearly", priority: 0.2 },
     ...ESCAPES_PACKAGES.filter(pkg => pkg.slug !== "agafay-escape-1d" && pkg.slug !== "taghazout-escapes").map(pkg => ({
       url: `${baseUrl}/escapes/${pkg.slug}`,
-      lastModified,
+      lastModified: contentUpdated,
       changeFrequency: "monthly" as const,
       priority: 0.8
     })),
-    ...BLOG_POSTS.map(post => ({ url: `${baseUrl}/blog/${post.slug}`, lastModified, changeFrequency: "monthly" as const, priority: 0.7 })),
+    ...BLOG_POSTS.map(post => ({
+      url: `${baseUrl}/blog/${post.slug}`,
+      lastModified: new Date(post.publishedAt),
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    })),
   ];
 }

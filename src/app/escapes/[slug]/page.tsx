@@ -189,17 +189,15 @@ export default async function EscapePage({ params }: Props) {
 
   return (
     <main className="min-h-screen bg-[#07192d] text-[#f6f2ec]">
-      <Script
-        id={`json-ld-${escapePkg.id}`}
+      <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      ></script>
       {faqJsonLd && (
-        <Script
-          id={`faq-json-ld-${escapePkg.id}`}
+        <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
-        />
+        ></script>
       )}
       
       {/* Global Navigation Header */}

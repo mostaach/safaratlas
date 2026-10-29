@@ -38,6 +38,7 @@ export default function JourneyPage() {
     accommodationStyle: "Boutique Riad (Comfort & Charm)",
     transportPreference: "Private AC Chauffeur (Mercedes / 4x4)",
     notes: "",
+    consent: false,
   });
 
   const [submitted, setSubmitted] = useState(false);
@@ -125,6 +126,12 @@ export default function JourneyPage() {
   const handleSubmitRequest = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
+
+    if (!form.consent) {
+      setError("Please accept the Privacy Policy so we can process your request.");
+      return;
+    }
+
     setLoading(true);
 
     const itemsSummary = journey.items.length > 0 
@@ -154,11 +161,11 @@ ${form.notes || "None provided."}`;
           travelDates: form.travelDates,
           groupSize: form.groupSize,
           message: fullMessage,
-          consent: true,
+          consent: form.consent,
         }),
       });
 
-      const data = await res.json();
+      const data = await res.json().catch(() => ({}));
       setLoading(false);
 
       if (!res.ok) {
@@ -169,7 +176,7 @@ ${form.notes || "None provided."}`;
       setLeadRef(data.id || "SA-" + Math.floor(Math.random() * 100000));
       setSubmitted(true);
       clearJourney();
-      trackEvent("journey_request_submit", { leadId: data.id, count: journey.items.length });
+      trackEvent("journey_request_submit", { leadId: data.id, count: journey.items.length, stored: data.stored });
     } catch {
       setLoading(false);
       setError("Network error. Please try again or reach us directly on WhatsApp.");
@@ -635,6 +642,23 @@ ${form.notes || "None provided."}`;
                       className="w-full resize-none border border-white/15 bg-white/5 px-3 py-2 text-xs font-light text-[#f6f2ec] placeholder:text-white/30 outline-none focus:border-[#C4A258]"
                     />
                   </div>
+
+                  <label className="flex cursor-pointer items-start gap-2 text-[11px] leading-relaxed text-[#f6f2ec]/70">
+                    <input
+                      required
+                      type="checkbox"
+                      checked={form.consent}
+                      onChange={(e) => setForm({ ...form, consent: e.target.checked })}
+                      className="mt-0.5 accent-[#C4A258]"
+                    />
+                    <span>
+                      I agree that SafarAtlas may process my details to prepare a travel quote, as described in the{" "}
+                      <Link href="/legal/privacy" className="text-[#C4A258] underline underline-offset-2">
+                        Privacy Policy
+                      </Link>
+                      .
+                    </span>
+                  </label>
 
                   {error && (
                     <div className="p-3 bg-red-950/50 border border-red-800/50 text-xs text-red-200">

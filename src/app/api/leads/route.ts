@@ -2,15 +2,12 @@ import { NextRequest } from "next/server";
 import { addLead, isLeadStatus, listLeads, updateLead } from "../../../lib/leadStore";
 import { CreateLeadInput, Lead } from "../../../lib/leadTypes";
 import { sendLeadNotification } from "../../../lib/sendLeadEmail";
-import { isJsonRequest, isRateLimited } from "../../../lib/requestGuards";
+import { isAdminRequest, isJsonRequest, isRateLimited } from "../../../lib/requestGuards";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
-const isAdmin = (request: NextRequest) => {
-  const expectedToken = process.env.ADMIN_API_TOKEN?.trim();
-  return Boolean(expectedToken) && request.headers.get("authorization") === `Bearer ${expectedToken}`;
-};
+const isAdmin = (request: NextRequest) => isAdminRequest(request);
 
 const text = (value: unknown, maxLength: number) => typeof value === "string" ? value.trim().slice(0, maxLength) : "";
 
@@ -38,29 +35,50 @@ export async function POST(request: NextRequest) {
   }
 
   const leadSource: Lead["source"] = body.source === "agafay-vip-offer" ? "agafay-vip-offer" : "website";
-  let lead: Lead;
+  const now = new Date().toISOString();
+  const lead: Lead = {
+    ...input,
+    id: `SA-${new Date().getFullYear()}-${crypto.randomUUID().slice(0, 8).toUpperCase()}`,
+    status: "new",
+    source: leadSource,
+    bookingValue: null,
+    commissionRate: null,
+    expectedMargin: null,
+    reconciliationStatus: "not_applicable",
+    createdAt: now,
+    updatedAt: now,
+  };
+
+  // 1. Try to persist. A failure here is loud, never silent.
+  let stored = false;
   try {
-    lead = await addLead({ ...input, status: "new", source: leadSource, bookingValue: null, commissionRate: null, expectedMargin: null, reconciliationStatus: "not_applicable" });
+    await addLead({ ...input, status: "new", source: leadSource, bookingValue: null, commissionRate: null, expectedMargin: null, reconciliationStatus: "not_applicable" });
+    stored = true;
   } catch (dbError) {
-    console.error("[POST /api/leads] Primary Supabase storage failed, activating fallback lead handling:", dbError);
-    const now = new Date().toISOString();
-    lead = {
-      ...input,
-      id: `SA-${new Date().getFullYear()}-${crypto.randomUUID().slice(0, 8).toUpperCase()}`,
-      status: "new" as const,
-      source: leadSource,
-      bookingValue: null,
-      commissionRate: null,
-      expectedMargin: null,
-      reconciliationStatus: "not_applicable" as const,
-      createdAt: now,
-      updatedAt: now,
-    };
+    console.error("[POST /api/leads] Supabase insert failed — falling back to email delivery only:", dbError);
   }
 
-  // Fire-and-forget — never block the response on email latency
-  void sendLeadNotification(lead);
-  return Response.json({ id: lead.id, status: lead.status }, { status: 201 });
+  // 2. Email is the secondary durable channel. Await it so serverless does not freeze mid-flight.
+  const emailResult = await sendLeadNotification(lead);
+
+  // 3. Refuse the submission only if BOTH channels failed. Never fake a success.
+  if (!stored && !emailResult.ok) {
+    console.error("[POST /api/leads] All delivery channels failed for lead", lead.id, emailResult.reason);
+    return Response.json(
+      {
+        error: "We could not record your request. Please message us directly on WhatsApp at +212 698 017 323 so we do not lose your dates.",
+        whatsapp: "https://wa.me/212698017323",
+      },
+      { status: 503 },
+    );
+  }
+
+  if (!stored) {
+    console.warn("[POST /api/leads] Lead delivered by email only (not stored):", lead.id);
+    return Response.json({ id: lead.id, status: lead.status, stored: false, delivery: "email" }, { status: 202 });
+  }
+
+  return Response.json({ id: lead.id, status: lead.status, stored: true, delivery: "database" }, { status: 201 });
 }
 
 export async function GET(request: NextRequest) {

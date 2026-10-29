@@ -5,6 +5,14 @@ import Image from "next/image";
 import { Lead, leadStatuses, LeadStatus } from "../../lib/leadTypes";
 import { PartnerApplication, PartnerStatus } from "../../lib/partnerStore";
 import { ESCAPES_PACKAGES } from "../../data/mockData";
+import {
+  PARTNER_PROFILES,
+  PARTNER_OFFERINGS,
+  ESCAPE_RECIPES,
+  calculateEscapeCostAndMargin,
+  SupplyCategory,
+  PartnerOffering,
+} from "../../data/partnerCatalog";
 
 type Tab = "dashboard" | "leads" | "escapes" | "partners" | "finance";
 
@@ -104,6 +112,10 @@ export default function AdminPage() {
   const [refreshing, setRefreshing] = useState(false);
   const [leadsError, setLeadsError] = useState("");
   const [now, setNow] = useState("");
+  const [partnerCategoryFilter, setPartnerCategoryFilter] = useState<string>("all");
+  const [selectedEscapeRecipe, setSelectedEscapeRecipe] = useState<string>("ESC-AGAFAY-VIP");
+  const [simPartySize, setSimPartySize] = useState<number>(2);
+  const [costOverrides, setCostOverrides] = useState<Record<string, number>>({});
 
   useEffect(() => {
     setNow(new Date().toLocaleDateString("en-GB", { weekday: "long", year: "numeric", month: "long", day: "numeric" }));
@@ -380,39 +392,323 @@ export default function AdminPage() {
             </>
           )}
 
-          {/* PARTNERS TAB */}
-          {tab === "partners" && (
-            <>
-              {applications.length === 0
-                ? <div style={emptyState}><p style={{ fontSize: 36, marginBottom: 12 }}>🤝</p><p>No partner applications yet.</p></div>
-                : applications.map(app => (
-                  <div key={app.id} style={{ ...card, borderColor: app.status === "approved" ? "#10b98144" : app.status === "rejected" ? "#ef444444" : "#1e2e28" }}>
-                    <div style={{ display: "flex", flexWrap: "wrap", gap: 20, justifyContent: "space-between" }}>
-                      <div style={{ flex: 1, minWidth: 0 }}>
-                        <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 4 }}>
-                          <p style={{ ...cardId, margin: 0 }}>{app.id}</p>
-                          <span style={pillStyle(app.status === "approved" ? "#10b981" : app.status === "rejected" ? "#ef4444" : "#f59e0b")}>{partnerStatusLabels[app.status]}</span>
-                        </div>
-                        <p style={cardTitle}>{app.businessName}</p>
-                        <p style={cardSub}>{app.category} · {app.location}</p>
-                        <p style={cardMsg}>{app.description}</p>
-                        <p style={{ fontSize: 12, color: "#6b8c7e", margin: 0 }}>👤 {app.contactName} · {app.email} · {app.whatsapp}</p>
+          {/* PARTNERS TAB: SUPPLY-SIDE CATALOG & PRICING ENGINE FOUNDATION */}
+          {tab === "partners" && (() => {
+            const liveBreakdown = calculateEscapeCostAndMargin(selectedEscapeRecipe, simPartySize, costOverrides);
+            const filteredOfferings = partnerCategoryFilter === "all"
+              ? PARTNER_OFFERINGS
+              : PARTNER_OFFERINGS.filter(o => o.category === partnerCategoryFilter);
+
+            const categories = [
+              { id: "all", label: "All Offerings", icon: "✨" },
+              { id: "accommodation", label: "Accommodation", icon: "🏨" },
+              { id: "transport", label: "Transport", icon: "🚐" },
+              { id: "activities", label: "Activities", icon: "🏜️" },
+              { id: "food", label: "Food & Dining", icon: "🍲" },
+              { id: "guides", label: "Guides & Specialists", icon: "🧗" },
+              { id: "journey_support", label: "Journey Support", icon: "🛎️" },
+            ];
+
+            return (
+              <div style={{ display: "grid", gap: 24 }}>
+                {/* Header Banner */}
+                <div style={{ background: "linear-gradient(135deg, #0d2239 0%, #16375A 100%)", border: "1px solid rgba(196,162,88,0.3)", borderRadius: 16, padding: "24px 28px" }}>
+                  <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "center", gap: 16 }}>
+                    <div>
+                      <span style={{ fontSize: 10, fontWeight: 800, textTransform: "uppercase", letterSpacing: 2, color: "#C4A258" }}>
+                        Partner Catalog v1 · Supply-Side Architecture
+                      </span>
+                      <h3 style={{ margin: "6px 0 4px", fontSize: 22, color: "#f6f2ec", fontWeight: 800 }}>
+                        🤝 What Partners Can Supply → Escape & Journey Pricing
+                      </h3>
+                      <p style={{ margin: 0, fontSize: 13, color: "rgba(246,242,236,0.7)", maxWidth: 720, lineHeight: 1.5 }}>
+                        Rather than static contacts, every partner is modeled as granular supply units: <strong>Partner → Offerings → Net Cost → SafarAtlas Price → Availability → Seasonality → Booking SLA</strong>. Changing a partner cost automatically recalculates Escape margins.
+                      </p>
+                    </div>
+                    <div style={{ display: "flex", gap: 12 }}>
+                      <div style={{ background: "rgba(5,19,36,0.6)", padding: "10px 16px", borderRadius: 10, border: "1px solid rgba(255,255,255,0.1)", textAlign: "center" }}>
+                        <p style={{ margin: 0, fontSize: 10, color: "#C4A258", fontWeight: 700 }}>VETTED PARTNERS</p>
+                        <p style={{ margin: 0, fontSize: 20, color: "#f6f2ec", fontWeight: 900 }}>{PARTNER_PROFILES.length}</p>
                       </div>
-                      <div style={{ display: "grid", gap: 8, minWidth: 200 }}>
-                        <select value={app.status} onChange={e => updateApp(app, { status: e.target.value as PartnerStatus })} style={selectStyle}>
-                          {(["pending", "approved", "rejected", "suspended"] as PartnerStatus[]).map(s => <option key={s} value={s}>{partnerStatusLabels[s]}</option>)}
-                        </select>
-                        <textarea placeholder="Admin notes…" value={app.adminNotes} rows={3}
-                          onChange={e => updateApp(app, { adminNotes: e.target.value })}
-                          style={{ ...inputStyle, resize: "vertical" }} />
-                        <p style={{ fontSize: 10, color: "#3d5a50", margin: 0 }}>Applied {new Date(app.createdAt).toLocaleDateString()}</p>
+                      <div style={{ background: "rgba(5,19,36,0.6)", padding: "10px 16px", borderRadius: 10, border: "1px solid rgba(255,255,255,0.1)", textAlign: "center" }}>
+                        <p style={{ margin: 0, fontSize: 10, color: "#25D366", fontWeight: 700 }}>SUPPLY OFFERINGS</p>
+                        <p style={{ margin: 0, fontSize: 20, color: "#f6f2ec", fontWeight: 900 }}>{PARTNER_OFFERINGS.length}</p>
                       </div>
                     </div>
                   </div>
-                ))
-              }
-            </>
-          )}
+                </div>
+
+                {/* DYNAMIC PRICING ENGINE SIMULATOR */}
+                <div style={{ background: "#091c30", border: "1px solid rgba(196,162,88,0.25)", borderRadius: 16, padding: "22px 24px" }}>
+                  <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "flex-start", gap: 16, marginBottom: 18 }}>
+                    <div>
+                      <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 4 }}>
+                        <span style={{ fontSize: 14 }}>⚡</span>
+                        <h4 style={{ margin: 0, fontSize: 16, color: "#C4A258", fontWeight: 800 }}>Dynamic Escape Pricing Recalculation Engine</h4>
+                      </div>
+                      <p style={{ margin: 0, fontSize: 12, color: "rgba(246,242,236,0.65)" }}>
+                        Simulate what happens when a partner raises or lowers their wholesale rate. Watch internal net costs and margins recalculate live.
+                      </p>
+                    </div>
+
+                    <div style={{ display: "flex", gap: 12, alignItems: "center" }}>
+                      <div>
+                        <label style={{ fontSize: 10, color: "rgba(246,242,236,0.6)", display: "block", marginBottom: 4, fontWeight: 700 }}>SELECT ESCAPE SKU</label>
+                        <select
+                          value={selectedEscapeRecipe}
+                          onChange={(e) => setSelectedEscapeRecipe(e.target.value)}
+                          style={{ ...selectStyle, width: 220 }}
+                        >
+                          {ESCAPE_RECIPES.map(r => (
+                            <option key={r.escapeSku} value={r.escapeSku}>{r.title}</option>
+                          ))}
+                        </select>
+                      </div>
+                      <div>
+                        <label style={{ fontSize: 10, color: "rgba(246,242,236,0.6)", display: "block", marginBottom: 4, fontWeight: 700 }}>PARTY SIZE</label>
+                        <select
+                          value={simPartySize}
+                          onChange={(e) => setSimPartySize(Number(e.target.value))}
+                          style={{ ...selectStyle, width: 90 }}
+                        >
+                          {[1, 2, 4, 6].map(n => (
+                            <option key={n} value={n}>{n} pax</option>
+                          ))}
+                        </select>
+                      </div>
+                      {Object.keys(costOverrides).length > 0 && (
+                        <button
+                          onClick={() => setCostOverrides({})}
+                          style={{ padding: "8px 12px", background: "rgba(239,68,68,0.2)", border: "1px solid #ef444466", color: "#f87171", borderRadius: 8, fontSize: 11, fontWeight: 700, cursor: "pointer", marginTop: 18 }}
+                        >
+                          Reset Costs
+                        </button>
+                      )}
+                    </div>
+                  </div>
+
+                  {liveBreakdown && (
+                    <div>
+                      {/* Metric Ribbon */}
+                      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))", gap: 12, marginBottom: 18 }}>
+                        <div style={{ background: "#051324", padding: "12px 14px", borderRadius: 10, border: "1px solid rgba(255,255,255,0.06)" }}>
+                          <p style={{ margin: 0, fontSize: 9, color: "rgba(246,242,236,0.5)", fontWeight: 700, textTransform: "uppercase" }}>Retail Selling Price</p>
+                          <p style={{ margin: "4px 0 0", fontSize: 18, color: "#f6f2ec", fontWeight: 800 }}>€{liveBreakdown.retailPricePerPersonEur} <span style={{ fontSize: 10, color: "rgba(246,242,236,0.4)" }}>/ pax</span></p>
+                          <p style={{ margin: 0, fontSize: 10, color: "#C4A258" }}>Total: €{liveBreakdown.retailPriceTotalEur}</p>
+                        </div>
+                        <div style={{ background: "#051324", padding: "12px 14px", borderRadius: 10, border: "1px solid rgba(255,255,255,0.06)" }}>
+                          <p style={{ margin: 0, fontSize: 9, color: "rgba(246,242,236,0.5)", fontWeight: 700, textTransform: "uppercase" }}>Net Supplier Cost</p>
+                          <p style={{ margin: "4px 0 0", fontSize: 18, color: "#38bdf8", fontWeight: 800 }}>€{liveBreakdown.netCostPerPersonEur} <span style={{ fontSize: 10, color: "rgba(246,242,236,0.4)" }}>/ pax</span></p>
+                          <p style={{ margin: 0, fontSize: 10, color: "rgba(246,242,236,0.5)" }}>MAD {liveBreakdown.netCostTotalMad}</p>
+                        </div>
+                        <div style={{ background: "#051324", padding: "12px 14px", borderRadius: 10, border: `1px solid ${liveBreakdown.isMarginHealthy ? "rgba(37,211,102,0.3)" : "rgba(239,68,68,0.3)"}` }}>
+                          <p style={{ margin: 0, fontSize: 9, color: "rgba(246,242,236,0.5)", fontWeight: 700, textTransform: "uppercase" }}>SafarAtlas Margin</p>
+                          <p style={{ margin: "4px 0 0", fontSize: 18, color: liveBreakdown.isMarginHealthy ? "#4ade80" : "#f87171", fontWeight: 800 }}>
+                            +{liveBreakdown.marginPct}%
+                          </p>
+                          <p style={{ margin: 0, fontSize: 10, color: liveBreakdown.isMarginHealthy ? "#4ade80" : "#f87171" }}>+€{liveBreakdown.grossMarginEur} profit</p>
+                        </div>
+                        <div style={{ background: "#051324", padding: "12px 14px", borderRadius: 10, border: "1px solid rgba(255,255,255,0.06)", display: "flex", flexDirection: "column", justifyContent: "center" }}>
+                          <p style={{ margin: 0, fontSize: 9, color: "rgba(246,242,236,0.5)", fontWeight: 700, textTransform: "uppercase" }}>Safeguard Status</p>
+                          <div style={{ marginTop: 4 }}>
+                            {liveBreakdown.isMarginHealthy ? (
+                              <span style={{ display: "inline-block", background: "#10b98122", color: "#10b981", border: "1px solid #10b98144", padding: "3px 8px", borderRadius: 6, fontSize: 11, fontWeight: 800 }}>
+                                Healthy (≥35%)
+                              </span>
+                            ) : (
+                              <span style={{ display: "inline-block", background: "#ef444422", color: "#f87171", border: "1px solid #ef444444", padding: "3px 8px", borderRadius: 6, fontSize: 11, fontWeight: 800 }}>
+                                ⚠️ Below 35% Alert
+                              </span>
+                            )}
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Offering Cost Breakdown Table with live inline edits */}
+                      <div style={{ overflowX: "auto" }}>
+                        <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 12, textAlign: "left" }}>
+                          <thead>
+                            <tr style={{ borderBottom: "1px solid rgba(255,255,255,0.1)", color: "#C4A258", fontSize: 10, textTransform: "uppercase" }}>
+                              <th style={{ padding: "8px 6px" }}>Offering Supply Item</th>
+                              <th style={{ padding: "8px 6px" }}>Partner Entity</th>
+                              <th style={{ padding: "8px 6px" }}>Unit Type</th>
+                              <th style={{ padding: "8px 6px" }}>Partner Wholesale Cost (MAD)</th>
+                              <th style={{ padding: "8px 6px" }}>EUR Equiv.</th>
+                              <th style={{ padding: "8px 6px" }}>Status</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {liveBreakdown.items.map((item) => (
+                              <tr key={item.offeringId} style={{ borderBottom: "1px solid rgba(255,255,255,0.04)" }}>
+                                <td style={{ padding: "10px 6px", color: "#f6f2ec", fontWeight: 600 }}>
+                                  <span style={{ fontFamily: "monospace", fontSize: 10, color: "#C4A258", marginRight: 6 }}>{item.offeringId}</span>
+                                  {item.title}
+                                </td>
+                                <td style={{ padding: "10px 6px", color: "rgba(246,242,236,0.6)" }}>{item.partnerName}</td>
+                                <td style={{ padding: "10px 6px", color: "rgba(246,242,236,0.5)" }}>{item.unit.replace("_", " ")}</td>
+                                <td style={{ padding: "10px 6px" }}>
+                                  <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
+                                    <input
+                                      type="number"
+                                      value={item.costMad}
+                                      onChange={(e) => {
+                                        const val = Number(e.target.value);
+                                        setCostOverrides(prev => ({ ...prev, [item.offeringId]: val }));
+                                      }}
+                                      style={{ ...inputStyle, width: 80, padding: "4px 8px", fontSize: 12, fontWeight: 700 }}
+                                    />
+                                    <span style={{ fontSize: 10, color: "rgba(246,242,236,0.4)" }}>MAD</span>
+                                  </div>
+                                </td>
+                                <td style={{ padding: "10px 6px", color: "#38bdf8", fontWeight: 700 }}>€{item.costEur}</td>
+                                <td style={{ padding: "10px 6px" }}>
+                                  {item.isOverridden ? (
+                                    <span style={{ background: "#f59e0b22", color: "#f59e0b", padding: "2px 6px", borderRadius: 4, fontSize: 10, fontWeight: 700 }}>Simulated</span>
+                                  ) : (
+                                    <span style={{ background: "rgba(255,255,255,0.05)", color: "rgba(246,242,236,0.4)", padding: "2px 6px", borderRadius: 4, fontSize: 10 }}>Standard</span>
+                                  )}
+                                </td>
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  )}
+                </div>
+
+                {/* CATEGORY SELECTOR */}
+                <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+                  {categories.map(cat => (
+                    <button
+                      key={cat.id}
+                      onClick={() => setPartnerCategoryFilter(cat.id)}
+                      style={{
+                        padding: "8px 16px",
+                        borderRadius: 20,
+                        border: partnerCategoryFilter === cat.id ? "1px solid #C4A258" : "1px solid rgba(255,255,255,0.1)",
+                        background: partnerCategoryFilter === cat.id ? "#0d2239" : "transparent",
+                        color: partnerCategoryFilter === cat.id ? "#C4A258" : "rgba(246,242,236,0.7)",
+                        fontSize: 12,
+                        fontWeight: partnerCategoryFilter === cat.id ? 800 : 500,
+                        cursor: "pointer",
+                        display: "flex",
+                        alignItems: "center",
+                        gap: 6,
+                        transition: "all 0.15s",
+                      }}
+                    >
+                      <span>{cat.icon}</span>
+                      <span>{cat.label}</span>
+                    </button>
+                  ))}
+                </div>
+
+                {/* MASTER OFFERINGS GRID */}
+                <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: 16 }}>
+                  {filteredOfferings.map(off => (
+                    <div key={off.offeringId} style={{ ...card, margin: 0, display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
+                      <div>
+                        {/* Top row */}
+                        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 8 }}>
+                          <span style={{ fontFamily: "monospace", fontSize: 10, color: "#C4A258", fontWeight: 700 }}>
+                            {off.offeringId}
+                          </span>
+                          <span style={{ fontSize: 10, background: "rgba(196,162,88,0.15)", color: "#C4A258", padding: "2px 8px", borderRadius: 12, fontWeight: 700 }}>
+                            {off.subCategory}
+                          </span>
+                        </div>
+
+                        {/* Title & Partner */}
+                        <h4 style={{ margin: "0 0 4px", fontSize: 15, color: "#f6f2ec", fontWeight: 700 }}>{off.title}</h4>
+                        <p style={{ margin: "0 0 10px", fontSize: 12, color: "#38bdf8", fontWeight: 600 }}>
+                          🏢 {off.partnerName} · <span style={{ color: "rgba(246,242,236,0.5)" }}>{off.location}</span>
+                        </p>
+
+                        {/* Deliverables list */}
+                        <ul style={{ margin: "0 0 14px", paddingLeft: 16, fontSize: 11, color: "rgba(246,242,236,0.75)", lineHeight: 1.5 }}>
+                          {off.deliverables.map((d, i) => (
+                            <li key={i}>{d}</li>
+                          ))}
+                        </ul>
+                      </div>
+
+                      <div>
+                        {/* Financial Box */}
+                        <div style={{ background: "#051324", borderRadius: 10, padding: "10px 12px", marginBottom: 12, border: "1px solid rgba(255,255,255,0.06)" }}>
+                          <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 4 }}>
+                            <span style={{ fontSize: 11, color: "rgba(246,242,236,0.5)" }}>Wholesale Cost:</span>
+                            <span style={{ fontSize: 11, color: "#f6f2ec", fontWeight: 700 }}>
+                              MAD {off.partnerCostMad} <span style={{ color: "rgba(246,242,236,0.4)" }}>(€{off.partnerCostEur})</span> / {off.costUnit.replace("_", " ")}
+                            </span>
+                          </div>
+                          <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 4 }}>
+                            <span style={{ fontSize: 11, color: "rgba(246,242,236,0.5)" }}>SafarAtlas Price:</span>
+                            <span style={{ fontSize: 11, color: "#C4A258", fontWeight: 700 }}>€{off.safarAtlasRetailEur}</span>
+                          </div>
+                          <div style={{ display: "flex", justifyContent: "space-between", paddingTop: 4, borderTop: "1px solid rgba(255,255,255,0.06)" }}>
+                            <span style={{ fontSize: 11, color: "rgba(246,242,236,0.5)" }}>Target Margin:</span>
+                            <span style={{ fontSize: 11, color: "#4ade80", fontWeight: 800 }}>+{off.targetMarginPct}%</span>
+                          </div>
+                        </div>
+
+                        {/* Operational Details */}
+                        <div style={{ fontSize: 10, color: "rgba(246,242,236,0.5)", lineHeight: 1.4 }}>
+                          <p style={{ margin: "0 0 3px" }}>🕒 <strong>Availability:</strong> {off.availability}</p>
+                          <p style={{ margin: "0 0 3px" }}>☀️ <strong>Seasonality:</strong> {off.seasonality}</p>
+                          <p style={{ margin: "0 0 3px" }}>📱 <strong>Booking:</strong> {off.bookingMethod} ({off.bookingSla})</p>
+                          <p style={{ margin: 0 }}>↩️ <strong>Cancel:</strong> {off.cancellationPolicy}</p>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* INBOUND PARTNER APPLICATIONS SECTION */}
+                <div style={{ marginTop: 24 }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 12 }}>
+                    <h4 style={{ margin: 0, fontSize: 16, color: "#f6f2ec", fontWeight: 800 }}>
+                      📬 Inbound Partner Applications ({applications.length})
+                    </h4>
+                    <span style={{ fontSize: 11, color: "rgba(246,242,236,0.4)" }}>Submitted via safaratlas.com/partners</span>
+                  </div>
+
+                  {applications.length === 0 ? (
+                    <div style={{ ...card, textAlign: "center", padding: "30px 20px", color: "rgba(246,242,236,0.4)" }}>
+                      <p style={{ fontSize: 24, margin: "0 0 8px" }}>🤝</p>
+                      <p style={{ margin: 0, fontSize: 13 }}>No pending web partner applications. Core catalog v1 pre-loaded above.</p>
+                    </div>
+                  ) : (
+                    applications.map(app => (
+                      <div key={app.id} style={{ ...card, borderColor: app.status === "approved" ? "#10b98144" : app.status === "rejected" ? "#ef444444" : "#1e2e28" }}>
+                        <div style={{ display: "flex", flexWrap: "wrap", gap: 20, justifyContent: "space-between" }}>
+                          <div style={{ flex: 1, minWidth: 0 }}>
+                            <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 4 }}>
+                              <p style={{ ...cardId, margin: 0 }}>{app.id}</p>
+                              <span style={pillStyle(app.status === "approved" ? "#10b981" : app.status === "rejected" ? "#ef4444" : "#f59e0b")}>{partnerStatusLabels[app.status]}</span>
+                            </div>
+                            <p style={cardTitle}>{app.businessName}</p>
+                            <p style={cardSub}>{app.category} · {app.location}</p>
+                            <p style={cardMsg}>{app.description}</p>
+                            <p style={{ fontSize: 12, color: "#6b8c7e", margin: 0 }}>👤 {app.contactName} · {app.email} · {app.whatsapp}</p>
+                          </div>
+                          <div style={{ display: "grid", gap: 8, minWidth: 200 }}>
+                            <select value={app.status} onChange={e => updateApp(app, { status: e.target.value as PartnerStatus })} style={selectStyle}>
+                              {(["pending", "approved", "rejected", "suspended"] as PartnerStatus[]).map(s => <option key={s} value={s}>{partnerStatusLabels[s]}</option>)}
+                            </select>
+                            <textarea placeholder="Admin notes…" value={app.adminNotes} rows={3}
+                              onChange={e => updateApp(app, { adminNotes: e.target.value })}
+                              style={{ ...inputStyle, resize: "vertical" }} />
+                            <p style={{ fontSize: 10, color: "#3d5a50", margin: 0 }}>Applied {new Date(app.createdAt).toLocaleDateString()}</p>
+                          </div>
+                        </div>
+                      </div>
+                    ))
+                  )}
+                </div>
+              </div>
+            );
+          })()}
           {/* ESCAPES CATALOG TAB */}
           {tab === "escapes" && (
             <div style={{ display: "grid", gap: 16 }}>

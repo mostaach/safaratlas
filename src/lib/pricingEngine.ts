@@ -1,4 +1,4 @@
-﻿/**
+/**
  * SafarAtlas Global Pricing Engine (Front-Office / Client Side)
  * 
  * CORE FORMULAS:
@@ -9,6 +9,20 @@
  */
 
 import { JourneyState, JourneyAccommodationSelection } from "./journeyTypes";
+export {
+  calculateEscapeCostAndMargin,
+  PARTNER_OFFERINGS,
+  PARTNER_PROFILES,
+  ESCAPE_RECIPES,
+} from "../data/partnerCatalog";
+export type {
+  PartnerOffering,
+  PartnerProfile,
+  EscapeSkuRecipe,
+  EscapeCostBreakdown,
+  SupplyCategory,
+  CostUnit,
+} from "../data/partnerCatalog";
 
 export interface JourneyPriceCalculation {
   totalPriceEur: number;

@@ -8,6 +8,7 @@ declare global {
   interface Window {
     dataLayer: any[];
     gtag?: (...args: any[]) => void;
+    fbq?: (...args: any[]) => void;
   }
 }
 
@@ -42,6 +43,9 @@ export const CookieConsent: React.FC = () => {
         ad_personalization: "granted",
       });
     }
+
+    // Notify consent-gated scripts (Meta Pixel) that they may now load.
+    window.dispatchEvent(new Event("safaratlas:consent"));
 
     setVisible(false);
   };

@@ -3,6 +3,7 @@ import { Playfair_Display, Outfit } from "next/font/google";
 import "./globals.css";
 import Script from "next/script";
 import { CookieConsent } from "../components/ui/CookieConsent";
+import { MetaPixel } from "../components/analytics/MetaPixel";
 import { JourneyDrawer } from "../components/travel/JourneyDrawer";
 import { CurrencyProvider } from "../context/CurrencyContext";
 
@@ -68,6 +69,7 @@ export const metadata: Metadata = {
 };
 
 const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "G-RLJL1P7M43";
+const META_PIXEL_ID = process.env.NEXT_PUBLIC_META_PIXEL_ID || "";
 
 export default function RootLayout({
   children,
@@ -81,14 +83,6 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <head>
-        {/* LCP Image Preload */}
-        <link
-          rel="preload"
-          as="image"
-          type="image/webp"
-          href="/agafay_rocky_desert_hero.webp"
-          fetchPriority="high"
-        />
         <link rel="preconnect" href="https://www.googletagmanager.com" crossOrigin="anonymous" />
         {/* Google tag (gtag.js) */}
         <Script
@@ -123,7 +117,8 @@ export default function RootLayout({
             `,
           }}
         />
-        {/* Schema.org Organization, TravelAgency, and WebSite JSON-LD */}
+        {/* Meta Pixel (Facebook) — mounts only after explicit consent */}
+        <MetaPixel pixelId={META_PIXEL_ID} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

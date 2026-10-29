@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { BlogPost } from "../../data/blogData";
+import { formatDate } from "../../lib/formatDate";
 
 const ALL = "All";
 
@@ -114,7 +115,7 @@ export default function BlogGrid({ posts }: Props) {
                     className="w-6 h-6 rounded-full object-cover border border-white/20"
                   />
                   <span className="text-xs text-[#f6f2ec]/50 font-semibold">
-                    {featured.author.name} · {featured.publishedAt} · {featured.readTime}
+                    {featured.author.name} · {formatDate(featured.publishedAt)} · {featured.readTime}
                   </span>
                 </div>
               </div>

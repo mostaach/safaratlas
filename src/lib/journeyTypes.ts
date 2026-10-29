@@ -1,4 +1,4 @@
-﻿/**
+/**
  * SafarAtlas Product & Pricing System Data Models
  * 
  * CORE ARCHITECTURE:
@@ -60,7 +60,7 @@ export interface EscapeModel {
   hasAccommodation: false;
   
   // Public Retail Pricing
-  anchorPriceEur: number; // e.g. 95 (based on standard benchmark)
+  anchorPriceEur: number; // e.g. 119 (Agafay core package benchmark)
   
   // Visuals & Marketing
   image: string;

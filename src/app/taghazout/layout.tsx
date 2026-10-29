@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Script from "next/script";
 
 export const metadata: Metadata = {
   title: "Taghazout Surf Camp Alternative | 3-Day Surf & Wellness Escape",
@@ -41,8 +40,7 @@ export default function TaghazoutLayout({
 }) {
   return (
     <>
-      <Script
-        id="schema-taghazout-escape"
+      <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
@@ -85,7 +83,7 @@ export default function TaghazoutLayout({
             ]
           }),
         }}
-      />
+      ></script>
       {children}
     </>
   );
