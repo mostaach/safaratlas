@@ -51,6 +51,18 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        // www must resolve to one canonical host. Without this, both hosts
+        // serve the same page and Google sees a duplicate of every URL.
+        source: "/:path*",
+        has: [{ type: "host", value: "www.safaratlas.com" }],
+        destination: "https://safaratlas.com/:path*",
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {

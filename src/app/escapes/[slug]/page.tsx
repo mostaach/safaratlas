@@ -1,6 +1,7 @@
 import React from "react";
 import { notFound, redirect } from "next/navigation";
 import type { Metadata } from "next";
+import { clampDescription } from "../../../lib/seo";
 import Link from "next/link";
 import Image from "next/image";
 import Script from "next/script";
@@ -23,12 +24,12 @@ const ESCAPE_SEO_OVERRIDES: Record<string, { title: string; description: string 
   "atlas-mountains-escape": {
     title: "High Atlas Mountains Tour from Marrakech | SafarAtlas",
     description:
-      "Book a managed 2-day High Atlas Mountains tour from Marrakech with Imlil village trekking, Amazigh hospitality, mountain lodge stay, and private transfers.",
+      "A managed 2-day High Atlas tour from Marrakech: Imlil village trekking, Amazigh hospitality, a mountain lodge night and private transfers.",
   },
   "ourika-3-valleys-experience": {
     title: "Ourika Valley Day Trip from Marrakech | SafarAtlas",
     description:
-      "Plan a private Ourika Valley day trip from Marrakech with 3 Valleys viewpoints, Setti Fatma waterfall hike, Amazigh tea, riverside lunch, and return transfer.",
+      "A private Ourika Valley day trip from Marrakech: 3 Valleys viewpoints, Setti Fatma waterfall hike, Amazigh tea and riverside lunch.",
   },
 };
 
@@ -90,7 +91,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     : `https://safaratlas.com${escapePkg.image}`;
   const seo = ESCAPE_SEO_OVERRIDES[escapePkg.slug];
   const title = seo?.title || `${escapePkg.title} | SafarAtlas Managed Morocco Journeys`;
-  const description = seo?.description || escapePkg.fullDescription || escapePkg.summary;
+  const description = clampDescription(
+    seo?.description || escapePkg.fullDescription || escapePkg.summary,
+  );
 
   return {
     title,

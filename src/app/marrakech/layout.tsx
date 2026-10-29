@@ -1,16 +1,16 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Things to Do in Marrakech | Plan Your Morocco Journey | SafarAtlas",
+  title: "Things to Do in Marrakech | SafarAtlas",
   description:
-    "Build your perfect Marrakech trip day-by-day. Choose from curated escapes — Agafay Desert, Sahara Expedition, Atlas Mountains, Ouzoud Waterfalls — and let SafarAtlas coordinate private transport, local guides, and concierge support.",
+    "Build your Marrakech trip day by day: Agafay Desert, Sahara, Atlas Mountains and Ouzoud escapes, with private transport and local guides.",
   alternates: {
     canonical: "https://safaratlas.com/marrakech",
   },
   openGraph: {
-    title: "Marrakech Journey Builder — Curated Private Escapes | SafarAtlas",
+    title: "Marrakech Journey Builder | SafarAtlas",
     description:
-      "Plan your stay in Marrakech and assemble curated day trips to Agafay Desert, Sahara, Atlas Mountains, and more. SafarAtlas handles every private transfer and local guide.",
+      "Plan your Marrakech stay and assemble curated day trips to Agafay, the Sahara and the Atlas Mountains. SafarAtlas handles transfers and guides.",
     url: "https://safaratlas.com/marrakech",
     siteName: "SafarAtlas",
     images: [

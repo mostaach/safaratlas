@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { BLOG_POSTS } from "../../../data/blogData";
 import { formatDate } from "../../../lib/formatDate";
+import { BLOG_SEO } from "../../../lib/seo";
 import { ESCAPES_PACKAGES } from "../../../data/mockData";
 import { Header } from "../../../components/brand/Header";
 import ArticleActions from "./ArticleActions";
@@ -26,16 +27,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const ogImage = post.coverImage.startsWith("http")
     ? post.coverImage
     : `https://safaratlas.com${post.coverImage}`;
+  const seo = BLOG_SEO[post.slug];
+  // Keep the editorial headline on-page, but ship a search-length title.
+  const metaTitle = seo?.title ?? post.title;
+  const metaDescription = seo?.description ?? post.summary;
 
   return {
-    title: `${post.title} | SafarAtlas Journal`,
-    description: post.summary,
+    title: metaTitle,
+    description: metaDescription,
     alternates: {
       canonical: url,
     },
     openGraph: {
-      title: `${post.title} | SafarAtlas Journal`,
-      description: post.summary,
+      title: metaTitle,
+      description: metaDescription,
       url,
       siteName: "SafarAtlas",
       type: "article",
@@ -53,8 +58,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
     twitter: {
       card: "summary_large_image",
-      title: post.title,
-      description: post.summary,
+      title: metaTitle,
+      description: metaDescription,
       images: [ogImage],
     },
   };

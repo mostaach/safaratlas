@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "SafarAtlas Journal | Morocco Travel Guides & Insider Escapes",
   description:
-    "Expert Morocco travel guides from local scouts — choosing the right desert, planning a 7-day managed journey, surf and coastal escapes, packing tips, and more.",
+    "Expert Morocco travel guides from local scouts: choosing the right desert, planning a 7-day journey, surf escapes and packing tips.",
   alternates: {
     canonical: "https://safaratlas.com/blog",
   },

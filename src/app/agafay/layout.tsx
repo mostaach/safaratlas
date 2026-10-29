@@ -1,16 +1,16 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Agafay Desert Sunset, Quad & Dinner Tour from Marrakech | SafarAtlas",
+  title: "Agafay Desert Sunset & Dinner from Marrakech",
   description:
-    "Curated Agafay Desert evening from €119: private transfer, mint tea, a 3-course Berber campfire dinner and live Gnawa fire show. Signature all-inclusive from €179 adds the quad safari and camel trek. WhatsApp booking.",
+    "Agafay desert evening from €119: private transfer, mint tea, a 3-course campfire dinner and a live Gnawa fire show. Signature from €179.",
   alternates: {
     canonical: "https://safaratlas.com/agafay",
   },
   openGraph: {
-    title: "Agafay Desert Experience — Sunset Quad, Camel & Campfire Dinner | SafarAtlas",
+    title: "Agafay Desert Experience from €119 | SafarAtlas",
     description:
-      "Private evening 40 minutes from Marrakech from €119: hotel pickup, candlelit tagine feast, and live Gnawa music. Signature from €179 adds 1h quad biking and a sunset camel ride.",
+      "Private evening 40 minutes from Marrakech from €119: pickup, candlelit tagine feast and Gnawa music. Signature from €179 adds quad and camel.",
     url: "https://safaratlas.com/agafay",
     siteName: "SafarAtlas",
     images: [
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Agafay Desert Sunset & Candlelit Dining | SafarAtlas",
     description:
-      "Private desert evening 40m from Marrakech from €119: roundtrip transfer, 3-course feast & fire show. Signature from €179 adds quad biking & camel ride. Pay on arrival.",
+      "Agafay evening from €119: roundtrip transfer, 3-course feast and fire show. Signature from €179 adds quad biking and a camel ride.",
     images: ["https://safaratlas.com/escapes/agafay-sunset-dinner.webp"],
   },
 };

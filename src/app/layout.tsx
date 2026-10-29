@@ -23,7 +23,7 @@ const sansFont = Outfit({
 export const metadata: Metadata = {
   metadataBase: new URL("https://safaratlas.com"),
   title: "SafarAtlas | Managed Morocco Journeys & Escapes",
-  description: "Private managed escapes across Morocco — from Agafay desert dinners and Sahara 3-day expeditions to High Atlas treks and Taghazout surf resets. One message. Everything handled.",
+  description: "Private managed escapes across Morocco: Agafay desert dinners, Sahara expeditions, High Atlas treks and Taghazout surf escapes. One message, all handled.",
   alternates: {
     canonical: "https://safaratlas.com",
     languages: {
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "SafarAtlas | Managed Morocco Journeys & Escapes",
-    description: "Private managed escapes across Morocco — from Agafay desert dinners and Sahara 3-day expeditions to High Atlas treks and Taghazout surf resets. One message. Everything handled.",
+    description: "Private managed escapes across Morocco: Agafay desert dinners, Sahara expeditions, High Atlas treks and Taghazout surf escapes. One message, all handled.",
     url: "https://safaratlas.com",
     siteName: "SafarAtlas",
     images: [
@@ -63,7 +63,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "SafarAtlas | Managed Morocco Journeys & Escapes",
-    description: "Private managed escapes across Morocco — from Agafay desert dinners and Sahara 3-day expeditions to High Atlas treks and Taghazout surf resets. One message. Everything handled.",
+    description: "Private managed escapes across Morocco: Agafay desert dinners, Sahara expeditions, High Atlas treks and Taghazout surf escapes. One message, all handled.",
     images: ["https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1200&q=80"],
   },
 };

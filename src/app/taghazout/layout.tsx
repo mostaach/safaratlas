@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Taghazout Surf Camp Alternative | 3-Day Surf & Wellness Escape",
+  title: "Taghazout Surf & Wellness Escape | SafarAtlas",
   description:
     "Private 3-day Taghazout surf and wellness escape with ocean-view stay, Agadir transfer, surf coaching or yoga, and direct WhatsApp booking.",
   alternates: {
