@@ -90,7 +90,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     ? escapePkg.image
     : `https://safaratlas.com${escapePkg.image}`;
   const seo = ESCAPE_SEO_OVERRIDES[escapePkg.slug];
-  const title = seo?.title || `${escapePkg.title} | SafarAtlas Managed Morocco Journeys`;
+  const brandedTitle = seo?.title || `${escapePkg.title} | SafarAtlas`;
+  // Never ship a title that search engines will truncate.
+  const title = brandedTitle.length > 60 ? seo?.title || escapePkg.title : brandedTitle;
   const description = clampDescription(
     seo?.description || escapePkg.fullDescription || escapePkg.summary,
   );
