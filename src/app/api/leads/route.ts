@@ -52,7 +52,9 @@ export async function POST(request: NextRequest) {
   // 1. Try to persist. A failure here is loud, never silent.
   let stored = false;
   try {
-    await addLead({ ...input, status: "new", source: leadSource, bookingValue: null, commissionRate: null, expectedMargin: null, reconciliationStatus: "not_applicable" });
+    const storedLead = await addLead({ ...input, status: "new", source: leadSource, bookingValue: null, commissionRate: null, expectedMargin: null, reconciliationStatus: "not_applicable" });
+    // Keep the email notification and the response in sync with the persisted row's ID.
+    lead.id = storedLead.id;
     stored = true;
   } catch (dbError) {
     console.error("[POST /api/leads] Supabase insert failed — falling back to email delivery only:", dbError);
