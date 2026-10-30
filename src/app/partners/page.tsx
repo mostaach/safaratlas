@@ -83,7 +83,7 @@ export default function PartnersPage() {
             SafarAtlas Partner Program
           </p>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-black text-[#f6f2ec] leading-tight">
-            Grow your Marrakech<br />travel business with us
+            Grow your Marrakech <br />travel business with us
           </h1>
           <p className="text-base text-[#f6f2ec]/70 max-w-lg mx-auto leading-relaxed">
             Join our curated pilot of riads, guides, transfer operators, and experience providers serving international travelers.

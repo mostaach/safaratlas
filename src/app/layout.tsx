@@ -173,7 +173,7 @@ export default function RootLayout({
                   "contactPoint": {
                     "@type": "ContactPoint",
                     "contactType": "reservations & concierge support",
-                    "email": "contactsafaratlas@gmail.com",
+                    "email": "bookings@safaratlas.com",
                     "telephone": "+212698017323",
                     "availableLanguage": ["English", "French", "Arabic"]
                   }

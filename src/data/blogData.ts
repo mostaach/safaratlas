@@ -31,7 +31,7 @@ export const BLOG_POSTS: BlogPost[] = [
     },
     publishedAt: "2026-08-15",
     readTime: "5 min read",
-    coverImage: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?auto=format&fit=crop&w=1200&q=80",
+    coverImage: "/blog/1509316975850-ff9c5deb0cd9.jpg",
     summary: "Deciding between the rocky desert hills of Agafay (30 mins from Marrakech) and the towering golden dunes of Erg Chebbi Merzouga (9-hour drive). Here is how to choose the right one for your itinerary.",
     recommendedEscapeSlug: "agafay-escape-1d",
     contentMarkdown: `
@@ -86,7 +86,7 @@ Merzouga features **Erg Chebbi**, a massive sea of golden sand dunes rising up t
     },
     publishedAt: "2026-08-12",
     readTime: "10 min read",
-    coverImage: "https://images.unsplash.com/photo-1489493585363-d69421e0edd3?auto=format&fit=crop&w=1200&q=80",
+    coverImage: "/blog/1489493585363-d69421e0edd3.jpg",
     summary: "Plan a realistic 7-day Morocco itinerary from Marrakech through the Sahara and Atlantic coast, with route variants, drive-time tradeoffs, and managed SafarAtlas escape modules.",
     recommendedEscapeSlug: "sahara-escape-3d",
     contentMarkdown: `
@@ -234,7 +234,7 @@ If you want the classic route, start with Marrakech, Sahara, and Taghazout. If y
     },
     publishedAt: "2026-08-08",
     readTime: "4 min read",
-    coverImage: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1200&q=80",
+    coverImage: "/blog/1544551763-46a013bb70d5.jpg",
     summary: "Taghazout has transformed from a sleepy Berber fishing village into Morocco's vibrant capital of surf, rooftop shalas, and ocean sunset dinners.",
     recommendedEscapeSlug: "taghazout-surf-escape",
     contentMarkdown: `
@@ -270,7 +270,7 @@ With our **3-Day Taghazout Surf Escape**, you get private transfers, ISA-certifi
     },
     publishedAt: "2026-08-19",
     readTime: "6 min read",
-    coverImage: "https://images.unsplash.com/photo-1539650116574-75c0c6d73f6e?auto=format&fit=crop&w=1200&q=80",
+    coverImage: "/destinations/marrakech.jpg",
     summary: "Choosing a riad in Marrakech's medina is one of the most important decisions in your Morocco trip. Here is how our local team evaluates riads — and what the booking platforms won't tell you.",
     recommendedEscapeSlug: "agafay-escape-1d",
     contentMarkdown: `
@@ -331,7 +331,7 @@ When we build a Marrakech stay into your managed itinerary, we match the riad to
     },
     publishedAt: "2026-08-19",
     readTime: "8 min read",
-    coverImage: "https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1200&q=80",
+    coverImage: "/blog/1548013146-72479768bada.jpg",
     summary: "October is perfect for the Sahara but sweltering in Marrakech. July is ideal for Essaouira but brutal in Fes. Here is the real month-by-month breakdown for planning your Morocco trip.",
     contentMarkdown: `
 # When is the Best Time to Visit Morocco?
@@ -401,7 +401,7 @@ If you are planning a 7-day managed Morocco journey and you have flexibility on 
     },
     publishedAt: "2026-08-19",
     readTime: "7 min read",
-    coverImage: "https://images.unsplash.com/photo-1553179459-4514c0f52f10?auto=format&fit=crop&w=1200&q=80",
+    coverImage: "/escapes/sahara-3d.jpg",
     summary: "Morocco is one of the world's most romantic travel destinations — if you know which experiences to prioritise. Our guide covers the exact itinerary framework we build for couples and honeymooners.",
     recommendedEscapeSlug: "sahara-escape-3d",
     contentMarkdown: `
@@ -474,7 +474,7 @@ When we manage a couple's Morocco itinerary, everything is pre-arranged:
     },
     publishedAt: "2026-08-30",
     readTime: "6 min read",
-    coverImage: "https://images.unsplash.com/photo-1539650116574-75c0c6d73f6e?auto=format&fit=crop&w=1200&q=80",
+    coverImage: "/destinations/marrakech.jpg",
     summary: "From sunset mint tea over the Medina to a private Agafay desert evening just 45 minutes away, discover the top 7 experiences in Marrakech recommended by local experts.",
     recommendedEscapeSlug: "agafay-vip",
     contentMarkdown: `
@@ -543,7 +543,7 @@ Want to experience Marrakech without the stress of haggling or coordinating tran
     },
     publishedAt: "2026-09-01",
     readTime: "5 min read",
-    coverImage: "https://images.unsplash.com/photo-1464852045489-bccb7d17fe39?auto=format&fit=crop&w=1200&q=80",
+    coverImage: "/blog/1464852045489-bccb7d17fe39.jpg",
     summary: "Most visitors arrive at Agafay for sunset and leave by 9 PM. Those who stay discover something completely different: a sky so dense with stars it looks fake, total silence broken only by Berber drums, and a canvas tent warmer than any hotel room.",
     recommendedEscapeSlug: "agafay-vip",
     contentMarkdown: `
@@ -627,7 +627,7 @@ We arrange private Agafay overnights with transfers, private tents, and full boa
     },
     publishedAt: "2026-09-05",
     readTime: "7 min read",
-    coverImage: "https://images.unsplash.com/photo-1553361371-9b22f78e8b1d?auto=format&fit=crop&w=1200&q=80",
+    coverImage: "/blog/1553361371-9b22f78e8b1d.jpg",
     summary: "The single most Googled pre-Morocco question: what should I pack? The answer depends entirely on where you're going, when you're going, and how you want to travel. This is the list we send every SafarAtlas traveler before departure.",
     contentMarkdown: `
 # The Complete Morocco Packing List
@@ -720,7 +720,7 @@ Every traveler we manage receives a personalised packing list based on their spe
     },
     publishedAt: "2026-09-08",
     readTime: "5 min read",
-    coverImage: "https://images.unsplash.com/photo-1493558103817-58b2924bce98?auto=format&fit=crop&w=1200&q=80",
+    coverImage: "/blog/1493558103817-58b2924bce98.jpg",
     summary: "Essaouira is a windswept UNESCO medina of blue-and-white walls and rampart sunsets. Taghazout is a surf village of rooftop shalas and point breaks. Both are on Morocco's Atlantic coast. Neither is better — they're completely different. Here's how to choose.",
     recommendedEscapeSlug: "taghazout-surf-escape",
     contentMarkdown: `

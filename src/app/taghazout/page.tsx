@@ -203,11 +203,11 @@ export default function TaghazoutPage() {
               </div>
               
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-black text-white leading-tight drop-shadow-md">
-                Taghazout Surf &amp; Wellness Escape <br />
-                <span className="text-[#C4A258] text-2xl sm:text-3xl lg:text-4xl font-normal block mt-2">
-                  Escape for 3 days. Come back reset.
-                </span>
+                Taghazout Surf &amp; Wellness Escape
               </h1>
+              <p className="text-[#C4A258] text-2xl sm:text-3xl lg:text-4xl font-serif font-normal leading-snug drop-shadow-md">
+                Escape for 3 days. Come back reset.
+              </p>
               
               <p className="text-sm sm:text-base text-[#f6f2ec]/90 max-w-xl leading-relaxed drop-shadow">
                 Stay right by the ocean in Taghazout. Choose a slower restorative pause or an active coastal rhythm — no surf camp pressure, no crowded dorms, no fixed group routine.

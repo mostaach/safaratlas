@@ -135,7 +135,7 @@ export default function MarrakechPage() {
           </div>
 
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif font-medium leading-tight text-[#f6f2ec]">
-            Build Your Marrakech<br />
+            Build Your Marrakech <br />
             <span className="italic text-[#C4A258]">Journey</span>
           </h1>
 

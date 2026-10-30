@@ -35,10 +35,10 @@ export const Footer: React.FC = () => {
               <p>
                 Email:{" "}
                 <a
-                  href="mailto:contactsafaratlas@gmail.com"
+                  href="mailto:bookings@safaratlas.com"
                   className="text-[#C4A258] hover:text-[#d8bb78] transition-colors"
                 >
-                  contactsafaratlas@gmail.com
+                  bookings@safaratlas.com
                 </a>
               </p>
             </div>

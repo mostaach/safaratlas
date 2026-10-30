@@ -103,8 +103,9 @@ export default function EditorialGrandCta() {
               <p className="text-xs sm:text-sm font-light leading-relaxed text-[#f6f2ec]/60 max-w-sm">
                 Morocco&apos;s premier boutique tour operator. We design, coordinate, and orchestrate private journeys, scenic desert camps, and high-mountain retreats with vetted local partners.
               </p>
-              <div className="pt-1 flex items-center gap-4 text-xs font-mono text-[#C4A258]/80">
+              <div className="pt-1 flex flex-wrap items-center gap-x-4 gap-y-1.5 text-xs font-mono text-[#C4A258]/80">
                 <span>Direct WhatsApp: +212 698 017 323</span>
+                <span>Email: <a href="mailto:bookings@safaratlas.com" className="hover:text-[#d8bb78] transition-colors">bookings@safaratlas.com</a></span>
               </div>
             </div>
 

@@ -42,7 +42,7 @@ export default function TermsOfService() {
               <p>You agree to submit only genuine inquiries with accurate contact information. Spamming, scraping, or misusing the platform will result in an immediate ban.</p>
               
               <h3 className="text-xl font-bold text-[#f6f2ec] pt-4">Contact</h3>
-              <p>For questions about these terms, please contact us directly at <a href="mailto:contactsafaratlas@gmail.com" className="text-[#C4A258] underline">contactsafaratlas@gmail.com</a>.</p>
+              <p>For questions about these terms, please contact us directly at <a href="mailto:bookings@safaratlas.com" className="text-[#C4A258] underline">bookings@safaratlas.com</a>.</p>
             </div>
           </SlideUp>
         </div>

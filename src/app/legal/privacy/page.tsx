@@ -53,7 +53,7 @@ export default function PrivacyPolicy() {
               
               <h3 className="text-xl font-bold text-[#f6f2ec] pt-4">Your Rights & Data Protection (GDPR / CNDP)</h3>
               <p>In accordance with international privacy regulations (including EU/UK GDPR and Moroccan Law 09-08 relating to the protection of individuals with regard to personal data), you have the right to access, rectify, or request deletion of your personal data at any time.</p>
-              <p>To exercise your rights or ask questions regarding our privacy practices, contact us directly at <a href="mailto:contactsafaratlas@gmail.com" className="text-[#C4A258] underline">contactsafaratlas@gmail.com</a>.</p>
+              <p>To exercise your rights or ask questions regarding our privacy practices, contact us directly at <a href="mailto:bookings@safaratlas.com" className="text-[#C4A258] underline">bookings@safaratlas.com</a>.</p>
             </div>
           </SlideUp>
         </div>
