@@ -1,8 +1,8 @@
 import React from "react";
-import Link from "next/link";
 import { BLOG_POSTS } from "../../data/blogData";
 import { formatDate } from "../../lib/formatDate";
 import { Header } from "../../components/brand/Header";
+import { Footer } from "../../components/brand/Footer";
 import BlogGrid from "./BlogGrid";
 
 export default function BlogPage() {
@@ -39,15 +39,7 @@ export default function BlogPage() {
         <BlogGrid posts={sorted} />
       </div>
 
-      {/* Back to site */}
-      <div className="text-center pb-16">
-        <Link
-          href="/"
-          className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#C4A258] text-[#07192d] text-xs font-black tracking-widest hover:bg-[#d8bb78] transition-all shadow-lg"
-        >
-          ← Back to SafarAtlas
-        </Link>
-      </div>
+      <Footer />
     </div>
   );
 }

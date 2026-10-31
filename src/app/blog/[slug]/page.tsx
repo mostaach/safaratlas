@@ -8,6 +8,7 @@ import { formatDate } from "../../../lib/formatDate";
 import { BLOG_SEO } from "../../../lib/seo";
 import { ESCAPES_PACKAGES } from "../../../data/mockData";
 import { Header } from "../../../components/brand/Header";
+import { Footer } from "../../../components/brand/Footer";
 import ArticleActions from "./ArticleActions";
 
 interface Props {
@@ -94,30 +95,54 @@ export default async function BlogPostPage({ params }: Props) {
       ? contentBlocks.slice(1)
       : contentBlocks;
 
-  // Extract headings for table of contents
+  // Extract headings for table of contents (first line only — multi-line markdown
+  // blocks may carry body copy underneath the heading line).
   const headings = contentBlocks
     .filter((b) => b.startsWith("## "))
-    .map((b) => ({
-      text: b.replace("## ", ""),
-      id: b.replace("## ", "").toLowerCase().replace(/[^a-z0-9]+/g, "-"),
-    }));
+    .map((b) => {
+      const text = b.split("\n")[0].replace("## ", "");
+      return {
+        text,
+        id: text.toLowerCase().replace(/[^a-z0-9]+/g, "-"),
+      };
+    });
 
   const renderBlock = (block: string, idx: number) => {
     if (block.startsWith("# ")) {
       // Defensive: any remaining markdown H1 is demoted so it can never
       // introduce a second top-level heading in the document.
-      const text = block.replace(/^#\s+/, "");
+      // Multi-line blocks: only the first line is the heading; the rest is body copy.
+      const lines = block.split("\n");
+      const text = lines[0].replace(/^#\s+/, "");
       const id = text.toLowerCase().replace(/[^a-z0-9]+/g, "-");
-      return (
+      const rest = lines.slice(1).join("\n").trim();
+      return rest ? (
+        <React.Fragment key={idx}>
+          <h2 id={id} className="text-xl sm:text-2xl font-serif font-bold text-[#f6f2ec] mt-8 mb-3 scroll-mt-24">
+            {text}
+          </h2>
+          <p className="text-sm sm:text-base text-[#f6f2ec]/80 leading-relaxed" dangerouslySetInnerHTML={{ __html: rest.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>") }} />
+        </React.Fragment>
+      ) : (
         <h2 key={idx} id={id} className="text-xl sm:text-2xl font-serif font-bold text-[#f6f2ec] mt-8 mb-3 scroll-mt-24">
           {text}
         </h2>
       );
     }
     if (block.startsWith("## ")) {
-      const text = block.replace("## ", "");
+      // Multi-line blocks: only the first line is the heading; the rest is body copy.
+      const lines = block.split("\n");
+      const text = lines[0].replace(/^##\s+/, "");
       const id = text.toLowerCase().replace(/[^a-z0-9]+/g, "-");
-      return (
+      const rest = lines.slice(1).join("\n").trim();
+      return rest ? (
+        <React.Fragment key={idx}>
+          <h2 id={id} className="text-xl sm:text-2xl font-serif font-bold text-[#f6f2ec] mt-8 mb-3 scroll-mt-24">
+            {text}
+          </h2>
+          <p className="text-sm sm:text-base text-[#f6f2ec]/80 leading-relaxed" dangerouslySetInnerHTML={{ __html: rest.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>") }} />
+        </React.Fragment>
+      ) : (
         <h2 key={idx} id={id} className="text-xl sm:text-2xl font-serif font-bold text-[#f6f2ec] mt-8 mb-3 scroll-mt-24">
           {text}
         </h2>
@@ -187,6 +212,24 @@ export default async function BlogPostPage({ params }: Props) {
             );
           })}
         </ul>
+      );
+    }
+    // Ordered list (e.g. "1. Surf ... \n2. Sunset ...")
+    if (/^\d+\.\s/.test(block.split("\n")[0])) {
+      const items = block.split("\n").filter((l) => /^\d+\.\s/.test(l.trim())).map((l) => l.trim().replace(/^\d+\.\s+/, ""));
+      return (
+        <ol key={idx} className="my-3 ml-5 space-y-1.5 list-decimal marker:text-[#C4A258] marker:font-bold">
+          {items.map((item, ii) => {
+            const rendered = item.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
+            return (
+              <li
+                key={ii}
+                className="text-sm text-[#f6f2ec]/80 leading-relaxed pl-1"
+                dangerouslySetInnerHTML={{ __html: rendered }}
+              />
+            );
+          })}
+        </ol>
       );
     }
     // Bold inline
@@ -454,6 +497,8 @@ export default async function BlogPostPage({ params }: Props) {
           )}
         </div>
       </div>
+
+      <Footer />
     </div>
   );
 }

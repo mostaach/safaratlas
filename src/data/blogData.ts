@@ -27,7 +27,7 @@ export const BLOG_POSTS: BlogPost[] = [
     author: {
       name: "Mehdi El Ksir",
       role: "SafarAtlas Founder & Local Scout",
-      avatar: "https://ui-avatars.com/api/?name=Mehdi+El+Ksir&background=07192d&color=C4A258&size=200&bold=true&font-size=0.4"
+      avatar: "/blog/avatars/mehdi.png"
     },
     publishedAt: "2026-08-15",
     readTime: "5 min read",
@@ -82,7 +82,7 @@ Merzouga features **Erg Chebbi**, a massive sea of golden sand dunes rising up t
     author: {
       name: "SafarAtlas Editorial",
       role: "Moroccan Journey Architects",
-      avatar: "https://ui-avatars.com/api/?name=SafarAtlas+Editorial&background=0d2239&color=d6b78a&size=200&bold=true&font-size=0.35"
+      avatar: "/blog/avatars/editorial.png"
     },
     publishedAt: "2026-08-12",
     readTime: "10 min read",
@@ -230,7 +230,7 @@ If you want the classic route, start with Marrakech, Sahara, and Taghazout. If y
     author: {
       name: "SafarAtlas Editorial",
       role: "Coast & Ocean Scout",
-      avatar: "https://ui-avatars.com/api/?name=SafarAtlas+Coast&background=0369a1&color=ffffff&size=200&bold=true&font-size=0.35"
+      avatar: "/blog/avatars/coast.png"
     },
     publishedAt: "2026-08-08",
     readTime: "4 min read",
@@ -254,6 +254,7 @@ Located 20 kilometers north of Agadir along the Atlantic coast, **Taghazout** is
 ---
 
 ## Adding Taghazout to Your Journey
+
 With our **3-Day Taghazout Surf Escape**, you get private transfers, ISA-certified surf coaching, oceanfront villa stay, and daily yoga included in one managed package.
 `
   },
@@ -266,7 +267,7 @@ With our **3-Day Taghazout Surf Escape**, you get private transfers, ISA-certifi
     author: {
       name: "Mehdi El Ksir",
       role: "SafarAtlas Founder & Local Scout",
-      avatar: "https://ui-avatars.com/api/?name=Mehdi+El+Ksir&background=07192d&color=C4A258&size=200&bold=true&font-size=0.4"
+      avatar: "/blog/avatars/mehdi.png"
     },
     publishedAt: "2026-08-19",
     readTime: "6 min read",
@@ -327,7 +328,7 @@ When we build a Marrakech stay into your managed itinerary, we match the riad to
     author: {
       name: "SafarAtlas Editorial",
       role: "Moroccan Journey Architects",
-      avatar: "https://ui-avatars.com/api/?name=SafarAtlas+Editorial&background=0d2239&color=d6b78a&size=200&bold=true&font-size=0.35"
+      avatar: "/blog/avatars/editorial.png"
     },
     publishedAt: "2026-08-19",
     readTime: "8 min read",
@@ -397,7 +398,7 @@ If you are planning a 7-day managed Morocco journey and you have flexibility on 
     author: {
       name: "SafarAtlas Editorial",
       role: "Moroccan Journey Architects",
-      avatar: "https://ui-avatars.com/api/?name=SafarAtlas+Editorial&background=0d2239&color=d6b78a&size=200&bold=true&font-size=0.35"
+      avatar: "/blog/avatars/editorial.png"
     },
     publishedAt: "2026-08-19",
     readTime: "7 min read",
@@ -470,7 +471,7 @@ When we manage a couple's Morocco itinerary, everything is pre-arranged:
     author: {
       name: "Mehdi El Ksir",
       role: "SafarAtlas Founder & Local Scout",
-      avatar: "https://ui-avatars.com/api/?name=Mehdi+El+Ksir&background=07192d&color=C4A258&size=200&bold=true&font-size=0.4"
+      avatar: "/blog/avatars/mehdi.png"
     },
     publishedAt: "2026-08-30",
     readTime: "6 min read",
@@ -539,7 +540,7 @@ Want to experience Marrakech without the stress of haggling or coordinating tran
     author: {
       name: "Mehdi El Ksir",
       role: "SafarAtlas Founder & Local Scout",
-      avatar: "https://ui-avatars.com/api/?name=Mehdi+El+Ksir&background=07192d&color=C4A258&size=200&bold=true&font-size=0.4"
+      avatar: "/blog/avatars/mehdi.png"
     },
     publishedAt: "2026-09-01",
     readTime: "5 min read",
@@ -623,7 +624,7 @@ We arrange private Agafay overnights with transfers, private tents, and full boa
     author: {
       name: "SafarAtlas Editorial",
       role: "Moroccan Journey Architects",
-      avatar: "https://ui-avatars.com/api/?name=SafarAtlas+Editorial&background=0d2239&color=d6b78a&size=200&bold=true&font-size=0.35"
+      avatar: "/blog/avatars/editorial.png"
     },
     publishedAt: "2026-09-05",
     readTime: "7 min read",
@@ -716,7 +717,7 @@ Every traveler we manage receives a personalised packing list based on their spe
     author: {
       name: "SafarAtlas Editorial",
       role: "Coast & Ocean Scout",
-      avatar: "https://ui-avatars.com/api/?name=SafarAtlas+Coast&background=0369a1&color=ffffff&size=200&bold=true&font-size=0.35"
+      avatar: "/blog/avatars/coast.png"
     },
     publishedAt: "2026-09-08",
     readTime: "5 min read",
