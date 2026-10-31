@@ -2,6 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 export const EditorialHero: React.FC = () => {
   return (
@@ -64,14 +65,14 @@ export const EditorialHero: React.FC = () => {
 
           {/* Luxury CTA Button Pair — Mobile-first wrapped & touch-friendly */}
           <div className="animate-rise anim-delay-300 mt-6 sm:mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 sm:gap-6">
-            <a
+            <Link
               href="/journey"
               className="group inline-flex items-center justify-center gap-3 bg-[#C4A258] px-8 py-4 text-xs uppercase tracking-[0.25em] text-[#07192d] font-semibold transition-all duration-300 hover:bg-[#d8bb78] hover:tracking-[0.3em] shadow-xl hover:shadow-[#C4A258]/20"
               style={{ boxShadow: "0 10px 30px -5px rgba(196, 162, 88, 0.4), 0 4px 16px rgba(0, 0, 0, 0.5)" }}
             >
               <span>Plan Your Journey</span>
               <span className="transition-transform duration-300 group-hover:translate-x-1 font-light">→</span>
-            </a>
+            </Link>
 
             <a
               href="#destinations"

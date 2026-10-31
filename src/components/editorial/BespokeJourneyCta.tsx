@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 
 export const BespokeJourneyCta: React.FC = () => {
   const waPrefill = encodeURIComponent(
@@ -42,14 +43,14 @@ export const BespokeJourneyCta: React.FC = () => {
 
               {/* CTAs — refined editorial button styling matching Taghazout */}
               <div className="mt-8 flex flex-col sm:flex-row sm:items-center gap-3.5">
-                <a
+                <Link
                   href="/journey"
                   className="group inline-flex items-center justify-center gap-2.5 bg-[#C4A258] px-7 py-3.5 text-xs uppercase tracking-[0.18em] text-[#07192d] font-normal transition-all duration-300 hover:bg-[#d8bb78] hover:tracking-[0.22em] whitespace-nowrap shrink-0"
                   style={{ boxShadow: "var(--shadow-gold)" }}
                 >
                   <span className="font-normal">Plan Your Custom Journey</span>
                   <span className="transition-transform duration-300 group-hover:translate-x-1 font-light">→</span>
-                </a>
+                </Link>
 
                 <a
                   href={`https://wa.me/212698017323?text=${waPrefill}`}
