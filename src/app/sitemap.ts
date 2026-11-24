@@ -1,6 +1,7 @@
 import { MetadataRoute } from "next";
 import { ESCAPES_PACKAGES } from "../data/mockData";
 import { BLOG_POSTS } from "../data/blogData";
+import { MOROCCO_FAQ } from "../data/faqData";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://safaratlas.com";
@@ -16,6 +17,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/journey`, lastModified: contentUpdated, changeFrequency: "monthly", priority: 0.9 },
     { url: `${baseUrl}/partners`, lastModified: contentUpdated, changeFrequency: "monthly", priority: 0.6 },
     { url: `${baseUrl}/blog`, lastModified: contentUpdated, changeFrequency: "weekly", priority: 0.85 },
+    { url: `${baseUrl}/morocco-faq`, lastModified: contentUpdated, changeFrequency: "monthly", priority: 0.75 },
     { url: `${baseUrl}/legal/privacy`, lastModified: contentUpdated, changeFrequency: "yearly", priority: 0.2 },
     { url: `${baseUrl}/legal/terms`, lastModified: contentUpdated, changeFrequency: "yearly", priority: 0.2 },
     ...ESCAPES_PACKAGES.filter(pkg => pkg.slug !== "agafay-escape-1d" && pkg.slug !== "taghazout-escapes").map(pkg => ({
@@ -29,6 +31,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(post.publishedAt),
       changeFrequency: "monthly" as const,
       priority: 0.7,
+    })),
+    ...MOROCCO_FAQ.map(entry => ({
+      url: `${baseUrl}/morocco-faq/${entry.slug}`,
+      lastModified: contentUpdated,
+      changeFrequency: "monthly" as const,
+      priority: 0.65,
     })),
   ];
 }
