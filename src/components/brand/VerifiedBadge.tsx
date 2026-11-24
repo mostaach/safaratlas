@@ -15,6 +15,7 @@ export const VerifiedBadge: React.FC<VerifiedBadgeProps> = ({ type = 'Gold Partn
   return (
     <div 
       className="relative inline-flex items-center"
+      title={type}
       onMouseEnter={() => setShowTooltip(true)}
       onMouseLeave={() => setShowTooltip(false)}
     >

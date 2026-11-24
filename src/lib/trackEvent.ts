@@ -2,7 +2,7 @@
  * Global Analytics & Conversion Event Dispatcher for SafarAtlas.
  * Dispatches custom events to Google Analytics 4 (via gtag) and Meta Pixel (via fbq if loaded).
  */
-export function trackEvent(eventName: string, properties?: Record<string, any>) {
+export function trackEvent(eventName: string, properties?: Record<string, unknown>) {
   if (typeof window === "undefined") return;
 
   const payload = properties || {};

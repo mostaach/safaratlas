@@ -2,49 +2,72 @@
 
 const STORAGE_KEY = "safaratlas_current_journey_v2";
 
+export const EMPTY_JOURNEY: JourneyState = {
+  items: [],
+  destinations: ["Marrakech"],
+  travelDates: "",
+  groupSize: "2 travelers",
+  notes: "",
+  accommodations: [],
+  extras: [],
+  hasAirportTransfer: false,
+  destinationStays: [{ destination: "Marrakech", daysCount: 3 }],
+};
+
 export const getStoredJourney = (): JourneyState => {
   if (typeof window === "undefined") {
-    return {
-      items: [],
-      destinations: ["Marrakech"],
-      travelDates: "",
-      groupSize: "2 travelers",
-      notes: "",
-      accommodations: [],
-      extras: [],
-      hasAirportTransfer: false,
-      destinationStays: [{ destination: "Marrakech", daysCount: 3 }],
-    };
+    return EMPTY_JOURNEY;
   }
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (!raw) {
-      return {
-        items: [],
-        destinations: ["Marrakech"],
-        travelDates: "",
-        groupSize: "2 travelers",
-        notes: "",
-        accommodations: [],
-        extras: [],
-        hasAirportTransfer: false,
-        destinationStays: [{ destination: "Marrakech", daysCount: 3 }],
-      };
+      return EMPTY_JOURNEY;
     }
     return JSON.parse(raw);
   } catch {
-    return {
-      items: [],
-      destinations: ["Marrakech"],
-      travelDates: "",
-      groupSize: "2 travelers",
-      notes: "",
-      accommodations: [],
-      extras: [],
-      hasAirportTransfer: false,
-      destinationStays: [{ destination: "Marrakech", daysCount: 3 }],
-    };
+    return EMPTY_JOURNEY;
   }
+};
+
+/**
+ * External-store helpers so components can read the persisted journey without
+ * calling setState inside an effect (which caused an extra render pass and
+ * hydration warnings). `getJourneySnapshot` caches the parsed value so React
+ * receives a stable reference between renders.
+ */
+let cachedRaw: string | null | undefined;
+let cachedJourney: JourneyState = EMPTY_JOURNEY;
+
+export const getJourneySnapshot = (): JourneyState => {
+  if (typeof window === "undefined") return EMPTY_JOURNEY;
+
+  let raw: string | null = null;
+  try {
+    raw = localStorage.getItem(STORAGE_KEY);
+  } catch {
+    raw = null;
+  }
+
+  if (raw !== cachedRaw) {
+    cachedRaw = raw;
+    cachedJourney = getStoredJourney();
+  }
+  return cachedJourney;
+};
+
+export const getJourneyServerSnapshot = (): JourneyState => EMPTY_JOURNEY;
+
+export const subscribeJourney = (onChange: () => void): (() => void) => {
+  if (typeof window === "undefined") return () => {};
+
+  const handle = () => onChange();
+  window.addEventListener("safaratlas_journey_update", handle);
+  window.addEventListener("storage", handle);
+
+  return () => {
+    window.removeEventListener("safaratlas_journey_update", handle);
+    window.removeEventListener("storage", handle);
+  };
 };
 
 export const saveJourney = (state: JourneyState): void => {
@@ -70,13 +93,13 @@ export const addEscapeToJourney = (escape: {
   destinationContext?: string;
 }): JourneyState => {
   const current = getStoredJourney();
-  
+
   // Prevent duplicate additions
   const exists = current.items.some((item) => item.slug === escape.slug);
   if (exists) {
     // If it exists but we want to update the assigned day
     if (escape.assignedDay !== undefined) {
-      const updatedItems = current.items.map((item) => 
+      const updatedItems = current.items.map((item) =>
         item.slug === escape.slug ? { ...item, assignedDay: escape.assignedDay } : item
       );
       const updated = { ...current, items: updatedItems };
@@ -188,17 +211,6 @@ export const removeEscapeFromJourney = (slug: string): JourneyState => {
 };
 
 export const clearJourney = (): JourneyState => {
-  const empty: JourneyState = {
-    items: [],
-    destinations: ["Marrakech"],
-    travelDates: "",
-    groupSize: "2 travelers",
-    notes: "",
-    accommodations: [],
-    extras: [],
-    hasAirportTransfer: false,
-    destinationStays: [{ destination: "Marrakech", daysCount: 3 }],
-  };
-  saveJourney(empty);
-  return empty;
+  saveJourney(EMPTY_JOURNEY);
+  return EMPTY_JOURNEY;
 };

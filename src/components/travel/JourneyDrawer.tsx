@@ -1,35 +1,32 @@
 ﻿"use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useSyncExternalStore } from "react";
 import Link from "next/link";
-import Image from "next/image";
-import { getStoredJourney, removeEscapeFromJourney, removeExtraExperience } from "../../lib/journeyStore";
-import { JourneyState } from "../../lib/journeyTypes";
+import {
+  getJourneySnapshot,
+  getJourneyServerSnapshot,
+  subscribeJourney,
+  removeEscapeFromJourney,
+  removeExtraExperience,
+} from "../../lib/journeyStore";
 import { calculateJourneyQuote } from "../../lib/pricingEngine";
-import { X, ChevronUp, ChevronDown, Compass, Check, ArrowRight, Shield, Phone } from "lucide-react";
+import { X, ChevronUp, ChevronDown, Compass, Check, ArrowRight } from "lucide-react";
 
 export const JourneyDrawer: React.FC = () => {
-  const [journey, setJourney] = useState<JourneyState | null>(null);
+  const journey = useSyncExternalStore(
+    subscribeJourney,
+    getJourneySnapshot,
+    getJourneyServerSnapshot
+  );
   const [isOpen, setIsOpen] = useState(false);
   const [isMobileExpanded, setIsMobileExpanded] = useState(false);
 
+  // Automatically slide the drawer open when an item is added or removed.
   useEffect(() => {
-    setJourney(getStoredJourney());
-
-    const onUpdate = (e: Event) => {
-      const custom = e as CustomEvent<JourneyState>;
-      if (custom.detail) {
-        setJourney(custom.detail);
-        // Automatically slide open briefly when an item is added
-        setIsOpen(true);
-      }
-    };
-
+    const onUpdate = () => setIsOpen(true);
     window.addEventListener("safaratlas_journey_update", onUpdate);
     return () => window.removeEventListener("safaratlas_journey_update", onUpdate);
   }, []);
-
-  if (!journey) return null;
 
   const totalItemsCount = (journey.items?.length || 0) + (journey.extras?.length || 0);
 
@@ -37,16 +34,13 @@ export const JourneyDrawer: React.FC = () => {
   if (totalItemsCount === 0) return null;
 
   const quote = calculateJourneyQuote(journey, 2);
-  const totalDays = Math.max(1, journey.items.reduce((sum, item) => sum + item.durationDays, 0));
 
   const handleRemoveEscape = (slug: string) => {
-    const updated = removeEscapeFromJourney(slug);
-    setJourney(updated);
+    removeEscapeFromJourney(slug);
   };
 
   const handleRemoveExtra = (id: string) => {
-    const updated = removeExtraExperience(id);
-    setJourney(updated);
+    removeExtraExperience(id);
   };
 
   return (

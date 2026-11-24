@@ -6,9 +6,9 @@ import { ShieldCheck } from "lucide-react";
 
 declare global {
   interface Window {
-    dataLayer: any[];
-    gtag?: (...args: any[]) => void;
-    fbq?: (...args: any[]) => void;
+    dataLayer: unknown[];
+    gtag?: (...args: unknown[]) => void;
+    fbq?: (...args: unknown[]) => void;
   }
 }
 

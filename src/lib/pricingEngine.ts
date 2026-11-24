@@ -8,7 +8,7 @@
  * Hides internal supplier costs while providing clean, realistic, dynamic quotes.
  */
 
-import { JourneyState, JourneyAccommodationSelection } from "./journeyTypes";
+import { JourneyState } from "./journeyTypes";
 export {
   calculateEscapeCostAndMargin,
   PARTNER_OFFERINGS,

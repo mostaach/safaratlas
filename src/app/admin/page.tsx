@@ -10,8 +10,6 @@ import {
   PARTNER_OFFERINGS,
   ESCAPE_RECIPES,
   calculateEscapeCostAndMargin,
-  SupplyCategory,
-  PartnerOffering,
 } from "../../data/partnerCatalog";
 
 type Tab = "dashboard" | "leads" | "escapes" | "partners" | "finance";
@@ -118,6 +116,9 @@ export default function AdminPage() {
   const [costOverrides, setCostOverrides] = useState<Record<string, number>>({});
 
   useEffect(() => {
+    // Rendered client-side only: computing the date during render would bake
+    // the build date into the prerendered HTML and mismatch on hydration.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setNow(new Date().toLocaleDateString("en-GB", { weekday: "long", year: "numeric", month: "long", day: "numeric" }));
   }, []);
 

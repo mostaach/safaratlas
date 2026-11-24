@@ -149,6 +149,9 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
         setMapReady(false);
       }
     };
+    // The map is created exactly once. Theme changes are handled by the
+    // dedicated tile-layer effect below, so `theme` is intentionally omitted.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // Switch Tile Layer on Theme Change

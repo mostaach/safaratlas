@@ -6,6 +6,11 @@ import { Footer } from "../../../components/brand/Footer";
 import { SlideUp } from "../../../components/animations/SlideUp";
 import { trackEvent } from "../../../lib/trackEvent";
 
+// Static pages are prerendered at build time, so rendering `new Date()` here
+// froze the date at build time and then disagreed with the browser on
+// hydration. Keep this as a literal and bump it when the policy changes.
+const LAST_UPDATED = "November 24, 2026";
+
 export default function PrivacyPolicy() {
   React.useEffect(() => {
     trackEvent("page_view", { page: "privacy_policy" });
@@ -22,7 +27,7 @@ export default function PrivacyPolicy() {
               Legal & Trust
             </span>
             <h1 className="text-3xl sm:text-5xl font-serif font-black text-[#f6f2ec] tracking-tight">Privacy Policy</h1>
-            <p className="text-[#f6f2ec]/60 mt-2 font-medium">Last updated: {new Date().toLocaleDateString()}</p>
+            <p className="text-[#f6f2ec]/60 mt-2 font-medium">Last updated: {LAST_UPDATED}</p>
           </SlideUp>
 
           <SlideUp delay={0.2}>

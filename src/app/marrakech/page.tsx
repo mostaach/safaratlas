@@ -43,6 +43,9 @@ export default function MarrakechPage() {
 
   useEffect(() => {
     const stored = getStoredJourney();
+    // localStorage is only readable after mount; seeding once here is
+    // intentional and does not run during the initial render.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setJourney(stored);
     const slugs = new Set(stored.items.map((i) => i.slug));
     setAddedSlugs(slugs);

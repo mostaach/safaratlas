@@ -2,7 +2,8 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { getStoredJourney, removeEscapeFromJourney, saveJourney, clearJourney, removeExtraExperience } from "../../lib/journeyStore";
+import Image from "next/image";
+import { getStoredJourney, removeEscapeFromJourney, saveJourney, clearJourney } from "../../lib/journeyStore";
 import { JourneyState } from "../../lib/journeyTypes";
 import { ESCAPES_PACKAGES } from "../../data/mockData";
 import { calculateJourneyQuote } from "../../lib/pricingEngine";
@@ -48,6 +49,9 @@ export default function JourneyPage() {
 
   useEffect(() => {
     const initial = getStoredJourney();
+    // localStorage is only readable after mount; seeding the form once here is
+    // intentional and does not run during the initial render.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setJourney(initial);
 
     const match = (initial.groupSize || "").match(/\d+/);
@@ -115,6 +119,8 @@ export default function JourneyPage() {
           priceFromEur: pkg.priceFromEur,
           image: pkg.image,
           badge: pkg.badge,
+          // Only reached from a click handler, never during render.
+          // eslint-disable-next-line react-hooks/purity
           addedAt: Date.now(),
         },
       ],
@@ -345,11 +351,13 @@ ${form.notes || "None provided."}`;
                       </div>
 
                       {/* Thumbnail */}
-                      <div className="w-20 h-20 sm:w-24 sm:h-20 bg-[#07192d] overflow-hidden shrink-0">
-                        <img
+                      <div className="relative w-20 h-20 sm:w-24 sm:h-20 bg-[#07192d] overflow-hidden shrink-0">
+                        <Image
                           src={item.image}
                           alt={item.title}
-                          className="w-full h-full object-cover"
+                          fill
+                          sizes="96px"
+                          className="object-cover"
                         />
                       </div>
 

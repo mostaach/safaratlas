@@ -1,8 +1,6 @@
 "use client";
 
 import { FormEvent, useState } from "react";
-import Link from "next/link";
-import Image from "next/image";
 import { Header } from "../../components/brand/Header";
 import { Footer } from "../../components/brand/Footer";
 

@@ -111,10 +111,6 @@ export const RegionalDestinationsMenu: React.FC<Props> = ({
                 : item.id === "escape-taghazout-3d"
                 ? "/taghazout"
                 : `/escapes/${item.slug}`;
-            const waPrefill = encodeURIComponent(
-              `Hi SafarAtlas! I'm interested in the ${item.title}. Can you share availability and rates for our group?`
-            );
-
             // Bento span calculation:
             // When 4 items: item 0 is span 7 (hero aspect), item 1 is span 5, item 2 is span 5, item 3 is span 7
             // When 2 items: item 0 is span 7, item 1 is span 5
