@@ -42,6 +42,12 @@ export const CookieConsent: React.FC = () => {
         ad_user_data: "granted",
         ad_personalization: "granted",
       });
+      // Immediately dispatch a page_view event so this visit is recorded under granted consent
+      window.gtag("event", "page_view", {
+        page_path: window.location.pathname,
+        page_location: window.location.href,
+        page_title: document.title,
+      });
     }
 
     // Notify consent-gated scripts (Meta Pixel) that they may now load.

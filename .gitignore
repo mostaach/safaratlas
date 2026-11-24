@@ -43,5 +43,6 @@ next-env.d.ts
 # Local pilot lead data — never commit traveler data
 .data/
 
+/web
 .vercel
 .env*

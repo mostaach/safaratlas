@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Outfit } from "next/font/google";
+import { Suspense } from "react";
 import "./globals.css";
 import Script from "next/script";
 import { CookieConsent } from "../components/ui/CookieConsent";
 import { MetaPixel } from "../components/analytics/MetaPixel";
+import { AnalyticsTracker } from "../components/analytics/AnalyticsTracker";
 import { JourneyDrawer } from "../components/travel/JourneyDrawer";
 import { CurrencyProvider } from "../context/CurrencyContext";
 
@@ -79,38 +81,44 @@ export default function RootLayout({
     >
       <head>
         <link rel="preconnect" href="https://www.googletagmanager.com" crossOrigin="anonymous" />
-        {/* Google tag (gtag.js) */}
-        <Script
-          async
-          strategy="afterInteractive"
-          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
-        />
-        <Script
-          id="google-analytics"
-          strategy="afterInteractive"
+        {/* Google Analytics 4 + Google Consent Mode v2 setup */}
+        <script
+          id="google-analytics-init"
           dangerouslySetInnerHTML={{
             __html: `
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
 
-              var consentState = 'denied';
+              var storedConsent = null;
               try {
-                if (localStorage.getItem('safaratlas_cookie_consent') === 'all') {
-                  consentState = 'granted';
-                }
+                storedConsent = localStorage.getItem('safaratlas_cookie_consent');
               } catch (e) {}
 
+              // Respect explicit rejection if user chose 'essential'.
+              // Otherwise, enable anonymous analytics by default so visits are counted in GA4.
+              var analyticsConsent = (storedConsent === 'essential') ? 'denied' : 'granted';
+              var marketingConsent = (storedConsent === 'all') ? 'granted' : 'denied';
+
               gtag('consent', 'default', {
-                'analytics_storage': consentState,
-                'ad_storage': consentState,
-                'ad_user_data': consentState,
-                'ad_personalization': consentState
+                'analytics_storage': analyticsConsent,
+                'ad_storage': marketingConsent,
+                'ad_user_data': marketingConsent,
+                'ad_personalization': marketingConsent,
+                'wait_for_update': 500
               });
 
               gtag('js', new Date());
-              gtag('config', '${GA_MEASUREMENT_ID}');
+              gtag('config', '${GA_MEASUREMENT_ID}', {
+                'anonymize_ip': true,
+                'send_page_view': true
+              });
             `,
           }}
+        />
+        <Script
+          async
+          strategy="afterInteractive"
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
         />
         {/* Meta Pixel (Facebook) — mounts only after explicit consent */}
         <MetaPixel pixelId={META_PIXEL_ID} />
@@ -194,6 +202,9 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-full flex flex-col font-sans bg-[#07192d] text-[#f6f2ec]" suppressHydrationWarning>
+        <Suspense fallback={null}>
+          <AnalyticsTracker />
+        </Suspense>
         <CookieConsent />
         <CurrencyProvider>
           {children}
